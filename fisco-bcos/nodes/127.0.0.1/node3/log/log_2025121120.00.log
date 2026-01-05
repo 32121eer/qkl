@@ -1,0 +1,1202 @@
+info|2025-12-11 20:00:08.420730|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:08.556673|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:00:18.420825|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:18.556770|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:00:28.420881|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:28.556801|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:00:38.420950|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:38.556825|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:00:48.421005|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:48.556889|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:00:58.065572|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:00:58.421042|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:00:58.556977|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:08.421060|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:08.557107|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:18.421109|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:18.557273|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:28.421158|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:28.557396|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:38.421207|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:38.557513|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:48.421285|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:48.557552|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:01:58.065624|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:01:58.421328|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:01:58.557583|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:08.421346|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:08.557605|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:18.421365|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:18.557627|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:28.421383|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:28.557688|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:38.421403|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:38.557724|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:48.421423|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:48.557876|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:02:58.065663|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:02:58.421441|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:02:58.558096|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:08.421460|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:08.558130|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:18.421506|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:18.558167|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:28.421556|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:28.558283|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:38.421578|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:38.558347|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:48.421609|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:48.558403|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:03:58.065696|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:03:58.421660|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:03:58.558467|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:08.421714|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:08.558613|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:18.421737|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:18.558719|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:28.421757|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:28.558899|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:38.421778|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:38.558963|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:48.421802|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:48.558992|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:04:58.065731|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:04:58.421822|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:04:58.559055|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:08.421871|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:08.559081|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:18.421926|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:18.559106|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:28.421947|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:28.559129|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:38.422000|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:38.559220|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:48.422056|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:48.559266|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:05:58.065765|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:05:58.422078|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:05:58.559342|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:08.422138|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:08.559385|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:18.422243|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:18.559485|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:28.422283|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:28.559657|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:38.422332|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:38.559841|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:48.422383|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:48.559859|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:06:58.065800|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:06:58.422405|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:06:58.560032|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:08.422426|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:08.560133|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:18.422446|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:18.560197|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:28.422463|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:28.560281|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:38.422483|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:38.560308|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:48.422501|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:48.560404|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:07:58.065924|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:07:58.422518|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:07:58.560442|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:08.422537|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:08.560461|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:18.422558|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:18.560522|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:28.422579|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:28.560579|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:38.422601|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:38.560594|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:48.422621|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:48.560664|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:08:58.066055|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:08:58.422639|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:08:58.560839|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:08.422659|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:08.560918|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:18.422678|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:18.560952|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:28.422696|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:28.561094|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:38.422718|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:38.561173|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:48.422738|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:48.561333|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:09:58.066092|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:09:58.422758|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:09:58.561359|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:08.422777|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:08.561390|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:18.422801|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:18.561426|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:28.422823|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:28.561455|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:38.422843|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:38.561513|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:48.422863|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:48.561538|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:10:58.066230|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:10:58.422885|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:10:58.561572|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:08.422903|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:08.561614|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:18.422919|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:18.561650|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:28.422935|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:28.561716|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:38.422953|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:38.561789|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:48.422976|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:48.561868|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:11:58.066260|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:11:58.423001|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:11:58.561904|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:08.423021|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:08.561933|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:18.423043|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:18.561963|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:28.423066|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:28.562041|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:38.423093|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:38.562076|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:48.423126|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:48.562173|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:12:58.066293|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:12:58.423196|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:12:58.562210|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:08.423255|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:08.562269|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:18.423321|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:18.562308|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:28.423347|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:28.562350|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:38.423370|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:38.562491|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:48.423393|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:48.562570|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:13:57.881282|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4938760214
+info|2025-12-11 20:13:57.881344|pbft-0x00007ccbeedff640|[TXPOOL]begin asyncVerifyBlock,consNum=2,hash=185224ab...
+info|2025-12-11 20:13:57.881430|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:13:57.881486|verifier-0x00007ccc1dff9640|[TXPOOL]batchVerifyProposal,consNum=2,hash=185224ab...,txsSize=1,lockT=0,verifyT=0,missedTxs=0
+info|2025-12-11 20:13:57.881512|verifier-0x00007ccc1dff9640|[TXPOOL][METRIC]asyncVerifyBlock finished,consNum=2,hash=185224ab...,code=0,msg=success,result=true,timecost=0
+info|2025-12-11 20:13:57.881537|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4938760214
+info|2025-12-11 20:13:57.881560|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,sys=false,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.881582|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=2
+info|2025-12-11 20:13:57.881578|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncResetTxsFlag,index=2,hash=185224ab...,flag=true
+info|2025-12-11 20:13:57.881592|validator-0x00007ccc0e7da640|[TXPOOL]batchMarkTxs,txsSize=1,batchId=2,hash=185224ab...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2025-12-11 20:13:57.881604|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncMarkTxs success,index=2,hash=185224ab...,flag=true,markT=0,emptyTxBatchHash=false
+info|2025-12-11 20:13:57.881617|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]addPrepareCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:13:57.881642|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=2
+info|2025-12-11 20:13:57.881666|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.881707|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock fetch block number from LedgerConfig
+info|2025-12-11 20:13:57.881741|txsPreStore-0x00007ccc1cff7640|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=1
+info|2025-12-11 20:13:57.881752|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock,consNum=2,hash=185224ab...,txsSize=1
+info|2025-12-11 20:13:57.881783|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: needStoreUnsavedTxs,txsSize=1,unstoredTxs=1,number=2
+info|2025-12-11 20:13:57.881849|txsPreStore-0x00007ccc1cff7640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=9373,time(ms)=0
+info|2025-12-11 20:13:57.881856|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:13:57.881868|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=185224ab...,propIndex=2
+info|2025-12-11 20:13:57.881874|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]intoPrecommit,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.881959|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:13:57.881971|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=185224ab...,index=2
+info|2025-12-11 20:13:57.882061|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: store uncommitted txs,blockNumber=2,blockTxsSize=1,unStoredTxs=1,msg=success,code=0,timeCost=1
+info|2025-12-11 20:13:57.882076|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock success,consNum=2,hash=185224ab...,timecost=1
+info|2025-12-11 20:13:57.882096|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=4
+info|2025-12-11 20:13:57.882400|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:13:57.882511|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=185224ab...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:13:57.882519|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommit,propHash=185224ab...,propIndex=2,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.882527|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]######## CommitProposal,propHash=185224ab...,propIndex=2,sys=false,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.882536|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.882554|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.882574|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]applyStateMachine,index=2,hash=185224ab...,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2025-12-11 20:13:57.882662|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][METRIC][blk-2]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2025-12-11 20:13:57.882679|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-2][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2025-12-11 20:13:57.882683|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-2][BlockTrace]serialExecute execute block
+info|2025-12-11 20:13:57.882703|preExeScheduler-0x00007ccbff7fc640|[SCHEDULER][METRIC][BlockTrace][blk-2]preExeBlock success,blockHeader.timestamp=1765455237875,metaTxCount=1,timeCost=0
+info|2025-12-11 20:13:57.882719|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-2][BlockTrace]serialExecute batch next block
+info|2025-12-11 20:13:57.882722|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-2][BlockTrace]NextBlock request,executorNum=1
+info|2025-12-11 20:13:57.883062|exec-0x00007ccc167ea640|[SCHEDULER][blk-2][BlockTrace]NextBlock success,executorNum=1,timeCost=1
+info|2025-12-11 20:13:57.883072|exec-0x00007ccc167ea640|[SCHEDULER][serialExecute][blk-2][BlockTrace]serialExecute block begin
+info|2025-12-11 20:13:57.883283|Unnamed-0x00007ccbfcbfd640|[STORAGE-KeyPage]empty table,table=/apps/4721d1a77e0e76851d460073e64ea06d9c104194_accessAuth,key=61646d696e
+info|2025-12-11 20:13:57.883331|Unnamed-0x00007ccbfcbfd640|[STORAGE-KeyPage]empty table,table=/apps/4721d1a77e0e76851d460073e64ea06d9c104194,key=0000000000000000000000000000000000000000000000000000000000000002
+info|2025-12-11 20:13:57.883482|exec-0x00007ccc157e8640|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=6163,writeLength=9457,pageCount=2,entrycount=4,entriesHash=88f7087cd9200ab534c9a6b7023722a8afc6e704c4291679fd3f86d4a6cd03b7,pagesHash=4533bbdf9161361f0e56e9ff4642e2c1fe0f09af3ae407d39ff04cdb4dc5479f,totalHash=cdc4b3a348413caa3a9f4f484475c06951c9eeabfecd11aa62cfca0feb084428
+info|2025-12-11 20:13:57.883503|exec-0x00007ccc157e8640|[EXECUTOR:1765355457][blk-2]GetTableHashes success,hash=cdc4b3a348413caa3a9f4f484475c06951c9eeabfecd11aa62cfca0feb084428,time(ms)=0
+info|2025-12-11 20:13:57.883522|exec-0x00007ccc157e8640|[SCHEDULER][blk-2][BlockTrace]ExecuteBlock success,hash=874ecd6b...,stateRoot=cdc4b3a348413caa3a9f4f484475c06951c9eeabfecd11aa62cfca0feb084428,receiptRoot=feb936a5b4c79a7b66c08be3f964be56f5e8f2fca681d623bf9bd99d4f10055d,txsRoot=2383090b...,gasUsed=120602,signatureSize=0,timeCost=1,blockVersion=51052544
+info|2025-12-11 20:13:57.883528|exec-0x00007ccc157e8640|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=2,result=874ecd6b...,txsSize=1,txsRoot=2383090b...,receiptsRoot=feb936a5...,stateRoot=cdc4b3a3...,timeCost=1,execPerTx=1
+info|2025-12-11 20:13:57.883539|exec-0x00007ccc157e8640|[CONSENSUS][PBFT]applyStateMachine finished,index=2,beforeExec=185224ab...,afterExec=874ecd6b...,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=1
+info|2025-12-11 20:13:57.883588|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=2
+info|2025-12-11 20:13:57.883650|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=2,timecost=0,dataSize=1
+info|2025-12-11 20:13:57.883676|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=2,number=2,timecost=0,dataSize=635
+info|2025-12-11 20:13:57.883863|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.883878|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=0,wait(ms)=0,Idx=3,weight=1,minRequiredWeight=3
+info|2025-12-11 20:13:57.883882|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.883968|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.883975|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=1,wait(ms)=0,Idx=3,weight=2,minRequiredWeight=3
+info|2025-12-11 20:13:57.883978|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.884023|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=3,wait(ms)=1,Idx=3,weight=3,minRequiredWeight=3
+info|2025-12-11 20:13:57.884061|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]setCheckPointProposal,propHash=874ecd6b...,propIndex=2,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=2,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.884072|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=3
+info|2025-12-11 20:13:57.884077|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=874ecd6b...,propIndex=2
+info|2025-12-11 20:13:57.884079|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=2,hash=874ecd6b...,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.884083|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=2,hash=874ecd6b...,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.884089|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=2,committedIndex=1
+info|2025-12-11 20:13:57.884096|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=2,hash=874ecd6b...,proofSize=3,blockProofSize=3
+info|2025-12-11 20:13:57.884116|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.884121|blockSubmit-0x00007ccc0d7d8640|[SCHEDULER][blk-2][BlockTrace]CommitBlock start
+info|2025-12-11 20:13:57.884131|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]onProposalApplySuccess,index=2,hash=874ecd6b...,lockT=0,timecost=1
+info|2025-12-11 20:13:57.884209|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=1,consNum=2,committedHash=2f076a6e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.884221|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=874ecd6b...,reqIndex=2,reqV=3,fromIdx=2,wait(ms)=0,Idx=3,weight=4,minRequiredWeight=3
+info|2025-12-11 20:13:57.884225|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.884310|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare,number=2
+info|2025-12-11 20:13:57.884343|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=2,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:13:57.884355|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts,blockNumber=2
+info|2025-12-11 20:13:57.884397|ledgerWrite-0x00007ccc2c3ef640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=140,time(ms)=0
+info|2025-12-11 20:13:57.884392|exec-0x00007ccc14fe7640|[STORAGE-RocksDB]asyncPrepare,number=2
+info|2025-12-11 20:13:57.884419|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=2,blockTxsSize=1,unStoredTxs=0,timeCost=0
+info|2025-12-11 20:13:57.884427|blockSubmit-0x00007ccc0d7d8640|[LEDGER][METRIC]asyncPrewriteBlock,number=2,totalTxs=2,failedTxs=0,incTxs=1,incFailedTxs=0
+info|2025-12-11 20:13:57.884514|exec-0x00007ccc14fe7640|[STORAGE-KeyPage]parallelTraverse,size=9484
+info|2025-12-11 20:13:57.884545|exec-0x00007ccc14fe7640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=2,put=8,delete=2,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:13:57.884551|exec-0x00007ccc14fe7640|[EXECUTOR:1765355457][blk-2]Prepare success
+info|2025-12-11 20:13:57.884616|exec-0x00007ccc14fe7640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=2,startTS=0,time(ms)=0,callback time(ms)=0,count=17
+info|2025-12-11 20:13:57.884650|exec-0x00007ccc147e6640|[TOOL]fetchCompatibilityVersion
+info|2025-12-11 20:13:57.884690|exec-0x00007ccc147e6640|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2025-12-11 20:13:57.884704|exec-0x00007ccc147e6640|[TOOL]fetchAuthCheckStatus success,value=0
+info|2025-12-11 20:13:57.884707|exec-0x00007ccc147e6640|[EXECUTOR:1765355457]merge keyPage to cachedStorage,number=2
+info|2025-12-11 20:13:57.884766|exec-0x00007ccc147e6640|[STORAGE-KeyPage]parallelTraverse,size=9484
+info|2025-12-11 20:13:57.884769|exec-0x00007ccc147e6640|[STORAGE]Successful merged records,count=10
+info|2025-12-11 20:13:57.885139|exec-0x00007ccc147e6640|[SCHEDULER][blk-2][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=1
+info|2025-12-11 20:13:57.885159|exec-0x00007ccc147e6640|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=2
+info|2025-12-11 20:13:57.885163|exec-0x00007ccc147e6640|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=2,hash=874ecd6b...,txs=1,timeCost=1,commitPerTx=1
+info|2025-12-11 20:13:57.885173|exec-0x00007ccc147e6640|[SCHEDULER][blk-2]notify block result success,hash=874ecd6b...,txsSize=1
+info|2025-12-11 20:13:57.885176|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=2,propHash=874ecd6b...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2025-12-11 20:13:57.885189|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=1,txs=1,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:13:57.885196|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=2
+info|2025-12-11 20:13:57.885198|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=874ecd6b...
+info|2025-12-11 20:13:57.885219|blockSubmit-0x00007ccc0d7d8640|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=2,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2025-12-11 20:13:57.885214|submitter-0x00007ccc223ff640|[TXPOOL][METRIC]StatTPS,tps=90,totalTime=11
+info|2025-12-11 20:13:57.885258|exec-0x00007ccc147e6640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=2,startTS=0,time(ms)=0,callback time(ms)=1,count=0
+info|2025-12-11 20:13:57.885274|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=3
+info|2025-12-11 20:13:57.885291|submitter-0x00007ccc223ff640|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=2,timecost=0,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2025-12-11 20:13:57.885307|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=2,eraseSize=1,cacheSize=0
+info|2025-12-11 20:13:58.066333|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:13:58.423467|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:13:58.562597|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:08.423490|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:08.562670|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:18.423510|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:18.562837|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:28.423536|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:28.562927|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:38.423560|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:38.563004|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:48.423613|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:48.563026|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:14:58.066367|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:14:58.423740|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:14:58.563091|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:08.423791|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:08.563119|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:18.423816|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:18.563160|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:28.423876|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:28.563195|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:38.423972|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:38.563331|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:48.424028|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:48.563366|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:15:58.066410|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:15:58.424096|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:15:58.563393|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:08.424157|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:08.563443|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:18.424217|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:18.563469|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:28.424289|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:28.563509|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:38.424333|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:38.563659|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:48.424355|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:48.563837|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:16:58.066536|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:16:58.424383|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:16:58.563961|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:08.424404|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:08.564054|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:18.424424|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:18.564126|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:28.424444|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:28.564190|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:38.424502|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:38.564263|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:48.424564|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:48.564398|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:17:58.066673|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:17:58.424588|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:17:58.564466|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:08.424717|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:08.564492|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:18.424773|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:18.564544|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:28.424800|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:28.564574|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:38.424831|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:38.564605|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:48.424849|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:48.564681|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:18:51.937491|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4939054270
+info|2025-12-11 20:18:51.937618|pbft-0x00007ccbeedff640|[TXPOOL]begin asyncVerifyBlock,consNum=3,hash=050f26b1...
+info|2025-12-11 20:18:51.937642|verifier-0x00007ccc1e7fa640|[TXPOOL]batchVerifyProposal,consNum=3,hash=050f26b1...,txsSize=1,lockT=0,verifyT=0,missedTxs=1
+info|2025-12-11 20:18:51.937806|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:18:51.978465|fisco-bcos-0x00007ccbad7fc640|[TXPOOL][METRIC]asyncVerifyBlock finished,consNum=3,hash=050f26b1...,code=0,msg=success,result=true,timecost=41
+info|2025-12-11 20:18:51.978474|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:18:51.978487|validator-0x00007ccc0efdb640|[CONSENSUS][PBFT]asyncResetTxsFlag,index=3,hash=050f26b1...,flag=true
+info|2025-12-11 20:18:51.978499|validator-0x00007ccc0efdb640|[TXPOOL]batchMarkTxs,txsSize=1,batchId=3,hash=050f26b1...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2025-12-11 20:18:51.978505|validator-0x00007ccc0efdb640|[CONSENSUS][PBFT]asyncMarkTxs success,index=3,hash=050f26b1...,flag=true,markT=0,emptyTxBatchHash=false
+info|2025-12-11 20:18:51.978544|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:18:51.978579|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:18:51.978610|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:18:51.978617|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=41,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4939054311
+info|2025-12-11 20:18:51.978635|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=41,sys=false,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978639|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncResetTxsFlag,index=3,hash=050f26b1...,flag=true
+info|2025-12-11 20:18:51.978641|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=3
+info|2025-12-11 20:18:51.978648|validator-0x00007ccc0e7da640|[TXPOOL]batchMarkTxs,txsSize=1,batchId=3,hash=050f26b1...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2025-12-11 20:18:51.978653|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncMarkTxs success,index=3,hash=050f26b1...,flag=true,markT=0,emptyTxBatchHash=false
+info|2025-12-11 20:18:51.978681|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]addPrepareCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=4
+info|2025-12-11 20:18:51.978707|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=3
+info|2025-12-11 20:18:51.978730|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]setSignatureList,signatureSize=4,propHash=050f26b1...,propIndex=3
+info|2025-12-11 20:18:51.978735|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]intoPrecommit,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=3,wait(ms)=41,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978763|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]addCommitCache,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:18:51.978769|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=050f26b1...,index=3
+info|2025-12-11 20:18:51.978804|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]checkAndCommit,propHash=050f26b1...,propIndex=3,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978811|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]######## CommitProposal,propHash=050f26b1...,propIndex=3,sys=false,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978817|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][SEALER]resetSealingInfo,start=4,end=4,sealingNumber=4,waitUntil=0,unsealedTxs=0
+info|2025-12-11 20:18:51.978823|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]asyncNotifySealProposal success,startIndex=4,endIndex=4,maxTxsToSeal=1000
+info|2025-12-11 20:18:51.978825|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][SEALER]asyncNotifySealProposal,startIndex=4,endIndex=4,maxTxsPerBlock=1000
+info|2025-12-11 20:18:51.978828|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]notifySealer: notify the new leader to seal block,lockNotifyT=0,idx=3,startIndex=4,endIndex=4,notifyBeginIndex=4,waitSealUntil=0,waitResealUntil=0,maxTxsToSeal=1000,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978833|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.978847|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978852|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.978854|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]applyStateMachine,index=3,hash=050f26b1...,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2025-12-11 20:18:51.978872|fisco-bcos-0x00007ccbad7fc640|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=050f26b1...,reqIndex=3,reqV=3,fromIdx=3,wait(ms)=41,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.978900|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][METRIC][blk-3]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2025-12-11 20:18:51.978910|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock fetch block number from LedgerConfig
+info|2025-12-11 20:18:51.978932|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-3][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2025-12-11 20:18:51.978935|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-3][BlockTrace]serialExecute execute block
+info|2025-12-11 20:18:51.978927|preExeScheduler-0x00007ccbffffd640|[SCHEDULER][METRIC][BlockTrace][blk-3]preExeBlock success,blockHeader.timestamp=1765455531911,metaTxCount=1,timeCost=0
+info|2025-12-11 20:18:51.978937|txsPreStore-0x00007ccc1cff7640|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=2
+info|2025-12-11 20:18:51.978938|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-3][BlockTrace]serialExecute batch next block
+info|2025-12-11 20:18:51.978941|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock,consNum=3,hash=050f26b1...,txsSize=1
+info|2025-12-11 20:18:51.978942|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-3][BlockTrace]NextBlock request,executorNum=1
+info|2025-12-11 20:18:51.978949|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: needStoreUnsavedTxs,txsSize=1,unstoredTxs=1,number=3
+info|2025-12-11 20:18:51.979016|txsPreStore-0x00007ccc1cff7640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=9372,time(ms)=0
+info|2025-12-11 20:18:51.979029|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: store uncommitted txs,blockNumber=3,blockTxsSize=1,unStoredTxs=1,msg=success,code=0,timeCost=1
+info|2025-12-11 20:18:51.979038|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock success,consNum=3,hash=050f26b1...,timecost=1
+info|2025-12-11 20:18:51.979302|exec-0x00007ccc13fe5640|[SCHEDULER][blk-3][BlockTrace]NextBlock success,executorNum=1,timeCost=1
+info|2025-12-11 20:18:51.979315|exec-0x00007ccc13fe5640|[SCHEDULER][serialExecute][blk-3][BlockTrace]serialExecute block begin
+info|2025-12-11 20:18:51.979509|Unnamed-0x00007ccbfc3fc640|[STORAGE-KeyPage]empty table,table=/apps/c8ead4b26b2c6ac14c9fd90d9684c9bc2cc40085_accessAuth,key=61646d696e
+info|2025-12-11 20:18:51.979588|Unnamed-0x00007ccbfc3fc640|[STORAGE-KeyPage]empty table,table=/apps/c8ead4b26b2c6ac14c9fd90d9684c9bc2cc40085,key=0000000000000000000000000000000000000000000000000000000000000002
+info|2025-12-11 20:18:51.979777|exec-0x00007ccc12fe3640|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=15232,writeLength=324,pageCount=2,entrycount=2,entriesHash=95834e8388a1a1d203232d8a4cb5f80c60d4b573b371a07ba0f086baf9eccf1f,pagesHash=390acd5459d797aa6bcaa2aaaa72912475483048f19075f29a06df7a3723e922,totalHash=ac8983d7d176367868e98f20e6c76928159c853b42e1d5893af659c0cecf263d
+info|2025-12-11 20:18:51.979808|exec-0x00007ccc12fe3640|[EXECUTOR:1765355457][blk-3]GetTableHashes success,hash=ac8983d7d176367868e98f20e6c76928159c853b42e1d5893af659c0cecf263d,time(ms)=0
+info|2025-12-11 20:18:51.979840|exec-0x00007ccc12fe3640|[SCHEDULER][blk-3][BlockTrace]ExecuteBlock success,hash=e5f89637...,stateRoot=ac8983d7d176367868e98f20e6c76928159c853b42e1d5893af659c0cecf263d,receiptRoot=3042276a3f16f15a9531038798025f0800b965c50cf0b815d939edc14e75e0c8,txsRoot=7c21acf6...,gasUsed=120602,signatureSize=0,timeCost=1,blockVersion=51052544
+info|2025-12-11 20:18:51.979851|exec-0x00007ccc12fe3640|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=3,result=e5f89637...,txsSize=1,txsRoot=7c21acf6...,receiptsRoot=3042276a...,stateRoot=ac8983d7...,timeCost=1,execPerTx=1
+info|2025-12-11 20:18:51.979863|exec-0x00007ccc12fe3640|[CONSENSUS][PBFT]applyStateMachine finished,index=3,beforeExec=050f26b1...,afterExec=e5f89637...,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=1
+info|2025-12-11 20:18:51.979953|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=3
+info|2025-12-11 20:18:51.980013|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=3,timecost=1,dataSize=1
+info|2025-12-11 20:18:51.980051|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=3,number=3,timecost=0,dataSize=703
+info|2025-12-11 20:18:51.980184|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=3,wait(ms)=0,Idx=3,weight=1,minRequiredWeight=3
+info|2025-12-11 20:18:51.980193|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]setCheckPointProposal,propHash=e5f89637...,propIndex=3,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=3,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980202|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=4
+info|2025-12-11 20:18:51.980207|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980211|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.980214|pbftWorker-0x00007ccc0afd3640|[CONSENSUS][PBFT]onProposalApplySuccess,index=3,hash=e5f89637...,lockT=0,timecost=0
+info|2025-12-11 20:18:51.980524|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980603|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=1,wait(ms)=0,Idx=3,weight=2,minRequiredWeight=3
+info|2025-12-11 20:18:51.980613|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980622|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.980696|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980701|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=2,wait(ms)=0,Idx=3,weight=3,minRequiredWeight=3
+info|2025-12-11 20:18:51.980704|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980708|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.980724|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=e5f89637...,propIndex=3
+info|2025-12-11 20:18:51.980743|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=3,hash=e5f89637...,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.980752|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=3,hash=e5f89637...,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981102|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=3,committedIndex=2
+info|2025-12-11 20:18:51.981116|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=3,hash=e5f89637...,proofSize=3,blockProofSize=3
+info|2025-12-11 20:18:51.981140|blockSubmit-0x00007ccc0d7d8640|[SCHEDULER][blk-3][BlockTrace]CommitBlock start
+info|2025-12-11 20:18:51.981199|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981209|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e5f89637...,reqIndex=3,reqV=3,fromIdx=0,wait(ms)=1,Idx=3,weight=4,minRequiredWeight=3
+info|2025-12-11 20:18:51.981212|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=2,consNum=3,committedHash=874ecd6b...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981215|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.981243|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare,number=3
+info|2025-12-11 20:18:51.981269|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=3,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:18:51.981277|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts,blockNumber=3
+info|2025-12-11 20:18:51.981303|ledgerWrite-0x00007ccc2cbf0640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=140,time(ms)=0
+info|2025-12-11 20:18:51.981342|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=3,blockTxsSize=1,unStoredTxs=0,timeCost=0
+info|2025-12-11 20:18:51.981349|blockSubmit-0x00007ccc0d7d8640|[LEDGER][METRIC]asyncPrewriteBlock,number=3,totalTxs=3,failedTxs=0,incTxs=1,incFailedTxs=0
+info|2025-12-11 20:18:51.981334|exec-0x00007ccc127e2640|[STORAGE-RocksDB]asyncPrepare,number=3
+info|2025-12-11 20:18:51.981421|exec-0x00007ccc127e2640|[STORAGE-KeyPage]parallelTraverse,size=415
+info|2025-12-11 20:18:51.981427|exec-0x00007ccc127e2640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=3,put=6,delete=2,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:18:51.981430|exec-0x00007ccc127e2640|[EXECUTOR:1765355457][blk-3]Prepare success
+info|2025-12-11 20:18:51.981449|exec-0x00007ccc127e2640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=3,startTS=0,time(ms)=0,callback time(ms)=0,count=15
+info|2025-12-11 20:18:51.981477|exec-0x00007ccc11fe1640|[TOOL]fetchCompatibilityVersion
+info|2025-12-11 20:18:51.981509|exec-0x00007ccc11fe1640|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2025-12-11 20:18:51.981518|exec-0x00007ccc11fe1640|[TOOL]fetchAuthCheckStatus success,value=0
+info|2025-12-11 20:18:51.981521|exec-0x00007ccc11fe1640|[EXECUTOR:1765355457]merge keyPage to cachedStorage,number=3
+info|2025-12-11 20:18:51.981555|exec-0x00007ccc11fe1640|[STORAGE-KeyPage]parallelTraverse,size=415
+info|2025-12-11 20:18:51.981557|exec-0x00007ccc11fe1640|[STORAGE]Successful merged records,count=8
+info|2025-12-11 20:18:51.981837|exec-0x00007ccc11fe1640|[SCHEDULER][blk-3][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=0
+info|2025-12-11 20:18:51.981852|exec-0x00007ccc11fe1640|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=3
+info|2025-12-11 20:18:51.981854|exec-0x00007ccc11fe1640|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=3,hash=e5f89637...,txs=1,timeCost=0,commitPerTx=0
+info|2025-12-11 20:18:51.981866|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=3,propHash=e5f89637...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2025-12-11 20:18:51.981885|exec-0x00007ccc11fe1640|[SCHEDULER][blk-3]notify block result success,hash=e5f89637...,txsSize=1
+info|2025-12-11 20:18:51.981890|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=2,txs=1,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981896|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=3
+info|2025-12-11 20:18:51.981898|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=e5f89637...
+info|2025-12-11 20:18:51.981906|blockSubmit-0x00007ccc0d7d8640|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=3,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2025-12-11 20:18:51.981958|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981968|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=4,expectedEndIndex=4,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:51.981986|submitter-0x00007ccc21bfe640|[TXPOOL][METRIC]StatTPS,tps=22,totalTime=44
+info|2025-12-11 20:18:51.982007|exec-0x00007ccc11fe1640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=3,startTS=0,time(ms)=0,callback time(ms)=0,count=0
+info|2025-12-11 20:18:51.982042|submitter-0x00007ccc21bfe640|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=3,timecost=1,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=1
+info|2025-12-11 20:18:51.982197|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=4
+info|2025-12-11 20:18:51.982230|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=3,eraseSize=1,cacheSize=0
+info|2025-12-11 20:18:53.982281|pullTxsTimer-0x00007ccc0c7d6640|[CONSENSUS][PBFT]tryToSyncTxs: try to request unsealing txs from peer,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:18:58.066736|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:18:58.424892|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:18:58.564709|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:08.424914|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:08.564787|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:18.424937|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:18.564870|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:28.424966|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:28.564919|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:38.425052|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:38.565029|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:48.425117|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:48.565122|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:19:58.066768|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:19:58.425188|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:19:58.565253|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:08.425328|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:08.565276|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:18.425406|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:18.565368|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:28.425429|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:28.565405|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:38.425450|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:38.565435|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:48.425531|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:48.565506|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:20:58.066899|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:20:58.425550|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:20:58.565538|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:08.425568|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:08.565678|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:18.425592|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:18.565827|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:28.425615|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:28.566097|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:38.425638|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:38.566123|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:48.425698|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:48.566191|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:21:58.066954|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:21:58.425762|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:21:58.566366|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:08.425784|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:08.566399|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:18.425845|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:18.566440|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:28.425902|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:28.566533|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:38.425958|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:38.566636|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:48.426051|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:48.566675|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:22:58.066995|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:22:58.426117|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:22:58.566742|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:08.426145|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:08.566802|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:18.426178|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:18.566859|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:28.426207|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:28.566951|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:38.426247|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:38.566979|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:48.426347|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:48.567004|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:23:58.067035|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:23:58.426377|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:23:58.567041|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:08.426404|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:08.567129|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:18.426429|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:18.567218|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:28.426456|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:28.567298|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:38.426481|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:38.567365|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:48.426506|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:48.567437|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:24:58.067263|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:24:58.426532|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:24:58.567529|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:08.426564|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:08.567558|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:18.426593|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:18.567593|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:28.426620|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:28.567630|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:38.426650|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:38.567795|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:48.426677|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:48.567832|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:25:58.067329|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:25:58.426753|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:25:58.567864|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:08.426840|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:08.568012|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:14.744193|txsSeal-0x00007ccc1d7f8640|[TXPOOL]begin batchFetchTxs,pendingTxs=1,limit=1000
+info|2025-12-11 20:26:14.744230|txsSeal-0x00007ccc1d7f8640|[TXPOOL][METRIC]batchFetchTxs success,time=0,txsSize=1,sysTxsSize=0,pendingTxs=1,limit=1000,fetchTxsT=0,lockT=0,invalidBefore=0,invalidNow=0,sealed=0,traverseCount=1
+info|2025-12-11 20:26:14.745188|Sealer-0x00007ccbf01ff640|[CONSENSUS][SEALER]++++++++++++++++ Generate proposal,index=4,curNum=3,hash=c4064831...,sysTxs=false,txsSize=1,version=51052544
+info|2025-12-11 20:26:14.745204|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]asyncSubmitProposal,index=4,hash=c4064831...,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.745219|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]++++++++++++++++ Generating seal on,index=4,Idx=3,hash=c4064831...,sysProposal=false
+info|2025-12-11 20:26:14.745274|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]broadcast pre-prepare packet,packetSize=551,index=4,encode(ms)=0,asyncSend(ms)=0
+info|2025-12-11 20:26:14.745280|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4939497078
+info|2025-12-11 20:26:14.745300|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,sys=false,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.745305|validator-0x00007ccc0efdb640|[CONSENSUS][PBFT]asyncResetTxsFlag,index=4,hash=c4064831...,flag=true
+info|2025-12-11 20:26:14.745309|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=4
+info|2025-12-11 20:26:14.745315|validator-0x00007ccc0efdb640|[TXPOOL]batchMarkTxs,txsSize=1,batchId=4,hash=c4064831...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2025-12-11 20:26:14.745324|validator-0x00007ccc0efdb640|[CONSENSUS][PBFT]asyncMarkTxs success,index=4,hash=c4064831...,flag=true,markT=0,emptyTxBatchHash=false
+info|2025-12-11 20:26:14.745347|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:26:14.745383|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=4
+info|2025-12-11 20:26:14.745401|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.745407|Sealer-0x00007ccbf01ff640|[CONSENSUS][PBFT]handlePrePrepareMsg success,index=4,costT(ms)=0
+info|2025-12-11 20:26:14.745948|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:26:14.746224|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:26:14.746240|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=c4064831...,propIndex=4
+info|2025-12-11 20:26:14.746247|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]intoPrecommit,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=1,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.746282|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:26:14.746301|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=c4064831...,index=4
+info|2025-12-11 20:26:14.746588|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=4
+info|2025-12-11 20:26:14.746716|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:26:14.746796|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=c4064831...,reqIndex=4,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:26:14.746807|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommit,propHash=c4064831...,propIndex=4,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.746811|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]######## CommitProposal,propHash=c4064831...,propIndex=4,sys=false,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.746817|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.746828|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.746831|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]applyStateMachine,index=4,hash=c4064831...,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2025-12-11 20:26:14.746856|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][METRIC][blk-4]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2025-12-11 20:26:14.746867|preExeScheduler-0x00007ccbff7fc640|[SCHEDULER][METRIC][BlockTrace][blk-4]preExeBlock success,blockHeader.timestamp=1765455974745,metaTxCount=1,timeCost=0
+info|2025-12-11 20:26:14.746877|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-4][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2025-12-11 20:26:14.746880|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-4][BlockTrace]serialExecute execute block
+info|2025-12-11 20:26:14.746882|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-4][BlockTrace]serialExecute batch next block
+info|2025-12-11 20:26:14.746884|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-4][BlockTrace]NextBlock request,executorNum=1
+info|2025-12-11 20:26:14.747211|exec-0x00007ccc117e0640|[SCHEDULER][blk-4][BlockTrace]NextBlock success,executorNum=1,timeCost=1
+info|2025-12-11 20:26:14.747222|exec-0x00007ccc117e0640|[SCHEDULER][serialExecute][blk-4][BlockTrace]serialExecute block begin
+info|2025-12-11 20:26:14.747382|Unnamed-0x00007ccbfbbfb640|[STORAGE-KeyPage]empty table,table=/apps/d24180cc0fef2f3e545de4f9aafc09345cd08903_accessAuth,key=61646d696e
+info|2025-12-11 20:26:14.747438|Unnamed-0x00007ccbfbbfb640|[STORAGE-KeyPage]empty table,table=/apps/d24180cc0fef2f3e545de4f9aafc09345cd08903,key=0000000000000000000000000000000000000000000000000000000000000004
+info|2025-12-11 20:26:14.747626|exec-0x00007ccc107de640|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=7584,writeLength=10392,pageCount=2,entrycount=4,entriesHash=20a6d1d840afa1f7c0174baa1cb2fa229bdee76bb36b1fbd16550b387d492977,pagesHash=16f1f9b5b6c377ca775472d44f720d46aa536912c7c1aa6c00f780b96c0da41e,totalHash=3657286df66cd63db743397e53c0f764318d8e7974aab5d116a28b8111448d69
+info|2025-12-11 20:26:14.747658|exec-0x00007ccc107de640|[EXECUTOR:1765355457][blk-4]GetTableHashes success,hash=3657286df66cd63db743397e53c0f764318d8e7974aab5d116a28b8111448d69,time(ms)=0
+info|2025-12-11 20:26:14.747685|exec-0x00007ccc107de640|[SCHEDULER][blk-4][BlockTrace]ExecuteBlock success,hash=d68bae92...,stateRoot=3657286df66cd63db743397e53c0f764318d8e7974aab5d116a28b8111448d69,receiptRoot=e04dfe352e54acee9e32da0557ae87908dc13ee0fc76df99913976e7dc7479fb,txsRoot=5c38d6d3...,gasUsed=124031,signatureSize=0,timeCost=1,blockVersion=51052544
+info|2025-12-11 20:26:14.747697|exec-0x00007ccc107de640|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=4,result=d68bae92...,txsSize=1,txsRoot=5c38d6d3...,receiptsRoot=e04dfe35...,stateRoot=3657286d...,timeCost=1,execPerTx=1
+info|2025-12-11 20:26:14.747717|exec-0x00007ccc107de640|[CONSENSUS][PBFT]applyStateMachine finished,index=4,beforeExec=c4064831...,afterExec=d68bae92...,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=1
+info|2025-12-11 20:26:14.747771|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=4
+info|2025-12-11 20:26:14.747826|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=4,timecost=0,dataSize=1
+info|2025-12-11 20:26:14.747847|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=4,number=4,timecost=0,dataSize=635
+info|2025-12-11 20:26:14.747911|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.747924|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=0,wait(ms)=0,Idx=3,weight=1,minRequiredWeight=3
+info|2025-12-11 20:26:14.747929|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.747939|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=3,wait(ms)=0,Idx=3,weight=2,minRequiredWeight=3
+info|2025-12-11 20:26:14.747946|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT]setCheckPointProposal,propHash=d68bae92...,propIndex=4,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=4,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.747951|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=5
+info|2025-12-11 20:26:14.747954|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.747956|pbftWorker-0x00007ccc0a7d2640|[CONSENSUS][PBFT]onProposalApplySuccess,index=4,hash=d68bae92...,lockT=0,timecost=0
+info|2025-12-11 20:26:14.748136|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.748154|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=2,wait(ms)=0,Idx=3,weight=3,minRequiredWeight=3
+info|2025-12-11 20:26:14.748157|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.748160|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=d68bae92...,propIndex=4
+info|2025-12-11 20:26:14.748163|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=4,hash=d68bae92...,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.748167|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=4,hash=d68bae92...,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.748175|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=4,committedIndex=3
+info|2025-12-11 20:26:14.748181|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=4,hash=d68bae92...,proofSize=3,blockProofSize=3
+info|2025-12-11 20:26:14.748310|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=3,consNum=4,committedHash=e5f89637...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.748323|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=d68bae92...,reqIndex=4,reqV=3,fromIdx=1,wait(ms)=0,Idx=3,weight=4,minRequiredWeight=3
+info|2025-12-11 20:26:14.748326|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.748373|blockSubmit-0x00007ccc0d7d8640|[SCHEDULER][blk-4][BlockTrace]CommitBlock start
+info|2025-12-11 20:26:14.748473|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare,number=4
+info|2025-12-11 20:26:14.748492|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=4,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:26:14.748499|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts,blockNumber=4
+info|2025-12-11 20:26:14.748559|ledgerWrite-0x00007ccc2c3ef640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=140,time(ms)=0
+info|2025-12-11 20:26:14.748546|exec-0x00007ccc0ffdd640|[STORAGE-RocksDB]asyncPrepare,number=4
+info|2025-12-11 20:26:14.748564|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=10351,time(ms)=0
+info|2025-12-11 20:26:14.748569|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=4,blockTxsSize=1,unStoredTxs=1,timeCost=0
+info|2025-12-11 20:26:14.748573|blockSubmit-0x00007ccc0d7d8640|[LEDGER][METRIC]asyncPrewriteBlock,number=4,totalTxs=4,failedTxs=0,incTxs=1,incFailedTxs=0
+info|2025-12-11 20:26:14.748621|exec-0x00007ccc0ffdd640|[STORAGE-KeyPage]parallelTraverse,size=10467
+info|2025-12-11 20:26:14.748638|exec-0x00007ccc0ffdd640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=4,put=8,delete=3,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:26:14.748641|exec-0x00007ccc0ffdd640|[EXECUTOR:1765355457][blk-4]Prepare success
+info|2025-12-11 20:26:14.748679|exec-0x00007ccc0ffdd640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=4,startTS=0,time(ms)=0,callback time(ms)=0,count=18
+info|2025-12-11 20:26:14.748708|exec-0x00007ccc1aff3640|[TOOL]fetchCompatibilityVersion
+info|2025-12-11 20:26:14.748739|exec-0x00007ccc1aff3640|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2025-12-11 20:26:14.748751|exec-0x00007ccc1aff3640|[TOOL]fetchAuthCheckStatus success,value=0
+info|2025-12-11 20:26:14.748754|exec-0x00007ccc1aff3640|[EXECUTOR:1765355457]merge keyPage to cachedStorage,number=4
+info|2025-12-11 20:26:14.748808|exec-0x00007ccc1aff3640|[STORAGE-KeyPage]parallelTraverse,size=10467
+info|2025-12-11 20:26:14.748811|exec-0x00007ccc1aff3640|[STORAGE]Successful merged records,count=11
+info|2025-12-11 20:26:14.749088|exec-0x00007ccc1aff3640|[SCHEDULER][blk-4][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=1
+info|2025-12-11 20:26:14.749102|exec-0x00007ccc1aff3640|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=4
+info|2025-12-11 20:26:14.749107|exec-0x00007ccc1aff3640|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=4,hash=d68bae92...,txs=1,timeCost=1,commitPerTx=1
+info|2025-12-11 20:26:14.749117|exec-0x00007ccc1aff3640|[SCHEDULER][blk-4]notify block result success,hash=d68bae92...,txsSize=1
+info|2025-12-11 20:26:14.749146|submitter-0x00007ccc20fff640|[TXPOOL][METRIC]StatTPS,tps=166,totalTime=6
+info|2025-12-11 20:26:14.749191|exec-0x00007ccc1aff3640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=4,startTS=0,time(ms)=0,callback time(ms)=1,count=0
+info|2025-12-11 20:26:14.749205|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=4,propHash=d68bae92...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2025-12-11 20:26:14.749213|submitter-0x00007ccc20fff640|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=4,timecost=0,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2025-12-11 20:26:14.749220|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=3,txs=1,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:26:14.749226|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=4
+info|2025-12-11 20:26:14.749228|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=d68bae92...
+info|2025-12-11 20:26:14.749235|blockSubmit-0x00007ccc0d7d8640|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=4,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2025-12-11 20:26:14.749292|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=5
+info|2025-12-11 20:26:14.749356|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=4,eraseSize=1,cacheSize=0
+info|2025-12-11 20:26:18.426864|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:18.568072|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:28.426885|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:28.568200|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:38.426906|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:38.568259|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:48.426928|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:48.568292|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:26:58.067366|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:26:58.426958|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:26:58.568409|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:08.426980|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:08.568435|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:18.427005|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:18.568504|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:28.427027|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:28.568532|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:38.427051|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:38.568590|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:48.427073|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:48.568626|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:27:58.067402|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:27:58.427103|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:27:58.568743|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:08.427131|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:08.568943|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:18.427158|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:18.569141|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:28.427185|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:28.569180|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:38.427217|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:38.569208|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:48.427248|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:48.569243|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:28:58.067438|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1508862 ,destroyed: 1508858 ,alive: 4 ] 
+info|2025-12-11 20:28:58.427274|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:28:58.569268|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:08.427300|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:08.569323|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:18.427330|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:18.569348|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:28.427358|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:28.569376|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:29.510584|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4939691843
+info|2025-12-11 20:29:29.510679|pbft-0x00007ccbeedff640|[TXPOOL]begin asyncVerifyBlock,consNum=5,hash=76497106...
+info|2025-12-11 20:29:29.510703|verifier-0x00007ccc1dff9640|[TXPOOL]batchVerifyProposal,consNum=5,hash=76497106...,txsSize=1,lockT=0,verifyT=0,missedTxs=0
+info|2025-12-11 20:29:29.510711|verifier-0x00007ccc1dff9640|[TXPOOL][METRIC]asyncVerifyBlock finished,consNum=5,hash=76497106...,code=0,msg=success,result=true,timecost=0
+info|2025-12-11 20:29:29.510720|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=4939691843
+info|2025-12-11 20:29:29.510724|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncResetTxsFlag,index=5,hash=76497106...,flag=true
+info|2025-12-11 20:29:29.510730|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,sys=false,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.510734|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=5
+info|2025-12-11 20:29:29.510737|validator-0x00007ccc0e7da640|[TXPOOL]batchMarkTxs,txsSize=1,batchId=5,hash=76497106...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2025-12-11 20:29:29.510745|validator-0x00007ccc0e7da640|[CONSENSUS][PBFT]asyncMarkTxs success,index=5,hash=76497106...,flag=true,markT=0,emptyTxBatchHash=false
+info|2025-12-11 20:29:29.510761|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]addPrepareCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:29:29.510785|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=228,index=5
+info|2025-12-11 20:29:29.510806|verifier-0x00007ccc1dff9640|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.510829|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock fetch block number from LedgerConfig
+info|2025-12-11 20:29:29.510848|txsPreStore-0x00007ccc1cff7640|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=4
+info|2025-12-11 20:29:29.510851|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock,consNum=5,hash=76497106...,txsSize=1
+info|2025-12-11 20:29:29.510864|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: needStoreUnsavedTxs,txsSize=1,unstoredTxs=1,number=5
+info|2025-12-11 20:29:29.510913|txsPreStore-0x00007ccc1cff7640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=6089,time(ms)=0
+info|2025-12-11 20:29:29.510915|txsPreStore-0x00007ccc1cff7640|[LEDGER]asyncPreStoreBlockTxs: store uncommitted txs,blockNumber=5,blockTxsSize=1,unStoredTxs=1,msg=success,code=0,timeCost=0
+info|2025-12-11 20:29:29.510918|txsPreStore-0x00007ccc1cff7640|[TXPOOL]storeVerifiedBlock success,consNum=5,hash=76497106...,timecost=0
+info|2025-12-11 20:29:29.511083|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:29:29.511152|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addPrepareCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:29:29.511158|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=76497106...,propIndex=5
+info|2025-12-11 20:29:29.511166|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]intoPrecommit,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=3,wait(ms)=1,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.511189|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2025-12-11 20:29:29.511195|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=76497106...,index=5
+info|2025-12-11 20:29:29.511368|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2025-12-11 20:29:29.511420|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCommitCache,reqHash=76497106...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2025-12-11 20:29:29.511425|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommit,propHash=76497106...,propIndex=5,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.511430|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]######## CommitProposal,propHash=76497106...,propIndex=5,sys=false,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.511435|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.511447|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.511449|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]applyStateMachine,index=5,hash=76497106...,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2025-12-11 20:29:29.511479|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][METRIC][blk-5]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2025-12-11 20:29:29.511504|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-5][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2025-12-11 20:29:29.511508|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-5][BlockTrace]serialExecute execute block
+info|2025-12-11 20:29:29.511542|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][METRIC][BlockTrace][blk-5]preExeBlock success,blockHeader.timestamp=1765456169510,metaTxCount=1,timeCost=0
+info|2025-12-11 20:29:29.511547|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][serialExecute][blk-5][BlockTrace]serialExecute batch next block
+info|2025-12-11 20:29:29.511549|exeScheduler-0x00007ccbfeffb640|[SCHEDULER][blk-5][BlockTrace]NextBlock request,executorNum=1
+info|2025-12-11 20:29:29.511713|exec-0x00007ccc1b7f4640|[SCHEDULER][blk-5][BlockTrace]NextBlock success,executorNum=1,timeCost=0
+info|2025-12-11 20:29:29.511719|exec-0x00007ccc1b7f4640|[SCHEDULER][serialExecute][blk-5][BlockTrace]serialExecute block begin
+info|2025-12-11 20:29:29.511820|Unnamed-0x00007ccbfa3f8640|[STORAGE-KeyPage]empty table,table=/apps/37a44585bf1e9618fdb4c62c4c96189a07dd4b48_accessAuth,key=61646d696e
+info|2025-12-11 20:29:29.511872|Unnamed-0x00007ccbfa3f8640|[STORAGE-KeyPage]empty table,table=/apps/37a44585bf1e9618fdb4c62c4c96189a07dd4b48,key=0000000000000000000000000000000000000000000000000000000000000003
+info|2025-12-11 20:29:29.511946|exec-0x00007ccc19ff1640|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=5976,writeLength=6087,pageCount=2,entrycount=4,entriesHash=e8663e35c0f9d021b4762f92bee01483a5255ea9f97188f200b382e60a856695,pagesHash=8183fcbf7776e344c0270173aff81f0e483842caac3460b1bcb879904a8546fd,totalHash=69e5c28ab78f336574512ee111180b8ded1d1c635545e843bc0bfb7640002068
+info|2025-12-11 20:29:29.511956|exec-0x00007ccc19ff1640|[EXECUTOR:1765355457][blk-5]GetTableHashes success,hash=69e5c28ab78f336574512ee111180b8ded1d1c635545e843bc0bfb7640002068,time(ms)=0
+info|2025-12-11 20:29:29.511974|exec-0x00007ccc19ff1640|[SCHEDULER][blk-5][BlockTrace]ExecuteBlock success,hash=da896661...,stateRoot=69e5c28ab78f336574512ee111180b8ded1d1c635545e843bc0bfb7640002068,receiptRoot=e0b1aff13a13f59253e773152b16d1466e339901fe18e21b82901a612bed53db,txsRoot=6dffe39c...,gasUsed=69604,signatureSize=0,timeCost=0,blockVersion=51052544
+info|2025-12-11 20:29:29.511986|exec-0x00007ccc19ff1640|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=5,result=da896661...,txsSize=1,txsRoot=6dffe39c...,receiptsRoot=e0b1aff1...,stateRoot=69e5c28a...,timeCost=0,execPerTx=0
+info|2025-12-11 20:29:29.512005|exec-0x00007ccc19ff1640|[CONSENSUS][PBFT]applyStateMachine finished,index=5,beforeExec=76497106...,afterExec=da896661...,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=1
+info|2025-12-11 20:29:29.512018|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=5
+info|2025-12-11 20:29:29.512045|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=5,timecost=0,dataSize=1
+info|2025-12-11 20:29:29.512054|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=5,number=5,timecost=0,dataSize=631
+info|2025-12-11 20:29:29.512133|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=da896661...,reqIndex=5,reqV=3,fromIdx=3,wait(ms)=0,Idx=3,weight=1,minRequiredWeight=3
+info|2025-12-11 20:29:29.512138|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT]setCheckPointProposal,propHash=da896661...,propIndex=5,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=5,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.512143|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=6
+info|2025-12-11 20:29:29.512146|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.512152|pbftWorker-0x00007ccc0bfd5640|[CONSENSUS][PBFT]onProposalApplySuccess,index=5,hash=da896661...,lockT=0,timecost=0
+info|2025-12-11 20:29:29.512414|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=da896661...,reqIndex=5,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.512427|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=da896661...,reqIndex=5,reqV=3,fromIdx=2,wait(ms)=0,Idx=3,weight=2,minRequiredWeight=3
+info|2025-12-11 20:29:29.512431|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.512705|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=da896661...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.512715|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=da896661...,reqIndex=5,reqV=3,fromIdx=0,wait(ms)=0,Idx=3,weight=3,minRequiredWeight=3
+info|2025-12-11 20:29:29.512719|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.512724|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=da896661...,propIndex=5
+info|2025-12-11 20:29:29.512729|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=5,hash=da896661...,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.512735|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=5,hash=da896661...,committedIndex=4,consNum=5,committedHash=d68bae92...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.512744|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=5,committedIndex=4
+info|2025-12-11 20:29:29.512751|pbft-0x00007ccbeedff640|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=5,hash=da896661...,proofSize=3,blockProofSize=3
+info|2025-12-11 20:29:29.512826|blockSubmit-0x00007ccc0d7d8640|[SCHEDULER][blk-5][BlockTrace]CommitBlock start
+info|2025-12-11 20:29:29.512962|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare,number=5
+info|2025-12-11 20:29:29.512995|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=5,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:29:29.513006|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts,blockNumber=5
+info|2025-12-11 20:29:29.513021|exec-0x00007ccc197f0640|[STORAGE-RocksDB]asyncPrepare,number=5
+info|2025-12-11 20:29:29.513036|exec-0x00007ccc197f0640|[STORAGE-KeyPage]parallelTraverse,size=6138
+info|2025-12-11 20:29:29.513040|ledgerWrite-0x00007ccc2cbf0640|[STORAGE-RocksDB]setRows finished,put=1,dataSize=139,time(ms)=0
+info|2025-12-11 20:29:29.513049|exec-0x00007ccc197f0640|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=5,put=8,delete=2,startTS=0,encode(ms)=0,time(ms)=0
+info|2025-12-11 20:29:29.513052|exec-0x00007ccc197f0640|[EXECUTOR:1765355457][blk-5]Prepare success
+info|2025-12-11 20:29:29.513054|blockSubmit-0x00007ccc0d7d8640|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=5,blockTxsSize=1,unStoredTxs=0,timeCost=0
+info|2025-12-11 20:29:29.513110|blockSubmit-0x00007ccc0d7d8640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=5,startTS=0,time(ms)=0,callback time(ms)=0,count=17
+info|2025-12-11 20:29:29.513118|blockSubmit-0x00007ccc0d7d8640|[LEDGER][METRIC]asyncPrewriteBlock,number=5,totalTxs=5,failedTxs=0,incTxs=1,incFailedTxs=0
+info|2025-12-11 20:29:29.513171|exec-0x00007ccc187ee640|[TOOL]fetchCompatibilityVersion
+info|2025-12-11 20:29:29.513230|exec-0x00007ccc187ee640|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2025-12-11 20:29:29.513255|exec-0x00007ccc187ee640|[TOOL]fetchAuthCheckStatus success,value=0
+info|2025-12-11 20:29:29.513261|exec-0x00007ccc187ee640|[EXECUTOR:1765355457]merge keyPage to cachedStorage,number=5
+info|2025-12-11 20:29:29.513340|exec-0x00007ccc187ee640|[STORAGE-KeyPage]parallelTraverse,size=6138
+info|2025-12-11 20:29:29.513347|exec-0x00007ccc187ee640|[STORAGE]Successful merged records,count=10
+info|2025-12-11 20:29:29.513689|exec-0x00007ccc187ee640|[SCHEDULER][blk-5][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=1
+info|2025-12-11 20:29:29.513704|exec-0x00007ccc187ee640|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=5
+info|2025-12-11 20:29:29.513709|exec-0x00007ccc187ee640|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=5,hash=da896661...,txs=1,timeCost=1,commitPerTx=1
+info|2025-12-11 20:29:29.513718|exec-0x00007ccc187ee640|[SCHEDULER][blk-5]notify block result success,hash=da896661...,txsSize=1
+info|2025-12-11 20:29:29.513769|submitter-0x00007ccc207fe640|[TXPOOL][METRIC]StatTPS,tps=200,totalTime=5
+info|2025-12-11 20:29:29.513803|exec-0x00007ccc187ee640|[STORAGE-RocksDB]asyncCommit finished,blockNumber=5,startTS=0,time(ms)=0,callback time(ms)=0,count=0
+info|2025-12-11 20:29:29.513813|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=5,propHash=da896661...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2025-12-11 20:29:29.513826|submitter-0x00007ccc207fe640|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=5,timecost=0,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2025-12-11 20:29:29.513830|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=0,txs=1,committedIndex=5,consNum=6,committedHash=da896661...,view=3,toView=3,changeCycle=0,expectedCheckPoint=6,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2025-12-11 20:29:29.513837|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=5
+info|2025-12-11 20:29:29.513839|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=da896661...
+info|2025-12-11 20:29:29.513846|blockSubmit-0x00007ccc0d7d8640|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=5,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2025-12-11 20:29:29.513910|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=6
+info|2025-12-11 20:29:29.513934|blockSubmit-0x00007ccc0d7d8640|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=5,eraseSize=1,cacheSize=0
+info|2025-12-11 20:29:29.590253|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT]Receive CommittedProposalRequest,fromIndex=5,size=1
+info|2025-12-11 20:29:29.590371|pbftWorker-0x00007ccc0b7d4640|[CONSENSUS][PBFT][STORAGE]asyncGetCommittedProposals success,proposals=1
+info|2025-12-11 20:29:38.427388|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:38.569450|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:48.427414|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:48.569518|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:29:58.067586|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:29:58.427439|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:29:58.569547|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:08.427468|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:08.569579|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:18.427497|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:18.569638|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:28.427524|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:28.569780|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:38.427548|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:38.569803|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:48.427574|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:48.569865|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:30:58.067695|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:30:58.427603|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:30:58.569893|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:08.427631|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:08.569968|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:18.427708|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:18.570045|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:28.427738|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:28.570180|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:38.427765|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:38.570343|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:48.427796|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:48.570376|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:31:58.067731|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:31:58.427858|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:31:58.570442|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:08.427959|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:08.570568|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:18.428054|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:18.570599|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:28.428140|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:28.570663|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:38.428252|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:38.570703|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:48.428332|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:48.570732|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:32:58.067766|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1512463 ,destroyed: 1512459 ,alive: 4 ] 
+info|2025-12-11 20:32:58.428364|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:32:58.570752|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:08.428399|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:08.570776|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:18.428500|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:18.570850|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:28.428532|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:28.571004|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:38.428570|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:38.571092|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:48.428609|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:48.571169|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:33:58.067802|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:33:58.428689|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:33:58.571237|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:08.428718|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:08.571266|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:18.428750|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:18.571301|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:28.428778|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:28.571455|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:38.428804|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:38.571481|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:48.428835|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:48.571533|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:34:58.067872|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:34:58.428862|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:34:58.571693|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:08.428890|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:08.571859|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:18.428918|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:18.571888|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:28.428952|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:28.571920|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:38.428978|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:38.572000|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:48.429011|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:48.572099|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:35:58.068012|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:35:58.429035|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:35:58.572213|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:08.429060|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:08.572294|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:18.429095|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:18.572415|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:28.429190|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:28.572448|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:38.429227|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:38.572478|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:48.429256|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:48.572552|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:36:58.068058|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1516060 ,destroyed: 1516055 ,alive: 5 ] 
+info|2025-12-11 20:36:58.429284|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:36:58.572658|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:08.429317|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:08.572740|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:18.429346|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:18.572811|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:28.429375|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:28.572996|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:38.429405|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:38.573094|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:48.429438|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:48.573159|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:37:58.068182|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:37:58.429467|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:37:58.573212|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:08.429491|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:08.573237|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:18.429518|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:18.573302|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:28.429565|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:28.573531|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:38.429593|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:38.573611|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:48.429618|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:48.573758|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:38:58.068217|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:38:58.429647|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:38:58.573815|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:08.429675|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:08.573850|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:18.429704|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:18.573879|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:28.429733|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:28.573949|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:38.429758|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:38.573978|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:48.429785|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:48.574042|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:39:58.068252|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:39:58.429813|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:39:58.574134|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:08.429840|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:08.574177|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:18.429913|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:18.574209|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:28.429944|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:28.574298|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:38.429975|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:38.574331|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:48.430001|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:48.574415|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:40:58.068335|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:40:58.430027|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:40:58.574444|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:08.430055|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:08.574473|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:18.430125|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:18.574498|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:28.430154|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:28.574578|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:38.430179|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:38.574652|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:48.430202|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:48.574714|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:41:58.068423|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:41:58.430228|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:41:58.574802|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:08.430257|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:08.574877|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:18.430280|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:18.574943|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:28.430304|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:28.575039|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:38.430325|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:38.575068|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:48.430351|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:48.575098|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:42:58.068459|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:42:58.430422|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:42:58.575350|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:08.430446|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:08.575382|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:18.430472|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:18.575458|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:28.430493|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:28.575500|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:38.430514|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:38.575575|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:48.430543|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:48.575599|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:43:58.068495|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1522354 ,destroyed: 1522349 ,alive: 5 ] 
+info|2025-12-11 20:43:58.430567|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:43:58.575649|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:08.430591|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:08.575773|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:18.430667|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:18.575983|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:28.430724|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:28.576011|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:38.430749|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:38.576096|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:48.430771|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:48.576117|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:44:58.068530|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:44:58.430791|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:44:58.576143|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:08.430812|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:08.576277|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:18.430833|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:18.576299|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:28.430862|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:28.576316|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:38.430889|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:38.576370|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:48.430914|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:48.576549|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:45:58.068613|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:45:58.430938|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:45:58.576650|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:08.430960|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:08.576688|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:18.430983|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:18.576776|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:28.431006|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:28.576804|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:38.431029|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:38.576868|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:48.431056|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:48.576938|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:46:58.068653|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:46:58.431083|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:46:58.576971|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:08.431114|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:08.577084|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:18.431138|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:18.577122|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:28.431168|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:28.577165|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:38.431195|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:38.577204|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:48.431224|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:48.577292|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:47:58.068701|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:47:58.431255|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:47:58.577332|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:08.431285|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:08.577366|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:18.431315|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:18.577408|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:28.431341|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:28.577449|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:38.431369|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:38.577520|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:48.431405|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:48.577617|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:48:58.068793|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:48:58.431431|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:48:58.577685|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:08.431459|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:08.577817|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:18.431493|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:18.577860|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:28.431526|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:28.577937|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:38.431559|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:38.578034|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:48.431593|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:48.578229|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:49:58.069021|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:49:58.431625|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:49:58.578292|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:08.431652|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:08.578316|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:18.431680|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:18.578339|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:28.431713|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:28.578363|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:38.431739|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:38.578398|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:48.431766|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:48.578613|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:50:58.069061|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:50:58.431798|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:50:58.578653|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:08.431825|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:08.578827|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:18.431849|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:18.578855|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:28.431880|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:28.578959|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:38.431912|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:38.579097|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:48.431943|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:48.579292|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:51:58.069096|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1529548 ,destroyed: 1529544 ,alive: 4 ] 
+info|2025-12-11 20:51:58.431978|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:51:58.579376|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:08.432010|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:08.579507|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:18.432039|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:18.579570|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:28.432072|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:28.579647|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:38.432104|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:38.579683|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:48.432136|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:48.579755|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:52:58.069221|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:52:58.432171|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:52:58.579779|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:08.432204|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:08.579846|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:18.432236|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:18.579873|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:28.432269|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:28.579895|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:38.432299|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:38.579914|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:48.432331|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:48.580035|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:53:58.069262|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:53:58.432359|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:53:58.580093|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:08.432388|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:08.580141|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:18.432414|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:18.580229|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:28.432444|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:28.580337|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:38.432473|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:38.580363|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:48.432504|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:48.580432|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:54:58.069299|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:54:58.432531|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:54:58.580461|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:08.432581|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:08.580490|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:18.432603|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:18.580559|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:28.432635|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:28.580631|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:38.432661|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:38.580705|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:48.432693|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:48.580782|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:55:58.069336|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:55:58.432729|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:55:58.580954|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:08.432765|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:08.581040|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:18.432797|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:18.581188|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:28.432830|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:28.581220|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:38.432861|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:38.581250|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:48.432901|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:48.581287|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:56:58.069380|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:56:58.432945|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:56:58.581319|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:08.432979|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:08.581341|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:18.433054|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:18.581407|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:28.433077|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:28.581437|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:38.433103|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:38.581549|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:48.433131|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:48.581569|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:57:58.069418|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:57:58.433157|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:57:58.581633|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:08.433183|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:08.581772|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:18.433207|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:18.581803|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:28.433233|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:28.581836|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:38.433255|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:38.581963|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:48.433287|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:48.582105|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:58:58.069588|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 1535842 ,destroyed: 1535838 ,alive: 4 ] 
+info|2025-12-11 20:58:58.433319|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:58:58.582299|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:08.433351|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:08.582331|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:18.433387|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:18.582400|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:28.433421|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:28.582471|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:38.433450|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:38.582506|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:48.433481|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:48.582669|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2025-12-11 20:59:58.069623|objMonitor-0x00007ccbc67ff640|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2025-12-11 20:59:58.433520|timerFactory-0x00007ccbd95ff640|[RPC][WS][SERVICE]connected nodes,count=0
+info|2025-12-11 20:59:58.582695|ioService-0x00007ccbed3ff640|[P2PService][Service][METRIC]heartBeat,connected count=3

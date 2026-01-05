@@ -1,0 +1,736 @@
+info|2025-12-11 19:00:16.827423|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:00:16.827444|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:00:16.827449|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:00:17.202544|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:00:29.204545|ioService-0x000072bcfe7fa640|[RPC][BLOCK][NUMBER][fromJson],group=group0,node=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,blockNumber=1
+info|2025-12-11 19:00:29.204575|ioService-0x000072bcfe7fa640|[RPCWS][SERVICE][onRecvBlockNotifier]receive block number notifier,group=group0,node=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,blockNumber=1
+info|2025-12-11 19:00:29.204584|ioService-0x000072bcfe7fa640|[RPCWS][SERVICE][updateGroupBlockNumber],groupID=group0,_blockNumber=1
+info|2025-12-11 19:00:29.204593|ioService-0x000072bcfe7fa640|[RPCWS][SERVICE][onRecvBlockNotifier]block notifier callback,group=group0,node=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,blockNumber=1
+info|2025-12-11 19:00:29.204599|ioService-0x000072bcfe7fa640|[WS]receive block notify,endpoint=127.0.0.1:20201,blk={
+	"blockNumber" : 1,
+	"group" : "group0",
+	"nodeName" : "21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297"
+}
+info|2025-12-11 19:00:29.204811|ioService-0x000072bd645f7640|[RPC][BLOCK][NUMBER][fromJson],group=group0,node=2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a,blockNumber=1
+info|2025-12-11 19:00:29.204830|ioService-0x000072bd645f7640|[RPCWS][SERVICE][onRecvBlockNotifier]receive block number notifier,group=group0,node=2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a,blockNumber=1
+info|2025-12-11 19:00:29.204840|ioService-0x000072bd645f7640|[WS]receive block notify,endpoint=127.0.0.1:20200,blk={
+	"blockNumber" : 1,
+	"group" : "group0",
+	"nodeName" : "2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a"
+}
+info|2025-12-11 19:00:36.827481|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:00:36.827501|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:00:36.827506|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:00:37.202582|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:00:56.827530|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:00:56.827553|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:00:56.827557|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:00:57.202557|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:01:16.827582|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:01:16.827602|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:01:16.827606|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:01:17.202567|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:01:36.827634|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:01:36.827659|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:01:36.827665|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:01:37.202658|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:01:56.827748|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:01:56.827832|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:01:56.827836|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:01:57.202710|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:02:16.827862|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:02:16.827885|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:02:16.827889|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:02:17.202719|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:02:36.827913|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:02:36.827934|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:02:36.827938|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:02:37.202730|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:02:56.827969|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:02:56.827989|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:02:56.827993|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:02:57.202804|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:03:16.828026|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:03:16.828046|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:03:16.828051|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:03:17.202774|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:03:36.828239|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:03:36.828281|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:03:36.828285|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:03:37.202922|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:03:56.828306|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:03:56.828327|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:03:56.828331|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:03:57.202899|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:04:16.828393|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:04:16.828415|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:04:16.828419|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:04:17.202960|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:04:36.828496|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:04:36.828531|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:04:36.828536|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:04:37.202971|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:04:56.828610|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:04:56.828631|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:04:56.828636|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:04:57.202982|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:05:16.828710|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:05:16.828753|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:05:16.828758|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:05:17.202992|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:05:36.828784|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:05:36.828805|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:05:36.828809|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:05:37.203139|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:05:56.828841|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:05:56.828863|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:05:56.828867|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:05:57.203115|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:06:16.828890|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:06:16.828910|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:06:16.828915|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:06:17.203206|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:06:36.828939|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:06:36.828960|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:06:36.828965|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:06:37.203235|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:06:56.829034|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:06:56.829115|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:06:56.829132|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:06:57.203270|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:07:16.829226|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:07:16.829302|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:07:16.829306|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:07:17.203263|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:07:36.829337|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:07:36.829356|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:07:36.829360|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:07:37.203329|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:07:56.829386|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:07:56.829406|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:07:56.829410|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:07:57.203316|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:08:16.829439|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:08:16.829458|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:08:16.829462|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:08:17.203323|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:08:36.829527|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:08:36.829568|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:08:36.829573|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:08:37.203330|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:08:56.829597|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:08:56.829618|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:08:56.829623|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:08:57.203558|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:09:16.829650|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:09:16.829675|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:09:16.829681|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:09:17.203531|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:09:36.829708|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:09:36.829730|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:09:36.829734|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:09:37.203542|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:09:56.829784|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:09:56.829805|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:09:56.829809|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:09:57.203609|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:10:16.829835|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:10:16.829857|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:10:16.829861|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:10:17.203633|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:10:36.829883|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:10:36.829903|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:10:36.829907|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:10:37.203640|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:10:56.829938|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:10:56.829959|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:10:56.829963|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:10:57.203826|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:11:16.830037|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:11:16.830067|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:11:16.830071|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:11:17.203789|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:11:36.830093|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:11:36.830112|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:11:36.830117|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:11:37.203798|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:11:56.830151|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:11:56.830175|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:11:56.830179|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:11:57.203852|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:12:16.830209|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:12:16.830229|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:12:16.830234|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:12:17.203931|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:12:36.830260|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:12:36.830283|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:12:36.830287|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:12:37.203907|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:12:56.830335|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:12:56.830370|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:12:56.830375|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:12:57.203916|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:13:16.830400|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:13:16.830421|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:13:16.830425|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:13:17.203938|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:13:36.830448|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:13:36.830506|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:13:36.830511|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:13:37.203981|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:13:56.830539|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:13:56.830563|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:13:56.830568|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:13:57.203978|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:14:16.830591|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:14:16.830610|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:14:16.830614|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:14:17.204034|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:14:36.830683|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:14:36.830759|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:14:36.830763|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:14:37.204018|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:14:56.830945|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:14:56.831009|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:14:56.831013|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:14:57.204104|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:15:16.831041|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:15:16.831061|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:15:16.831066|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:15:17.204080|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:15:36.831178|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:15:36.831243|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:15:36.831247|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:15:37.204158|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:15:56.831320|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:15:56.831342|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:15:56.831347|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:15:57.204126|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:16:16.831372|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:16:16.831395|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:16:16.831400|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:16:17.204225|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:16:36.831428|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:16:36.831448|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:16:36.831453|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:16:37.204247|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:16:56.831479|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:16:56.831500|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:16:56.831504|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:16:57.204255|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:17:16.831583|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:17:16.831657|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:17:16.831661|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:17:17.204279|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:17:36.831819|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:17:36.831879|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:17:36.831884|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:17:37.204322|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:17:56.831913|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:17:56.831937|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:17:56.831941|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:17:57.204321|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:18:16.831968|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:18:16.831991|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:18:16.831995|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:18:17.204337|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:18:36.832081|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:18:36.832101|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:18:36.832106|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:18:37.204349|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:18:56.832132|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:18:56.832167|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:18:56.832186|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:18:57.204357|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:19:16.832256|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:19:16.832278|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:19:16.832282|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:19:17.204369|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:19:36.832314|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:19:36.832339|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:19:36.832345|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:19:37.204378|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:19:56.832377|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:19:56.832402|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:19:56.832408|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:19:57.204387|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:20:16.832434|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:20:16.832454|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:20:16.832459|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:20:17.204458|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:20:36.832486|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:20:36.832508|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:20:36.832513|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:20:37.204482|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:20:56.832541|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:20:56.832561|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:20:56.832565|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:20:57.204557|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:21:16.832652|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:21:16.832732|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:21:16.832737|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:21:17.204584|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:21:36.832825|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:21:36.832845|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:21:36.832849|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:21:37.204562|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:21:56.832879|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:21:56.832899|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:21:56.832904|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:21:57.204571|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:22:16.832928|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:22:16.832948|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:22:16.832952|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:22:17.204581|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:22:36.833025|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:22:36.833046|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:22:36.833050|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:22:37.204656|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:22:56.833132|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:22:56.833161|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:22:56.833165|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:22:57.204631|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:23:16.833198|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:23:16.833219|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:23:16.833223|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:23:17.204648|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:23:36.833313|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:23:36.833334|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:23:36.833338|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:23:37.204657|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:23:56.833361|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:23:56.833381|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:23:56.833386|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:23:57.204665|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:24:16.833410|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:24:16.833430|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:24:16.833435|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:24:17.204675|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:24:36.833459|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:24:36.833480|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:24:36.833485|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:24:37.204743|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:24:56.833509|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:24:56.833532|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:24:56.833538|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:24:57.204785|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:25:16.833625|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:25:16.833648|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:25:16.833652|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:25:17.204815|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:25:36.833722|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:25:36.833743|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:25:36.833748|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:25:37.204852|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:25:56.833775|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:25:56.833798|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:25:56.833803|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:25:57.204829|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:26:16.833826|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:26:16.833846|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:26:16.833851|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:26:17.204896|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:26:36.833925|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:26:36.834004|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:26:36.834020|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:26:37.204872|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:26:56.834044|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:26:56.834064|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:26:56.834068|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:26:57.205020|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:27:16.834176|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:27:16.834249|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:27:16.834253|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:27:17.205095|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:27:36.834281|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:27:36.834301|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:27:36.834306|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:27:37.205190|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:27:56.834330|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:27:56.834352|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:27:56.834356|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:27:57.205262|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:28:16.834383|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:28:16.834403|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:28:16.834408|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:28:17.205294|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:28:36.834483|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:28:36.834531|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:28:36.834536|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:28:37.205323|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:28:56.834560|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:28:56.834581|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:28:56.834585|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:28:57.205329|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:29:16.834615|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:29:16.834638|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:29:16.834643|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:29:17.205403|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:29:36.834665|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:29:36.834686|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:29:36.834691|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:29:37.205415|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:29:56.834777|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:29:56.834860|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:29:56.834864|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:29:57.205391|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:30:16.834888|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:30:16.834908|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:30:16.834913|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:30:17.205402|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:30:36.834938|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:30:36.834959|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:30:36.834964|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:30:37.205411|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:30:56.834989|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:30:56.835009|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:30:56.835014|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:30:57.205422|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:31:16.835041|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:31:16.835061|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:31:16.835066|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:31:17.205431|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:31:36.835107|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:31:36.835179|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:31:36.835188|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:31:37.205441|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:31:56.835249|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:31:56.835269|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:31:56.835273|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:31:57.205524|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:32:16.835303|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:32:16.835324|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:32:16.835328|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:32:17.205538|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:32:36.835353|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:32:36.835374|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:32:36.835378|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:32:37.205525|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:32:56.835401|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:32:56.835420|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:32:56.835425|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:32:57.205536|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:33:16.835447|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:33:16.835467|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:33:16.835472|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:33:17.205609|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:33:36.835501|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:33:36.835521|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:33:36.835525|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:33:37.205642|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:33:56.835553|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:33:56.835574|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:33:56.835578|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:33:57.205761|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:34:16.835659|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:34:16.835679|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:34:16.835684|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:34:17.205772|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:34:36.835730|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:34:36.835762|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:34:36.835769|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:34:37.205785|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:34:56.835800|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:34:56.835823|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:34:56.835828|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:34:57.205794|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:35:16.835855|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:35:16.835879|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:35:16.835883|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:35:17.205803|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:35:36.835907|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:35:36.835929|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:35:36.835933|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:35:37.205861|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:35:56.835981|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:35:56.836004|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:35:56.836008|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:35:57.205837|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:36:16.836080|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:36:16.836160|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:36:16.836165|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:36:17.205846|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:36:36.836235|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:36:36.836311|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:36:36.836316|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:36:37.205857|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:36:56.836344|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:36:56.836365|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:36:56.836370|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:36:57.205868|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:37:16.836396|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:37:16.836418|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:37:16.836422|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:37:17.205879|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:37:36.836454|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:37:36.836478|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:37:36.836483|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:37:37.205890|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:37:56.836523|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:37:56.836551|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:37:56.836556|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:37:57.205898|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:38:16.836584|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:38:16.836607|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:38:16.836612|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:38:17.205907|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:38:36.836691|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:38:36.836770|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:38:36.836781|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:38:37.205921|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:38:56.836811|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:38:56.836832|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:38:56.836836|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:38:57.205930|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:39:16.836904|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:39:16.836925|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:39:16.836929|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:39:17.205939|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:39:36.836965|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:39:36.836991|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:39:36.836996|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:39:37.206006|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:39:56.837022|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:39:56.837046|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:39:56.837050|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:39:57.205980|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:40:16.837087|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:40:16.837112|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:40:16.837117|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:40:17.206050|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:40:36.837146|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:40:36.837172|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:40:36.837176|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:40:37.206089|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:40:56.837210|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:40:56.837233|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:40:56.837237|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:40:57.206123|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:41:16.837314|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:41:16.837334|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:41:16.837339|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:41:17.206180|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:41:36.837364|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:41:36.837384|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:41:36.837389|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:41:37.206226|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:41:56.837418|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:41:56.837441|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:41:56.837445|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:41:57.206198|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:42:16.837468|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:42:16.837487|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:42:16.837491|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:42:17.206210|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:42:36.837523|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:42:36.837546|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:42:36.837551|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:42:37.206219|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:42:56.837582|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:42:56.837605|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:42:56.837609|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:42:57.206229|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:43:16.837688|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:43:16.837750|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:43:16.837755|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:43:17.206239|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:43:36.837780|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:43:36.837803|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:43:36.837808|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:43:37.206295|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:43:56.837885|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:43:56.837910|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:43:56.837915|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:43:57.206328|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:44:16.838075|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:44:16.838135|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:44:16.838140|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:44:17.206334|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:44:36.838166|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:44:36.838187|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:44:36.838191|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:44:37.206346|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:44:56.838272|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:44:56.838332|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:44:56.838336|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:44:57.206352|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:45:16.838361|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:45:16.838381|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:45:16.838385|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:45:17.206363|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:45:36.838406|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:45:36.838425|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:45:36.838430|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:45:37.206371|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:45:56.838453|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:45:56.838474|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:45:56.838478|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:45:57.206381|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:46:16.838553|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:46:16.838601|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:46:16.838605|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:46:17.206388|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:46:36.838632|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:46:36.838652|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:46:36.838656|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:46:37.206399|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:46:56.838687|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:46:56.838709|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:46:56.838713|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:46:57.206406|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:47:16.838745|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:47:16.838766|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:47:16.838771|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:47:17.206416|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:47:36.838860|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:47:36.838928|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:47:36.838932|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:47:37.206423|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:47:56.838985|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:47:56.839007|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:47:56.839011|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:47:57.206480|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:48:16.839038|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:48:16.839059|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:48:16.839063|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:48:17.206578|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:48:36.839138|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:48:36.839239|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:48:36.839243|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:48:37.206555|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:48:56.839270|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:48:56.839290|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:48:56.839295|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:48:57.206564|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:49:16.839323|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:49:16.839343|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:49:16.839347|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:49:17.206622|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:49:36.839376|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:49:36.839396|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:49:36.839401|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:49:37.206615|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:49:56.839429|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:49:56.839450|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:49:56.839455|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:49:57.206625|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:50:16.839482|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:50:16.839502|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:50:16.839507|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:50:17.206634|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:50:36.839534|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:50:36.839554|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:50:36.839559|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:50:37.206643|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:50:56.839588|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:50:56.839608|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:50:56.839612|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:50:57.206658|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:51:16.839683|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:51:16.839767|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:51:16.839783|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:51:17.206672|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:51:36.839850|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:51:36.839873|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:51:36.839877|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:51:37.206681|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:51:56.839970|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:51:56.840041|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:51:56.840046|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:51:57.206691|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:52:16.840117|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:52:16.840140|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:52:16.840144|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:52:17.206704|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:52:36.840211|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:52:36.840232|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:52:36.840236|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:52:37.206773|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:52:56.840258|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:52:56.840278|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:52:56.840283|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:52:57.206817|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:53:16.840307|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:53:16.840327|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:53:16.840331|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:53:17.206829|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:53:36.840356|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:53:36.840379|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:53:36.840383|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:53:37.206898|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:53:56.840406|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:53:56.840427|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:53:56.840432|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:53:57.206932|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:54:16.840457|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:54:16.840478|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:54:16.840483|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:54:17.206970|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:54:36.840574|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:54:36.840616|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:54:36.840620|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:54:37.207002|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:54:56.840667|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:54:56.840787|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:54:56.840797|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:54:57.207039|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:55:16.840958|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:55:16.841024|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:55:16.841028|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:55:17.207013|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:55:36.841096|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:55:36.841119|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:55:36.841123|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:55:37.207068|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:55:56.841190|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:55:56.841212|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:55:56.841216|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:55:57.207104|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:56:16.841254|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:56:16.841275|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:56:16.841280|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:56:17.207171|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:56:36.841308|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:56:36.841329|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:56:36.841334|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:56:37.207178|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:56:56.841360|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:56:56.841381|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:56:56.841386|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:56:57.207208|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:57:16.841410|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:57:16.841430|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:57:16.841435|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:57:17.207198|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:57:36.841484|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:57:36.841515|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:57:36.841520|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:57:37.207208|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:57:56.841551|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:57:56.841577|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:57:56.841581|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:57:57.207284|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:58:16.841610|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:58:16.841630|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:58:16.841635|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:58:17.207314|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:58:36.841664|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:58:36.841685|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:58:36.841689|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:58:37.207324|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:58:56.841763|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:58:56.841787|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:58:56.841792|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:58:57.207324|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:59:16.841881|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:59:16.841967|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:59:16.841971|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:59:17.207392|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:59:36.842052|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:59:36.842076|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:59:36.842081|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:59:37.207367|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
+info|2025-12-11 19:59:56.842104|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE]connected nodes,count=2
+debug|2025-12-11 19:59:56.842124|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20200,writeQueueSize=0,callbackQueueSize=0
+debug|2025-12-11 19:59:56.842129|timerFactory-0x000072bd677fe640|[SDK][WS][SERVICE][stat]session write queue status,endpoint=127.0.0.1:20201,writeQueueSize=0,callbackQueueSize=0
+info|2025-12-11 19:59:57.207380|sdkEventLoop-0x000072bca77fd640|[EVENT][SUB][doLoop]event sub tasks,working event sub count=0,suspend event sub count=0
