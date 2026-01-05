@@ -1,0 +1,73 @@
+{
+  "relayer": {
+    "name": "CrossChain-Relayer-01",
+    "privateKey": "0x...",
+    "logLevel": "info",
+    "blockConfirmations": 3,
+    "retryAttempts": 3,
+    "retryDelay": 5000
+  },
+  "chains": [
+    {
+      "chainId": "FISCO_BCOS_NET_01",
+      "type": "FISCO_BCOS",
+      "enabled": true,
+      "rpc": {
+        "host": "127.0.0.1",
+        "port": 20200,
+        "groupId": 1
+      },
+      "contracts": {
+        "gateway": "0x...",
+        "registry": "0x...",
+        "lightClient": "0x..."
+      },
+      "certificates": {
+        "ca": "./certs/fisco/ca.crt",
+        "node": "./certs/fisco/node.crt",
+        "nodeKey": "./certs/fisco/node.key"
+      },
+      "monitoring": {
+        "startBlock": "latest",
+        "pollInterval": 3000,
+        "events": [
+          "CrossChainCall",
+          "MessageReceived"
+        ]
+      }
+    },
+    {
+      "chainId": "FABRIC_NET_01",
+      "type": "FABRIC",
+      "enabled": true,
+      "connection": {
+        "profilePath": "./connection-profiles/fabric-network.json",
+        "channelName": "mychannel",
+        "walletPath": "./wallets/fabric",
+        "identity": "relayerUser"
+      },
+      "contracts": {
+        "gateway": "gateway_cc",
+        "registry": "registry_cc",
+        "lightClient": "lightclient_cc"
+      },
+      "monitoring": {
+        "startBlock": "latest",
+        "pollInterval": 5000,
+        "events": [
+          "CrossChainCall",
+          "MessageReceived"
+        ]
+      }
+    }
+  ],
+  "database": {
+    "type": "sqlite",
+    "path": "./data/relayer.db"
+  },
+  "api": {
+    "enabled": true,
+    "port": 8080,
+    "host": "0.0.0.0"
+  }
+}

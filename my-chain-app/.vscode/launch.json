@@ -1,0 +1,19 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch & Debug",
+            "runtimeExecutable": "/root/.nvm/versions/node/v20.19.5/bin/node", // 明确指定路径
+            "program": "${workspaceFolder}/src/app.js",   // 入口文件
+            "console": "integratedTerminal",
+            "autoAttachChildProcesses": true,        // 子进程也断
+            "env": { "NODE_ENV": "development" }
+            
+        }
+    ]
+}

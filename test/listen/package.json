@@ -1,0 +1,19 @@
+{
+  "name": "fabric-event-listener",
+  "version": "1.0.0",
+  "description": "Fabric chaincode event listener",
+  "main": "listen/listen.js",
+  "scripts": {
+    "listen": "node listen/listen.js",
+    "app": "node app.js",
+    "invoke": "node invoke.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.0",
+    "@hyperledger/fabric-gateway": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+

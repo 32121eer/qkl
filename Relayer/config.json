@@ -1,0 +1,64 @@
+{
+  "relayer": {
+    "name": "CrossChain-Relayer-01",
+    "privateKey": "0xc85f4d8bb7b633cd48c2a7a8e4d62a4cf2a82404466d862a17d4692ff89744cf",
+    "logLevel": "info",
+    "blockConfirmations": 1,
+    "retryAttempts": 3,
+    "retryDelay": 5000
+  },
+  "chains": [
+    {
+      "chainId": "FABRIC_NET_01",
+      "type": "FABRIC",
+      "enabled": true,
+      "connection": {
+        "cryptoPath": "/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
+        "channelName": "mychannel",
+        "peerEndpoint": "localhost:7051",
+        "peerHostAlias": "peer0.org1.example.com",
+        "mspId": "Org1MSP"
+      },
+      "contracts": {
+        "gateway": "gateway_cc",
+        "registry": "registry_cc"
+      },
+      "monitoring": {
+        "startBlock": "0",
+        "pollInterval": 3000,
+        "events": [
+          "CrossChainCall",
+          "MessageReceived"
+        ]
+      }
+    },
+    {
+      "chainId": "FISCO_NET_01",
+      "type": "FISCO_BCOS",
+      "enabled": true,
+      "rpc": {
+        "endpoint": "http://127.0.0.1:8545"
+      },
+      "contracts": {
+        "gateway": "0xcceef68c9b4811b32c75df284a1396c7c5509561"
+      },
+      "monitoring": {
+        "startBlock": "latest",
+        "pollInterval": 3000,
+        "events": [
+          "CrossChainCall",
+          "MessageReceived"
+        ]
+      }
+    }
+  ],
+  "database": {
+    "type": "sqlite",
+    "path": "./data/relayer.db"
+  },
+  "api": {
+    "enabled": false,
+    "port": 8080,
+    "host": "0.0.0.0"
+  }
+}
