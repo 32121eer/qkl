@@ -1,0 +1,83 @@
+the error = [libproviders.so: 无法打开共享目标文件: 没有那个文件或目录]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-10 16:30:57] The fisco-bcos is running...
+nohup: failed to run command '/home/tr/projects/fisco-bcos/nodes/127.0.0.1/node0/../fisco-bcos': Permission denied
+nohup: failed to run command '/home/tr/projects/fisco-bcos/nodes/127.0.0.1/node0/../fisco-bcos': Permission denied
+nohup: failed to run command '/home/tr/projects/fisco-bcos/nodes/127.0.0.1/node0/../fisco-bcos': Permission denied
+nohup: failed to run command '/home/tr/projects/fisco-bcos/nodes/127.0.0.1/node0/../fisco-bcos': Permission denied
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:24:32] The fisco-bcos is running...
+[2025-12-25 20:28:23] exit because receive signal 15
+[2025-12-25 20:28:23] fisco-bcos program exit normally.
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:28:27] start fisco-bcos failed, error:/home/ci/actions-runner/_work/FISCO-BCOS/FISCO-BCOS/build/vcpkg_installed/x64-linux/include/boost/property_tree/ini_parser.hpp(172): Throw in function void boost::property_tree::ini_parser::read_ini(const string&, Ptree&, const std::locale&) [with Ptree = boost::property_tree::basic_ptree<std::basic_string<char>, std::basic_string<char> >; std::string = std::basic_string<char>]
+Dynamic exception type: boost::wrapexcept<boost::property_tree::ini_parser::ini_parser_error>
+std::exception::what: config.ini(34): duplicate key name
+
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:33:26] start fisco-bcos failed, error:/home/ci/actions-runner/_work/FISCO-BCOS/FISCO-BCOS/bcos-tool/bcos-tool/NodeConfig.cpp(661): Throw in function virtual void bcos::tool::NodeConfig::loadStorageSecurityConfig(const ptree&)
+Dynamic exception type: boost::wrapexcept<bcos::InvalidParameter>
+std::exception::what: std::exception
+[bcos::tag_comment*] = initGlobalConfig storage_security failed! Invalid key_center_url!
+
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:36:28] start fisco-bcos failed, error:/home/ci/actions-runner/_work/FISCO-BCOS/FISCO-BCOS/bcos-tool/bcos-tool/NodeConfig.cpp(661): Throw in function virtual void bcos::tool::NodeConfig::loadStorageSecurityConfig(const ptree&)
+Dynamic exception type: boost::wrapexcept<bcos::InvalidParameter>
+std::exception::what: std::exception
+[bcos::tag_comment*] = initGlobalConfig storage_security failed! Invalid key_center_url!
+
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:39:12] start fisco-bcos failed, error:/home/ci/actions-runner/_work/FISCO-BCOS/FISCO-BCOS/bcos-tool/bcos-tool/NodeConfig.cpp(661): Throw in function virtual void bcos::tool::NodeConfig::loadStorageSecurityConfig(const ptree&)
+Dynamic exception type: boost::wrapexcept<bcos::InvalidParameter>
+std::exception::what: std::exception
+[bcos::tag_comment*] = initGlobalConfig storage_security failed! Invalid key_center_url!
+
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:42:43] The fisco-bcos is running...
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 20:42:43] start fisco-bcos failed, error:/home/ci/actions-runner/_work/FISCO-BCOS/FISCO-BCOS/bcos-boostssl/bcos-boostssl/httpserver/HttpServer.cpp(71): Throw in function void bcos::boostssl::http::HttpServer::start()
+Dynamic exception type: boost::wrapexcept<std::runtime_error>
+std::exception::what: acceptor bind failed
+
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2025-12-25 21:25:41] The fisco-bcos is running...
+[2025-12-25 21:45:50] exit because receive signal 15

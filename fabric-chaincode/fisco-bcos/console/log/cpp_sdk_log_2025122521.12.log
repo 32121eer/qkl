@@ -1,0 +1,25 @@
+info|2025-12-25 21:12:55.077432|java-0x00007f5274bff6c0|[SDK][WS][SERVICE],[NEWOBJ][WsService]=0x7f5270721070
+info|2025-12-25 21:12:55.077531|java-0x00007f5274bff6c0|[RPCWS][SERVICE]init the local protocol,minVersion=0,maxVersion=2,module=2
+info|2025-12-25 21:12:55.077578|java-0x00007f5274bff6c0|[DEFAULT][WS][INITIALIZER][initWsService]start websocket service as client,connected endpoints size=1
+info|2025-12-25 21:12:55.077589|java-0x00007f5274bff6c0|[DEFAULT][WS][INITIALIZER][initWsService]initializer for websocket service,listenIP=,listenPort=0,disableSsl=true,server=false,client=true,maxMsgSize=33554432,msgTimeOut=10000,connected peers=1
+info|2025-12-25 21:12:55.077604|java-0x00007f5274bff6c0|[buildJsonRpc]build json rpc,sendRequestToHighestBlockNode=true
+info|2025-12-25 21:12:55.077616|java-0x00007f5274bff6c0|[bcos_sdk_create][NEWOBJ],sdk=0x7f5270723640,version=FISCO BCOS C SDK Version : 3.7.0
+Build Time         : 20240325 09:59:11
+Build Type         : Linux/g++/MinSizeRel
+Git Branch         : 
+Git Commit         : 0
+,peers_count=1,disable_ssl=1,message_timeout_ms=10000,reconnect_period_ms=20000,heartbeat_period_ms=20000,send_rpc_request_to_highest_block_node=1
+info|2025-12-25 21:12:55.211994|java-0x00007f5274bff6c0|[bcos_sdk_start],sdk=0x7f5270723640
+info|2025-12-25 21:12:55.212070|java-0x00007f5274bff6c0|[startThread]start the timer thread
+info|2025-12-25 21:12:55.212283|timerFactory-0x00007f522bfff6c0|[startThread]the timer thread start,threadName=timerFactory
+info|2025-12-25 21:12:55.214004|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][CONNECTOR][connectToWsServer]async_connect success,endpoint=127.0.0.1:20203
+info|2025-12-25 21:12:55.214059|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x7f519c0051b0
+info|2025-12-25 21:12:55.214077|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][CONNECTOR][connectToWsServer]ssl async_handshake success,host=127.0.0.1,port=20203
+warning|2025-12-25 21:12:55.214502|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][CONNECTOR][connectToWsServer]websocket async_handshake failed,message=end of stream,host=127.0.0.1,port=20203
+info|2025-12-25 21:12:55.214557|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x7f519c0051b0
+info|2025-12-25 21:12:55.214617|ioService-0x00007f522a7fc6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x7f519c0051b0
+info|2025-12-25 21:12:55.215272|java-0x00007f5274bff6c0|[stopThread]stop the timer thread
+info|2025-12-25 21:12:55.215366|timerFactory-0x00007f522bfff6c0|[startThread]the timer thread stop
+error|2025-12-25 21:12:55.215568|java-0x00007f5274bff6c0|[bcos_sdk_start],sdk=0x7f5270723640,errorMsg=/usr/local/share/vcpkg/buildtrees/fisco-bcos-cpp-sdk/src/ca52207e71-760710030d.clean/bcos-boostssl/bcos-boostssl/websocket/WsService.cpp(255): Throw in function void bcos::boostssl::ws::WsService::syncConnectToEndpoints(bcos::boostssl::ws::EndPointsPtr)
+Dynamic exception type: boost::wrapexcept<std::runtime_error>
+std::exception::what: [end of stream:/127.0.0.1:20203]
