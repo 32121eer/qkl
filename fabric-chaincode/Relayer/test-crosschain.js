@@ -12,8 +12,13 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { TextDecoder } = require('node:util');
 
-// Fabric 配置
-const cryptoPath = '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
+// ============================================================================
+// 【可配置】Fabric 网络路径
+// 注意：这里需要指向 fabric-samples 中的证书目录
+// 如果您的 fabric-samples 在不同位置，请修改此变量
+// 也可以通过环境变量 FABRIC_CRYPTO_PATH 覆盖
+// ============================================================================
+const cryptoPath = process.env.FABRIC_CRYPTO_PATH || '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
 const mspId = 'Org1MSP';
 const channelName = 'mychannel';
 const peerEndpoint = 'localhost:7051';
@@ -124,9 +129,9 @@ async function main() {
         console.error('\n❌ 错误:', error.message);
         if (error.message.includes('no such chaincode')) {
             console.log('\n提示: gateway_cc 链码可能未安装。');
-            console.log('请先部署链码：');
+            console.log('请先部署链码（请根据实际路径调整）：');
             console.log('  cd ~/fabric-samples/test-network');
-            console.log('  ./network.sh deployCC -ccn gateway_cc -ccp /home/tr/projects/fabric-chaincode/my-chain-code/gateway_cc -ccl go');
+            console.log('  ./network.sh deployCC -ccn gateway_cc -ccp <cross-chain项目路径>/fabric-chaincode/my-chain-code/gateway_cc -ccl go');
         }
     } finally {
         gateway.close();

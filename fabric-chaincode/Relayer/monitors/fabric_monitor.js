@@ -68,13 +68,19 @@ async function findFirstFile(dirPath) {
     return path.join(dirPath, file);
 }
 
-// Path to crypto materials.
+// ============================================================================
+// 【可配置】Fabric 网络配置
+// 这些值可以通过环境变量覆盖，也可以直接修改下面的默认值
+// 注意：cryptoPath 指向 fabric-samples 中的证书目录，不在本项目内
+// ============================================================================
 
 const channelName = envOrDefault('CHANNEL_NAME', 'mychannel');
 const chaincodeName = envOrDefault('CHAINCODE_NAME', 'basic');
 const mspId = envOrDefault('MSP_ID', 'Org1MSP');
 
-const cryptoPath = '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com'
+// 【可配置】fabric-samples 证书路径
+// 如果您的 fabric-samples 在不同位置，请修改此路径或设置环境变量 FABRIC_CRYPTO_PATH
+const cryptoPath = envOrDefault('FABRIC_CRYPTO_PATH', '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com');
 
 // Path to user private key directory.
 const keyDirectoryPath = envOrDefault(

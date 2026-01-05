@@ -12,17 +12,23 @@
 
 ## 二、关键路径
 
-| 组件 | 路径 |
-|------|------|
-| FISCO 节点 | `/home/tr/projects/fisco-bcos/nodes/127.0.0.1/` |
-| FISCO Console | `/home/tr/projects/fisco-bcos/console/` |
-| Fabric 网络 | `/home/tr/fabric-samples/test-network/` |
-| Relayer | `/home/tr/projects/fabric-chaincode/Relayer/` |
-| Gateway 链码 | `/home/tr/projects/fabric-chaincode/my-chain-code/gateway_cc/` |
+> **注意**：以下路径假设项目克隆在 `/home/tr/projects/cross-chain/`，请根据实际情况调整。
+
+| 组件 | 路径 | 说明 |
+|------|------|------|
+| **项目根目录** | `/home/tr/projects/cross-chain/` | 可配置 |
+| FISCO 节点 | `<项目根目录>/fisco-bcos/nodes/127.0.0.1/` | 项目内部 |
+| FISCO Console | `<项目根目录>/fisco-bcos/console/` | 项目内部 |
+| Relayer | `<项目根目录>/fabric-chaincode/Relayer/` | 项目内部 |
+| Gateway 链码 | `<项目根目录>/fabric-chaincode/my-chain-code/gateway_cc/` | 项目内部 |
+| **Fabric 网络** | `/home/tr/fabric-samples/test-network/` | 外部依赖，需单独配置 |
 
 ## 三、关键配置文件
 
-### 1. Relayer 配置 (`Relayer/config.json`)
+### 1. Relayer 配置 (`Relayer/config.json`) 【需要配置】
+
+> ⚠️ **重要配置文件**：需根据实际环境修改 `cryptoPath` 和 FISCO 合约地址
+
 ```json
 {
   "relayer": {
@@ -48,6 +54,10 @@
 }
 ```
 
+**需要根据实际环境修改的字段：**
+- `chains[0].connection.cryptoPath` - Fabric 证书路径
+- `chains[1].contracts.gateway` - FISCO Gateway 合约地址（每次部署会变化）
+
 ### 2. FISCO Console 配置 (`console/conf/config.toml`)
 ```toml
 [cryptoMaterial]
@@ -65,76 +75,52 @@ peers=["127.0.0.1:20203"]
 ## 四、一键启动脚本
 
 ### `start-all.sh` - 启动所有服务
+
+> 该脚本已改用相对路径，会自动检测项目根目录。  
+> 如需修改 fabric-samples 位置，可设置环境变量 `FABRIC_SAMPLES_DIR`
+
 ```bash
-#!/bin/bash
-set -e
+# 使用方式（在 Relayer 目录下执行）：
+cd <项目根目录>/fabric-chaincode/Relayer
+./start-all.sh
 
-echo "========== 跨链系统启动脚本 =========="
-
-# 1. 修复权限
-echo "[1/5] 修复脚本权限..."
-chmod -R +x /home/tr/projects/fisco-bcos/nodes/127.0.0.1/*.sh
-chmod -R +x /home/tr/projects/fisco-bcos/nodes/127.0.0.1/node*/*.sh
-chmod +x /home/tr/projects/fisco-bcos/console/*.sh
-
-# 2. 启动 FISCO 节点
-echo "[2/5] 启动 FISCO 节点..."
-cd /home/tr/projects/fisco-bcos/nodes/127.0.0.1
-./stop_all.sh 2>/dev/null || true
-sleep 2
-./start_all.sh
-sleep 5
-echo "  FISCO 节点数量: $(ps aux | grep fisco-bcos | grep -v grep | wc -l)"
-
-# 3. 启动 Fabric 网络
-echo "[3/5] 启动 Fabric 网络..."
-cd /home/tr/fabric-samples/test-network
-./network.sh down 2>/dev/null || true
-./network.sh up createChannel -c mychannel
-sleep 3
-
-# 4. 部署 Fabric 链码
-echo "[4/5] 部署 gateway_cc 链码..."
-./network.sh deployCC -ccn gateway_cc -ccp /home/tr/projects/fabric-chaincode/my-chain-code/gateway_cc -ccl go
-
-# 5. 提示启动 Relayer
-echo "[5/5] 请在新终端启动 Relayer:"
-echo "  cd /home/tr/projects/fabric-chaincode/Relayer && npm start"
-
-echo ""
-echo "========== 启动完成 =========="
-echo "FISCO RPC: http://127.0.0.1:8545"
-echo "FISCO SDK: 127.0.0.1:20203"
-echo "Fabric Peer: localhost:7051"
+# 或者指定 fabric-samples 路径：
+FABRIC_SAMPLES_DIR=/your/path/fabric-samples ./start-all.sh
 ```
 
 ### `start-relayer.sh` - 启动 Relayer
 ```bash
 #!/bin/bash
-cd /home/tr/projects/fabric-chaincode/Relayer
+# 进入 Relayer 目录并启动
+cd "$(dirname "$0")"
 npm start
 ```
 
 ### `start-console.sh` - 启动 FISCO Console
 ```bash
 #!/bin/bash
-cd /home/tr/projects/fisco-bcos/console
-/usr/lib/jvm/java-11-openjdk-amd64/bin/java -cp "apps/*:lib/*:conf/" console.Console
+# 进入 console 目录并启动
+cd "$(dirname "$0")/../../fisco-bcos/console"
+./start.sh
+# 如果 start.sh 报错，可尝试直接使用 Java 11：
+# /usr/lib/jvm/java-11-openjdk-amd64/bin/java -cp "apps/*:lib/*:conf/" console.Console
 ```
 
 ## 五、快速启动流程
 
+> 假设项目根目录为 `~/projects/cross-chain`
+
 ```bash
-# 终端 1: 启动区块链
-cd /home/tr/projects/fabric-chaincode/Relayer
+# 终端 1: 启动区块链（FISCO + Fabric + 部署链码）
+cd ~/projects/cross-chain/fabric-chaincode/Relayer
 ./start-all.sh
 
 # 终端 2: 启动 Relayer
-cd /home/tr/projects/fabric-chaincode/Relayer
+cd ~/projects/cross-chain/fabric-chaincode/Relayer
 npm start
 
 # 终端 3: 启动 FISCO Console (用于测试)
-cd /home/tr/projects/fisco-bcos/console
+cd ~/projects/cross-chain/fisco-bcos/console
 ./start.sh
 # 如果报错用 Java 11:
 # /usr/lib/jvm/java-11-openjdk-amd64/bin/java -cp "apps/*:lib/*:conf/" console.Console
@@ -207,35 +193,46 @@ execSync(cmd);
 ## 十、文件结构
 
 ```
-fabric-chaincode/
-├── Relayer/
-│   ├── index.js              # 入口
-│   ├── relayer.js            # 核心调度
-│   ├── config.json           # 配置
-│   ├── monitors/
-│   │   ├── fabric_monitor.js # Fabric 事件监听
-│   │   └── fisco_bcos_monitor.js # FISCO 事件监听
-│   ├── handlers/
-│   │   └── message_handler.js # 消息转发
-│   ├── abi/
-│   │   └── Gateway.json      # FISCO 合约 ABI
-│   ├── test-crosschain.js    # 测试脚本 (Fabric→FISCO)
-│   └── test-fisco-call.js    # FISCO 调用测试
-└── my-chain-code/
-    └── gateway_cc/           # Fabric 链码
-        └── gateway_cc.go
-
-fisco-bcos/
-├── nodes/127.0.0.1/
-│   ├── node0-3/              # 4 个节点
-│   └── start_all.sh
-├── console/
-│   ├── conf/config.toml      # Console 配置
-│   └── contracts/solidity/
-│       └── Gateway.sol       # FISCO 合约
+cross-chain/                        # 项目根目录
+├── CROSSCHAIN_GUIDE.md             # 操作指南（本文档）
+├── CROSSCHAIN_HANDOVER.md          # 对接文档
+├── fabric-chaincode/
+│   ├── Relayer/
+│   │   ├── index.js                # 入口
+│   │   ├── relayer.js              # 核心调度
+│   │   ├── config.json             # 【需配置】主配置文件
+│   │   ├── monitors/
+│   │   │   ├── fabric_monitor.js   # Fabric 事件监听
+│   │   │   └── fisco_bcos_monitor.js # FISCO 事件监听
+│   │   ├── handlers/
+│   │   │   └── message_handler.js  # 消息转发
+│   │   ├── abi/
+│   │   │   └── Gateway.json        # FISCO 合约 ABI
+│   │   ├── start-all.sh            # 一键启动脚本
+│   │   ├── test-crosschain.js      # 测试脚本 (Fabric→FISCO)
+│   │   └── test-fisco-call.js      # FISCO 调用测试
+│   └── my-chain-code/
+│       └── gateway_cc/             # Fabric 链码
+│           └── gateway_cc.go
+└── fisco-bcos/
+    ├── nodes/127.0.0.1/
+    │   ├── node0-3/                # 4 个节点
+    │   └── start_all.sh
+    └── console/
+        ├── conf/config.toml        # Console 配置
+        └── contracts/solidity/
+            └── Gateway.sol         # FISCO 合约
 ```
+
+## 十一、配置文件汇总
+
+| 文件 | 位置 | 需要配置的内容 |
+|------|------|----------------|
+| `config.json` | `fabric-chaincode/Relayer/` | Fabric 证书路径、FISCO 合约地址 |
+| `config.toml` | `fisco-bcos/console/conf/` | FISCO 节点连接端口 |
+| 环境变量 | 启动脚本 | `FABRIC_SAMPLES_DIR`（可选） |
 
 ---
 
-**最后更新**: 2025-12-25
+**最后更新**: 2026-01-05
 

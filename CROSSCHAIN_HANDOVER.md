@@ -207,11 +207,13 @@ async relayToFiscoBcos(targetChain, message) {
 ### 7.2 运行 Relayer
 
 ```bash
-cd Relayer
-unset http_proxy https_proxy  # 清除代理
+cd <项目根目录>/fabric-chaincode/Relayer
+unset http_proxy https_proxy  # 清除代理（避免连接本地服务时走代理）
 npm install
 npm start
 ```
+
+> **注意**：运行前请确保 `config.json` 中的配置正确，特别是 Fabric 证书路径和 FISCO 合约地址。
 
 ---
 
@@ -223,50 +225,17 @@ npm start
 |------|------|
 | Fabric 链码 (registry_cc, gateway_cc) | ✅ 已完成 |
 | Fabric 监听器 (fabric_monitor.js) | ✅ 已完成 |
-| FISCO 合约 | ✅ 已完成（由 FISCO 端同事完成） |
-| FISCO 监听器 (fisco_bcos_monitor.js) | ❌ 待完成 |
-| 消息转发到 FISCO (message_handler.js) | ❌ 待完成 |
+| FISCO 合约 | ✅ 已完成 |
+| FISCO 监听器 (fisco_bcos_monitor.js) | ✅ 已完成 |
+| 消息转发到 FISCO (message_handler.js) | ✅ 已完成（需通过 Console 手动确认） |
+| 消息转发到 Fabric (message_handler.js) | ✅ 已完成 |
 
-### 需要完成的代码
+### 已完成的核心功能
 
-#### 1. `Relayer/monitors/fisco_bcos_monitor.js`
-
-当前状态：空壳代码，核心逻辑被注释
-
-需要实现：
-```javascript
-async initialize() {
-    // 使用 FISCO SDK 连接节点
-    // 例如：const { Web3jService } = require('fisco-bcos-sdk');
-}
-
-async poll() {
-    // 轮询新区块
-    // 获取区块中的交易和事件
-}
-
-async parseBlockEvents(block) {
-    // 解析 CrossChainCall 事件
-    // 触发 this.emit('crossChainEvent', {...})
-}
-```
-
-#### 2. `Relayer/handlers/message_handler.js` 中的 `relayToFiscoBcos()`
-
-当前状态：第 87-113 行，逻辑被注释
-
-需要实现：
-```javascript
-async relayToFiscoBcos(targetChain, message) {
-    // 使用 FISCO SDK 调用 Gateway 合约的 receive() 方法
-    // 参数：
-    //   - message.sourceChainId    源链 ID
-    //   - message.sourceTxHash     Fabric 交易哈希
-    //   - message.sourceBlockNumber Fabric 区块号
-    //   - message.payload          消息内容
-    //   - message.merkleProof      Merkle 证明
-}
-```
+- ✅ FISCO 监听器：使用 ethers.js 连接 FISCO-BCOS 节点，轮询新区块并解析 CrossChainCall 事件
+- ✅ Fabric 监听器：使用 fabric-gateway 和 fabric-protos 解析区块事件
+- ✅ 双向消息转发：Fabric → FISCO 和 FISCO → Fabric
+- ⚠️ FISCO 写入限制：由于 ethers.js 与 FISCO-BCOS 的 nonce 格式不完全兼容，写入交易需要通过 FISCO Console 手动执行
 
 ### 后续优化（可选）
 
@@ -274,6 +243,7 @@ async relayToFiscoBcos(targetChain, message) {
 |------|------|
 | LightClient 验证 | 实现区块头验证 |
 | Merkle 证明 | 实现交易存在性证明 |
+| FISCO 自动写入 | 集成 FISCO Java SDK 或 Python SDK 实现自动写入 |
 
 ---
 
@@ -290,21 +260,29 @@ async relayToFiscoBcos(targetChain, message) {
 
 ## 十、代码位置
 
+> 项目根目录：`/home/tr/projects/cross-chain/`（可根据实际克隆位置调整）
+
 ```
-fabric-chaincode/
-├── my-chain-code/
-│   ├── registry_cc/      # 链注册表链码
-│   ├── gateway_cc/       # 跨链网关链码
-│   └── deploy-chaincode.sh
-├── Relayer/
-│   ├── index.js          # 入口
-│   ├── relayer.js        # 核心服务
-│   ├── config.json       # 配置文件
-│   ├── monitors/
-│   │   ├── fabric_monitor.js      # Fabric 监听器 ✅
-│   │   └── fisco_bcos_monitor.js  # FISCO 监听器（待完善）
-│   └── handlers/
-│       └── message_handler.js     # 消息处理（待完善）
-└── CROSSCHAIN_HANDOVER.md         # 本文档
+cross-chain/                        # 项目根目录
+├── CROSSCHAIN_GUIDE.md             # 操作指南
+├── CROSSCHAIN_HANDOVER.md          # 本文档
+├── fabric-chaincode/
+│   ├── my-chain-code/
+│   │   ├── registry_cc/            # 链注册表链码
+│   │   ├── gateway_cc/             # 跨链网关链码
+│   │   └── deploy-chaincode.sh
+│   └── Relayer/
+│       ├── index.js                # 入口
+│       ├── relayer.js              # 核心服务
+│       ├── config.json             # 【需配置】主配置文件
+│       ├── start-all.sh            # 一键启动脚本
+│       ├── monitors/
+│       │   ├── fabric_monitor.js   # Fabric 监听器 ✅
+│       │   └── fisco_bcos_monitor.js  # FISCO 监听器 ✅
+│       └── handlers/
+│           └── message_handler.js  # 消息处理 ✅
+└── fisco-bcos/
+    ├── nodes/127.0.0.1/            # FISCO 节点
+    └── console/                    # FISCO Console
 ```
 
