@@ -9,7 +9,7 @@
 
 const EventEmitter = require('events');
 const { FiscoBcosMonitor } = require('./monitors/fisco_bcos_monitor');
-const { FabricMonitor } = require('./monitors/fabric_monitor');
+const FabricMonitor = require('./monitors/fabric_monitor');
 const { BlockHeaderExtractor } = require('./extractors/block_header_extractor');
 const { MessageHandler } = require('./handlers/message_handler');
 
@@ -147,6 +147,9 @@ class RelayerService extends EventEmitter {
                 targetChain: event.targetChainId,
                 txHash: event.txHash
             });
+
+            // 对需要顺序区块头的目标链（如 FISCO LightClient）先补齐区块头
+            await this.submitSequentialHeaders(sourceChainId, event.targetChainId, event.blockNumber);
             
             // 获取事件所在区块的信息
             const block = await this.getBlock(sourceChainId, event.blockNumber);
@@ -158,22 +161,30 @@ class RelayerService extends EventEmitter {
                 this.config.getChainConfig(sourceChainId)
             );
             
-            // 生成Merkle证明
-            const merkleProof = await this.generateMerkleProof(
-                sourceChainId,
-                event.blockNumber,
-                event.txHash
-            );
+            // 对于 receiveLite：不需要 Merkle proof，跳过
+            const targetChain = this.config.getChainConfig(event.targetChainId);
+            const receiveMethod = targetChain?.receiveMethod || 'receive';
+            let merkleProof = [];
             
-            // 构造跨链消息
+            if (receiveMethod === 'receive') {
+                // 只有 receive 需要 Merkle 证明
+                merkleProof = await this.generateMerkleProof(
+                    sourceChainId,
+                    event.blockNumber,
+                    event.txHash
+                );
+            }
+            
+            // 构造跨链消息（从 eventData 中提取完整信息）
+            const ed = event.eventData || {};
             const message = {
                 sourceChainId: sourceChainId,
                 targetChainId: event.targetChainId,
                 sourceTxHash: event.txHash,
                 sourceBlockNumber: event.blockNumber,
-                targetContract: event.targetContract,
-                targetFunction: event.targetFunction,
-                payload: event.payload,
+                targetContract: ed.targetContract || event.targetContract,
+                targetFunction: ed.method || event.targetFunction,
+                payload: ed.data || JSON.stringify(ed),
                 merkleProof: merkleProof,
                 blockHeader: blockHeader
             };
@@ -190,6 +201,53 @@ class RelayerService extends EventEmitter {
         } catch (error) {
             console.error(`[Relayer] Error handling cross-chain event:`, error);
             this.emit('error', { sourceChainId, event, error });
+        }
+    }
+
+    /**
+     * 确保提交到目标链的区块头是连续的（避免 LightClient 序号不连续）
+     */
+    async submitSequentialHeaders(sourceChainId, targetChainId, uptoBlockNumber) {
+        const targetChain = this.config.getChainConfig(targetChainId);
+        if (!targetChain || targetChain.type !== 'FISCO_BCOS') {
+            return;
+        }
+        if (!targetChain.contracts?.lightClient) {
+            return;
+        }
+
+        const targetMonitor = this.monitors.get(targetChainId);
+        if (!targetMonitor || typeof targetMonitor.getLightClientLatestBlockNumber !== 'function') {
+            return;
+        }
+
+        let latest = await targetMonitor.getLightClientLatestBlockNumber(sourceChainId);
+        if (latest === null || Number.isNaN(latest)) {
+            return;
+        }
+
+        // LightClient 为空时允许直接提交当前块；否则从 latest+1 开始补齐
+        let from = latest === 0 ? uptoBlockNumber : latest + 1;
+        if (from > uptoBlockNumber) {
+            return;
+        }
+
+        console.log(`[Relayer] Submitting ${sourceChainId} headers to ${targetChainId}: ${from} -> ${uptoBlockNumber}`);
+        for (let blockNum = from; blockNum <= uptoBlockNumber; blockNum++) {
+            // 实时查询最新高度，避免并发乱序提交
+            const currentLatest = await targetMonitor.getLightClientLatestBlockNumber(sourceChainId);
+            if (blockNum <= currentLatest) {
+                console.log(`[Relayer] Skip submit ${sourceChainId} #${blockNum} (already at ${currentLatest})`);
+                continue;
+            }
+            
+            const block = await this.getBlock(sourceChainId, blockNum);
+            const header = await this.extractor.extractBlockHeader(
+                sourceChainId,
+                block,
+                this.config.getChainConfig(sourceChainId)
+            );
+            await this.submitBlockHeaderToChain(targetChainId, header);
         }
     }
     

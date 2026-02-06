@@ -9,6 +9,10 @@ const { connect, hash, signers } = require('@hyperledger/fabric-gateway');
 const crypto = require('node:crypto');
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const { execFile } = require('child_process');
+const { promisify } = require('util');
+
+const execFileAsync = promisify(execFile);
 
 // Gateway 合约 ABI
 const GatewayABI = require('../abi/Gateway.json');
@@ -142,7 +146,7 @@ class MessageHandler {
     }
     
     /**
-     * 转发到 FISCO-BCOS
+     * 转发到 FISCO-BCOS（自动通过 console.sh 调用）
      */
     async relayToFiscoBcos(targetChain, message) {
         console.log(`[MessageHandler] Relaying to FISCO-BCOS chain ${targetChain.chainId}`);
@@ -151,15 +155,6 @@ class MessageHandler {
         console.log(`  - Source Block: ${message.sourceBlockNumber}`);
         
         try {
-            // 确保连接已建立
-            if (!this.fiscoGatewayContract) {
-                await this.initFiscoConnection(targetChain);
-            }
-            
-            if (!this.fiscoGatewayContract || !this.fiscoWallet) {
-                throw new Error('FISCO Gateway contract or wallet not initialized');
-            }
-            
             // 准备 payload
             let payloadBytes;
             if (typeof message.payload === 'string') {
@@ -170,45 +165,99 @@ class MessageHandler {
                 payloadBytes = ethers.toUtf8Bytes(JSON.stringify(message.payload));
             }
             
+            const payloadHex = '0x' + Buffer.from(payloadBytes).toString('hex');
+            
             // 准备 Merkle 证明
             const merkleProof = message.merkleProof || [];
-            const merkleProofBytes32 = merkleProof.map(p => {
-                if (typeof p === 'string' && p.startsWith('0x') && p.length === 66) {
-                    return p;
-                }
-                return ethers.zeroPadValue('0x00', 32);
+            const merkleProofArray = merkleProof.length > 0 
+                ? '[' + merkleProof.map(p => `"${p}"`).join(',') + ']'
+                : '[]';
+            
+            // 获取 receiveMethod（默认 "receive"）
+            const receiveMethod = targetChain.receiveMethod || 'receive';
+            const gatewayName = targetChain.gatewayName || 'GatewayAir';
+            
+            console.log(`[MessageHandler] Using receiveMethod: ${receiveMethod}`);
+            
+            // 构建 console.sh 命令参数
+            // 序列化 blockHeader 为 hex
+            let blockHeaderHex = '0x00';
+            if (message.blockHeader) {
+                blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
+            }
+            
+            let consoleArgs;
+            if (receiveMethod === 'receiveLite') {
+                // receiveLite(string sourceChain, uint256 sourceBlockNumber, string sourceTxId, bytes blockHeader)
+                consoleArgs = [
+                    'call',
+                    gatewayName,
+                    targetChain.contracts.gateway,
+                    'receiveLite',
+                    `"${message.sourceChainId}"`,
+                    String(message.sourceBlockNumber),
+                    `"${message.sourceTxHash}"`,
+                    blockHeaderHex
+                ];
+            } else {
+                // receiveMessage(string sourceChain, uint256 sourceBlockNumber, string sourceTxId, bytes blockHeader, bytes merkleProof)
+                consoleArgs = [
+                    'call',
+                    gatewayName,
+                    targetChain.contracts.gateway,
+                    'receiveMessage',
+                    `"${message.sourceChainId}"`,
+                    String(message.sourceBlockNumber),
+                    `"${message.sourceTxHash}"`,
+                    blockHeaderHex,
+                    merkleProofArray
+                ];
+            }
+            
+            console.log(`[MessageHandler] 🚀 Calling FISCO console.sh...`);
+            console.log(`  Command: ./console.sh ${consoleArgs.join(' ')}`);
+            
+            // 调用 console.sh
+            const consolePath = path.resolve(__dirname, '../../../fisco-bcos/console/console.sh');
+            const { stdout, stderr } = await execFileAsync(consolePath, consoleArgs, {
+                cwd: path.dirname(consolePath),
+                timeout: 30000 // 30秒超时
             });
             
-            // 调用 Gateway.receive()
-            console.log(`[MessageHandler] Calling Gateway.receive()...`);
+            console.log(`[MessageHandler] Console output:\n${stdout}`);
+            if (stderr) {
+                console.warn(`[MessageHandler] Console stderr:\n${stderr}`);
+            }
             
-            // FISCO-BCOS 不完全兼容标准以太坊交易
-            // 先尝试记录要调用的信息，用于后续手动验证或使用 FISCO console
-            console.log(`[MessageHandler] 📋 FISCO 调用参数:`);
-            console.log(`  合约: ${targetChain.contracts.gateway}`);
-            console.log(`  函数: receive`);
-            console.log(`  sourceChainId: ${message.sourceChainId}`);
-            console.log(`  sourceTxHash: ${message.sourceTxHash}`);
-            console.log(`  sourceBlockNumber: ${message.sourceBlockNumber}`);
-            console.log(`  payload: 0x${Buffer.from(payloadBytes).toString('hex')}`);
-            console.log(`  merkleProof: [${merkleProofBytes32.join(', ')}]`);
-            
-            // 模拟成功（实际需要通过 FISCO console 或 SDK 调用）
-            console.log(`[MessageHandler] ⚠️ 注意: FISCO 写入交易需要通过 console 工具执行`);
-            console.log(`[MessageHandler] 请在 FISCO console 中执行以下命令:`);
-            
-            const payloadHex = '0x' + Buffer.from(payloadBytes).toString('hex');
-            console.log(`  call Gateway ${targetChain.contracts.gateway} receive "${message.sourceChainId}" "${message.sourceTxHash}" ${message.sourceBlockNumber} ${payloadHex} []`);
-            
-            // 返回待处理状态
-            return { 
-                success: false, 
-                pending: true,
-                message: 'FISCO transaction requires manual execution via console'
-            };
+            // 检查交易状态（先检查 status，再看 hash）
+            const statusMatch = stdout.match(/transaction status:\s*(\d+)/);
+            if (statusMatch) {
+                if (statusMatch[1] === '0') {
+                    console.log(`[MessageHandler] ✅ FISCO transaction SUCCESS`);
+                    return { success: true };
+                } else {
+                    // status != 0 表示交易失败
+                    const receiptMsg = stdout.match(/Receipt message:\s*(.+)/);
+                    const errorDetail = receiptMsg ? receiptMsg[1].trim() : 'unknown';
+                    throw new Error(`FISCO transaction REVERTED (status=${statusMatch[1]}, reason=${errorDetail})`);
+                }
+            } else if (stdout.includes('transaction hash:')) {
+                // 有 hash 但没有 status 行，视为成功（query 调用）
+                console.log(`[MessageHandler] ✅ FISCO transaction SUCCESS (no status line)`);
+                return { success: true };
+            } else {
+                console.warn(`[MessageHandler] ⚠️ Cannot determine transaction status from console output`);
+                return { success: false, pending: true, output: stdout };
+            }
             
         } catch (error) {
-            console.error(`[MessageHandler] Failed to relay to FISCO:`, error.message);
+            console.error(`[MessageHandler] ❌ Failed to relay to FISCO:`, error.message);
+            if (error.stdout) {
+                console.error(`[MessageHandler] Console stdout: ${error.stdout}`);
+            }
+            if (error.stderr) {
+                console.error(`[MessageHandler] Console stderr: ${error.stderr}`);
+            }
             throw error;
         }
     }

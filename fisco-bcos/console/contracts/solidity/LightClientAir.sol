@@ -201,4 +201,20 @@ contract LightClientAir {
     {
         return blockHashes[chainId][blockNumber] != bytes32(0);
     }
+    
+    /**
+     * @dev 验证区块头（供 GatewayAir 调用）
+     * @param chainId 链ID
+     * @param blockNumber 区块号
+     * @param blockHeader 区块头（当前简化版不校验内容，仅检查区块是否已提交）
+     * @return 区块是否已验证
+     */
+    function verifyBlockHeader(
+        string memory chainId,
+        uint256 blockNumber,
+        bytes memory blockHeader
+    ) public view returns (bool) {
+        // 检查该区块是否已由可信中继者提交
+        return blockHashes[chainId][uint64(blockNumber)] != bytes32(0);
+    }
 }

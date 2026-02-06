@@ -6,9 +6,44 @@
 const EventEmitter = require('events');
 const { ethers } = require('ethers');
 const path = require('path');
+const { execFile } = require('node:child_process');
 
 // Gateway 合约 ABI
 const GatewayABI = require('../abi/Gateway.json');
+
+const LightClientAirABI = [
+    'function getLatestBlockNumber(string chainId) view returns (uint64)',
+    'function getBlockHash(string chainId, uint64 blockNumber) view returns (bytes32)',
+];
+
+function execFileAsync(file, args, options = {}) {
+    return new Promise((resolve, reject) => {
+        execFile(file, args, options, (error, stdout, stderr) => {
+            if (error) {
+                const details = [
+                    error.message,
+                    stdout ? `STDOUT:\n${stdout}` : '',
+                    stderr ? `STDERR:\n${stderr}` : '',
+                ].filter(Boolean).join('\n\n');
+                const err = new Error(details);
+                err.cause = error;
+                return reject(err);
+            }
+            resolve({ stdout, stderr });
+        });
+    });
+}
+
+function toBytes32Hex(v) {
+    if (!v) return ethers.ZeroHash;
+    if (typeof v === 'string') {
+        if (v.startsWith('0x') && v.length === 66) return v;
+        if (v.startsWith('0x')) return ethers.zeroPadValue(v, 32);
+        return ethers.zeroPadValue('0x' + v, 32);
+    }
+    // Buffer/Uint8Array
+    return ethers.zeroPadValue(ethers.hexlify(v), 32);
+}
 
 class FiscoBcosMonitor extends EventEmitter {
     constructor(config) {
@@ -185,22 +220,27 @@ class FiscoBcosMonitor extends EventEmitter {
             
             for (const event of events) {
                 console.log(`[FiscoBcosMonitor] 🎯 CrossChainCall event detected!`);
-                console.log(`  - Target Chain: ${event.args.targetChainId}`);
+                console.log(`  - Target Chain: ${event.args.targetChain}`);
                 console.log(`  - Target Contract: ${event.args.targetContract}`);
-                console.log(`  - Target Function: ${event.args.targetFunction}`);
-                console.log(`  - Nonce: ${event.args.nonce.toString()}`);
+                console.log(`  - Method: ${event.args.method}`);
+                console.log(`  - Data: ${event.args.data}`);
                 
                 // 只处理发往 Fabric 的跨链消息
-                const targetChainId = event.args.targetChainId;
-                if (targetChainId.toLowerCase().includes('fabric')) {
+                const targetChainId = event.args.targetChain;
+                if (targetChainId && targetChainId.toLowerCase().includes('fabric')) {
                     this.emit('crossChainEvent', {
                         txHash: event.transactionHash,
                         blockNumber: blockNumber,
-                        targetChainId: event.args.targetChainId,
+                        targetChainId: event.args.targetChain,
                         targetContract: event.args.targetContract,
-                        targetFunction: event.args.targetFunction,
-                        payload: event.args.payload,
-                        nonce: event.args.nonce.toString()
+                        targetFunction: event.args.method,
+                        payload: event.args.data,
+                        eventData: {
+                            targetChain: event.args.targetChain,
+                            targetContract: event.args.targetContract,
+                            method: event.args.method,
+                            data: event.args.data
+                        }
                     });
                 }
             }
@@ -218,117 +258,119 @@ class FiscoBcosMonitor extends EventEmitter {
     }
     
     /**
-     * 解析区块事件
+     * 提交区块头到 LightClient 合约（可选功能）
      */
-    async parseBlockEvents(block) {
-        if (!this.gatewayContract) {
+    async submitBlockHeader(blockHeader) {
+        const lightClientAddr = this.config.contracts?.lightClient;
+        if (!lightClientAddr) {
+            console.log(`[FiscoBcosMonitor] LightClient not configured, skip submitBlockHeader (${blockHeader.chainId} #${blockHeader.blockNumber})`);
             return;
         }
-        
-        // 获取 CrossChainCall 事件
-        const filter = this.gatewayContract.filters.CrossChainCall();
-        
+
         try {
-            // 查询该区块的事件
-            const events = await this.gatewayContract.queryFilter(
-                filter,
-                block.number,
-                block.number
-            );
+            // 1) 读取 LightClient 当前高度，以便计算 previousHash（顺序提交）
+            const lightClient = new ethers.Contract(lightClientAddr, LightClientAirABI, this.provider);
+            const latest = await lightClient.getLatestBlockNumber(blockHeader.chainId);
+            const latestNum = Number(latest);
             
-            for (const event of events) {
-                console.log(`[FiscoBcosMonitor] 🎯 CrossChainCall event detected!`);
-                console.log(`  - Target Chain: ${event.args.targetChainId}`);
-                console.log(`  - Target Contract: ${event.args.targetContract}`);
-                console.log(`  - Target Function: ${event.args.targetFunction}`);
-                console.log(`  - Nonce: ${event.args.nonce.toString()}`);
-                
-                // 只处理发往 Fabric 的跨链消息
-                const targetChainId = event.args.targetChainId;
-                if (targetChainId.toLowerCase().includes('fabric')) {
-                    this.emit('crossChainEvent', {
-                        txHash: event.transactionHash,
-                        blockNumber: block.number,
-                        targetChainId: event.args.targetChainId,
-                        targetContract: event.args.targetContract,
-                        targetFunction: event.args.targetFunction,
-                        payload: event.args.payload,
-                        nonce: event.args.nonce.toString()
-                    });
-                }
+            // 跳过已提交的区块
+            if (blockHeader.blockNumber <= latestNum) {
+                console.log(`[FiscoBcosMonitor] Skip submit ${blockHeader.chainId} #${blockHeader.blockNumber} (already at ${latestNum})`);
+                return;
             }
             
-        } catch (error) {
-            console.error(`[FiscoBcosMonitor] Error parsing events:`, error.message);
-        }
-    }
-    
-    /**
-     * 调用 Gateway 合约的 receive 方法
-     * @param {string} sourceChainId - 源链 ID
-     * @param {string} sourceTxHash - 源链交易哈希
-     * @param {number} sourceBlockNumber - 源链区块号
-     * @param {string|Buffer} payload - 消息内容
-     * @param {string[]} merkleProof - Merkle 证明
-     */
-    async callReceive(sourceChainId, sourceTxHash, sourceBlockNumber, payload, merkleProof = []) {
-        if (!this.gatewayContract || !this.wallet) {
-            throw new Error('Gateway contract or wallet not initialized');
-        }
-        
-        console.log(`[FiscoBcosMonitor] Calling Gateway.receive()`);
-        console.log(`  - Source Chain: ${sourceChainId}`);
-        console.log(`  - Source Tx: ${sourceTxHash}`);
-        console.log(`  - Source Block: ${sourceBlockNumber}`);
-        
-        try {
-            // 将 payload 转换为 bytes
-            let payloadBytes;
-            if (typeof payload === 'string') {
-                payloadBytes = ethers.toUtf8Bytes(payload);
-            } else if (Buffer.isBuffer(payload)) {
-                payloadBytes = payload;
-            } else {
-                payloadBytes = ethers.toUtf8Bytes(JSON.stringify(payload));
+            // LightClientAir 的"上一块哈希"要求与其内部计算的 hash 一致，
+            // Fabric 的 header.previous_hash 与该计算规则不一致，因此强制使用合约内记录的 hash
+            let previousHash = ethers.ZeroHash;
+            if (latestNum > 0) {
+                previousHash = await lightClient.getBlockHash(blockHeader.chainId, latest);
             }
-            
-            // 将 merkleProof 转换为 bytes32[]
-            const merkleProofBytes32 = merkleProof.map(p => {
-                if (p.startsWith('0x') && p.length === 66) {
-                    return p;
+
+            // 2) 归一化字段
+            const chainId = blockHeader.chainId;
+            const blockNumber = Number(blockHeader.blockNumber);
+            const timestamp = Number(blockHeader.timestamp);
+            const transactionsRoot = toBytes32Hex(blockHeader.transactionsRoot);
+            const stateRoot = toBytes32Hex(blockHeader.stateRoot || ethers.ZeroHash);
+            const consensusType = String(blockHeader.consensusType || 'RAFT');
+            const extraData = '0x';
+
+            // 3) 通过 console.sh 写入（避免 ethers.js 写入兼容性问题）
+            const defaultConsoleDir = path.resolve(__dirname, '..', '..', '..', 'fisco-bcos', 'console');
+            const consoleDir = process.env.FISCO_CONSOLE_DIR || this.config.consoleDir || defaultConsoleDir;
+            const consoleBin = path.resolve(consoleDir, 'console.sh');
+            const lightClientName =
+                process.env.FISCO_LIGHTCLIENT_CONTRACT_NAME ||
+                this.config.contracts?.lightClientName ||
+                'LightClientAir';
+
+            const args = [
+                'call',
+                lightClientName,
+                lightClientAddr,
+                'submitBlockHeader',
+                chainId,
+                String(blockNumber),
+                String(timestamp),
+                previousHash,
+                transactionsRoot,
+                stateRoot,
+                consensusType,
+                extraData,
+            ];
+
+            const { stdout } = await execFileAsync(consoleBin, args, { cwd: consoleDir, timeout: 120_000 });
+            const out = String(stdout || '').trim();
+            console.log(`[FiscoBcosMonitor] Submitted block header: ${chainId} #${blockNumber} (prev=${previousHash})`);
+            if (out) {
+                console.log(`[FiscoBcosMonitor] LightClient console output:\n${out}`);
+                // 检查 transaction status
+                if (!/transaction status:\s*0\b/i.test(out)) {
+                    throw new Error(`LightClient transaction failed (status not 0)`);
                 }
-                return ethers.zeroPadValue(ethers.toBeHex(p), 32);
-            });
-            
-            // 调用合约
-            const tx = await this.gatewayContract.receive(
-                sourceChainId,
-                sourceTxHash,
-                sourceBlockNumber,
-                payloadBytes,
-                merkleProofBytes32
-            );
-            
-            console.log(`[FiscoBcosMonitor] Transaction sent: ${tx.hash}`);
-            
-            // 等待确认
-            const receipt = await tx.wait();
-            console.log(`[FiscoBcosMonitor] Transaction confirmed in block ${receipt.blockNumber}`);
-            
-            return receipt;
-            
+            }
+            return out;
         } catch (error) {
-            console.error(`[FiscoBcosMonitor] Failed to call receive:`, error.message);
+            console.warn(`[FiscoBcosMonitor] Failed to submit block header: ${blockHeader.chainId} #${blockHeader.blockNumber}: ${error.message}`);
             throw error;
         }
     }
     
     /**
-     * 提交区块头到 LightClient 合约（可选功能）
+     * 获取 LightClient 当前已提交的最新区块号（通过 console.sh 查询，避免超时）
      */
-    async submitBlockHeader(blockHeader) {
-        // TODO: 实现 LightClient 合约调用
-        console.log(`[FiscoBcosMonitor] Submitted block header: ${blockHeader.chainId} #${blockHeader.blockNumber}`);
+    async getLightClientLatestBlockNumber(chainId) {
+        const lightClientAddr = this.config.contracts?.lightClient;
+        if (!lightClientAddr) {
+            return null;
+        }
+        
+        try {
+            const defaultConsoleDir = path.resolve(__dirname, '..', '..', '..', 'fisco-bcos', 'console');
+            const consoleDir = process.env.FISCO_CONSOLE_DIR || this.config.consoleDir || defaultConsoleDir;
+            const consoleBin = path.resolve(consoleDir, 'console.sh');
+            const lightClientName =
+                process.env.FISCO_LIGHTCLIENT_CONTRACT_NAME ||
+                this.config.contracts?.lightClientName ||
+                'LightClientAir';
+            
+            const { stdout } = await execFileAsync(
+                consoleBin,
+                ['call', lightClientName, lightClientAddr, 'getLatestBlockNumber', chainId],
+                { cwd: consoleDir, timeout: 10_000 }
+            );
+            
+            const out = String(stdout || '').trim();
+            // 解析返回值：Return values:(123)
+            const match = out.match(/Return values:\((\d+)\)/i);
+            if (match) {
+                return Number(match[1]);
+            }
+            return null;
+        } catch (error) {
+            console.warn(`[FiscoBcosMonitor] Failed to query LightClient latest block for ${chainId}: ${error.message}`);
+            return null;
+        }
     }
     
     /**

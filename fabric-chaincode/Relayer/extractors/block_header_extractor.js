@@ -4,6 +4,27 @@
  */
 
 class BlockHeaderExtractor {
+
+    toHex(bytes) {
+        if (!bytes) return '';
+        if (typeof bytes === 'string') return bytes;
+        // Buffer / Uint8Array
+        return Buffer.from(bytes).toString('hex');
+    }
+
+    /**
+     * 将输入转换为 bytes32 形式的 0x...（不足左侧补 0）
+     * 注意：这里只做格式归一化，不保证其语义等同于链原生 block hash
+     */
+    toBytes32Hex(input) {
+        let hex = this.toHex(input);
+        if (!hex) return '0x' + '0'.repeat(64);
+        if (hex.startsWith('0x')) hex = hex.slice(2);
+        // 截断或补齐到 32 bytes
+        if (hex.length > 64) hex = hex.slice(hex.length - 64);
+        if (hex.length < 64) hex = hex.padStart(64, '0');
+        return '0x' + hex;
+    }
     
     /**
      * 提取标准化区块头
@@ -25,11 +46,22 @@ class BlockHeaderExtractor {
     extractFiscoBcosHeader(chainId, block) {
         // FISCO-BCOS区块结构
         const header = block.header || block;
-        
+
+        const parseMaybeHexNumber = (v) => {
+            if (typeof v === 'string') {
+                if (v.startsWith('0x') || v.startsWith('0X')) return parseInt(v, 16);
+                return parseInt(v, 10);
+            }
+            if (typeof v === 'number') return v;
+            // ethers may return BigInt
+            if (typeof v === 'bigint') return Number(v);
+            return Number(v);
+        };
+
         return {
             chainId: chainId,
-            blockNumber: parseInt(header.number, 16) || header.number,
-            timestamp: parseInt(header.timestamp, 16) || header.timestamp,
+            blockNumber: parseMaybeHexNumber(header.number),
+            timestamp: parseMaybeHexNumber(header.timestamp),
             previousHash: header.parentHash || header.previousHash,
             transactionsRoot: header.transactionsRoot || header.txRoot,
             stateRoot: header.stateRoot,
@@ -68,23 +100,51 @@ class BlockHeaderExtractor {
      * 提取Fabric区块头
      */
     extractFabricHeader(chainId, block) {
-        // Fabric区块结构
-        const header = block.header;
-        const metadata = block.metadata;
+        // Fabric区块结构（支持完整区块和简化区块）
+        const header = block.header || {};
+        const metadata = block.metadata || [];
+        
+        // 解析区块号：优先从 block.number，否则从 header.number
+        let blockNumber = 0;
+        const rawNumber = block.number !== undefined ? block.number : header.number;
+        if (rawNumber != null) {
+            if (typeof rawNumber === 'number') {
+                blockNumber = rawNumber;
+            } else if (typeof rawNumber === 'bigint') {
+                blockNumber = Number(rawNumber);
+            } else if (typeof rawNumber === 'string') {
+                blockNumber = parseInt(rawNumber, 10);
+            } else if (typeof rawNumber === 'object' && typeof rawNumber.toString === 'function') {
+                // Long 对象（protobufjs）
+                blockNumber = parseInt(rawNumber.toString(), 10);
+            }
+        }
+        
+        // 计算交易数量（安全访问）
+        let txCount = 0;
+        if (block.data && block.data.data && Array.isArray(block.data.data)) {
+            txCount = block.data.data.length;
+        }
         
         return {
             chainId: chainId,
-            blockNumber: parseInt(header.number),
-            timestamp: this.extractFabricTimestamp(block),
-            previousHash: Buffer.from(header.previous_hash).toString('hex'),
-            transactionsRoot: Buffer.from(header.data_hash).toString('hex'),
-            stateRoot: this.calculateFabricStateRoot(block),
-            consensusProof: this.extractFabricConsensusProof(metadata),
-            consensusType: 'RAFT', // 或根据配置确定
-            validatorSignatures: this.extractFabricSignatures(metadata),
+            blockNumber: blockNumber,
+            // 优先使用 monitor 传入的 timestamp，否则使用当前时间
+            timestamp: block.timestamp || Date.now(),
+            // 统一输出 bytes32 hex（0x...）
+            previousHash: this.toBytes32Hex(header.previous_hash || Buffer.alloc(32)),
+            // transactionsRoot：优先使用 monitor 计算的 Merkle root
+            transactionsRoot: block.transactionsRoot
+                ? this.toBytes32Hex(block.transactionsRoot)
+                : this.toBytes32Hex(header.data_hash || Buffer.alloc(32)),
+            // Fabric 没有原生 stateRoot，使用占位值
+            stateRoot: this.toBytes32Hex(this.calculateFabricStateRoot(block)),
+            consensusProof: metadata.length > 0 ? this.extractFabricConsensusProof(metadata) : '0x',
+            consensusType: 'RAFT',
+            validatorSignatures: metadata.length > 0 ? this.extractFabricSignatures(metadata) : [],
             extraData: JSON.stringify({
-                channelId: block.channelId,
-                txCount: block.data.data.length
+                chainType: block.chainType || 'FABRIC',
+                txCount: txCount
             })
         };
     }
@@ -93,13 +153,9 @@ class BlockHeaderExtractor {
      * 提取Fabric时间戳
      */
     extractFabricTimestamp(block) {
-        // 从第一个交易的时间戳提取
-        if (block.data && block.data.data && block.data.data.length > 0) {
-            // 这里需要解析protobuf格式的交易
-            // 简化处理
-            return Math.floor(Date.now() / 1000);
-        }
-        return Math.floor(Date.now() / 1000);
+        // 简化处理：如果没有提供 timestamp，返回当前时间
+        // 对于完整区块，可以从交易中提取，但这里简化处理
+        return Date.now();
     }
     
     /**
@@ -107,7 +163,11 @@ class BlockHeaderExtractor {
      */
     calculateFabricStateRoot(block) {
         // Fabric没有显式的状态根，使用data_hash作为替代
-        return Buffer.from(block.header.data_hash).toString('hex');
+        if (block.header && block.header.data_hash) {
+            return Buffer.from(block.header.data_hash).toString('hex');
+        }
+        // 如果没有 data_hash，返回空哈希
+        return Buffer.alloc(32).toString('hex');
     }
     
     /**

@@ -121,6 +121,13 @@ contract ChainRegistryAir {
                keccak256(abi.encodePacked("ACTIVE"));
     }
 
+    /**
+     * @dev 检查链是否已注册（供 GatewayAir 调用）
+     */
+    function isRegistered(string memory chainId) public view returns (bool) {
+        return chains[chainId].exists;
+    }
+
     function getAllChainIds() public view returns (string[] memory) {
         return _chainIdList;
     }
