@@ -15,6 +15,21 @@ FABRIC_DIR="$FABRIC_SAMPLES_DIR/test-network"
 RELAYER_DIR="$SCRIPT_DIR/fabric-chaincode/Relayer"
 RELAYER_CONFIG="$RELAYER_DIR/config.json"
 
+extract_contract_address() {
+    local deploy_output="$1"
+    local addr=""
+
+    # 优先解析 console 标准输出中的 contract address 行
+    addr=$(echo "$deploy_output" | sed -nE 's/.*contract address:[[:space:]]*(0x[0-9a-fA-F]{40}).*/\1/p' | tail -1)
+
+    # 兜底：取输出中最后一个 0x 地址（避免把构造参数地址误当成部署地址）
+    if [[ -z "$addr" ]]; then
+        addr=$(echo "$deploy_output" | grep -oE '0x[0-9a-fA-F]{40}' | tail -1)
+    fi
+
+    echo "$addr"
+}
+
 # 默认参数
 REDEPLOY_FISCO=false
 RECEIVE_METHOD="receiveLite"
@@ -84,7 +99,7 @@ deploy_fisco_contracts() {
     # 1. 部署 ChainRegistryAir
     echo "[1/3] 部署 ChainRegistryAir..." >&2
     REGISTRY_OUTPUT=$(./console.sh deploy ChainRegistryAir 2>&1)
-    REGISTRY_ADDR=$(echo "$REGISTRY_OUTPUT" | grep -oP '0x[a-fA-F0-9]{40}' | head -1)
+    REGISTRY_ADDR=$(extract_contract_address "$REGISTRY_OUTPUT")
     if [[ -z "$REGISTRY_ADDR" ]]; then
         echo "错误: 无法获取 ChainRegistryAir 地址" >&2
         echo "输出: $REGISTRY_OUTPUT" >&2
@@ -96,7 +111,7 @@ deploy_fisco_contracts() {
     # 2. 部署 LightClientAir（需要 ChainRegistry 地址作为参数）
     echo "[2/3] 部署 LightClientAir..." >&2
     LIGHTCLIENT_OUTPUT=$(./console.sh deploy LightClientAir "$REGISTRY_ADDR" 2>&1)
-    LIGHTCLIENT_ADDR=$(echo "$LIGHTCLIENT_OUTPUT" | grep -oP '0x[a-fA-F0-9]{40}' | head -1)
+    LIGHTCLIENT_ADDR=$(extract_contract_address "$LIGHTCLIENT_OUTPUT")
     if [[ -z "$LIGHTCLIENT_ADDR" ]]; then
         echo "错误: 无法获取 LightClientAir 地址" >&2
         echo "输出: $LIGHTCLIENT_OUTPUT" >&2
@@ -108,7 +123,7 @@ deploy_fisco_contracts() {
     # 3. 部署 GatewayAir
     echo "[3/3] 部署 GatewayAir..." >&2
     GATEWAY_OUTPUT=$(./console.sh deploy GatewayAir "$REGISTRY_ADDR" "$LIGHTCLIENT_ADDR" 2>&1)
-    GATEWAY_ADDR=$(echo "$GATEWAY_OUTPUT" | grep -oP '0x[a-fA-F0-9]{40}' | head -1)
+    GATEWAY_ADDR=$(extract_contract_address "$GATEWAY_OUTPUT")
     if [[ -z "$GATEWAY_ADDR" ]]; then
         echo "错误: 无法获取 GatewayAir 地址" >&2
         echo "输出: $GATEWAY_OUTPUT" >&2
@@ -132,6 +147,7 @@ def update_fisco_section(fisco_cfg):
         fisco_cfg['contracts'] = {}
     # 同时兼容旧字段名
     fisco_cfg['contracts']['chainRegistry'] = "$REGISTRY_ADDR"
+    fisco_cfg['contracts']['registry'] = "$REGISTRY_ADDR"
     fisco_cfg['contracts']['lightClient'] = "$LIGHTCLIENT_ADDR"
     fisco_cfg['contracts']['gateway'] = "$GATEWAY_ADDR"
     fisco_cfg['receiveMethod'] = "$RECEIVE_METHOD"
@@ -255,4 +271,3 @@ main() {
 
 # 执行主流程
 main
-
