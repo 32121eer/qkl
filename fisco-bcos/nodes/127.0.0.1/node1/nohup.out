@@ -81,3 +81,239 @@ Git Branch         : HEAD
 Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
 [2025-12-25 21:25:41] The fisco-bcos is running...
 [2025-12-25 21:45:50] exit because receive signal 15
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 13:59:59] The fisco-bcos is running...
+[2026-02-06 14:36:13] exit because receive signal 15
+[2026-02-06 14:36:13] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 14:36:18] The fisco-bcos is running...
+[2026-02-06 14:47:09] exit because receive signal 15
+[2026-02-06 14:47:09] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 14:47:14] The fisco-bcos is running...
+[2026-02-06 14:49:05] exit because receive signal 15
+[2026-02-06 14:49:05] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 14:49:10] The fisco-bcos is running...
+[2026-02-06 14:57:24] exit because receive signal 15
+[2026-02-06 14:57:24] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 14:57:29] The fisco-bcos is running...
+[2026-02-06 14:59:59] exit because receive signal 15
+[2026-02-06 14:59:59] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 15:00:04] The fisco-bcos is running...
+[2026-02-06 15:03:56] exit because receive signal 15
+[2026-02-06 15:03:56] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 15:04:01] The fisco-bcos is running...
+[2026-02-06 15:24:11] exit because receive signal 15
+[2026-02-06 15:24:11] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 15:24:16] The fisco-bcos is running...
+[2026-02-06 16:57:09] exit because receive signal 15
+[2026-02-06 16:57:09] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 16:57:14] The fisco-bcos is running...
+[2026-02-06 17:27:26] exit because receive signal 15
+[2026-02-06 17:27:26] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 17:27:31] The fisco-bcos is running...
+[2026-02-06 21:14:34] exit because receive signal 15
+[2026-02-06 21:14:34] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 21:14:39] The fisco-bcos is running...
+[2026-02-06 21:36:42] exit because receive signal 15
+[2026-02-06 21:36:43] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 21:36:48] The fisco-bcos is running...
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 22:44:20] The fisco-bcos is running...
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-06 23:23:48] The fisco-bcos is running...
+[2026-02-07 00:21:50] exit because receive signal 15
+[2026-02-07 00:21:50] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:21:55] The fisco-bcos is running...
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:22:52] start fisco-bcos failed, error:Dynamic exception type: std::runtime_error
+std::exception::what: open rocksDB failed, msg:IO error: While lock file: data/LOCK: Resource temporarily unavailable
+
+[2026-02-07 00:23:04] exit because receive signal 15
+[2026-02-07 00:23:04] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:23:09] The fisco-bcos is running...
+[2026-02-07 00:23:20] exit because receive signal 15
+[2026-02-07 00:23:20] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:23:26] The fisco-bcos is running...
+[2026-02-07 00:24:16] exit because receive signal 15
+[2026-02-07 00:24:17] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:24:22] The fisco-bcos is running...
+[2026-02-07 00:27:42] exit because receive signal 15
+[2026-02-07 00:27:42] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:27:47] The fisco-bcos is running...
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 00:27:49] start fisco-bcos failed, error:Dynamic exception type: std::runtime_error
+std::exception::what: open rocksDB failed, msg:IO error: While lock file: data/LOCK: Resource temporarily unavailable
+
+[2026-02-07 00:32:03] exit because receive signal 15
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 10:39:37] The fisco-bcos is running...
+[2026-02-07 10:41:24] exit because receive signal 15
+[2026-02-07 10:41:24] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 10:41:29] The fisco-bcos is running...
+[2026-02-07 10:41:37] exit because receive signal 15
+[2026-02-07 10:41:37] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 10:41:43] The fisco-bcos is running...
+[2026-02-07 10:54:34] exit because receive signal 15
+[2026-02-07 10:54:34] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 10:54:39] The fisco-bcos is running...
+[2026-02-07 10:54:47] exit because receive signal 15
+[2026-02-07 10:54:47] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 10:54:52] The fisco-bcos is running...
+[2026-02-07 13:26:15] exit because receive signal 15
+[2026-02-07 13:26:15] fisco-bcos program exit normally.
+the error = [libproviders.so: cannot open shared object file: No such file or directory]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-02-07 13:26:21] The fisco-bcos is running...

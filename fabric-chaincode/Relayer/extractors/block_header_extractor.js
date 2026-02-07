@@ -62,6 +62,7 @@ class BlockHeaderExtractor {
             chainId: chainId,
             blockNumber: parseMaybeHexNumber(header.number),
             timestamp: parseMaybeHexNumber(header.timestamp),
+            blockHash: header.hash || header.blockHash,
             previousHash: header.parentHash || header.previousHash,
             transactionsRoot: header.transactionsRoot || header.txRoot,
             stateRoot: header.stateRoot,

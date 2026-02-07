@@ -175,7 +175,10 @@ class MessageHandler {
             
             // 获取 receiveMethod（默认 "receive"）
             const receiveMethod = targetChain.receiveMethod || 'receive';
-            const gatewayName = targetChain.gatewayName || 'GatewayAir';
+            const gatewayName =
+                targetChain.contracts?.gatewayName ||
+                targetChain.gatewayName ||
+                'GatewayAir';
             
             console.log(`[MessageHandler] Using receiveMethod: ${receiveMethod}`);
             
@@ -297,23 +300,25 @@ class MessageHandler {
                 } else {
                     payloadStr = JSON.stringify(message.payload);
                 }
-                
-                // 准备 merkleProof
-                let merkleProofJSON = '[]';
-                if (message.merkleProof && message.merkleProof.length > 0) {
-                    merkleProofJSON = JSON.stringify(message.merkleProof);
+
+                // JS 链码 gateway_cc.Receive() 需要一个 blockHeader（hex string）参数。
+                // 这里将标准化区块头 JSON 序列化为 hex，便于链码侧持久化/后续验证。
+                let blockHeaderHex = '0x00';
+                if (message.blockHeader) {
+                    blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
                 }
                 
                 // 调用链码函数
                 console.log(`[MessageHandler] Calling ${chaincodeName}.${message.targetFunction}()...`);
                 
+                const targetFn = message.targetFunction || 'Receive';
                 const result = await contract.submitTransaction(
-                    message.targetFunction,
+                    targetFn,
                     message.sourceChainId,
-                    message.sourceTxHash,
                     String(message.sourceBlockNumber),
-                    payloadStr,
-                    merkleProofJSON
+                    message.sourceTxHash,
+                    blockHeaderHex,
+                    payloadStr
                 );
                 
                 console.log(`[MessageHandler] ✅ Fabric transaction success`);
@@ -362,6 +367,7 @@ class MessageHandler {
         const tlsCredentials = grpc.credentials.createSsl(tlsRootCert);
         const client = new grpc.Client(peerEndpoint, tlsCredentials, {
             'grpc.ssl_target_name_override': peerHostAlias,
+            'grpc.default_authority': peerHostAlias,
         });
         
         // 创建 Gateway

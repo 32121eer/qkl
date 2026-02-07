@@ -33,6 +33,7 @@ extract_contract_address() {
 # 默认参数
 REDEPLOY_FISCO=false
 RECEIVE_METHOD="receiveLite"
+REDEPLOY_FABRIC_CC=false
 SKIP_FABRIC_CC=false
 SKIP_FISCO_CONTRACTS=false
 
@@ -41,6 +42,10 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --redeploy-fisco)
             REDEPLOY_FISCO=true
+            shift
+            ;;
+        --redeploy-fabric-cc)
+            REDEPLOY_FABRIC_CC=true
             shift
             ;;
         --receive-method)
@@ -67,6 +72,7 @@ echo "Bootstrap Script - 自动部署合约"
 echo "========================================="
 echo "REDEPLOY_FISCO: $REDEPLOY_FISCO"
 echo "RECEIVE_METHOD: $RECEIVE_METHOD"
+echo "REDEPLOY_FABRIC_CC: $REDEPLOY_FABRIC_CC"
 echo "SKIP_FABRIC_CC: $SKIP_FABRIC_CC"
 echo "SKIP_FISCO_CONTRACTS: $SKIP_FISCO_CONTRACTS"
 echo "========================================="
@@ -217,9 +223,11 @@ deploy_fabric_chaincode() {
     echo "[2/3] 部署 Fabric Chaincode..."
     cd "$FABRIC_DIR"
 
+    local channel_name="${FABRIC_CHANNEL_NAME:-mychannel}"
+
     # 检查 chaincode 是否已部署
-    EXISTING_CC=$(./network.sh queryCommitted mychannel 2>/dev/null | grep "gateway_cc" || echo "")
-    if [[ -n "$EXISTING_CC" ]]; then
+    EXISTING_CC=$(./network.sh queryCommitted "$channel_name" 2>/dev/null | grep "gateway_cc" || echo "")
+    if [[ -n "$EXISTING_CC" && "$REDEPLOY_FABRIC_CC" = false ]]; then
         echo "✓ Fabric Chaincode 已部署，跳过部署"
         echo "$EXISTING_CC"
         return
@@ -229,7 +237,15 @@ deploy_fabric_chaincode() {
 
     # 打包和部署 chaincode
     echo "[1/1] 部署 gateway_cc..."
-    ./network.sh deployCC -ccn gateway_cc -ccp "$SCRIPT_DIR/fabric-chaincode/gateway_cc" -ccl javascript
+    local cc_version="${FABRIC_CC_VERSION:-1.1}"
+    local cc_sequence
+    if [[ -n "$EXISTING_CC" ]]; then
+        cc_sequence="${FABRIC_CC_SEQUENCE:-2}"
+    else
+        cc_sequence="${FABRIC_CC_SEQUENCE:-1}"
+    fi
+
+    ./network.sh deployCC -ccn gateway_cc -ccp "$SCRIPT_DIR/fabric-chaincode/gateway_cc" -ccl javascript -ccv "$cc_version" -ccs "$cc_sequence"
 
     echo ""
     echo "========================================="

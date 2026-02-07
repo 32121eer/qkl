@@ -39,7 +39,10 @@ class FabricMonitor extends EventEmitter {
         const tlsCertPath = path.join(cryptoPath, 'peers', conn.peerHostAlias, 'tls', 'ca.crt');
 
         const credentials = grpc.credentials.createSsl(fs.readFileSync(tlsCertPath));
-        const client = new grpc.Client(conn.peerEndpoint, credentials);
+        const client = new grpc.Client(conn.peerEndpoint, credentials, {
+            'grpc.ssl_target_name_override': conn.peerHostAlias,
+            'grpc.default_authority': conn.peerHostAlias,
+        });
 
         const identity = {
             mspId: conn.mspId,
@@ -101,7 +104,7 @@ class FabricMonitor extends EventEmitter {
                         console.log('[FabricMonitor] CrossChainCall event detected:', eventData);
                         
                         this.emit('crossChainEvent', {
-                            sourceChainId: 'FABRIC_NET_01',
+                            sourceChainId: this.config.chainId,
                             targetChainId: eventData.targetChain || eventData.destChain,
                             blockNumber: blockNumber,
                             txHash: event.transactionId,
@@ -185,10 +188,58 @@ class FabricMonitor extends EventEmitter {
         return [];
     }
     
+    async _getGatewayContract() {
+        if (!this.gateway || !this.network) {
+            await this.initialize();
+        }
+        const chaincodeName = this.config.contracts.gateway;
+        return this.network.getContract(chaincodeName);
+    }
+
+    async getLightClientLatestBlockNumber(chainId) {
+        try {
+            const contract = await this._getGatewayContract();
+            const result = await contract.evaluateTransaction('GetLatestBlockNumber', chainId);
+            const text = Buffer.from(result).toString('utf8').trim();
+            const n = parseInt(text, 10);
+            return Number.isNaN(n) ? -1 : n;
+        } catch (error) {
+            console.warn(`[FabricMonitor] Failed to query LightClient latest block for ${chainId}: ${error.message}`);
+            return null;
+        }
+    }
+
     async submitBlockHeader(blockHeader) {
         // Fabric 目前没有 LightClient chaincode，暂时跳过区块头提交
-        console.log(`[FabricMonitor] Block header submission not required for Fabric (${blockHeader.chainId} #${blockHeader.blockNumber})`);
-        return;
+        const chainId = blockHeader.chainId;
+        const blockNumber = Number(blockHeader.blockNumber);
+
+        const latest = await this.getLightClientLatestBlockNumber(chainId);
+        if (latest === null) {
+            console.warn(`[FabricMonitor] LightClient query failed, skip submit (${chainId} #${blockNumber})`);
+            return;
+        }
+
+        if (latest >= 0) {
+            if (blockNumber <= latest) {
+                console.log(`[FabricMonitor] Skip submit ${chainId} #${blockNumber} (already at ${latest})`);
+                return;
+            }
+            if (blockNumber !== latest + 1) {
+                console.log(`[FabricMonitor] Skip submit ${chainId} #${blockNumber} (non-sequential, latest=${latest})`);
+                return;
+            }
+        }
+
+        const contract = await this._getGatewayContract();
+        const payload = JSON.stringify(blockHeader);
+        const result = await contract.submitTransaction('SubmitBlockHeader', payload);
+        const out = Buffer.from(result).toString('utf8').trim();
+        console.log(`[FabricMonitor] Submitted block header: ${chainId} #${blockNumber} (latest was ${latest})`);
+        if (out) {
+            console.log(`[FabricMonitor] LightClient output: ${out}`);
+        }
+        return out;
     }
 }
 

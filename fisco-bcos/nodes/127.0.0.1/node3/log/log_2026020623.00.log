@@ -1,0 +1,642 @@
+info|2026-02-06 23:00:00.386249|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:00.386382|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:00.393761|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:10.386537|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:10.386858|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:10.393837|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:20.358754|objMonitor-0x0000718921bff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 10 ,destroyed: 6 ,alive: 4 ] 
+info|2026-02-06 23:00:20.386701|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:20.387038|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:20.393928|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:30.386879|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:30.387317|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:30.394344|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:40.387168|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:40.387493|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:40.394505|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:50.388117|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:00:50.388894|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:00:50.395430|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:00.388256|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:00.393382|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:00.395589|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:10.388387|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:10.393549|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:10.395840|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:20.355027|objMonitor-0x0000718921bff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 10 ,destroyed: 6 ,alive: 4 ] 
+info|2026-02-06 23:01:20.388592|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:20.393839|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:20.395946|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:30.389089|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:30.394243|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:30.396192|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:40.390008|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:40.394386|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:40.396337|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:50.390223|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:01:50.394619|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:01:50.396438|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:00.390328|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:00.394799|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:00.396507|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:10.390425|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:10.394916|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:10.396580|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:16.391696|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:45376
+info|2026-02-06 23:02:16.392077|ioService-0x00007189375ff6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:02:16.392214|ioService-0x00007189375ff6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x71893469b090
+info|2026-02-06 23:02:16.392289|ioService-0x00007189375ff6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x718934672a10
+info|2026-02-06 23:02:16.392345|ioService-0x00007189375ff6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:45376
+info|2026-02-06 23:02:16.392416|ioService-0x00007189375ff6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:45376,session=0x718934672a10
+info|2026-02-06 23:02:16.392744|ioService-0x00007189375ff6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:45376,result=true
+info|2026-02-06 23:02:16.392812|ioService-0x00007189375ff6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:45376,refCount=3
+info|2026-02-06 23:02:16.392997|ioService-0x00007189375ff6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:45376,session=0x718934672a10
+info|2026-02-06 23:02:16.393577|fisco-bcos-0x000071891c7f46c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:02:16.393603|fisco-bcos-0x000071891c7f46c0|[RPC]negotiatedVersion success,peer=127.0.0.1:45376,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=2a1e62ba549b4f308ee83dbab8a1c2f0
+info|2026-02-06 23:02:16.393767|fisco-bcos-0x000071891c7f46c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:45376,handshakeResponse={"groupBlockNumber":[{"group0":109}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:02:16.395061|fisco-bcos-0x000071891c7f46c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:02:16.395112|fisco-bcos-0x000071891c7f46c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:02:16.395121|fisco-bcos-0x000071891c7f46c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:02:16.395126|fisco-bcos-0x000071891c7f46c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:02:16.395130|fisco-bcos-0x000071891c7f46c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:45376,seq=a877d8629eb2485e8794270b50ff1071
+info|2026-02-06 23:02:18.361310|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=2302542
+info|2026-02-06 23:02:18.361462|pbft-0x0000718953ffa6c0|[TXPOOL]begin asyncVerifyBlock,consNum=110,hash=68ab46d6...
+info|2026-02-06 23:02:18.361528|verifier-0x00007189767f36c0|[TXPOOL]batchVerifyProposal,consNum=110,hash=68ab46d6...,txsSize=1,lockT=0,verifyT=0,missedTxs=0
+info|2026-02-06 23:02:18.361560|verifier-0x00007189767f36c0|[TXPOOL][METRIC]asyncVerifyBlock finished,consNum=110,hash=68ab46d6...,code=0,msg=success,result=true,timecost=0
+info|2026-02-06 23:02:18.361601|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=2302542
+info|2026-02-06 23:02:18.361629|validator-0x00007189687d76c0|[CONSENSUS][PBFT]asyncResetTxsFlag,index=110,hash=68ab46d6...,flag=true
+info|2026-02-06 23:02:18.361655|validator-0x00007189687d76c0|[TXPOOL]batchMarkTxs,txsSize=1,batchId=110,hash=68ab46d6...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2026-02-06 23:02:18.361681|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=0,sys=false,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.361693|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=110
+info|2026-02-06 23:02:18.361698|validator-0x00007189687d76c0|[CONSENSUS][PBFT]asyncMarkTxs success,index=110,hash=68ab46d6...,flag=true,markT=0,emptyTxBatchHash=false
+info|2026-02-06 23:02:18.361784|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:18.361843|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=110
+info|2026-02-06 23:02:18.361941|verifier-0x00007189767f36c0|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.363065|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:18.363181|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:18.363193|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=68ab46d6...,propIndex=110
+info|2026-02-06 23:02:18.363203|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]intoPrecommit,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=3,wait(ms)=2,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.363238|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:18.363243|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=68ab46d6...,index=110
+info|2026-02-06 23:02:18.363426|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=4
+info|2026-02-06 23:02:18.363477|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:18.364286|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=68ab46d6...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:18.364323|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndCommit,propHash=68ab46d6...,propIndex=110,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.364337|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]######## CommitProposal,propHash=68ab46d6...,propIndex=110,sys=false,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.364350|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.364422|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.362005|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock fetch block number from LedgerConfig
+info|2026-02-06 23:02:18.364474|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]applyStateMachine,index=110,hash=68ab46d6...,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2026-02-06 23:02:18.364513|txsPreStore-0x0000718974ff06c0|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=109
+info|2026-02-06 23:02:18.364524|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock,consNum=110,hash=68ab46d6...,txsSize=1
+info|2026-02-06 23:02:18.364542|preExeScheduler-0x000071891a06b6c0|[SCHEDULER][METRIC][BlockTrace][blk-110]preExeBlock success,blockHeader.timestamp=1770390138360,metaTxCount=1,timeCost=0
+info|2026-02-06 23:02:18.364557|txsPreStore-0x0000718974ff06c0|[LEDGER]asyncPreStoreBlockTxs: needStoreUnsavedTxs,txsSize=1,unstoredTxs=1,number=110
+info|2026-02-06 23:02:18.364649|exeScheduler-0x00007189185e86c0|[SCHEDULER][METRIC][blk-110]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2026-02-06 23:02:18.364707|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-110][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2026-02-06 23:02:18.364711|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-110][BlockTrace]serialExecute execute block
+info|2026-02-06 23:02:18.364715|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-110][BlockTrace]serialExecute batch next block
+info|2026-02-06 23:02:18.364719|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-110][BlockTrace]NextBlock request,executorNum=1
+info|2026-02-06 23:02:18.364927|txsPreStore-0x0000718974ff06c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=9643,time(ms)=1
+info|2026-02-06 23:02:18.364967|txsPreStore-0x0000718974ff06c0|[LEDGER]asyncPreStoreBlockTxs: store uncommitted txs,blockNumber=110,blockTxsSize=1,unStoredTxs=1,msg=success,code=0,timeCost=0
+info|2026-02-06 23:02:18.364980|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock success,consNum=110,hash=68ab46d6...,timecost=0
+info|2026-02-06 23:02:18.365580|exec-0x000071896afdc6c0|[SCHEDULER][blk-110][BlockTrace]NextBlock success,executorNum=1,timeCost=1
+info|2026-02-06 23:02:18.365610|exec-0x000071896afdc6c0|[SCHEDULER][serialExecute][blk-110][BlockTrace]serialExecute block begin
+info|2026-02-06 23:02:18.366183|Unnamed-0x00007189155e26c0|[STORAGE-KeyPage]empty table,table=/apps/c66e573b0d7ffec1a94e0dd7c5741c446494735e_accessAuth,key=61646d696e
+info|2026-02-06 23:02:18.366445|Unnamed-0x00007189155e26c0|[STORAGE-KeyPage]empty table,table=/apps/c66e573b0d7ffec1a94e0dd7c5741c446494735e,key=0000000000000000000000000000000000000000000000000000000000000002
+info|2026-02-06 23:02:18.367413|exec-0x0000718969fda6c0|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=15701,writeLength=324,pageCount=2,entrycount=2,entriesHash=ffcecce01314ad2e183e11aee5c4b1b949bd4bf218d37647291d9164588b2a64,pagesHash=e2eaec4ae26a0c3d1e8ffc6382189aed710122241c5738dee83b3e513e24a41f,totalHash=1d2420aaf17ea11306b1edcd67dc2b5438bc69d604844e99c126af3566af8e7b
+info|2026-02-06 23:02:18.367460|exec-0x0000718969fda6c0|[EXECUTOR:1770389060][blk-110]GetTableHashes success,hash=1d2420aaf17ea11306b1edcd67dc2b5438bc69d604844e99c126af3566af8e7b,time(ms)=1
+info|2026-02-06 23:02:18.367497|exec-0x0000718969fda6c0|[SCHEDULER][blk-110][BlockTrace]ExecuteBlock success,hash=e0e3031e...,stateRoot=1d2420aaf17ea11306b1edcd67dc2b5438bc69d604844e99c126af3566af8e7b,receiptRoot=d47bdc753034276fdb8c6275ae2fa0d3b582ed9a081a6e8bffa94255671c423c,txsRoot=d6abc4c7...,gasUsed=122115,signatureSize=0,timeCost=3,blockVersion=51052544
+info|2026-02-06 23:02:18.367507|exec-0x0000718969fda6c0|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=110,result=e0e3031e...,txsSize=1,txsRoot=d6abc4c7...,receiptsRoot=d47bdc75...,stateRoot=1d2420aa...,timeCost=3,execPerTx=3
+info|2026-02-06 23:02:18.367559|exec-0x0000718969fda6c0|[CONSENSUS][PBFT]applyStateMachine finished,index=110,beforeExec=68ab46d6...,afterExec=e0e3031e...,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=3
+info|2026-02-06 23:02:18.367768|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=110
+info|2026-02-06 23:02:18.368303|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=110,timecost=1,dataSize=3
+info|2026-02-06 23:02:18.368355|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=110,number=110,timecost=0,dataSize=635
+info|2026-02-06 23:02:18.369337|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.369427|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=2,wait(ms)=1,Idx=3,weight=1,minRequiredWeight=3
+info|2026-02-06 23:02:18.369486|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.369975|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.370037|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=0,wait(ms)=2,Idx=3,weight=2,minRequiredWeight=3
+info|2026-02-06 23:02:18.370058|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.370122|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=3,wait(ms)=2,Idx=3,weight=3,minRequiredWeight=3
+info|2026-02-06 23:02:18.370141|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]setCheckPointProposal,propHash=e0e3031e...,propIndex=110,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=110,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.370154|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=111
+info|2026-02-06 23:02:18.370161|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=e0e3031e...,propIndex=110
+info|2026-02-06 23:02:18.370165|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=110,hash=e0e3031e...,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.370172|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=110,hash=e0e3031e...,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.370180|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=110,committedIndex=109
+info|2026-02-06 23:02:18.370191|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=110,hash=e0e3031e...,proofSize=3,blockProofSize=3
+info|2026-02-06 23:02:18.370212|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.370216|pbftWorker-0x00007189647cf6c0|[CONSENSUS][PBFT]onProposalApplySuccess,index=110,hash=e0e3031e...,lockT=1,timecost=1
+info|2026-02-06 23:02:18.370518|blockSubmit-0x00007189677d56c0|[SCHEDULER][blk-110][BlockTrace]CommitBlock start
+info|2026-02-06 23:02:18.370577|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=1,committedIndex=109,consNum=110,committedHash=035849e8...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.370644|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=e0e3031e...,reqIndex=110,reqV=3,fromIdx=1,wait(ms)=1,Idx=3,weight=4,minRequiredWeight=3
+info|2026-02-06 23:02:18.370666|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.371516|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare,number=110
+info|2026-02-06 23:02:18.375055|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=110,put=7,delete=0,startTS=0,encode(ms)=4,time(ms)=4
+info|2026-02-06 23:02:18.375120|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts,blockNumber=110
+info|2026-02-06 23:02:18.375296|exec-0x0000718972fec6c0|[STORAGE-RocksDB]asyncPrepare,number=110
+info|2026-02-06 23:02:18.375334|ledgerWrite-0x000071897e1fa6c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=140,time(ms)=0
+info|2026-02-06 23:02:18.375393|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=110,blockTxsSize=1,unStoredTxs=0,timeCost=0
+info|2026-02-06 23:02:18.375423|blockSubmit-0x00007189677d56c0|[LEDGER][METRIC]asyncPrewriteBlock,number=110,totalTxs=134,failedTxs=44,incTxs=1,incFailedTxs=0
+info|2026-02-06 23:02:18.375471|exec-0x0000718972fec6c0|[STORAGE-KeyPage]parallelTraverse,size=415
+info|2026-02-06 23:02:18.375504|exec-0x0000718972fec6c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=110,put=6,delete=2,startTS=0,encode(ms)=0,time(ms)=0
+info|2026-02-06 23:02:18.375509|exec-0x0000718972fec6c0|[EXECUTOR:1770389060][blk-110]Prepare success
+info|2026-02-06 23:02:18.375568|exec-0x0000718972fec6c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=110,startTS=0,time(ms)=0,callback time(ms)=0,count=15
+info|2026-02-06 23:02:18.375595|exec-0x0000718972fec6c0|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 23:02:18.375645|exec-0x0000718972fec6c0|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 23:02:18.375685|exec-0x0000718972fec6c0|[TOOL]fetchAuthCheckStatus success,value=0
+info|2026-02-06 23:02:18.375705|exec-0x0000718972fec6c0|[EXECUTOR:1770389060]merge keyPage to cachedStorage,number=110
+info|2026-02-06 23:02:18.375734|exec-0x0000718972fec6c0|[STORAGE-KeyPage]parallelTraverse,size=415
+info|2026-02-06 23:02:18.375753|exec-0x0000718972fec6c0|[STORAGE]Successful merged records,count=8
+info|2026-02-06 23:02:18.377954|exec-0x0000718972fec6c0|[SCHEDULER][blk-110][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=7
+info|2026-02-06 23:02:18.378032|exec-0x0000718972fec6c0|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=110
+info|2026-02-06 23:02:18.378037|exec-0x0000718972fec6c0|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=110,hash=e0e3031e...,txs=1,timeCost=8,commitPerTx=8
+info|2026-02-06 23:02:18.378050|exec-0x0000718972fec6c0|[SCHEDULER][blk-110]notify block result success,hash=e0e3031e...,txsSize=1
+info|2026-02-06 23:02:18.378156|exec-0x0000718972fec6c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=110,startTS=0,time(ms)=0,callback time(ms)=3,count=0
+info|2026-02-06 23:02:18.378235|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=110,propHash=e0e3031e...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2026-02-06 23:02:18.378260|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=1,txs=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:18.378276|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=110
+info|2026-02-06 23:02:18.378280|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=e0e3031e...
+info|2026-02-06 23:02:18.378293|blockSubmit-0x00007189677d56c0|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=110,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2026-02-06 23:02:18.378375|submitter-0x0000718978ff86c0|[TXPOOL][METRIC]StatTPS,tps=47,totalTime=21
+info|2026-02-06 23:02:18.378718|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=111
+info|2026-02-06 23:02:18.378801|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=110,eraseSize=1,cacheSize=0
+info|2026-02-06 23:02:18.378849|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemoveStabledCheckPoint,index=105
+info|2026-02-06 23:02:18.378886|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemove success,dbName=pbftCommitDB,key=105
+info|2026-02-06 23:02:18.378924|submitter-0x0000718978ff86c0|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=110,timecost=0,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2026-02-06 23:02:18.742948|ioService-0x00007189375ff6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:45376,refCount=2
+info|2026-02-06 23:02:18.743003|ioService-0x00007189375ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:45376,session=0x718934672a10
+info|2026-02-06 23:02:18.743020|ioService-0x00007189375ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:45376,cb size=0,session=0x718934672a10
+info|2026-02-06 23:02:18.743081|ioService-0x00007189375ff6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x71893469b090
+info|2026-02-06 23:02:18.743217|fisco-bcos-0x00007189603c56c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:45376
+info|2026-02-06 23:02:18.743253|fisco-bcos-0x00007189603c56c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:45376,refCount=2
+info|2026-02-06 23:02:18.743261|fisco-bcos-0x00007189603c56c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x718934672a10
+info|2026-02-06 23:02:18.743266|fisco-bcos-0x00007189603c56c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x71893469b090
+info|2026-02-06 23:02:19.576165|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:47080
+info|2026-02-06 23:02:19.576474|ioService-0x00007189363fd6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:02:19.576508|ioService-0x00007189363fd6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x718926c07210
+info|2026-02-06 23:02:19.576516|ioService-0x00007189363fd6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x718926c08210
+info|2026-02-06 23:02:19.576519|ioService-0x00007189363fd6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:47080
+info|2026-02-06 23:02:19.576523|ioService-0x00007189363fd6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:47080,session=0x718926c08210
+info|2026-02-06 23:02:19.576656|ioService-0x00007189363fd6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:47080,result=true
+info|2026-02-06 23:02:19.576678|ioService-0x00007189363fd6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:47080,refCount=3
+info|2026-02-06 23:02:19.576693|ioService-0x00007189363fd6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:47080,session=0x718926c08210
+info|2026-02-06 23:02:19.577290|fisco-bcos-0x00007189603c56c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:02:19.577336|fisco-bcos-0x00007189603c56c0|[RPC]negotiatedVersion success,peer=127.0.0.1:47080,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=03ced9aaa08a4ce9a4b2b8bf9427a99b
+info|2026-02-06 23:02:19.577584|fisco-bcos-0x00007189603c56c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:47080,handshakeResponse={"groupBlockNumber":[{"group0":110}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:02:19.579543|ioService-0x000071891e3fb6c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:02:19.579606|ioService-0x000071891e3fb6c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:02:19.579617|ioService-0x000071891e3fb6c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:02:19.579626|ioService-0x000071891e3fb6c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:02:19.579635|ioService-0x000071891e3fb6c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:47080,seq=84d45c063f504cad9a17eb313099890a
+info|2026-02-06 23:02:20.352301|objMonitor-0x0000718921bff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 10 ,destroyed: 6 ,alive: 4 ] 
+info|2026-02-06 23:02:20.390488|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=1
+info|2026-02-06 23:02:20.395028|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:20.396638|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:21.496729|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=2305677
+info|2026-02-06 23:02:21.496828|pbft-0x0000718953ffa6c0|[TXPOOL]begin asyncVerifyBlock,consNum=111,hash=cde45ae5...
+info|2026-02-06 23:02:21.496904|verifier-0x0000718975ff26c0|[TXPOOL]batchVerifyProposal,consNum=111,hash=cde45ae5...,txsSize=1,lockT=0,verifyT=0,missedTxs=0
+info|2026-02-06 23:02:21.496918|verifier-0x0000718975ff26c0|[TXPOOL][METRIC]asyncVerifyBlock finished,consNum=111,hash=cde45ae5...,code=0,msg=success,result=true,timecost=0
+info|2026-02-06 23:02:21.496953|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=1,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=2305678
+info|2026-02-06 23:02:21.496965|validator-0x0000718968fd86c0|[CONSENSUS][PBFT]asyncResetTxsFlag,index=111,hash=cde45ae5...,flag=true
+info|2026-02-06 23:02:21.496979|validator-0x0000718968fd86c0|[TXPOOL]batchMarkTxs,txsSize=1,batchId=111,hash=cde45ae5...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2026-02-06 23:02:21.496984|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=0,sys=false,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.496993|validator-0x0000718968fd86c0|[CONSENSUS][PBFT]asyncMarkTxs success,index=111,hash=cde45ae5...,flag=true,markT=0,emptyTxBatchHash=false
+info|2026-02-06 23:02:21.496996|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=111
+info|2026-02-06 23:02:21.497053|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:21.497107|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=111
+info|2026-02-06 23:02:21.497188|verifier-0x0000718975ff26c0|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.497411|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock fetch block number from LedgerConfig
+info|2026-02-06 23:02:21.497516|txsPreStore-0x0000718974ff06c0|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=110
+info|2026-02-06 23:02:21.497528|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock,consNum=111,hash=cde45ae5...,txsSize=1
+info|2026-02-06 23:02:21.497548|txsPreStore-0x0000718974ff06c0|[LEDGER]asyncPreStoreBlockTxs: needStoreUnsavedTxs,txsSize=1,unstoredTxs=1,number=111
+info|2026-02-06 23:02:21.497632|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:21.497650|txsPreStore-0x0000718974ff06c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=10904,time(ms)=0
+info|2026-02-06 23:02:21.497671|txsPreStore-0x0000718974ff06c0|[LEDGER]asyncPreStoreBlockTxs: store uncommitted txs,blockNumber=111,blockTxsSize=1,unStoredTxs=1,msg=success,code=0,timeCost=0
+info|2026-02-06 23:02:21.497682|txsPreStore-0x0000718974ff06c0|[TXPOOL]storeVerifiedBlock success,consNum=111,hash=cde45ae5...,timecost=0
+info|2026-02-06 23:02:21.497915|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:21.497948|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=cde45ae5...,propIndex=111
+info|2026-02-06 23:02:21.497958|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]intoPrecommit,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=3,wait(ms)=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.498010|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=3,wait(ms)=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:21.498019|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=cde45ae5...,index=111
+info|2026-02-06 23:02:21.498418|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:21.499183|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=cde45ae5...,reqIndex=111,reqV=3,fromIdx=1,wait(ms)=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:21.499220|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndCommit,propHash=cde45ae5...,propIndex=111,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.499233|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]######## CommitProposal,propHash=cde45ae5...,propIndex=111,sys=false,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.499248|pbft-0x0000718953ffa6c0|[CONSENSUS][SEALER]resetSealingInfo,start=112,end=112,sealingNumber=112,waitUntil=0,unsealedTxs=0
+info|2026-02-06 23:02:21.499255|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]asyncNotifySealProposal success,startIndex=112,endIndex=112,maxTxsToSeal=1000
+info|2026-02-06 23:02:21.499260|pbft-0x0000718953ffa6c0|[CONSENSUS][SEALER]asyncNotifySealProposal,startIndex=112,endIndex=112,maxTxsPerBlock=1000
+info|2026-02-06 23:02:21.499265|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notifySealer: notify the new leader to seal block,lockNotifyT=0,idx=3,startIndex=112,endIndex=112,notifyBeginIndex=112,waitSealUntil=0,waitResealUntil=0,maxTxsToSeal=1000,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.499280|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.499310|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.499350|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.499358|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]applyStateMachine,index=111,hash=cde45ae5...,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2026-02-06 23:02:21.499416|preExeScheduler-0x00007189190696c0|[SCHEDULER][METRIC][BlockTrace][blk-111]preExeBlock success,blockHeader.timestamp=1770390141495,metaTxCount=1,timeCost=0
+info|2026-02-06 23:02:21.499459|exeScheduler-0x00007189185e86c0|[SCHEDULER][METRIC][blk-111]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=0
+info|2026-02-06 23:02:21.499542|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-111][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2026-02-06 23:02:21.499549|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-111][BlockTrace]serialExecute execute block
+info|2026-02-06 23:02:21.499556|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-111][BlockTrace]serialExecute batch next block
+info|2026-02-06 23:02:21.499559|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-111][BlockTrace]NextBlock request,executorNum=1
+info|2026-02-06 23:02:21.499994|exec-0x00007189727eb6c0|[SCHEDULER][blk-111][BlockTrace]NextBlock success,executorNum=1,timeCost=1
+info|2026-02-06 23:02:21.500038|exec-0x00007189727eb6c0|[SCHEDULER][serialExecute][blk-111][BlockTrace]serialExecute block begin
+info|2026-02-06 23:02:21.500459|Unnamed-0x0000718914de16c0|[STORAGE-KeyPage]empty table,table=/apps/a12817e1030e14aefa12bc42f3ff5d2a0df0ed6b_accessAuth,key=61646d696e
+info|2026-02-06 23:02:21.500624|Unnamed-0x0000718914de16c0|[STORAGE-KeyPage]empty table,table=/apps/a12817e1030e14aefa12bc42f3ff5d2a0df0ed6b,key=0000000000000000000000000000000000000000000000000000000000000004
+info|2026-02-06 23:02:21.500932|exec-0x0000718971fea6c0|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=18342,writeLength=452,pageCount=2,entrycount=2,entriesHash=eb98e7c690f2ea570ac0fc7f059fd720285ff8e32d1cf6a66c8bda1eb1f60769,pagesHash=6e93d0631212e51dc65624a561c87137d704b101b519c8c451bab6b36c0343d7,totalHash=850b37a582e00f4acc96d8da6457a617ff5b49e298053e623d316cadddf544be
+info|2026-02-06 23:02:21.500996|exec-0x0000718971fea6c0|[EXECUTOR:1770389060][blk-111]GetTableHashes success,hash=850b37a582e00f4acc96d8da6457a617ff5b49e298053e623d316cadddf544be,time(ms)=0
+info|2026-02-06 23:02:21.501039|exec-0x0000718971fea6c0|[SCHEDULER][blk-111][BlockTrace]ExecuteBlock success,hash=dcc99fc6...,stateRoot=850b37a582e00f4acc96d8da6457a617ff5b49e298053e623d316cadddf544be,receiptRoot=38bebdbca375efb1e8be9b93c6133d74914ff78d3db0b8636a742d6eea03acb8,txsRoot=6697c612...,gasUsed=128597,signatureSize=0,timeCost=2,blockVersion=51052544
+info|2026-02-06 23:02:21.501057|exec-0x0000718971fea6c0|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=111,result=dcc99fc6...,txsSize=1,txsRoot=6697c612...,receiptsRoot=38bebdbc...,stateRoot=850b37a5...,timeCost=2,execPerTx=2
+info|2026-02-06 23:02:21.501124|exec-0x0000718971fea6c0|[CONSENSUS][PBFT]applyStateMachine finished,index=111,beforeExec=cde45ae5...,afterExec=dcc99fc6...,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=2
+info|2026-02-06 23:02:21.501163|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=111
+info|2026-02-06 23:02:21.501211|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=111,timecost=0,dataSize=3
+info|2026-02-06 23:02:21.501250|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=111,number=111,timecost=0,dataSize=635
+info|2026-02-06 23:02:21.501406|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=dcc99fc6...,reqIndex=111,reqV=3,fromIdx=3,wait(ms)=0,Idx=3,weight=1,minRequiredWeight=3
+info|2026-02-06 23:02:21.501429|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]setCheckPointProposal,propHash=dcc99fc6...,propIndex=111,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=111,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.501440|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=112
+info|2026-02-06 23:02:21.501452|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.501458|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.501461|pbftWorker-0x0000718965fd26c0|[CONSENSUS][PBFT]onProposalApplySuccess,index=111,hash=dcc99fc6...,lockT=0,timecost=0
+info|2026-02-06 23:02:21.502221|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=dcc99fc6...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502291|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=dcc99fc6...,reqIndex=111,reqV=3,fromIdx=2,wait(ms)=1,Idx=3,weight=2,minRequiredWeight=3
+info|2026-02-06 23:02:21.502310|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502322|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.502630|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=dcc99fc6...,reqIndex=111,reqV=3,fromIdx=1,wait(ms)=0,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502715|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=dcc99fc6...,reqIndex=111,reqV=3,fromIdx=1,wait(ms)=0,Idx=3,weight=3,minRequiredWeight=3
+info|2026-02-06 23:02:21.502750|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502760|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.502765|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=dcc99fc6...,propIndex=111
+info|2026-02-06 23:02:21.502769|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=111,hash=dcc99fc6...,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502774|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=111,hash=dcc99fc6...,committedIndex=110,consNum=111,committedHash=e0e3031e...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.502778|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=111,committedIndex=110
+info|2026-02-06 23:02:21.502788|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=111,hash=dcc99fc6...,proofSize=3,blockProofSize=3
+info|2026-02-06 23:02:21.502843|blockSubmit-0x00007189677d56c0|[SCHEDULER][blk-111][BlockTrace]CommitBlock start
+info|2026-02-06 23:02:21.503195|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare,number=111
+info|2026-02-06 23:02:21.503246|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=111,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2026-02-06 23:02:21.503272|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts,blockNumber=111
+info|2026-02-06 23:02:21.503374|ledgerWrite-0x000071897a7fb6c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=140,time(ms)=0
+info|2026-02-06 23:02:21.503856|exec-0x00007189707e76c0|[STORAGE-RocksDB]asyncPrepare,number=111
+info|2026-02-06 23:02:21.503893|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=111,blockTxsSize=1,unStoredTxs=0,timeCost=0
+info|2026-02-06 23:02:21.503908|blockSubmit-0x00007189677d56c0|[LEDGER][METRIC]asyncPrewriteBlock,number=111,totalTxs=135,failedTxs=44,incTxs=1,incFailedTxs=0
+info|2026-02-06 23:02:21.504077|exec-0x00007189707e76c0|[STORAGE-KeyPage]parallelTraverse,size=591
+info|2026-02-06 23:02:21.504101|exec-0x00007189707e76c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=111,put=6,delete=3,startTS=0,encode(ms)=0,time(ms)=0
+info|2026-02-06 23:02:21.504106|exec-0x00007189707e76c0|[EXECUTOR:1770389060][blk-111]Prepare success
+info|2026-02-06 23:02:21.504211|exec-0x00007189707e76c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=111,startTS=0,time(ms)=0,callback time(ms)=0,count=16
+info|2026-02-06 23:02:21.504239|exec-0x0000718970fe86c0|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 23:02:21.504298|exec-0x0000718970fe86c0|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 23:02:21.504355|exec-0x0000718970fe86c0|[TOOL]fetchAuthCheckStatus success,value=0
+info|2026-02-06 23:02:21.504374|exec-0x0000718970fe86c0|[EXECUTOR:1770389060]merge keyPage to cachedStorage,number=111
+info|2026-02-06 23:02:21.504437|exec-0x0000718970fe86c0|[STORAGE-KeyPage]parallelTraverse,size=591
+info|2026-02-06 23:02:21.504456|exec-0x0000718970fe86c0|[STORAGE]Successful merged records,count=9
+info|2026-02-06 23:02:21.507677|exec-0x0000718970fe86c0|[SCHEDULER][blk-111][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=5
+info|2026-02-06 23:02:21.507784|exec-0x0000718970fe86c0|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=111
+info|2026-02-06 23:02:21.507792|exec-0x0000718970fe86c0|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=111,hash=dcc99fc6...,txs=1,timeCost=5,commitPerTx=5
+info|2026-02-06 23:02:21.507813|exec-0x0000718970fe86c0|[SCHEDULER][blk-111]notify block result success,hash=dcc99fc6...,txsSize=1
+info|2026-02-06 23:02:21.507875|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=111,propHash=dcc99fc6...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2026-02-06 23:02:21.507938|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=2,txs=1,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.507933|submitter-0x00007189787f76c0|[TXPOOL][METRIC]StatTPS,tps=71,totalTime=14
+info|2026-02-06 23:02:21.507952|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=111
+info|2026-02-06 23:02:21.507949|exec-0x0000718970fe86c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=111,startTS=0,time(ms)=0,callback time(ms)=4,count=0
+info|2026-02-06 23:02:21.507955|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=dcc99fc6...
+info|2026-02-06 23:02:21.507968|blockSubmit-0x00007189677d56c0|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=111,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2026-02-06 23:02:21.508141|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.508154|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]notifySealer return for invalid seal range,lockNotifyT=0,currentEndIndex=112,expectedEndIndex=112,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:21.508174|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=112
+info|2026-02-06 23:02:21.508229|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=111,eraseSize=1,cacheSize=0
+info|2026-02-06 23:02:21.508255|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemoveStabledCheckPoint,index=106
+info|2026-02-06 23:02:21.508293|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemove success,dbName=pbftCommitDB,key=106
+info|2026-02-06 23:02:21.508667|submitter-0x00007189787f76c0|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=111,timecost=1,lockT=0,removeT=0,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2026-02-06 23:02:21.888409|ioService-0x00007189363fd6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:47080,refCount=2
+info|2026-02-06 23:02:21.888530|ioService-0x00007189363fd6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47080,session=0x718926c08210
+info|2026-02-06 23:02:21.888575|ioService-0x00007189363fd6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47080,cb size=0,session=0x718926c08210
+info|2026-02-06 23:02:21.888677|ioService-0x00007189363fd6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x718926c07210
+info|2026-02-06 23:02:21.888954|fisco-bcos-0x000071895edfd6c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:47080
+info|2026-02-06 23:02:21.889017|fisco-bcos-0x000071895edfd6c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:47080,refCount=2
+info|2026-02-06 23:02:21.889031|fisco-bcos-0x000071895edfd6c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x718926c08210
+info|2026-02-06 23:02:21.889039|fisco-bcos-0x000071895edfd6c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x718926c07210
+info|2026-02-06 23:02:22.702717|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:47084
+info|2026-02-06 23:02:22.703107|ioService-0x0000718934ffe6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:02:22.703159|ioService-0x0000718934ffe6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x718923055090
+info|2026-02-06 23:02:22.703169|ioService-0x0000718934ffe6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x718923040210
+info|2026-02-06 23:02:22.703174|ioService-0x0000718934ffe6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:47084
+info|2026-02-06 23:02:22.703177|ioService-0x0000718934ffe6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:47084,session=0x718923040210
+info|2026-02-06 23:02:22.703418|ioService-0x0000718934ffe6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:47084,result=true
+info|2026-02-06 23:02:22.703483|ioService-0x0000718934ffe6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:47084,refCount=3
+info|2026-02-06 23:02:22.703558|ioService-0x0000718934ffe6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:47084,session=0x718923040210
+info|2026-02-06 23:02:22.703957|fisco-bcos-0x000071895e5ff6c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:02:22.703983|fisco-bcos-0x000071895e5ff6c0|[RPC]negotiatedVersion success,peer=127.0.0.1:47084,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=ed969a99260d4ec88509efd9dd3a0b81
+info|2026-02-06 23:02:22.704116|fisco-bcos-0x000071895e5ff6c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:47084,handshakeResponse={"groupBlockNumber":[{"group0":111}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:02:22.705638|fisco-bcos-0x000071895e5ff6c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:02:22.705692|fisco-bcos-0x000071895e5ff6c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:02:22.705707|fisco-bcos-0x000071895e5ff6c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:02:22.705713|fisco-bcos-0x000071895e5ff6c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:02:22.705718|fisco-bcos-0x000071895e5ff6c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:47084,seq=44df3baa89654aa7a51dab9c9b4313a4
+info|2026-02-06 23:02:23.508333|pullTxsTimer-0x00007189667d36c0|[CONSENSUS][PBFT]tryToSyncTxs: try to request unsealing txs from peer,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.491302|txsSeal-0x00007189757f16c0|[TXPOOL]begin batchFetchTxs,pendingTxs=1,limit=1000
+info|2026-02-06 23:02:24.491475|txsSeal-0x00007189757f16c0|[TXPOOL][METRIC]batchFetchTxs success,time=0,txsSize=1,sysTxsSize=0,pendingTxs=1,limit=1000,fetchTxsT=0,lockT=0,invalidBefore=0,invalidNow=0,sealed=0,traverseCount=1
+info|2026-02-06 23:02:24.492372|Sealer-0x00007189551fc6c0|[CONSENSUS][SEALER]++++++++++++++++ Generate proposal,index=112,curNum=111,hash=75807656...,sysTxs=false,txsSize=1,version=51052544
+info|2026-02-06 23:02:24.492404|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]asyncSubmitProposal,index=112,hash=75807656...,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.492442|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]++++++++++++++++ Generating seal on,index=112,Idx=3,hash=75807656...,sysProposal=false
+info|2026-02-06 23:02:24.492567|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]broadcast pre-prepare packet,packetSize=551,index=112,encode(ms)=0,asyncSend(ms)=0
+info|2026-02-06 23:02:24.492585|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]handlePrePrepareMsg,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,utc=2308673
+info|2026-02-06 23:02:24.492666|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]addPrePrepareCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=0,sys=false,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.492678|validator-0x00007189687d76c0|[CONSENSUS][PBFT]asyncResetTxsFlag,index=112,hash=75807656...,flag=true
+info|2026-02-06 23:02:24.492689|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=112
+info|2026-02-06 23:02:24.492692|validator-0x00007189687d76c0|[TXPOOL]batchMarkTxs,txsSize=1,batchId=112,hash=75807656...,sealFlag=true,notFound=0,reSealed=0,succ=1,time=0,markT=0
+info|2026-02-06 23:02:24.492701|validator-0x00007189687d76c0|[CONSENSUS][PBFT]asyncMarkTxs success,index=112,hash=75807656...,flag=true,markT=0,emptyTxBatchHash=false
+info|2026-02-06 23:02:24.492745|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:24.492797|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]broadcast prepare packet,packetSize=230,index=112
+info|2026-02-06 23:02:24.492867|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]handlePrePrepareMsg and broadcast prepare packet,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.492878|Sealer-0x00007189551fc6c0|[CONSENSUS][PBFT]handlePrePrepareMsg success,index=112,costT(ms)=1
+info|2026-02-06 23:02:24.494976|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:24.495099|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addPrepareCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:24.495123|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=75807656...,propIndex=112
+info|2026-02-06 23:02:24.495137|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]intoPrecommit,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=3,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.495176|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=1
+info|2026-02-06 23:02:24.495181|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndPreCommit: broadcast commitMsg,Idx=3,hash=75807656...,index=112
+info|2026-02-06 23:02:24.495817|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=2,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=2
+info|2026-02-06 23:02:24.496037|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCommitCache,reqHash=75807656...,reqIndex=112,reqV=3,fromIdx=0,wait(ms)=1,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,weight=3
+info|2026-02-06 23:02:24.496073|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndCommit,propHash=75807656...,propIndex=112,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.496083|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]######## CommitProposal,propHash=75807656...,propIndex=112,sys=false,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.496089|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.496111|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.496222|preExeScheduler-0x000071891a06b6c0|[SCHEDULER][METRIC][BlockTrace][blk-112]preExeBlock success,blockHeader.timestamp=1770390144492,metaTxCount=1,timeCost=0
+info|2026-02-06 23:02:24.496187|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]applyStateMachine,index=112,hash=75807656...,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,unAppliedProposals=0
+info|2026-02-06 23:02:24.496372|exeScheduler-0x00007189185e86c0|[SCHEDULER][METRIC][blk-112]ExecuteBlock request,gasLimit=3000000000,gasPrice=0x0,verify=false,signatureSize=0,txCount=0,metaTxCount=1,version=3.11.0,waitT=2995
+info|2026-02-06 23:02:24.496435|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-112][BlockTrace]ExecuteBlock start,time(ms)=0
+info|2026-02-06 23:02:24.496452|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute execute block
+info|2026-02-06 23:02:24.496457|exeScheduler-0x00007189185e86c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute batch next block
+info|2026-02-06 23:02:24.496461|exeScheduler-0x00007189185e86c0|[SCHEDULER][blk-112][BlockTrace]NextBlock request,executorNum=1
+info|2026-02-06 23:02:24.496964|exec-0x000071896ffe66c0|[SCHEDULER][blk-112][BlockTrace]NextBlock success,executorNum=1,timeCost=0
+info|2026-02-06 23:02:24.496990|exec-0x000071896ffe66c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute block begin
+info|2026-02-06 23:02:24.497361|Unnamed-0x00007189145e06c0|[STORAGE-KeyPage]empty table,table=/apps/6d5de407db930fd7f5a0d9f19be7ec7bc7b36a2a_accessAuth,key=61646d696e
+info|2026-02-06 23:02:24.497481|Unnamed-0x00007189145e06c0|[STORAGE-KeyPage]empty table,table=/apps/6d5de407db930fd7f5a0d9f19be7ec7bc7b36a2a,key=0000000000000000000000000000000000000000000000000000000000000000
+info|2026-02-06 23:02:24.497640|exec-0x000071896efe46c0|[STORAGE-KeyPage]hash,size=29,blockVersion=51052544,readLength=10494,writeLength=388,pageCount=2,entrycount=2,entriesHash=ad328610a42e409c6b08f36bde12e3d9468ee245a041c01e807fc79c581d74d9,pagesHash=35c8db44f774a25f33baa53257ecd92add062e4ef1a9b368263012d37cefbc6c,totalHash=98fa5d54535ae2c358b2565989fe3af39b88cc0b51e87376a64fd54f24f2c8b5
+info|2026-02-06 23:02:24.497665|exec-0x000071896efe46c0|[EXECUTOR:1770389060][blk-112]GetTableHashes success,hash=98fa5d54535ae2c358b2565989fe3af39b88cc0b51e87376a64fd54f24f2c8b5,time(ms)=0
+info|2026-02-06 23:02:24.497693|exec-0x000071896efe46c0|[SCHEDULER][blk-112][BlockTrace]ExecuteBlock success,hash=0499cceb...,stateRoot=98fa5d54535ae2c358b2565989fe3af39b88cc0b51e87376a64fd54f24f2c8b5,receiptRoot=11b68c1ff61d5dff3f770ece11208b419b4f838db22b63d9ed98f8acb68ae0e4,txsRoot=d6627fd3...,gasUsed=67112,signatureSize=0,timeCost=1,blockVersion=51052544
+info|2026-02-06 23:02:24.497707|exec-0x000071896efe46c0|[CONSENSUS][Core][METRIC]asyncExecuteBlock success,sysBlock=false,number=112,result=0499cceb...,txsSize=1,txsRoot=d6627fd3...,receiptsRoot=11b68c1f...,stateRoot=98fa5d54...,timeCost=1,execPerTx=1
+info|2026-02-06 23:02:24.497741|exec-0x000071896efe46c0|[CONSENSUS][PBFT]applyStateMachine finished,index=112,beforeExec=75807656...,afterExec=0499cceb...,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,timecost=1
+info|2026-02-06 23:02:24.497777|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT][STORAGE]asyncCommitProposal: write the committed proposal into db,index=112
+info|2026-02-06 23:02:24.497818|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=max_committed_proposal,number=112,timecost=0,dataSize=3
+info|2026-02-06 23:02:24.497918|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT][STORAGE]asyncPutProposal: commit success,dbName=pbftCommitDB,key=112,number=112,timecost=0,dataSize=635
+info|2026-02-06 23:02:24.498086|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=3,wait(ms)=1,Idx=3,weight=1,minRequiredWeight=3
+info|2026-02-06 23:02:24.498097|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT]setCheckPointProposal,propHash=0499cceb...,propIndex=112,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=112,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.498105|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT]PBFTConfig: setExpectedCheckPoint,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...,expectedCheckPoint=113
+info|2026-02-06 23:02:24.498111|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.498114|pbftWorker-0x00007189657d16c0|[CONSENSUS][PBFT]onProposalApplySuccess,index=112,hash=0499cceb...,lockT=0,timecost=0
+info|2026-02-06 23:02:24.507406|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=0,wait(ms)=0,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.507439|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=0,wait(ms)=0,Idx=3,weight=2,minRequiredWeight=3
+info|2026-02-06 23:02:24.507447|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.532966|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=1,wait(ms)=1,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.533164|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=1,wait(ms)=1,Idx=3,weight=3,minRequiredWeight=3
+info|2026-02-06 23:02:24.533187|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.533195|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]setSignatureList,signatureSize=3,propHash=0499cceb...,propIndex=112
+info|2026-02-06 23:02:24.533200|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]checkAndCommitStableCheckPoint,index=112,hash=0499cceb...,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.533207|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: insert new checkpoint proposal,index=112,hash=0499cceb...,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.533212|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]updateStableCheckPointQueue: commit stable checkpoint,index=112,committedIndex=111
+info|2026-02-06 23:02:24.533227|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]asyncCommitStableCheckPoint: set signatureList,index=112,hash=0499cceb...,proofSize=3,blockProofSize=3
+info|2026-02-06 23:02:24.533286|blockSubmit-0x00007189677d56c0|[SCHEDULER][blk-112][BlockTrace]CommitBlock start
+info|2026-02-06 23:02:24.533333|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]handleCheckPointMsg: try to add the checkpoint message into the cache,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=2,wait(ms)=1,committedIndex=111,consNum=112,committedHash=dcc99fc6...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.533344|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]addCheckPointMsg,reqHash=0499cceb...,reqIndex=112,reqV=3,fromIdx=2,wait(ms)=1,Idx=3,weight=4,minRequiredWeight=3
+info|2026-02-06 23:02:24.533456|pbft-0x0000718953ffa6c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.533575|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare,number=112
+info|2026-02-06 23:02:24.533612|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=112,put=7,delete=0,startTS=0,encode(ms)=0,time(ms)=0
+info|2026-02-06 23:02:24.533679|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts,blockNumber=112
+info|2026-02-06 23:02:24.533776|ledgerWrite-0x000071897e1fa6c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=139,time(ms)=0
+info|2026-02-06 23:02:24.533835|blockSubmit-0x00007189677d56c0|[STORAGE-RocksDB]setRows finished,put=1,dataSize=5683,time(ms)=1
+info|2026-02-06 23:02:24.533842|blockSubmit-0x00007189677d56c0|[LEDGER]storeTransactionsAndReceipts finished,blockNumber=112,blockTxsSize=1,unStoredTxs=1,timeCost=0
+info|2026-02-06 23:02:24.533917|exec-0x000071896dfe26c0|[STORAGE-RocksDB]asyncPrepare,number=112
+info|2026-02-06 23:02:24.533950|blockSubmit-0x00007189677d56c0|[LEDGER][METRIC]asyncPrewriteBlock,number=112,totalTxs=136,failedTxs=44,incTxs=1,incFailedTxs=0
+info|2026-02-06 23:02:24.534097|exec-0x000071896dfe26c0|[STORAGE-KeyPage]parallelTraverse,size=491
+info|2026-02-06 23:02:24.534160|exec-0x000071896dfe26c0|[STORAGE-RocksDB]asyncPrepare finished,blockNumber=112,put=6,delete=3,startTS=0,encode(ms)=0,time(ms)=0
+info|2026-02-06 23:02:24.534177|exec-0x000071896dfe26c0|[EXECUTOR:1770389060][blk-112]Prepare success
+info|2026-02-06 23:02:24.534251|exec-0x000071896dfe26c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=112,startTS=0,time(ms)=0,callback time(ms)=0,count=16
+info|2026-02-06 23:02:24.534271|exec-0x000071896e7e36c0|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 23:02:24.534353|exec-0x000071896e7e36c0|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 23:02:24.534412|exec-0x000071896e7e36c0|[TOOL]fetchAuthCheckStatus success,value=0
+info|2026-02-06 23:02:24.534429|exec-0x000071896e7e36c0|[EXECUTOR:1770389060]merge keyPage to cachedStorage,number=112
+info|2026-02-06 23:02:24.534522|exec-0x000071896e7e36c0|[STORAGE-KeyPage]parallelTraverse,size=491
+info|2026-02-06 23:02:24.534539|exec-0x000071896e7e36c0|[STORAGE]Successful merged records,count=9
+info|2026-02-06 23:02:24.535875|exec-0x000071896e7e36c0|[SCHEDULER][blk-112][BlockTrace]CommitBlock success,gas limit=3000000000,timeCost=2
+info|2026-02-06 23:02:24.535971|exec-0x000071896e7e36c0|[SCHEDULER][BlockTrace]Notify block result success,blockNumber=112
+info|2026-02-06 23:02:24.535997|exec-0x000071896e7e36c0|[CONSENSUS][PBFT][STORAGE][METRIC]commitStableCheckPoint success,index=112,hash=0499cceb...,txs=1,timeCost=3,commitPerTx=2
+info|2026-02-06 23:02:24.536036|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=112,propHash=0499cceb...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2026-02-06 23:02:24.536058|exec-0x000071896e7e36c0|[SCHEDULER][blk-112]notify block result success,hash=0499cceb...,txsSize=1
+info|2026-02-06 23:02:24.536077|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,sealer=3,txs=1,committedIndex=112,consNum=113,committedHash=0499cceb...,view=3,toView=3,changeCycle=0,expectedCheckPoint=113,Idx=3,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=5b07d12d...
+info|2026-02-06 23:02:24.536089|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=112
+info|2026-02-06 23:02:24.536028|submitter-0x0000718977ff66c0|[TXPOOL][METRIC]StatTPS,tps=22,totalTime=45
+info|2026-02-06 23:02:24.536092|blockSubmit-0x00007189677d56c0|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=0499cceb...
+info|2026-02-06 23:02:24.536103|blockSubmit-0x00007189677d56c0|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=112,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2026-02-06 23:02:24.536138|exec-0x000071896e7e36c0|[STORAGE-RocksDB]asyncCommit finished,blockNumber=112,startTS=0,time(ms)=0,callback time(ms)=2,count=0
+info|2026-02-06 23:02:24.536280|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]notify to seal next proposal,nextProposalIndex=113
+info|2026-02-06 23:02:24.536325|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT]removeConsensusedCache finalizeConsensus,view=3,number=112,eraseSize=1,cacheSize=0
+info|2026-02-06 23:02:24.536359|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemoveStabledCheckPoint,index=107
+info|2026-02-06 23:02:24.536388|blockSubmit-0x00007189677d56c0|[CONSENSUS][PBFT][STORAGE]asyncRemove success,dbName=pbftCommitDB,key=107
+info|2026-02-06 23:02:24.536485|submitter-0x0000718977ff66c0|[TXPOOL][METRIC]batchRemove txs success,expectedSize=1,succCount=1,batchId=112,timecost=1,lockT=1,removeT=1,updateLedgerNonceT=0,updateTxPoolNonceT=0
+info|2026-02-06 23:02:24.913834|ioService-0x0000718934ffe6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:47084,refCount=2
+info|2026-02-06 23:02:24.913884|ioService-0x0000718934ffe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47084,session=0x718923040210
+info|2026-02-06 23:02:24.913909|ioService-0x0000718934ffe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47084,cb size=0,session=0x718923040210
+info|2026-02-06 23:02:24.913991|ioService-0x0000718934ffe6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x718923055090
+info|2026-02-06 23:02:24.914134|fisco-bcos-0x000071895d3ff6c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:47084
+info|2026-02-06 23:02:24.914156|fisco-bcos-0x000071895d3ff6c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:47084,refCount=2
+info|2026-02-06 23:02:24.914168|fisco-bcos-0x000071895d3ff6c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x718923040210
+info|2026-02-06 23:02:24.914174|fisco-bcos-0x000071895d3ff6c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x718923055090
+info|2026-02-06 23:02:25.725620|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:47092
+info|2026-02-06 23:02:25.726022|ioService-0x00007189339fe6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:02:25.726143|ioService-0x00007189339fe6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x71897d82d450
+info|2026-02-06 23:02:25.726174|ioService-0x00007189339fe6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x71897d805210
+info|2026-02-06 23:02:25.726179|ioService-0x00007189339fe6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:47092
+info|2026-02-06 23:02:25.726186|ioService-0x00007189339fe6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:47092,session=0x71897d805210
+info|2026-02-06 23:02:25.726298|ioService-0x00007189339fe6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:47092,result=true
+info|2026-02-06 23:02:25.726317|ioService-0x00007189339fe6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:47092,refCount=3
+info|2026-02-06 23:02:25.726333|ioService-0x00007189339fe6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:47092,session=0x71897d805210
+info|2026-02-06 23:02:25.726955|ioService-0x000071891c3f36c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:02:25.726995|ioService-0x000071891c3f36c0|[RPC]negotiatedVersion success,peer=127.0.0.1:47092,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=635bf4f23c8d493b8d51207a88a41e7c
+info|2026-02-06 23:02:25.727168|ioService-0x000071891c3f36c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:47092,handshakeResponse={"groupBlockNumber":[{"group0":112}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:02:25.728676|ioService-0x000071891c3f36c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:02:25.728791|ioService-0x000071891c3f36c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:02:25.728817|ioService-0x000071891c3f36c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:02:25.728823|ioService-0x000071891c3f36c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:02:25.728827|ioService-0x000071891c3f36c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:47092,seq=33bfb3909edd43f8b3dacff73f1a001a
+info|2026-02-06 23:02:27.129419|ioService-0x000071891c3f36c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute execute block
+info|2026-02-06 23:02:27.129476|ioService-0x000071891c3f36c0|[SCHEDULER][METRIC][BlockTrace][blk-112]preExeBlock success,blockHeader.timestamp=0,metaTxCount=0,timeCost=0
+info|2026-02-06 23:02:27.223856|exec-0x000071896d7e16c0|[EXECUTOR:1770389060]Get ABI request,Contract=d6abc4c7bf48568ecceffeb97afe3a21b005ebf8
+info|2026-02-06 23:02:27.564756|ioService-0x00007189339fe6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:47092,refCount=2
+info|2026-02-06 23:02:27.564798|ioService-0x00007189339fe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47092,session=0x71897d805210
+info|2026-02-06 23:02:27.564818|ioService-0x00007189339fe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:47092,cb size=0,session=0x71897d805210
+info|2026-02-06 23:02:27.564961|ioService-0x00007189339fe6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x71897d82d450
+info|2026-02-06 23:02:27.565095|fisco-bcos-0x000071895a9ff6c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:47092
+info|2026-02-06 23:02:27.565115|fisco-bcos-0x000071895a9ff6c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:47092,refCount=2
+info|2026-02-06 23:02:27.565121|fisco-bcos-0x000071895a9ff6c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x71897d805210
+info|2026-02-06 23:02:27.565125|fisco-bcos-0x000071895a9ff6c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x71897d82d450
+info|2026-02-06 23:02:28.389895|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:38744
+info|2026-02-06 23:02:28.390237|ioService-0x00007189401fe6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:02:28.390276|ioService-0x00007189401fe6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x71893de78090
+info|2026-02-06 23:02:28.390286|ioService-0x00007189401fe6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x71893de40a10
+info|2026-02-06 23:02:28.390292|ioService-0x00007189401fe6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:38744
+info|2026-02-06 23:02:28.390296|ioService-0x00007189401fe6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:38744,session=0x71893de40a10
+info|2026-02-06 23:02:28.390472|ioService-0x00007189401fe6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:38744,result=true
+info|2026-02-06 23:02:28.390508|ioService-0x00007189401fe6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:38744,refCount=3
+info|2026-02-06 23:02:28.390535|ioService-0x00007189401fe6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:38744,session=0x71893de40a10
+info|2026-02-06 23:02:28.391143|fisco-bcos-0x00007189603c56c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:02:28.391168|fisco-bcos-0x00007189603c56c0|[RPC]negotiatedVersion success,peer=127.0.0.1:38744,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=6bdb22eb885847a88d0a6abbd74be626
+info|2026-02-06 23:02:28.391307|fisco-bcos-0x00007189603c56c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:38744,handshakeResponse={"groupBlockNumber":[{"group0":112}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:02:28.392418|ioService-0x000071891c3f36c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:02:28.392457|ioService-0x000071891c3f36c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:02:28.392463|ioService-0x000071891c3f36c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:02:28.392468|ioService-0x000071891c3f36c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:02:28.392471|ioService-0x000071891c3f36c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:38744,seq=dc6f7713c23f4ad78f41851d12fb568f
+info|2026-02-06 23:02:29.783102|fisco-bcos-0x000071891b8716c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute execute block
+info|2026-02-06 23:02:29.783152|fisco-bcos-0x000071891b8716c0|[SCHEDULER][METRIC][BlockTrace][blk-112]preExeBlock success,blockHeader.timestamp=0,metaTxCount=0,timeCost=0
+info|2026-02-06 23:02:29.879637|exec-0x000071896c7df6c0|[EXECUTOR:1770389060]Get ABI request,Contract=d6abc4c7bf48568ecceffeb97afe3a21b005ebf8
+info|2026-02-06 23:02:30.225839|ioService-0x00007189401fe6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:38744,refCount=2
+info|2026-02-06 23:02:30.225892|ioService-0x00007189401fe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:38744,session=0x71893de40a10
+info|2026-02-06 23:02:30.225923|ioService-0x00007189401fe6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:38744,cb size=0,session=0x71893de40a10
+info|2026-02-06 23:02:30.226055|ioService-0x00007189401fe6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x71893de78090
+info|2026-02-06 23:02:30.226330|fisco-bcos-0x00007189577fc6c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:38744
+info|2026-02-06 23:02:30.226376|fisco-bcos-0x00007189577fc6c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:38744,refCount=2
+info|2026-02-06 23:02:30.226388|fisco-bcos-0x00007189577fc6c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x71893de40a10
+info|2026-02-06 23:02:30.226395|fisco-bcos-0x00007189577fc6c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x71893de78090
+info|2026-02-06 23:02:30.390660|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:30.395225|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:30.396760|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:40.390914|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:40.395399|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:40.396895|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:50.393325|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:02:50.395522|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:02:50.399638|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:00.393479|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:00.395666|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:00.399876|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:03.200539|ioService-0x00007189309fe6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:8545,remote_endpoint=127.0.0.1:42566
+info|2026-02-06 23:03:03.201976|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:06.282424|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:09.282884|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:10.393640|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:10.395830|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:10.400441|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:12.282986|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:15.286674|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:17.264247|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:43940
+info|2026-02-06 23:03:17.264722|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:03:17.264780|ioService-0x000071893e7ff6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x718939810090
+info|2026-02-06 23:03:17.264794|ioService-0x000071893e7ff6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x718939841c10
+info|2026-02-06 23:03:17.264798|ioService-0x000071893e7ff6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:43940
+info|2026-02-06 23:03:17.264805|ioService-0x000071893e7ff6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:43940,session=0x718939841c10
+info|2026-02-06 23:03:17.264984|ioService-0x000071893e7ff6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:43940,result=true
+info|2026-02-06 23:03:17.265003|ioService-0x000071893e7ff6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:43940,refCount=3
+info|2026-02-06 23:03:17.265018|ioService-0x000071893e7ff6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:43940,session=0x718939841c10
+info|2026-02-06 23:03:17.265665|fisco-bcos-0x000071891a46c6c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:03:17.265689|fisco-bcos-0x000071891a46c6c0|[RPC]negotiatedVersion success,peer=127.0.0.1:43940,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=b07c903b34bc4acbb8c7d47ce17c208d
+info|2026-02-06 23:03:17.265878|fisco-bcos-0x000071891a46c6c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:43940,handshakeResponse={"groupBlockNumber":[{"group0":112}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:03:17.267346|fisco-bcos-0x00007189527fe6c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:03:17.267385|fisco-bcos-0x00007189527fe6c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:03:17.267392|fisco-bcos-0x00007189527fe6c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:03:17.267418|fisco-bcos-0x00007189527fe6c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:03:17.267424|fisco-bcos-0x00007189527fe6c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:43940,seq=a69223ce82c34141b69feffddf6ece7b
+info|2026-02-06 23:03:18.287536|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:18.615961|fisco-bcos-0x00007189577fc6c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute execute block
+info|2026-02-06 23:03:18.616013|fisco-bcos-0x00007189577fc6c0|[SCHEDULER][METRIC][BlockTrace][blk-112]preExeBlock success,blockHeader.timestamp=0,metaTxCount=0,timeCost=0
+info|2026-02-06 23:03:18.711453|exec-0x000071896cfe06c0|[EXECUTOR:1770389060]Get ABI request,Contract=d6627fd30f08113d1a54de59374cf3fc0a004f3f
+info|2026-02-06 23:03:19.047044|ioService-0x000071893e7ff6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:43940,refCount=2
+info|2026-02-06 23:03:19.047164|ioService-0x000071893e7ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:43940,session=0x718939841c10
+info|2026-02-06 23:03:19.047179|ioService-0x000071893e7ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:43940,cb size=0,session=0x718939841c10
+info|2026-02-06 23:03:19.047233|ioService-0x000071893e7ff6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x718939810090
+info|2026-02-06 23:03:19.047344|fisco-bcos-0x0000718960bc76c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:43940
+info|2026-02-06 23:03:19.047368|fisco-bcos-0x0000718960bc76c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:43940,refCount=2
+info|2026-02-06 23:03:19.047374|fisco-bcos-0x0000718960bc76c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x718939841c10
+info|2026-02-06 23:03:19.047382|fisco-bcos-0x0000718960bc76c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x718939810090
+info|2026-02-06 23:03:20.356864|objMonitor-0x0000718921bff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 10 ,destroyed: 6 ,alive: 4 ] 
+info|2026-02-06 23:03:20.395748|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:20.396021|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:20.402588|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:21.289973|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:24.290665|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:27.289653|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:30.236212|ioService-0x000071893e7ff6c0|[DEFAULT][HTTP][SERVER][accept],local_endpoint=127.0.0.1:20203,remote_endpoint=127.0.0.1:37942
+info|2026-02-06 23:03:30.236973|ioService-0x000071893d1ff6c0|[DEFAULT][HTTP][SESSION][onRead]websocket upgrade
+info|2026-02-06 23:03:30.237004|ioService-0x000071893d1ff6c0|[DEFAULT][WS][STREAM],[NEWOBJ][WsStream]=0x71893a61f2d0
+info|2026-02-06 23:03:30.237014|ioService-0x000071893d1ff6c0|[RPC][WS][SESSION],[NEWOBJ][WSSESSION]=0x71893a675410
+info|2026-02-06 23:03:30.237018|ioService-0x000071893d1ff6c0|[RPC][WS][SERVICE][newSession]start the session,endPoint=127.0.0.1:37942
+info|2026-02-06 23:03:30.237022|ioService-0x000071893d1ff6c0|[RPC][WS][SESSION][startAsServer]start websocket handshake,endPoint=127.0.0.1:37942,session=0x71893a675410
+info|2026-02-06 23:03:30.237102|ioService-0x000071893d1ff6c0|[RPC][WS][SERVICE][addSession]add session to mapping,endPoint=127.0.0.1:37942,result=true
+info|2026-02-06 23:03:30.237124|ioService-0x000071893d1ff6c0|[RPC][WS][SERVICE][onConnect],endpoint=127.0.0.1:37942,refCount=3
+info|2026-02-06 23:03:30.237146|ioService-0x000071893d1ff6c0|[RPC][WS][SESSION][onWsAccept]websocket handshake successfully,endPoint=127.0.0.1:37942,session=0x71893a675410
+info|2026-02-06 23:03:30.237658|fisco-bcos-0x00007189577fc6c0|HandshakeRequest,module=2,minVersion=0,maxVersion=2
+info|2026-02-06 23:03:30.237682|fisco-bcos-0x00007189577fc6c0|[RPC]negotiatedVersion success,peer=127.0.0.1:37942,minVersion=0,maxVersion=2,supportMinVersion=0,supportMaxVersion=2,negotiatedVersion=2,seq=dbd547b98d9f4ea2be6185e6b53a59a0
+info|2026-02-06 23:03:30.237819|fisco-bcos-0x00007189577fc6c0|[RPC]onRecvHandshakeRequest success,version=2,endpoint=127.0.0.1:37942,handshakeResponse={"groupBlockNumber":[{"group0":112}],"groupInfoList":[{"chainID":"chain0","genesisConfig":"{\"blockTxCountLimit\":1000,\"consensusLeaderPeriod\":1,\"consensusType\":\"pbft\",\"sealerList\":[{\"nodeID\":\"0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2\",\"weight\":1},{\"nodeID\":\"21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297\",\"weight\":1},{\"nodeID\":\"2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a\",\"weight\":1},{\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"weight\":1}],\"txGasLimit\":3000000000}\n","groupID":"group0","iniConfig":"","nodeList":[{"featureKeys":["bugfix_revert","bugfix_statestorage_hash","bugfix_evm_create2_delegatecall_staticcall_codecopy","bugfix_event_log_order","bugfix_call_noaddr_return","bugfix_precompiled_codehash","bugfix_dmc_revert","bugfix_keypage_system_entry_hash","bugfix_internal_create_redundant_storage","bugfix_internal_create_permission_denied","bugfix_sharding_call_in_child_executive","bugfix_empty_abi_reset","bugfix_eip55_addr","bugfix_eoa_as_contract","bugfix_eoa_match_failed","bugfix_evm_exception_gas_used","bugfix_dmc_deploy_gas_used","bugfix_staticcall_noaddr_return","bugfix_support_transfer_receive_fallback","bugfix_set_row_with_dirty_flag","feature_dmc2serial","feature_sharding","feature_rpbft","feature_paillier","feature_balance","feature_balance_precompiled","feature_balance_policy1","feature_paillier_add_raw","feature_evm_cancun"],"iniConfig":"{\"binaryInfo\":{\"buildTime\":\"20240827 04:30:34\",\"gitCommitHash\":\"3fea676716990b2ed453b4f079915daafff451f9\",\"platform\":\"Linux/g++\",\"version\":\"3.11.0\"},\"chainID\":\"chain0\",\"gatewayServiceName\":\"\",\"groupID\":\"group0\",\"isAuthCheck\":false,\"isSerialExecute\":true,\"isWasm\":false,\"nodeID\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"nodeName\":\"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5\",\"rpcServiceName\":\"\",\"smCryptoType\":false}\n","microService":false,"name":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","nodeID":"5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5","protocol":{"compatibilityVersion":51052544,"maxSupportedVersion":2,"minSupportedVersion":0},"serviceInfo":[{"serviceName":"LedgerServiceObj","type":2},{"serviceName":"SchedulerServiceObj","type":3},{"serviceName":"FrontServiceObj","type":4},{"serviceName":"","type":6},{"serviceName":"","type":7},{"serviceName":"TxPoolServiceObj","type":8}],"supportConfigs":["tx_gas_limit","tx_gas_price","tx_count_limit","consensus_leader_period","auth_check_status","compatibility_version","feature_rpbft","feature_rpbft_epoch_block_num","feature_rpbft_epoch_sealer_num","feature_balance_precompiled","web3_chain_id"],"type":0}]}],"protocolVersion":2}
+info|2026-02-06 23:03:30.239178|fisco-bcos-0x000071895edfd6c0|[parseSubTopicsJson],topicItems size=0,json={"topics":[]}
+info|2026-02-06 23:03:30.239222|fisco-bcos-0x000071895edfd6c0|[AMOPClient]subscribeTopicToAllNodes,topicInfo={
+	"topics" : []
+}
+info|2026-02-06 23:03:30.239229|fisco-bcos-0x000071895edfd6c0|[AMOP][TOPIC][parseSubTopicsJson],topicItems size=0,json={
+	"topics" : []
+}
+info|2026-02-06 23:03:30.239233|fisco-bcos-0x000071895edfd6c0|[AMOP][TOPIC][subTopic],client=localAMOP,topicSeq=1,topicItems size=0
+info|2026-02-06 23:03:30.239237|fisco-bcos-0x000071895edfd6c0|[AMOPClient][onRecvSubTopics],topicInfo={"topics":[]}
+,endpoint=127.0.0.1:37942,seq=9dd070d3584b452ca54bc46b2cd6587c
+info|2026-02-06 23:03:30.291657|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:30.395852|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=1
+info|2026-02-06 23:03:30.396148|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:30.402711|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:31.646900|ioService-0x000071891ebfd6c0|[SCHEDULER][serialExecute][blk-112][BlockTrace]serialExecute execute block
+info|2026-02-06 23:03:31.646948|ioService-0x000071891ebfd6c0|[SCHEDULER][METRIC][BlockTrace][blk-112]preExeBlock success,blockHeader.timestamp=0,metaTxCount=0,timeCost=0
+info|2026-02-06 23:03:31.739972|exec-0x000071896bfde6c0|[EXECUTOR:1770389060]Get ABI request,Contract=d6627fd30f08113d1a54de59374cf3fc0a004f3f
+info|2026-02-06 23:03:32.077318|ioService-0x000071893d1ff6c0|[WS][SESSION][asyncRead],message=End of file,endpoint=127.0.0.1:37942,refCount=2
+info|2026-02-06 23:03:32.077361|ioService-0x000071893d1ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:37942,session=0x71893a675410
+info|2026-02-06 23:03:32.077375|ioService-0x000071893d1ff6c0|[RPC][WS][SESSION][drop],reason=4294963295,endpoint=127.0.0.1:37942,cb size=0,session=0x71893a675410
+info|2026-02-06 23:03:32.077429|ioService-0x000071893d1ff6c0|[DEFAULT][WS][STREAM]the real action to close the stream,this=0x71893a61f2d0
+info|2026-02-06 23:03:32.077559|fisco-bcos-0x00007189603c56c0|[RPC][WS][SERVICE][removeSession],endpoint=127.0.0.1:37942
+info|2026-02-06 23:03:32.077586|fisco-bcos-0x00007189603c56c0|[RPC][WS][SERVICE][onDisconnect],endpoint=127.0.0.1:37942,refCount=2
+info|2026-02-06 23:03:32.077593|fisco-bcos-0x00007189603c56c0|[RPC][WS][SESSION],[DELOBJ][WSSESSION]=0x71893a675410
+info|2026-02-06 23:03:32.077598|fisco-bcos-0x00007189603c56c0|[DEFAULT][WS][STREAM],[DELOBJ][WsStream]=0x71893a61f2d0
+info|2026-02-06 23:03:33.291174|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:36.293122|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:39.294050|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:40.396075|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:40.396364|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:40.403076|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:42.298251|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:45.297977|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:48.299302|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:50.396554|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:03:50.396805|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:50.403861|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:03:51.301961|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:54.301336|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:03:57.301816|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:04:00.302574|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:04:00.396723|ioService-0x0000718951fff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 23:04:00.396875|timerFactory-0x0000718940bff6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:04:00.403925|timerFactory-0x00007189329fc6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 23:04:03.302852|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request
+info|2026-02-06 23:04:06.306370|ioService-0x000071892fdff6c0|[DEFAULT][HTTP][SESSION][onRead]receive http request

@@ -1,0 +1,323 @@
+info|2026-02-06 13:59:59.802167|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]initGlobalConfig
+info|2026-02-06 13:59:59.803961|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadChainConfig,smCrypto=false,chainId=chain0,groupId=group0,blockLimit=1000
+info|2026-02-06 13:59:59.803993|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadWeb3ChainConfig,web3ChainID=20200
+info|2026-02-06 13:59:59.804017|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a,weight=1
+info|2026-02-06 13:59:59.804534|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,weight=1
+info|2026-02-06 13:59:59.804552|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,weight=1
+info|2026-02-06 13:59:59.804560|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,weight=1
+info|2026-02-06 13:59:59.804573|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],totalNodesSize=4
+info|2026-02-06 13:59:59.804585|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadLedgerConfig,consensus_type=pbft,block_tx_count_limit=1000,gas_limit=3000000000,leader_period=1,minSealTime=0,compatibilityVersion=3.11.0
+info|2026-02-06 13:59:59.805089|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadExecutorConfig,isWasm=false,isAuthCheck=false,authAdminAccount=0x1dbd23331f727a66c096de4f3daaec061a3ca614,ismSerialExecute=true
+info|2026-02-06 13:59:59.805217|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadCertConfig,ca_path=./conf,sm_ca_cert=./conf/sm_ca.crt,sm_node_cert=./conf/sm_ssl.crt,sm_node_key=./conf/sm_ssl.key,sm_ennode_cert=./conf/sm_enssl.crt,sm_ennode_key=./conf/sm_enssl.key
+info|2026-02-06 13:59:59.805369|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadCertConfig,ca_path=./conf,ca_cert=./conf/ca.crt,node_cert=./conf/ssl.crt,node_key=./conf/ssl.key
+info|2026-02-06 13:59:59.805856|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadRpcConfig,listenIP=0.0.0.0,listenPort=20202,listenPort=20202,smSsl=false,disableSsl=true,needRetInput=true
+info|2026-02-06 13:59:59.805893|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadWeb3RpcConfig,enableWeb3Rpc=false,listenIP=0.0.0.0,listenPort=8544,listenPort=8544
+info|2026-02-06 13:59:59.805904|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadGatewayConfig,listenIP=0.0.0.0,listenPort=30302,listenPort=30302,smSsl=false,nodesFile=nodes.json
+info|2026-02-06 13:59:59.805914|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSealerConfig,minSealTime=500
+info|2026-02-06 13:59:59.805950|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadTxPoolConfig,txpoolLimit=15000,notifierWorkers=2,verifierWorkers=8,checkBlockLimit=true,txsExpirationTime(ms)=600000
+info|2026-02-06 13:59:59.805957|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSecurityConfig,enable_hsm=false,privateKeyPath=conf/node.pem
+info|2026-02-06 13:59:59.806036|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadExecutorNormalConfig: config.ini,enableDag=true
+info|2026-02-06 13:59:59.806060|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadStorageConfig,storagePath=data,KeyPage=10240,storageType=RocksDB,pdAddrs=127.0.0.1:2379,pdCaPath=,enableArchive=false,enableSeparateBlockAndState=false,archiveListenIP=,archiveListenPort=0,enable_rocksdb_blob=false,enableLRUCacheStorage=true
+info|2026-02-06 13:59:59.806072|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadConsensusConfig,checkPointTimeoutInterval=3000,pipeline_size=50
+info|2026-02-06 13:59:59.806103|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSyncConfig,sync_block_by_tree=false,send_txs_by_tree=false,tree_width=3
+info|2026-02-06 13:59:59.806181|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadOthersConfig,sendTxTimeout=-1,vmCacheSize=1024
+info|2026-02-06 13:59:59.806552|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadChainConfig,smCrypto=false,chainId=chain0,groupId=group0,blockLimit=1000
+info|2026-02-06 13:59:59.806570|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadWeb3ChainConfig,web3ChainID=20200
+info|2026-02-06 13:59:59.806590|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a,weight=1
+info|2026-02-06 13:59:59.806602|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,weight=1
+info|2026-02-06 13:59:59.806610|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,weight=1
+info|2026-02-06 13:59:59.806682|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],sectionName=consensus,nodeId=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,weight=1
+info|2026-02-06 13:59:59.806689|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][parseConsensusNodeList],totalNodesSize=4
+info|2026-02-06 13:59:59.806701|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadLedgerConfig,consensus_type=pbft,block_tx_count_limit=1000,gas_limit=3000000000,leader_period=1,minSealTime=0,compatibilityVersion=3.11.0
+info|2026-02-06 13:59:59.806714|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadExecutorConfig,isWasm=false,isAuthCheck=false,authAdminAccount=0x1dbd23331f727a66c096de4f3daaec061a3ca614,ismSerialExecute=true
+info|2026-02-06 13:59:59.806798|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadCertConfig,ca_path=./conf,sm_ca_cert=./conf/sm_ca.crt,sm_node_cert=./conf/sm_ssl.crt,sm_node_key=./conf/sm_ssl.key,sm_ennode_cert=./conf/sm_enssl.crt,sm_ennode_key=./conf/sm_enssl.key
+info|2026-02-06 13:59:59.806831|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadCertConfig,ca_path=./conf,ca_cert=./conf/ca.crt,node_cert=./conf/ssl.crt,node_key=./conf/ssl.key
+info|2026-02-06 13:59:59.806846|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadRpcConfig,listenIP=0.0.0.0,listenPort=20202,listenPort=20202,smSsl=false,disableSsl=true,needRetInput=true
+info|2026-02-06 13:59:59.806856|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadWeb3RpcConfig,enableWeb3Rpc=false,listenIP=0.0.0.0,listenPort=8544,listenPort=8544
+info|2026-02-06 13:59:59.806864|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadGatewayConfig,listenIP=0.0.0.0,listenPort=30302,listenPort=30302,smSsl=false,nodesFile=nodes.json
+info|2026-02-06 13:59:59.806871|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSealerConfig,minSealTime=500
+info|2026-02-06 13:59:59.806896|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadTxPoolConfig,txpoolLimit=15000,notifierWorkers=2,verifierWorkers=8,checkBlockLimit=true,txsExpirationTime(ms)=600000
+info|2026-02-06 13:59:59.806923|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSecurityConfig,enable_hsm=false,privateKeyPath=conf/node.pem
+info|2026-02-06 13:59:59.806934|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][METRIC]loadExecutorNormalConfig: config.ini,enableDag=true
+info|2026-02-06 13:59:59.806954|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadStorageConfig,storagePath=data,KeyPage=10240,storageType=RocksDB,pdAddrs=127.0.0.1:2379,pdCaPath=,enableArchive=false,enableSeparateBlockAndState=false,archiveListenIP=,archiveListenPort=0,enable_rocksdb_blob=false,enableLRUCacheStorage=true
+info|2026-02-06 13:59:59.806984|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadConsensusConfig,checkPointTimeoutInterval=3000,pipeline_size=50
+info|2026-02-06 13:59:59.806995|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadSyncConfig,sync_block_by_tree=false,send_txs_by_tree=false,tree_width=3
+info|2026-02-06 13:59:59.807008|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadOthersConfig,sendTxTimeout=-1,vmCacheSize=1024
+info|2026-02-06 13:59:59.807018|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]init crypto suite success
+info|2026-02-06 13:59:59.807026|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]init blockFactory success
+info|2026-02-06 13:59:59.807999|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER][SecureInitializer]loading privateKey
+info|2026-02-06 13:59:59.810696|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]loadKeyPair from privateKey,privateKeySize=32,enableStorageSecurity=false
+info|2026-02-06 13:59:59.813735|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER][METRIC]loadKeyPair from privateKeyPath,privateKeyPath=conf/node.pem
+info|2026-02-06 13:59:59.813764|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER][METRIC]loadKeyPair success,publicKey=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2
+info|2026-02-06 13:59:59.813830|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]loadNodeServiceConfig,withoutTarsFramework=false
+info|2026-02-06 13:59:59.813836|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig]load node service,nodeName=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,withoutTarsFramework=false,schedulerServiceName=chain0.0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2SchedulerService,executorServiceName=chain0.0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2ExecutorService
+info|2026-02-06 13:59:59.814382|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]initP2PConfig ok!,p2p.listen_ip=0.0.0.0,p2p.listen_port=30302,p2p.sm_ssl=false,p2p.enable_rip_protocol=true,p2p.enable_compression=true,p2p.allow_max_msg_size=33554432,p2p.session_recv_buffer_size=67108864,p2p.session_max_read_data_size=40960,p2p.session_max_send_data_size=1048576,p2p.session_max_send_msg_count=10,p2p.thread_count=8,p2p.nodes_path=./,p2p.nodes_file=nodes.json,p2p.readonly=false
+info|2026-02-06 13:59:59.814416|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control common config items,enable=false,flow_control.stat_reporter_interval=60000,flow_control.enable_connect_debug_info=false,flow_control.time_window_sec=1,flow_control.enable_distributed_ratelimit=false,flow_control.enable_distributed_ratelimit_cache=true,flow_control.distributed_ratelimit_cache_percent=20
+info|2026-02-06 13:59:59.814445|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control config items,key=flow_control.modules_without_bw_limit,moduleID=1001
+info|2026-02-06 13:59:59.814454|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control config items,key=flow_control.modules_without_bw_limit,moduleID=1000
+info|2026-02-06 13:59:59.814460|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control config items,key=flow_control.modules_without_bw_limit,moduleID=2002
+info|2026-02-06 13:59:59.814463|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control config items,key=flow_control.modules_without_bw_limit,moduleID=2001
+info|2026-02-06 13:59:59.814466|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]the total_outgoing_bw_limit is not initialized
+info|2026-02-06 13:59:59.814470|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]load flow_control config items, the conn_outgoing_bw_limit is not initialized
+info|2026-02-06 13:59:59.814474|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]load flow_control config items, the group_outgoing_bw_limit is not initialized
+info|2026-02-06 13:59:59.814476|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load_flow control outgoing config items,flow_control.outgoing_allow_exceed_max_permit=false,flow_control.modules_without_bw_limit=raft,pbft,cons_txs_sync,txs_sync,flow_control.total_outgoing_bw_limit=-1,flow_control.conn_outgoing_bw_limit=-1,flow_control.group_outgoing_bw_limit=-1,flow_control.conn_outgoing_bw_limit_x.x.x.x=0,flow_control.group_outgoing_bw_limit_xxx=0,flow_control.modules_without_bw_limit size=4
+info|2026-02-06 13:59:59.814481|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]rateLimiter: false
+info|2026-02-06 13:59:59.814482|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config][initFlowControlConfig]load flow_control config items, the incoming qps rate limit,flow_control.incoming_p2p_basic_msg_type_list=,flow_control.incoming_p2p_basic_msg_type_qps_limit=-1,flow_control.incoming_module_msg_type_qps_limit=-1,flow_control.incoming_module_qps_limit_xxx size=0,enableOutRateLimit=false,enableOutConnRateLimit=false,enableOutGroupRateLimit=false,enableInRateLimit=false
+info|2026-02-06 13:59:59.815052|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]initCertConfig,ca_path=./conf,ca_cert=./conf/ca.crt,node_cert=./conf/ssl.crt,node_key=./conf/ssl.key,mul_ca_path=./conf/multiCaPath
+info|2026-02-06 13:59:59.815929|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]initCertConfig,ca=./conf/ca.crt,node_cert=./conf/ssl.crt,node_key=./conf/ssl.key,mul_ca_path=./conf/multiCaPath
+info|2026-02-06 13:59:59.815974|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]initConfig ok!,configPath=config.ini,listenIP=0.0.0.0,listenPort=30302,smSSL=false,peers=0
+info|2026-02-06 13:59:59.817338|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]add one connected node,host=127.0.0.1:30300
+info|2026-02-06 13:59:59.817596|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]add one connected node,host=127.0.0.1:30301
+info|2026-02-06 13:59:59.817840|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]add one connected node,host=127.0.0.1:30302
+info|2026-02-06 13:59:59.818077|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]add one connected node,host=127.0.0.1:30303
+info|2026-02-06 13:59:59.818093|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Config]loadP2pConnectedNodes ok!,nodePath=./,nodeFileName=nodes.json,nodes=4
+info|2026-02-06 13:59:59.818119|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Factory]initCert2PubHexHandler,cert=./conf/ssl.crt,certContent: =0x79b6ecaf7490
+info|2026-02-06 13:59:59.820058|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Factory][NEW]SSLContext pubHex: 3082010a02820101009d9833c7e1dbf7d476b1fd7227e247b488323cbd272862d096a4010035236b7d36e2aede87e4f36adfd2e2e44f2945e9a4170901f5865f04cb779a1c1e1fc2f3e56fc6ea80a2665d5da60fce851ccd94bb60aced8e256a551ebb6edcf78febb8eb8bbb3c4fab73bacd5675925d72c787a8d8e179c70b24c484ae98ea7cc956a196c0c8266073d549963e44bfee479261b4c7a5497320d8a89de71743baf1516450118e57b4b07227de0429adf0d02305ad79d40958f48b3c7d6802814fc5c25be7c54c85463c993254d08401e1c7c1cc5586b265a1616617cc2ba7f29e928ff792e4ff33ada9b1bb7ee5a43130da18ba109a9e2186dfa6c2dc1d823e9066e1590203010001
+info|2026-02-06 13:59:59.823391|fisco-bcos-0x000079b6ed4b4a00|[P2PService][Service][Service::Service]local protocol,protocolModuleID=1,version=0,minVersion=0,maxVersion=2
+info|2026-02-06 13:59:59.823571|fisco-bcos-0x000079b6ed4b4a00|register SIGUSR1 sig for reload p2p connected nodes config
+info|2026-02-06 13:59:59.823599|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Factory][buildService]build service end,enable rip protocol=true,enable compress=true,myself pub id=3082010a02820101009d9833c7e1dbf7d476b1fd7227e247b488323cbd272862d096a4010035236b7d36e2aede87e4f36adfd2e2e44f2945e9a4170901f5865f04cb779a1c1e1fc2f3e56fc6ea80a2665d5da60fce851ccd94bb60aced8e256a551ebb6edcf78febb8eb8bbb3c4fab73bacd5675925d72c787a8d8e179c70b24c484ae98ea7cc956a196c0c8266073d549963e44bfee479261b4c7a5497320d8a89de71743baf1516450118e57b4b07227de0429adf0d02305ad79d40958f48b3c7d6802814fc5c25be7c54c85463c993254d08401e1c7c1cc5586b265a1616617cc2ba7f29e928ff792e4ff33ada9b1bb7ee5a43130da18ba109a9e2186dfa6c2dc1d823e9066e1590203010001
+info|2026-02-06 13:59:59.824329|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Factory]GatewayFactory::init ok
+info|2026-02-06 13:59:59.824379|fisco-bcos-0x000079b6ed4b4a00|[FrontService]FrontServiceFactory::buildFrontService,groupID=group0,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2
+info|2026-02-06 13:59:59.824393|fisco-bcos-0x000079b6ed4b4a00|[FrontService]FrontService,this=0x79b6eca6ff10,minVersion=0,maxVersion=2
+info|2026-02-06 13:59:59.824411|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]initNode,stateDBPath=data,enableSeparateBlockAndState=false,storageType=RocksDB,consensusStoragePath=data/consensus_log
+info|2026-02-06 13:59:59.978627|fisco-bcos-0x000079b6ed4b4a00|[LEDGER][#buildGenesisBlock]
+info|2026-02-06 13:59:59.980086|fisco-bcos-0x000079b6ed4b4a00|[NodeConfig][generateGenesisData],genesisData=[chain]
+sm_crypto:0
+chainID: chain0
+grouID: group0
+[consensys]
+consensus_type: pbft
+block_tx_count_limit:1000
+leader_period:1
+[version]
+compatibility_version:3.11.0
+[tx]
+gaslimit:3000000000
+[executor]
+iswasm: 0
+isAuthCheck:0
+authAdminAccount:0x1dbd23331f727a66c096de4f3daaec061a3ca614
+isSerialExecute:1
+epochSealerNum:4
+epochBlockNum:1000
+node.0:0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,1
+node.1:21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,1
+node.2:2346c69c46d42278eb237167eb19eb28432b63783cc0fd7cddc90f89c148e755db8941be9b0c5f37cbc21c409a78c154abc75ce0c80818c6fbb76aea6bcd0a9a,1
+node.3:5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,1
+info|2026-02-06 13:59:59.980153|fisco-bcos-0x000079b6ed4b4a00|[LEDGER][#buildGenesisBlock] success, block exists
+info|2026-02-06 13:59:59.982296|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create transaction validator
+info|2026-02-06 13:59:59.982958|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create transaction config
+info|2026-02-06 13:59:59.983009|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create transaction storage
+info|2026-02-06 13:59:59.983544|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]init MemoryStorage of txpool,txNotifierWorkerNum=2,txsExpirationTime=600000,poolLimit=15000,cpuCores=20
+info|2026-02-06 13:59:59.983603|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create sync config
+info|2026-02-06 13:59:59.983612|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create sync engine
+info|2026-02-06 13:59:59.984939|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create txpool,submitWorkerNum=8,notifyWorkerNum=2
+info|2026-02-06 13:59:59.986299|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]create TxPool,submitterNum=8
+info|2026-02-06 13:59:59.986535|fisco-bcos-0x000079b6ed4b4a00|[TARS_EXECUTOR_MANAGER]Initialize ,executorServiceName=chain0.0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2ExecutorService.ExecutorServiceObj
+info|2026-02-06 13:59:59.986611|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]initNode: enableLRUCacheStorage, size: 33554432
+info|2026-02-06 13:59:59.986619|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]create Executor,nodeArchType=0
+info|2026-02-06 13:59:59.989052|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create PBFTCodec
+info|2026-02-06 13:59:59.989098|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create PBFT validator
+info|2026-02-06 13:59:59.989533|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create pbftStorage
+info|2026-02-06 13:59:59.990041|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT][STORAGE]createKVTable success,table=pbftCommitDB
+info|2026-02-06 13:59:59.990701|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create pbftConfig
+info|2026-02-06 13:59:59.991020|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create PBFTEngine
+info|2026-02-06 13:59:59.992027|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]create PBFT
+info|2026-02-06 13:59:59.992663|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]PBFTInitializer::initChainNodeInfo,nodeType=None,nodeCryptoType=0,nodeName=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,compatibilityVersion=51052544
+info|2026-02-06 13:59:59.992722|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Router]insertNode,groupID=group0,minVersion=0,maxVersion=2,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,nodeType=None
+info|2026-02-06 13:59:59.992737|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]registerNode,group=group0,node=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,type=None
+info|2026-02-06 13:59:59.992748|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]fetch LedgerConfig information
+info|2026-02-06 13:59:59.992810|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=15
+info|2026-02-06 13:59:59.992866|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockHash success,blockNumber=15,hash=a746f04b...
+info|2026-02-06 13:59:59.992914|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchBlockTxCountLimit success,value=1000
+info|2026-02-06 13:59:59.992947|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]fetch LedgerConfig success
+info|2026-02-06 13:59:59.992953|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]fetch history nonces information,startNumber=0,fetchedSize=16
+info|2026-02-06 13:59:59.993878|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]fetch history nonces success
+info|2026-02-06 13:59:59.993903|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]init txs validator,checkBlockLimit=true
+info|2026-02-06 13:59:59.993973|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]init txs validator success
+info|2026-02-06 13:59:59.993980|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]init sync config
+info|2026-02-06 13:59:59.993987|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]init sync config success
+info|2026-02-06 13:59:59.994002|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]start fetch the ledger config for block sync module
+info|2026-02-06 13:59:59.994041|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=15
+info|2026-02-06 13:59:59.994106|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockHash success,blockNumber=15,hash=a746f04b...
+info|2026-02-06 13:59:59.994116|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 13:59:59.994174|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 13:59:59.994559|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_dmc2serial does not exists!,key=feature_dmc2serial,defaultValue=0
+info|2026-02-06 13:59:59.994589|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_sharding does not exists!,key=feature_sharding,defaultValue=0
+info|2026-02-06 13:59:59.994621|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft does not exists!,key=feature_rpbft,defaultValue=0
+info|2026-02-06 13:59:59.994640|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier does not exists!,key=feature_paillier,defaultValue=0
+info|2026-02-06 13:59:59.994656|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance does not exists!,key=feature_balance,defaultValue=0
+info|2026-02-06 13:59:59.994686|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_precompiled does not exists!,key=feature_balance_precompiled,defaultValue=0
+info|2026-02-06 13:59:59.994705|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_policy1 does not exists!,key=feature_balance_policy1,defaultValue=0
+info|2026-02-06 13:59:59.994768|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier_add_raw does not exists!,key=feature_paillier_add_raw,defaultValue=0
+info|2026-02-06 13:59:59.994785|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_evm_cancun does not exists!,key=feature_evm_cancun,defaultValue=0
+info|2026-02-06 13:59:59.994836|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusNodeList success,size=4
+info|2026-02-06 13:59:59.994864|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchObserverNodeList success,size=0
+info|2026-02-06 13:59:59.994903|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCandidateSealerList success,size=0
+info|2026-02-06 13:59:59.994920|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchGenesisHash success,genesisHash=25d20f1c...
+info|2026-02-06 13:59:59.994935|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]fetch the ledger config for block sync module success,number=15,latestHash=a746f04b...,genesisHash=25d20f1c7ba5c73a1e512bbabf583992a464d04d9c35a44e10d8c6c8f07c9983
+info|2026-02-06 13:59:59.994952|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]#### BlockSyncConfig resetConfig,number=15,consNodeSize=4,observerNodeSize=0,type=CONSENSUS_NODE
+info|2026-02-06 13:59:59.994965|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]init block sync success
+info|2026-02-06 13:59:59.994994|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]asyncResetTxPool when startup
+info|2026-02-06 13:59:59.995040|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]asyncResetTxPool,txsSize=0
+info|2026-02-06 13:59:59.995050|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]fetchAndUpdateLedgerConfig
+info|2026-02-06 13:59:59.995073|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=15
+info|2026-02-06 13:59:59.995091|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockHash success,blockNumber=15,hash=a746f04b...
+info|2026-02-06 13:59:59.995123|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 13:59:59.995189|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 13:59:59.995633|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_dmc2serial does not exists!,key=feature_dmc2serial,defaultValue=0
+info|2026-02-06 13:59:59.995703|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_sharding does not exists!,key=feature_sharding,defaultValue=0
+info|2026-02-06 13:59:59.995724|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft does not exists!,key=feature_rpbft,defaultValue=0
+info|2026-02-06 13:59:59.995739|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier does not exists!,key=feature_paillier,defaultValue=0
+info|2026-02-06 13:59:59.995755|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance does not exists!,key=feature_balance,defaultValue=0
+info|2026-02-06 13:59:59.995771|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_precompiled does not exists!,key=feature_balance_precompiled,defaultValue=0
+info|2026-02-06 13:59:59.995786|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_policy1 does not exists!,key=feature_balance_policy1,defaultValue=0
+info|2026-02-06 13:59:59.995801|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier_add_raw does not exists!,key=feature_paillier_add_raw,defaultValue=0
+info|2026-02-06 13:59:59.995818|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_evm_cancun does not exists!,key=feature_evm_cancun,defaultValue=0
+info|2026-02-06 13:59:59.996176|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusNodeList success,size=4
+info|2026-02-06 13:59:59.996368|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchObserverNodeList success,size=0
+info|2026-02-06 13:59:59.996535|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCandidateSealerList success,size=0
+info|2026-02-06 13:59:59.996617|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchBlockTxCountLimit success,value=1000
+info|2026-02-06 13:59:59.996756|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchGenesisHash success,genesisHash=25d20f1c...
+info|2026-02-06 13:59:59.996941|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusLeaderPeriod success,value=1
+info|2026-02-06 13:59:59.997148|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchAuthCheckStatus success,value=0
+info|2026-02-06 13:59:59.997333|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_epoch_sealer_num does not exists!,key=feature_rpbft_epoch_sealer_num,defaultValue=4
+info|2026-02-06 13:59:59.997368|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchEpochSealerNum success,value=4
+info|2026-02-06 13:59:59.997430|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_epoch_block_num does not exists!,key=feature_rpbft_epoch_block_num,defaultValue=1000
+info|2026-02-06 13:59:59.997449|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchEpochBlockNum success,value=1000
+info|2026-02-06 13:59:59.997511|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_notify_rotate does not exists!,key=feature_rpbft_notify_rotate,defaultValue=0
+info|2026-02-06 13:59:59.997546|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchNotifyRotateFlagInfo success,value=0
+info|2026-02-06 13:59:59.997560|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]fetchAndUpdateLedgerConfig success,blockNumber=15,hash=a746f04b...,maxTxsPerBlock=1000,consensusNodeList=4
+info|2026-02-06 13:59:59.997584|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT][METRIC]resetConfig,committedIndex=15,propHash=a746f04b...,blockCountLimit=1000,leaderPeriod=1,consensusNodesSize=4
+info|2026-02-06 13:59:59.997605|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]PBFTConfig: resetExpectedCheckPoint,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=0,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...,expectedCheckPoint=0
+info|2026-02-06 13:59:59.997698|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][Core][METRIC]updateConsensusNodeList,nodeNum=4,nodeIndex=0,committedIndex=15,0d6a7f52...=1,21a47ace...=1,2346c69c...=1,5b07d12d...=1
+info|2026-02-06 13:59:59.997734|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]notifyResetSealing,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 13:59:59.997758|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]resetSealing,startNum=0,endNum=0,sealingNum=-1,pendingTxs=0,unsealedTxs=0
+info|2026-02-06 13:59:59.997789|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]resetSealingInfo,start=16,end=16,sealingNumber=16,waitUntil=0,unsealedTxs=0
+info|2026-02-06 13:59:59.997803|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]asyncNotifySealProposal success,startIndex=16,endIndex=16,maxTxsToSeal=1000
+info|2026-02-06 13:59:59.997813|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]asyncNotifySealProposal,startIndex=16,endIndex=16,maxTxsPerBlock=1000
+info|2026-02-06 13:59:59.997829|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]notifySealer: notify the new leader to seal block,lockNotifyT=0,idx=0,startIndex=16,endIndex=16,notifyBeginIndex=16,waitSealUntil=0,waitResealUntil=0,maxTxsToSeal=1000,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 13:59:59.997866|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]reNotifySealer,expectedStart=16,highWaterMark=66,leader=0,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 13:59:59.998063|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]notifyResetSealing success,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 13:59:59.998102|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT][METRIC]^^^^^^^^Report,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=0,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 13:59:59.998118|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]updateValidatorConfig,consensusNodeListUpdated=true,observerNodeListUpdated=false,consensusNodeSize=4,observerNodeSize=0
+info|2026-02-06 13:59:59.998124|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]asyncNoteLatestBlockNumber,number=15
+info|2026-02-06 13:59:59.998130|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]asyncNoteLatestBlockHash,_hash=a746f04b...
+info|2026-02-06 13:59:59.998137|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]init PBFT success
+info|2026-02-06 13:59:59.998265|fisco-bcos-0x000079b6ed4b4a00|[FRONTSERVICE]registerModuleMessageDispatcher for the consensus module success
+info|2026-02-06 13:59:59.998311|fisco-bcos-0x000079b6ed4b4a00|[FRONTSERVICE]registerModuleMessageDispatcher for the txsSync module success
+info|2026-02-06 13:59:59.998318|fisco-bcos-0x000079b6ed4b4a00|[FRONTSERVICE]registerModuleMessageDispatcher for the BlockSync module success
+info|2026-02-06 13:59:59.998324|fisco-bcos-0x000079b6ed4b4a00|[FRONTSERVICE]registerGroupNodeInfoNotification success
+info|2026-02-06 13:59:59.999868|fisco-bcos-0x000079b6ed4b4a00|[RPC][initConfig]rpc work in disable ssl model,listenIP=0.0.0.0,listenPort=20202,threadCount=4,asServer=true
+info|2026-02-06 13:59:59.999905|fisco-bcos-0x000079b6ed4b4a00|[DEFAULT][WS][SERVICE],[NEWOBJ][WsService]=0x79b6ecae5710
+info|2026-02-06 13:59:59.999990|fisco-bcos-0x000079b6ed4b4a00|[DEFAULT][WS][INITIALIZER][initWsService]start websocket service as server
+info|2026-02-06 14:00:00.000054|fisco-bcos-0x000079b6ed4b4a00|[DEFAULT][HTTP][SERVER][buildHttpServer],listenIP=0.0.0.0,listenPort=20202
+info|2026-02-06 14:00:00.000064|fisco-bcos-0x000079b6ed4b4a00|[DEFAULT][WS][INITIALIZER][initWsService]initializer for websocket service,listenIP=0.0.0.0,listenPort=20202,disableSsl=true,server=true,client=false,maxMsgSize=33554432,msgTimeOut=-1,connected peers=0
+info|2026-02-06 14:00:00.000701|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getLogs
+info|2026-02-06 14:00:00.000719|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getSystemConfigByKey
+info|2026-02-06 14:00:00.000724|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getPeers
+info|2026-02-06 14:00:00.000729|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getNodeListByType
+info|2026-02-06 14:00:00.000735|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getObserverList
+info|2026-02-06 14:00:00.000737|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getBlockHashByNumber
+info|2026-02-06 14:00:00.000739|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getBlockNumber
+info|2026-02-06 14:00:00.000743|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getSealerList
+info|2026-02-06 14:00:00.000745|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getTransactionReceipt
+info|2026-02-06 14:00:00.000747|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=sendTransaction
+info|2026-02-06 14:00:00.000751|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=call
+info|2026-02-06 14:00:00.000754|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getABI
+info|2026-02-06 14:00:00.000757|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=newBlockFilter
+info|2026-02-06 14:00:00.000760|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getCode
+info|2026-02-06 14:00:00.000764|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=uninstallFilter
+info|2026-02-06 14:00:00.000766|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getPendingTxSize
+info|2026-02-06 14:00:00.000768|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getSyncStatus
+info|2026-02-06 14:00:00.000771|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getTransaction
+info|2026-02-06 14:00:00.000775|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getConsensusStatus
+info|2026-02-06 14:00:00.000777|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getGroupPeers
+info|2026-02-06 14:00:00.000780|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=newFilter
+info|2026-02-06 14:00:00.000782|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getGroupList
+info|2026-02-06 14:00:00.000794|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getBlockByHash
+info|2026-02-06 14:00:00.000801|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getPbftView
+info|2026-02-06 14:00:00.000804|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=newPendingTransactionFilter
+info|2026-02-06 14:00:00.000807|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getFilterLogs
+info|2026-02-06 14:00:00.000814|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getFilterChanges
+info|2026-02-06 14:00:00.000843|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getGroupInfoList
+info|2026-02-06 14:00:00.000850|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getBlockByNumber
+info|2026-02-06 14:00:00.000854|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getTotalTransactionCount
+info|2026-02-06 14:00:00.000861|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getGroupInfo
+info|2026-02-06 14:00:00.000864|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],method=getGroupNodeInfo
+info|2026-02-06 14:00:00.000868|fisco-bcos-0x000079b6ed4b4a00|[RPC][JSONRPC][initMethod],size=32
+info|2026-02-06 14:00:00.000881|fisco-bcos-0x000079b6ed4b4a00|[RPC]create event sub obj
+info|2026-02-06 14:00:00.000903|fisco-bcos-0x000079b6ed4b4a00|[GROUP]initNodeInfo,group=group0,nodeName=localNode
+info|2026-02-06 14:00:00.000971|fisco-bcos-0x000079b6ed4b4a00|[GROUP]initNodeInfo success,group=group0,nodeName=localNode,number=15
+info|2026-02-06 14:00:00.001020|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER][METRIC],binaryVersion=3.11.0,buildTime=20240827 04:30:34,buildType=Release,platform=Linux/g++,gitBranch=HEAD,commitHash=3fea676716990b2ed453b4f079915daafff451f9
+info|2026-02-06 14:00:00.001698|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]Start the txpool
+info|2026-02-06 14:00:00.001802|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]Start the txpool.
+info|2026-02-06 14:00:00.001820|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]enableAsMaster:true
+info|2026-02-06 14:00:00.001850|fisco-bcos-0x000079b6ed4b4a00|[Gateway][Router]insertNode,groupID=group0,minVersion=0,maxVersion=2,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,nodeType=CONSENSUS_NODE
+info|2026-02-06 14:00:00.001873|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]registerNode,group=group0,node=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,type=CONSENSUS_NODE
+info|2026-02-06 14:00:00.001884|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]start fetch the ledger config for block sync module
+info|2026-02-06 14:00:00.001954|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=15
+info|2026-02-06 14:00:00.001992|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockHash success,blockNumber=15,hash=a746f04b...
+info|2026-02-06 14:00:00.002012|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 14:00:00.002105|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 14:00:00.003037|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_dmc2serial does not exists!,key=feature_dmc2serial,defaultValue=0
+info|2026-02-06 14:00:00.003123|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_sharding does not exists!,key=feature_sharding,defaultValue=0
+info|2026-02-06 14:00:00.003160|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft does not exists!,key=feature_rpbft,defaultValue=0
+info|2026-02-06 14:00:00.003176|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier does not exists!,key=feature_paillier,defaultValue=0
+info|2026-02-06 14:00:00.003191|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance does not exists!,key=feature_balance,defaultValue=0
+info|2026-02-06 14:00:00.003205|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_precompiled does not exists!,key=feature_balance_precompiled,defaultValue=0
+info|2026-02-06 14:00:00.003222|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_policy1 does not exists!,key=feature_balance_policy1,defaultValue=0
+info|2026-02-06 14:00:00.003236|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier_add_raw does not exists!,key=feature_paillier_add_raw,defaultValue=0
+info|2026-02-06 14:00:00.003250|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_evm_cancun does not exists!,key=feature_evm_cancun,defaultValue=0
+info|2026-02-06 14:00:00.003291|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusNodeList success,size=4
+info|2026-02-06 14:00:00.003320|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchObserverNodeList success,size=0
+info|2026-02-06 14:00:00.003531|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCandidateSealerList success,size=0
+info|2026-02-06 14:00:00.003562|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchGenesisHash success,genesisHash=25d20f1c...
+info|2026-02-06 14:00:00.003594|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]fetch the ledger config for block sync module success,number=15,latestHash=a746f04b...,genesisHash=25d20f1c7ba5c73a1e512bbabf583992a464d04d9c35a44e10d8c6c8f07c9983
+info|2026-02-06 14:00:00.003605|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]init block sync success
+info|2026-02-06 14:00:00.003696|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]enableAsMasterNode: clearAllCache for the node switch into backup node
+info|2026-02-06 14:00:00.003703|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]enableAsMasterNode: true
+info|2026-02-06 14:00:00.003720|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]Election versionInfoNotification success,version=51052544
+info|2026-02-06 14:00:00.003732|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]enableAsMasterNode: init and start the consensus module
+info|2026-02-06 14:00:00.003736|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]asyncResetTxPool when startup
+info|2026-02-06 14:00:00.003769|fisco-bcos-0x000079b6ed4b4a00|[TXPOOL]asyncResetTxPool,txsSize=0
+info|2026-02-06 14:00:00.003784|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]fetchAndUpdateLedgerConfig
+info|2026-02-06 14:00:00.003829|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockNumber success,blockNumber=15
+info|2026-02-06 14:00:00.003883|fisco-bcos-0x000079b6ed4b4a00|[TOOL]LedgerConfigFetcher: fetchBlockHash success,blockNumber=15,hash=a746f04b...
+info|2026-02-06 14:00:00.003890|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion
+info|2026-02-06 14:00:00.003992|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCompatibilityVersion success,version=3.11.0,versionNumber=51052544,minSupportedVersion=3.0.0-rc4,maxSupportedVersion=3.11.0
+info|2026-02-06 14:00:00.004360|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_dmc2serial does not exists!,key=feature_dmc2serial,defaultValue=0
+info|2026-02-06 14:00:00.004412|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_sharding does not exists!,key=feature_sharding,defaultValue=0
+info|2026-02-06 14:00:00.004432|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft does not exists!,key=feature_rpbft,defaultValue=0
+info|2026-02-06 14:00:00.004448|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier does not exists!,key=feature_paillier,defaultValue=0
+info|2026-02-06 14:00:00.004497|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance does not exists!,key=feature_balance,defaultValue=0
+info|2026-02-06 14:00:00.004519|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_precompiled does not exists!,key=feature_balance_precompiled,defaultValue=0
+info|2026-02-06 14:00:00.004537|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_balance_policy1 does not exists!,key=feature_balance_policy1,defaultValue=0
+info|2026-02-06 14:00:00.004589|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_paillier_add_raw does not exists!,key=feature_paillier_add_raw,defaultValue=0
+info|2026-02-06 14:00:00.004614|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_evm_cancun does not exists!,key=feature_evm_cancun,defaultValue=0
+info|2026-02-06 14:00:00.004651|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusNodeList success,size=4
+info|2026-02-06 14:00:00.004711|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchObserverNodeList success,size=0
+info|2026-02-06 14:00:00.004732|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchCandidateSealerList success,size=0
+info|2026-02-06 14:00:00.004754|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchBlockTxCountLimit success,value=1000
+info|2026-02-06 14:00:00.004783|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchGenesisHash success,genesisHash=25d20f1c...
+info|2026-02-06 14:00:00.004802|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchConsensusLeaderPeriod success,value=1
+info|2026-02-06 14:00:00.004820|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchAuthCheckStatus success,value=0
+info|2026-02-06 14:00:00.004840|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_epoch_sealer_num does not exists!,key=feature_rpbft_epoch_sealer_num,defaultValue=4
+info|2026-02-06 14:00:00.004847|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchEpochSealerNum success,value=4
+info|2026-02-06 14:00:00.004862|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_epoch_block_num does not exists!,key=feature_rpbft_epoch_block_num,defaultValue=1000
+info|2026-02-06 14:00:00.004866|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchEpochBlockNum success,value=1000
+info|2026-02-06 14:00:00.004887|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchSystemConfig failed, use default value,code=3008,msg=Entry: feature_rpbft_notify_rotate does not exists!,key=feature_rpbft_notify_rotate,defaultValue=0
+info|2026-02-06 14:00:00.004892|fisco-bcos-0x000079b6ed4b4a00|[TOOL]fetchNotifyRotateFlagInfo success,value=0
+info|2026-02-06 14:00:00.004895|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]fetchAndUpdateLedgerConfig success,blockNumber=15,hash=a746f04b...,maxTxsPerBlock=1000,consensusNodeList=4
+info|2026-02-06 14:00:00.004902|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]init PBFT success
+info|2026-02-06 14:00:00.004906|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]fetch PBFT state
+info|2026-02-06 14:00:00.005019|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT][STORAGE]asyncGetLatestCommittedProposalIndex,latestCommittedProposalIndex=15
+info|2026-02-06 14:00:00.005053|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT][STORAGE]no need to fetch committed proposal,maxCommittedProposal=15,stableCheckPoint=15
+info|2026-02-06 14:00:00.005066|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]restart the consensus module
+info|2026-02-06 14:00:00.005074|fisco-bcos-0x000079b6ed4b4a00|[INITIALIZER]Election versionInfoNotification success,version=51052544
+info|2026-02-06 14:00:00.005094|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]notify the committed proposal index to the sync module success,index=15
+info|2026-02-06 14:00:00.005206|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]broadcastViewChangeReq,reqHash=a746f04b...,reqIndex=15,reqV=1,fromIdx=0,wait(ms)=0,packetSize=158
+info|2026-02-06 14:00:00.005243|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][PBFT]addViewChangeReq,reqHash=a746f04b...,reqIndex=15,reqV=1,fromIdx=0,wait(ms)=0,weight=1,maxCommittedIndex=15,maxPrecommitIndex=0 preparedProposalInfo: ,committedIndex=15,consNum=16,committedHash=a746f04b...,view=0,toView=1,changeCycle=0,expectedCheckPoint=16,Idx=0,unsealedTxs=0,sealUntil=0,waitResealUntil=0,consensusTimeout=3000,nodeId=0d6a7f52...
+info|2026-02-06 14:00:00.005261|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][SEALER]start the sealer
+info|2026-02-06 14:00:00.005736|fisco-bcos-0x000079b6ed4b4a00|[BLOCK SYNC]Start BlockSync
+info|2026-02-06 14:00:00.005848|fisco-bcos-0x000079b6ed4b4a00|[CONSENSUS][Core]Start the consensusEngine

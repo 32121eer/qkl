@@ -1527,3 +1527,34 @@ SKIP_FISCO_CONTRACTS: false
 3. 两个方向都出现 Message relayed successfully
 4. 无 Abi is empty、无 Failed to relay
 
+
+
+---
+
+## Fabric 侧验证 FISCO 区块头（LightClient-lite）
+
+现在 gateway_cc.Receive(...) 对非 Fabric 来源链启用严格校验：必须先在 Fabric 上通过 SubmitBlockHeader 顺序提交并验证对应的 FISCO block header，否则会直接报错 Source block not verified。
+
+### 重新部署 Fabric 链码（升级）
+
+~~~bash
+cd /home/tr/projects/cross-chain
+unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY
+
+# 如需升级 gateway_cc（包含 LightClient-lite/严格校验）
+./start-all.sh --redeploy-fabric-cc
+
+cd fabric-chaincode/Relayer
+npm start | tee ~/relayer.log
+
+cd /home/tr/projects/cross-chain
+./verify-crosschain.sh
+~~~
+
+如需手动指定版本/序列：
+
+~~~bash
+export FABRIC_CC_VERSION=1.1
+export FABRIC_CC_SEQUENCE=2
+./start-all.sh --redeploy-fabric-cc
+~~~

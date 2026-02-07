@@ -1,0 +1,315 @@
+info|2026-02-06 21:00:01.891044|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:02.010624|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:00:11.891516|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:12.010896|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:00:21.891802|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:22.011228|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:00:30.600692|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:00:31.892093|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:32.011561|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:00:41.892303|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:42.011747|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:00:51.892463|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:00:52.012061|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:01.892776|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:02.012583|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:11.893038|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:12.012955|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:21.893316|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:22.013271|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:30.598456|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:01:31.893554|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:32.013615|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:41.894244|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:42.013857|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:01:51.894522|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:01:52.014309|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:01.894811|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:02.014909|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:11.894891|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:12.015157|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:21.895034|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:22.015428|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:30.594141|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:02:31.895294|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:32.015557|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:41.895737|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:42.015898|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:02:51.896008|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:02:52.016332|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:01.896618|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:02.016591|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:11.896802|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:12.016910|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:21.897241|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:22.017335|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:30.590499|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:03:31.897458|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:32.017517|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:41.897969|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:42.018277|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:03:51.898206|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:03:52.018605|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:01.898385|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:02.018763|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:11.898494|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:12.018983|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:21.898873|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:22.019315|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:30.586719|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:04:31.899121|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:32.019747|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:41.899275|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:42.020337|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:04:51.899377|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:04:52.020828|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:01.899609|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:02.021089|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:11.899904|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:12.021650|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:21.900224|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:22.021980|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:30.582395|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:05:31.900373|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:32.022196|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:41.900618|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:42.022438|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:05:51.900948|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:05:52.022684|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:01.901142|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:02.022976|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:11.901258|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:12.023147|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:21.901456|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:22.023280|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:30.578540|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:06:31.901903|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:32.023635|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:41.902029|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:42.023911|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:06:51.902160|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:06:52.024099|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:01.902239|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:02.024236|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:11.902362|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:12.024392|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:21.902611|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:22.024590|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:30.574693|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:07:31.908130|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:32.024828|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:41.908338|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:42.025189|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:07:51.908493|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:07:52.025524|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:01.908686|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:02.025666|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:11.908865|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:12.025816|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:21.909043|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:22.025972|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:30.570629|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:08:31.909338|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:32.026149|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:41.909505|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:42.026467|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:08:51.909728|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:08:52.026658|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:01.909920|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:02.026904|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:11.910073|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:12.027303|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:21.910606|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:22.027623|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:30.566913|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:09:31.910729|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:32.027881|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:41.911135|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:42.028175|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:09:51.911547|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:09:52.028549|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:01.911832|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:02.029308|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:11.912113|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:12.029752|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:21.912368|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:22.030046|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:30.563200|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:10:31.915101|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:32.030285|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:41.915205|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:42.030922|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:10:51.915885|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:10:52.031187|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:01.916273|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:02.031621|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:11.916489|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:12.032114|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:21.916746|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:22.032569|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:30.558155|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:11:31.916945|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:32.032832|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:41.917081|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:42.033033|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:11:51.917284|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:11:52.033412|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:01.917393|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:02.033834|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:11.917491|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:12.034143|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:21.917748|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:22.034432|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:30.553212|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:12:31.918038|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:32.036739|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:41.918223|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:42.037053|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:12:51.918469|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:12:52.037486|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:01.918760|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:02.037722|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:11.918937|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:12.037949|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:21.919411|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:22.038267|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:30.550614|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] [ type: bcos::gateway::ResponseCallback ,created: 202671 ,destroyed: 202667 ,alive: 4 ] 
+info|2026-02-06 21:13:31.919750|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:32.038810|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:41.920232|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:42.039556|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:13:51.920498|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:13:52.039883|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:14:01.920727|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:14:02.040193|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:14:11.921015|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:14:12.040530|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:14:21.921687|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:14:22.040819|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:14:30.546522|objMonitor-0x00007e53ab7ff6c0|[startMonitor][AliveObjectMonitor],AliveObjectAllocStat=[ type: bcos::gateway::Socket ,created: 9 ,destroyed: 5 ,alive: 4 ] 
+info|2026-02-06 21:14:31.921896|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:14:32.041037|ioService-0x00007e53c9dff6c0|[P2PService][Service][METRIC]heartBeat,connected count=3
+info|2026-02-06 21:14:33.337102|ioService-0x00007e53c6bff6c0|[SESSION][Session]doRead error,endpoint=127.0.0.1:30300,message=stream truncated
+info|2026-02-06 21:14:33.337195|ioService-0x00007e53c6bff6c0|[SESSION][Session]drop, call and erase all callback in this session!,this=0x7e53bb4881d0,endpoint=127.0.0.1:30300
+info|2026-02-06 21:14:33.337279|ioService-0x00007e53c6bff6c0|[SESSION][Session][drop] closing remote 127.0.0.1:30300,reason=Low-level TCP communication error.,endpoint=127.0.0.1:30300
+warning|2026-02-06 21:14:33.338768|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Service2][onMessage],code=3,msg=Disconnect
+info|2026-02-06 21:14:33.338965|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Service]disconnect error P2PSession,p2pid=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001,endpoint=127.0.0.1:30300,code=3,message=Disconnect
+info|2026-02-06 21:14:33.338870|ioService-0x00007e53c6bff6c0|[SESSION][Session][drop] shutdown failed ,failedValue=9,message=Bad file descriptor
+info|2026-02-06 21:14:33.339374|fisco-bcos-0x00007e53d5bff6c0|[Gateway][GatewayNodeManager]onRemoveNodeIDs,p2pid=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.339445|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]PeersRouterTable: removeP2PID,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.339628|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.339185|fisco-bcos-0x00007e53d71bc6c0|[P2PService][Service2][onReceiveRouterSeq]receive router seq and request router table,peer=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001,seq=5
+info|2026-02-06 21:14:33.339684|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.339846|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.339973|fisco-bcos-0x00007e53d5bff6c0|[Gateway][GatewayNodeManager]syncLatestNodeIDList,groupID=group0,nodeCount=3
+info|2026-02-06 21:14:33.339987|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340030|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340136|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340185|fisco-bcos-0x00007e53d5bff6c0|[FrontService]onReceiveGroupNodeInfo,groupID=group0,nodeIDs.size()=3
+info|2026-02-06 21:14:33.340311|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Router][erase]make the router unreachable,dst=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001,distance=10,size=3
+info|2026-02-06 21:14:33.340363|fisco-bcos-0x00007e53d5bff6c0|[Gateway][GatewayNodeManager]onRemoveNodeIDs,p2pid=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.340427|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]PeersRouterTable: removeP2PID,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.340442|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.340450|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.340454|fisco-bcos-0x00007e53d5bff6c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.340505|fisco-bcos-0x00007e53d5bff6c0|[Gateway][GatewayNodeManager]syncLatestNodeIDList,groupID=group0,nodeCount=3
+info|2026-02-06 21:14:33.340520|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340627|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=21a47acec36f73d8e925a7d5db44793f998e1a42a6d7ee2e3a5cf4037b853452cb76f6cbab8e5b223a128e8ee15790d1f629858b47070b4eb2e1ddb2b0ada297,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340635|fisco-bcos-0x00007e53d5bff6c0|[FrontService]protocolNegotiate success,nodeID=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:33.340741|fisco-bcos-0x00007e53d5bff6c0|[FrontService]onReceiveGroupNodeInfo,groupID=group0,nodeIDs.size()=3
+info|2026-02-06 21:14:33.340907|fisco-bcos-0x00007e53d81c06c0|SyncConfig: setConnectedNodeList,size=3
+info|2026-02-06 21:14:33.343531|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service2][onReceiveRouterSeq]receive router seq and request router table,peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,seq=6
+info|2026-02-06 21:14:33.344926|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Service2][onEraseSession],dst=3082010a0282010100a492268b412bea3e8f972dff0dc52c521cd06884f53d90f3889c7014f7cb635c38a07b81af9630f2b04238a726b029af6b4b924e132710d2894b7175f12a5e323a7119afd27786b01965d49b9c885ff3768f40b9d57817bc1305124f40ced3b1ac99666773a3a64cce079e95acbc31d42f416aad362594008547aae561213b022db32ed9d1bd67df5c020bc44dcc073982b4566fd04048555b1ea84279063d5b1047e9f42776ef03677d2dd1454433fdb3feced3f41b92efdfeda545d56c1c9ba349584c9095f3ad9e31c2db11cbe3007ee7817f5846f87eb01c296d81b36dbbc765b4c7af74aface1276dd4fd91963729e495694b6af5c0d6111c49115a2c3f0203010001
+info|2026-02-06 21:14:33.345053|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Service]onDisconnect,code=3,what=Dynamic exception type: bcos::gateway::NetworkException
+std::exception::what: Disconnect
+info|2026-02-06 21:14:33.345098|fisco-bcos-0x00007e53d5bff6c0|[P2PService][P2PSession][P2PSession::~P2PSession] this=0x7e53bc2881d0
+info|2026-02-06 21:14:33.345122|fisco-bcos-0x00007e53d5bff6c0|[SESSION][Session][Session::~Session] this=0x7e53bb4881d0
+info|2026-02-06 21:14:33.346541|fisco-bcos-0x00007e53d81c06c0|SyncConfig: setConnectedNodeList,size=3
+info|2026-02-06 21:14:33.346669|fisco-bcos-0x00007e53d81c06c0|[FRONTSERVICE]notifyGroupNodeInfo,connectedNodeSize=3
+info|2026-02-06 21:14:33.347902|fisco-bcos-0x00007e53d67ba6c0|SyncConfig: setConnectedNodeList,size=3
+info|2026-02-06 21:14:33.348632|fisco-bcos-0x00007e53d67ba6c0|SyncConfig: setConnectedNodeList,size=3
+info|2026-02-06 21:14:33.348743|fisco-bcos-0x00007e53d67ba6c0|[FRONTSERVICE]notifyGroupNodeInfo,connectedNodeSize=3
+info|2026-02-06 21:14:33.348790|fisco-bcos-0x00007e53d71bc6c0|[P2PService][Service2][onReceivePeersRouterTable],peer=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001,entrySize=3
+info|2026-02-06 21:14:33.348941|fisco-bcos-0x00007e53d71bc6c0|[P2PService][Service2][joinRouterTable]create router entry,dst=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:33.349981|fisco-bcos-0x00007e53d5bff6c0|[P2PService][Service2][onReceiveRouterTableRequest],peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,entrySize=3
+info|2026-02-06 21:14:33.349910|fisco-bcos-0x00007e53a1bf96c0|[P2PService][Service2][onReceiveRouterTableRequest],peer=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001,entrySize=3
+info|2026-02-06 21:14:33.350470|fisco-bcos-0x00007e53d67ba6c0|[P2PService][Service2][onReceivePeersRouterTable],peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,entrySize=3
+info|2026-02-06 21:14:33.351061|fisco-bcos-0x00007e53d67ba6c0|[P2PService][Service2][joinRouterTable]create router entry,dst=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001
+info|2026-02-06 21:14:34.401044|ioService-0x00007e53c55ff6c0|[SESSION][Session]doRead error,endpoint=127.0.0.1:30301,message=stream truncated
+info|2026-02-06 21:14:34.401079|ioService-0x00007e53c55ff6c0|[SESSION][Session]drop, call and erase all callback in this session!,this=0x7e53ba088390,endpoint=127.0.0.1:30301
+warning|2026-02-06 21:14:34.401323|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service2][onMessage],code=3,msg=Disconnect
+info|2026-02-06 21:14:34.401265|ioService-0x00007e53c55ff6c0|[SESSION][Session][drop] closing remote 127.0.0.1:30301,reason=Low-level TCP communication error.,endpoint=127.0.0.1:30301
+info|2026-02-06 21:14:34.401349|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service]disconnect error P2PSession,p2pid=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001,endpoint=127.0.0.1:30301,code=3,message=Disconnect
+info|2026-02-06 21:14:34.401357|fisco-bcos-0x00007e53d85c16c0|[Gateway][GatewayNodeManager]onRemoveNodeIDs,p2pid=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401388|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]PeersRouterTable: removeP2PID,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401454|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401497|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401502|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401562|fisco-bcos-0x00007e53d85c16c0|[Gateway][GatewayNodeManager]syncLatestNodeIDList,groupID=group0,nodeCount=2
+info|2026-02-06 21:14:34.401573|fisco-bcos-0x00007e53d85c16c0|[FrontService]protocolNegotiate success,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:34.401486|fisco-bcos-0x00007e53a1bf96c0|[P2PService][Service2][onReceiveRouterSeq]receive router seq and request router table,peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,seq=7
+info|2026-02-06 21:14:34.401598|fisco-bcos-0x00007e53d85c16c0|[FrontService]protocolNegotiate success,nodeID=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:34.401605|fisco-bcos-0x00007e53d85c16c0|[FrontService]onReceiveGroupNodeInfo,groupID=group0,nodeIDs.size()=2
+info|2026-02-06 21:14:34.401632|fisco-bcos-0x00007e53a1bf96c0|SyncConfig: setConnectedNodeList,size=2
+info|2026-02-06 21:14:34.401647|fisco-bcos-0x00007e53d85c16c0|[P2PService][Router][erase]make the router unreachable,dst=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001,distance=10,size=3
+info|2026-02-06 21:14:34.401669|fisco-bcos-0x00007e53d85c16c0|[Gateway][GatewayNodeManager]onRemoveNodeIDs,p2pid=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401674|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]PeersRouterTable: removeP2PID,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401679|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401682|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401697|fisco-bcos-0x00007e53d85c16c0|[Gateway][Router]GatewayStatus: removeP2PNode,p2pID=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401717|fisco-bcos-0x00007e53d85c16c0|[Gateway][GatewayNodeManager]syncLatestNodeIDList,groupID=group0,nodeCount=2
+info|2026-02-06 21:14:34.401721|fisco-bcos-0x00007e53d85c16c0|[FrontService]protocolNegotiate success,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:34.401726|fisco-bcos-0x00007e53d85c16c0|[FrontService]protocolNegotiate success,nodeID=5b07d12d1512a66493c8fd3456d8c505e6ce05f20061613a4c48a1fa3755bbf9cc2d2f1878c4a6733389f03deb0a3fc0c672e2f4910fde9802d6675929cb3dc5,groupID=group0,minVersion=0,maxVersion=2,supportedMinVersion=0,supportedMaxVersion=2,version=2
+info|2026-02-06 21:14:34.401729|fisco-bcos-0x00007e53d85c16c0|[FrontService]onReceiveGroupNodeInfo,groupID=group0,nodeIDs.size()=2
+info|2026-02-06 21:14:34.401790|ioService-0x00007e53c55ff6c0|[SESSION][Session][drop] shutdown failed ,failedValue=9,message=Bad file descriptor
+info|2026-02-06 21:14:34.401877|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service2][onEraseSession],dst=3082010a0282010100d938a7d0e5078fdc3bfe83bfe8c789160de4c9e207ff836ef8d64a0c846f5f628646fe9170bec49eec44aebb3f17334e76b1003dae65d6858a626d60a3ff3dbbff8cf15ca934ca0f7a09b9ae6c17c911bb2f6083cab81540e00a8d9b9393a3341b90dd134f4a2ec21f1d8c55c2df687896873a36661a862226614582077d41811bcb3e6632cbf1767f6189b76054e8186606ee5a2c73bffe1bd6c8fc415f481324f015045231d662173b6f7e814068dffd598ce9a6f4630744bb0aa80f9f74403f4c3da3ca856b40d043885cc1e7beac524853fafb01fb61c3023ab04047e29d50a5d4cd612fc9ae90e7832fde7d1dea0804dc16fff17500517be0bf5d28f4ab0203010001
+info|2026-02-06 21:14:34.401894|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service]onDisconnect,code=3,what=Dynamic exception type: bcos::gateway::NetworkException
+std::exception::what: Disconnect
+info|2026-02-06 21:14:34.402074|fisco-bcos-0x00007e53d85c16c0|[P2PService][P2PSession][P2PSession::~P2PSession] this=0x7e53cda13390
+info|2026-02-06 21:14:34.402115|fisco-bcos-0x00007e53d85c16c0|[SESSION][Session][Session::~Session] this=0x7e53ba088390
+info|2026-02-06 21:14:34.402267|fisco-bcos-0x00007e53a1bf96c0|SyncConfig: setConnectedNodeList,size=2
+info|2026-02-06 21:14:34.402906|ioService-0x00007e53a6dff6c0|[P2PService][Service2][onReceiveRouterTableRequest],peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,entrySize=3
+info|2026-02-06 21:14:34.403050|fisco-bcos-0x00007e53a1bf96c0|[FRONTSERVICE]notifyGroupNodeInfo,connectedNodeSize=2
+info|2026-02-06 21:14:34.404345|fisco-bcos-0x00007e53d79be6c0|SyncConfig: setConnectedNodeList,size=2
+info|2026-02-06 21:14:34.404739|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service2][onReceivePeersRouterTable],peer=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001,entrySize=3
+info|2026-02-06 21:14:34.404816|fisco-bcos-0x00007e53d79be6c0|SyncConfig: setConnectedNodeList,size=2
+info|2026-02-06 21:14:34.404833|fisco-bcos-0x00007e53d79be6c0|[FRONTSERVICE]notifyGroupNodeInfo,connectedNodeSize=2
+info|2026-02-06 21:14:34.404945|fisco-bcos-0x00007e53d85c16c0|[P2PService][Service2][joinRouterTable]create router entry,dst=3082010a0282010100b85dd5fdfbc4aa99dcef8477a2e1c08c304a63432923826f81b3d0d7d13e79a6ec265462b2f59e76106f8bad7efb849227798aaf7c20a2197e9a95a8ffbbc07f5ccb44d04e995013b9afd04bb77fb7dbfa0f13bd2d404980eae43fc147332e1542ee2d2e973596187bb8ad4dc63b0165052688b1f7fc4a2a8ccb020a55db8ee7b9a45bb901b1c03d94727648a8ec10bfbc854175981345d56f4c783b0211d91f0775e508d8b379b56935777d255f59b63fadc24b43862671f5cbe0d00fcfff7138124c8293f91740a0e0732346eeee748a42f65ddb81da461fce3e76ea6ff452913b80eb5b1dba016f7d4d94f66337cc6bea7a066b8277637aef12c2eba11da10203010001
+info|2026-02-06 21:14:35.441739|timerFactory-0x00007e53b83fe6c0|[RPC][WS][SERVICE]connected nodes,count=0
+info|2026-02-06 21:14:35.442074|fisco-bcos-0x00007e5402af3a00|[DEFAULT][HTTP][SERVER][stop]http server
+info|2026-02-06 21:14:35.442269|fisco-bcos-0x00007e5402af3a00|[stopThread]stop the timer thread
+info|2026-02-06 21:14:35.442365|timerFactory-0x00007e53b83fe6c0|[startThread]the timer thread stop
+info|2026-02-06 21:14:35.456585|fisco-bcos-0x00007e5402af3a00|[EVENT][SUB][stop]stop event sub successfully
+info|2026-02-06 21:14:35.456665|fisco-bcos-0x00007e5402af3a00|[RPC][RPC][RPC][stop]stop rpc successfully
+info|2026-02-06 21:14:35.465606|fisco-bcos-0x00007e5402af3a00|[P2PService][P2PSession][P2PSession::~P2PSession] this=0x7e53cda131d0
+info|2026-02-06 21:14:35.465692|fisco-bcos-0x00007e5402af3a00|[SESSION][Session][Session::~Session] this=0x7e53bba64010
+info|2026-02-06 21:14:35.466122|fisco-bcos-0x00007e5402af3a00|[Gateway][Gateway]stop end.
+info|2026-02-06 21:14:35.466168|fisco-bcos-0x00007e5402af3a00|[FRONTSERVICE]Stop the front service
+info|2026-02-06 21:14:35.466324|fisco-bcos-0x00007e5402af3a00|[FrontService]FrontService stop,nodeID=0d6a7f52cb87ce7fda869e0db309ec9c53723c46f81632c21e4abbf1a9159f14d53f37cc0c4141548da9ec877d6235afd7a501c40d296fc4c5252a8717aa23c2,groupID=group0
+info|2026-02-06 21:14:35.466371|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][SEALER]stop the sealer
+info|2026-02-06 21:14:35.467547|fisco-bcos-0x00007e5402af3a00|[BLOCK SYNC]Stop BlockSync
+info|2026-02-06 21:14:35.626691|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][Core]Stop consensusEngine
+info|2026-02-06 21:14:35.641617|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][Core]ConsensusEngine stopped
+info|2026-02-06 21:14:35.662584|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][PBFT]stop the PBFTEngine
+info|2026-02-06 21:14:35.662643|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][PBFT]Stop the PBFT module.
+info|2026-02-06 21:14:35.662771|fisco-bcos-0x00007e5402af3a00|[STORAGE-RocksDB]rocksdb stopped
+info|2026-02-06 21:14:35.662840|fisco-bcos-0x00007e5402af3a00|[INITIALIZER]Stop the txpool
+info|2026-02-06 21:14:35.673460|fisco-bcos-0x00007e5402af3a00|[SYNC]stop TransactionSync
+info|2026-02-06 21:14:35.675428|fisco-bcos-0x00007e5402af3a00|[TXPOOL]Stop the txpool.
+info|2026-02-06 21:14:35.675475|fisco-bcos-0x00007e5402af3a00|[SCHEDULER]Try to stop SchedulerManager
+info|2026-02-06 21:14:35.675502|fisco-bcos-0x00007e5402af3a00|[SCHEDULER]Try to stop SchedulerImpl
+info|2026-02-06 21:14:35.679538|fisco-bcos-0x00007e5402af3a00|[STORAGE-RocksDB]rocksdb stopped
+info|2026-02-06 21:14:35.679644|fisco-bcos-0x00007e5402af3a00|[SCHEDULER]scheduler has stopped.
+info|2026-02-06 21:14:35.697875|fisco-bcos-0x00007e5402af3a00|[FRONTSERVICE]The front service has already been stopped
+info|2026-02-06 21:14:35.697994|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][SEALER]the sealer has already been stopped
+info|2026-02-06 21:14:35.698011|fisco-bcos-0x00007e5402af3a00|[BLOCK SYNC]BlockSync has already been stopped
+info|2026-02-06 21:14:35.698072|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][PBFT]The PBFT module has already been stopped!
+info|2026-02-06 21:14:35.698116|fisco-bcos-0x00007e5402af3a00|[STORAGE-RocksDB]rocksdb stopped
+info|2026-02-06 21:14:35.698124|fisco-bcos-0x00007e5402af3a00|[INITIALIZER]The txpool has already been stopped
+info|2026-02-06 21:14:35.698131|fisco-bcos-0x00007e5402af3a00|[SCHEDULER]scheduler has just stopped.
+info|2026-02-06 21:14:35.698245|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][SEALER]the sealer has already been stopped
+info|2026-02-06 21:14:35.698297|fisco-bcos-0x00007e5402af3a00|[BLOCK SYNC]BlockSync has already been stopped
+info|2026-02-06 21:14:35.698306|fisco-bcos-0x00007e5402af3a00|[CONSENSUS][PBFT]The PBFT module has already been stopped!
+info|2026-02-06 21:14:35.698322|fisco-bcos-0x00007e5402af3a00|[STORAGE-RocksDB]rocksdb stopped
+info|2026-02-06 21:14:35.698419|fisco-bcos-0x00007e5402af3a00|[INITIALIZER]The txpool has already been stopped
+info|2026-02-06 21:14:35.698465|fisco-bcos-0x00007e5402af3a00|[FRONTSERVICE]The front service has already been stopped

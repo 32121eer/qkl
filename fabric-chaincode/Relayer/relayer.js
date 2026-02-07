@@ -209,10 +209,10 @@ class RelayerService extends EventEmitter {
      */
     async submitSequentialHeaders(sourceChainId, targetChainId, uptoBlockNumber) {
         const targetChain = this.config.getChainConfig(targetChainId);
-        if (!targetChain || targetChain.type !== 'FISCO_BCOS') {
+        if (!targetChain || (targetChain.type !== 'FISCO_BCOS' && targetChain.type !== 'FABRIC')) {
             return;
         }
-        if (!targetChain.contracts?.lightClient) {
+        if (targetChain.type === 'FISCO_BCOS' && !targetChain.contracts?.lightClient) {
             return;
         }
 
@@ -227,7 +227,12 @@ class RelayerService extends EventEmitter {
         }
 
         // LightClient 为空时允许直接提交当前块；否则从 latest+1 开始补齐
-        let from = latest === 0 ? uptoBlockNumber : latest + 1;
+        let from;
+        if (targetChain.type === 'FISCO_BCOS') {
+            from = latest === 0 ? uptoBlockNumber : latest + 1;
+        } else {
+            from = latest < 0 ? uptoBlockNumber : latest + 1;
+        }
         if (from > uptoBlockNumber) {
             return;
         }
@@ -236,8 +241,15 @@ class RelayerService extends EventEmitter {
         for (let blockNum = from; blockNum <= uptoBlockNumber; blockNum++) {
             // 实时查询最新高度，避免并发乱序提交
             const currentLatest = await targetMonitor.getLightClientLatestBlockNumber(sourceChainId);
+            if (currentLatest === null || Number.isNaN(currentLatest)) {
+                return;
+            }
             if (blockNum <= currentLatest) {
                 console.log(`[Relayer] Skip submit ${sourceChainId} #${blockNum} (already at ${currentLatest})`);
+                continue;
+            }
+            if (targetChain.type === 'FABRIC' && currentLatest >= 0 && blockNum !== currentLatest + 1) {
+                console.log(`[Relayer] Skip submit ${sourceChainId} #${blockNum} (non-sequential, latest=${currentLatest})`);
                 continue;
             }
             

@@ -28,6 +28,15 @@ async function main() {
     console.log('=== 跨链测试：Fabric -> FISCO-BCOS ===\n');
     
     try {
+        // 0. 从 Relayer 配置读取 FISCO Gateway 地址（避免硬编码）
+        const configPath = process.argv[2] || path.resolve(__dirname, 'config.json');
+        const configRaw = await fs.readFile(configPath, 'utf8');
+        const relayerConfig = JSON.parse(configRaw);
+        const fiscoChain = (relayerConfig.chains || []).find(c => c.type === 'FISCO_BCOS' && c.enabled);
+        if (!fiscoChain?.contracts?.gateway) {
+            throw new Error(`FISCO gateway address not found in relayer config: ${configPath}`);
+        }
+
         // 1. 连接到 Fabric
         console.log('1. 连接到 Fabric 网络...');
         const client = await newGrpcConnection();
@@ -49,8 +58,8 @@ async function main() {
         // 3. 发起跨链调用
         console.log('3. 发起跨链调用...');
         const targetChainId = 'FISCO_NET_01';
-        const targetContract = '0xcceef68c9b4811b32c75df284a1396c7c5509561'; // FISCO Gateway 地址
-        const targetFunction = 'echo';
+        const targetContract = fiscoChain.contracts.gateway; // FISCO Gateway 地址（从配置读取）
+        const targetFunction = fiscoChain.receiveMethod || 'receiveLite';
         const payload = JSON.stringify({
             message: 'Hello from Fabric!',
             timestamp: Date.now()
@@ -70,9 +79,15 @@ async function main() {
             payload
         );
         
-        const nonce = result.toString();
+        const resultStr = result.toString();
         console.log('   ✅ 交易已提交！');
-        console.log(`   Nonce: ${nonce}\n`);
+        try {
+            const parsed = JSON.parse(resultStr);
+            console.log(`   TxId: ${parsed.txId || '(unknown)'}`);
+            console.log(`   Status: ${parsed.status || '(unknown)'}\n`);
+        } catch {
+            console.log(`   Result: ${resultStr}\n`);
+        }
         
         console.log('=== 跨链请求已发送 ===');
         console.log('Relayer 将监听到 CrossChainCall 事件并转发到 FISCO-BCOS');
@@ -85,10 +100,10 @@ async function main() {
         console.error('❌ 测试失败:', error);
         
         if (error.message.includes('no such chaincode')) {
-            console.log('\n提示: gateway_cc 链码可能未安装。');
-            console.log('请先部署链码：');
-            console.log('  cd ${FABRIC_SAMPLES_DIR}/test-network');
-            console.log('  ./network.sh deployCC -ccn gateway_cc -ccp /home/tr/projects/cross-chain/fabric-chaincode/my-chain-code/gateway_cc -ccl go');
+            console.log('\n提示: gateway_cc 链码可能未部署。');
+            console.log('建议用仓库脚本一键启动/部署：');
+            console.log('  cd /home/tr/projects/cross-chain');
+            console.log('  bash ./start-all.sh');
         }
         
         process.exit(1);
@@ -100,6 +115,7 @@ async function newGrpcConnection() {
     const tlsCredentials = grpc.credentials.createSsl(tlsRootCert);
     return new grpc.Client(peerEndpoint, tlsCredentials, {
         'grpc.ssl_target_name_override': peerHostAlias,
+        'grpc.default_authority': peerHostAlias,
     });
 }
 

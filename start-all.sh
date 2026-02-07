@@ -20,6 +20,8 @@ SKIP_FABRIC=false
 SKIP_DEPLOY_CC=false
 FAST_MODE=false
 NO_DOWN=false
+REDEPLOY_FABRIC_CC=false
+SKIP_CA_TLS_VERIFY=false
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
@@ -36,6 +38,10 @@ while [[ $# -gt 0 ]]; do
             SKIP_DEPLOY_CC=true
             shift
             ;;
+        --redeploy-fabric-cc)
+            REDEPLOY_FABRIC_CC=true
+            shift
+            ;;
         --fast)
             FAST_MODE=true
             shift
@@ -44,9 +50,13 @@ while [[ $# -gt 0 ]]; do
             NO_DOWN=true
             shift
             ;;
+        --skip-ca-tls-verify)
+            SKIP_CA_TLS_VERIFY=true
+            shift
+            ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 [--skip-fisco] [--skip-fabric] [--skip-deploy-cc] [--fast] [--no-down]"
+            echo "Usage: $0 [--skip-fisco] [--skip-fabric] [--skip-deploy-cc] [--redeploy-fabric-cc] [--fast] [--no-down] [--skip-ca-tls-verify]"
             exit 1
             ;;
     esac
@@ -60,6 +70,8 @@ echo "SKIP_FABRIC: $SKIP_FABRIC"
 echo "SKIP_DEPLOY_CC: $SKIP_DEPLOY_CC"
 echo "FAST_MODE: $FAST_MODE"
 echo "NO_DOWN: $NO_DOWN"
+echo "REDEPLOY_FABRIC_CC: $REDEPLOY_FABRIC_CC"
+echo "SKIP_CA_TLS_VERIFY: $SKIP_CA_TLS_VERIFY"
 echo "========================================="
 
 # 函数：仅清理会导致 WSL/NAT 失效的 localhost 代理变量
@@ -157,6 +169,98 @@ run_fabric_network_up() {
     return $rc
 }
 
+# 函数：从 CA 容器回填本地 ca-cert.pem，避免本地证书与容器运行时证书不一致
+sync_fabric_ca_certs_from_containers() {
+    mkdir -p "$FABRIC_DIR/organizations/fabric-ca/ordererOrg" \
+             "$FABRIC_DIR/organizations/fabric-ca/org1" \
+             "$FABRIC_DIR/organizations/fabric-ca/org2"
+
+    docker cp ca_orderer:/etc/hyperledger/fabric-ca-server/ca-cert.pem \
+        "$FABRIC_DIR/organizations/fabric-ca/ordererOrg/ca-cert.pem" >/dev/null 2>&1 || return 1
+    docker cp ca_org1:/etc/hyperledger/fabric-ca-server/ca-cert.pem \
+        "$FABRIC_DIR/organizations/fabric-ca/org1/ca-cert.pem" >/dev/null 2>&1 || return 1
+    docker cp ca_org2:/etc/hyperledger/fabric-ca-server/ca-cert.pem \
+        "$FABRIC_DIR/organizations/fabric-ca/org2/ca-cert.pem" >/dev/null 2>&1 || return 1
+
+    return 0
+}
+
+# 函数：校验 localhost:CA_PORT 返回的 TLS 证书能被对应 CA 根证书验证
+verify_single_ca_tls_chain() {
+    local container_name="$1"
+    local port="$2"
+    local local_ca_file="$3"
+    local tmp_leaf
+    local tmp_ca
+    tmp_leaf="$(mktemp)"
+    tmp_ca="$(mktemp)"
+
+    if ! openssl s_client -connect "127.0.0.1:${port}" -servername localhost </dev/null 2>/dev/null \
+        | awk '/BEGIN CERTIFICATE/{flag=1} flag{print} /END CERTIFICATE/{exit}' > "$tmp_leaf"; then
+        rm -f "$tmp_leaf" "$tmp_ca"
+        return 1
+    fi
+
+    if ! docker cp "${container_name}:/etc/hyperledger/fabric-ca-server/ca-cert.pem" "$tmp_ca" >/dev/null 2>&1; then
+        rm -f "$tmp_leaf" "$tmp_ca"
+        return 1
+    fi
+
+    if ! openssl verify -CAfile "$tmp_ca" "$tmp_leaf" >/dev/null 2>&1; then
+        echo "⚠ CA TLS 校验失败: ${container_name} (${port})"
+        echo "  - server leaf: $(openssl x509 -in "$tmp_leaf" -noout -fingerprint -sha256 2>/dev/null | sed 's/.*=//')"
+        echo "  - runtime ca : $(openssl x509 -in "$tmp_ca" -noout -fingerprint -sha256 2>/dev/null | sed 's/.*=//')"
+        rm -f "$tmp_leaf" "$tmp_ca"
+        return 1
+    fi
+
+    if [ -f "$local_ca_file" ] && ! cmp -s "$tmp_ca" "$local_ca_file"; then
+        cp "$tmp_ca" "$local_ca_file"
+    fi
+
+    rm -f "$tmp_leaf" "$tmp_ca"
+    return 0
+}
+
+# 函数：Fabric CA TLS 健康检查与自愈
+ensure_fabric_ca_tls_ready() {
+    if [ "$SKIP_CA_TLS_VERIFY" = true ]; then
+        echo "⚠ 已跳过 Fabric CA TLS 校验 (--skip-ca-tls-verify)"
+        return 0
+    fi
+
+    if ! command -v openssl >/dev/null 2>&1; then
+        echo "⚠ 未检测到 openssl，跳过 Fabric CA TLS 校验"
+        return 0
+    fi
+
+    local orderer_ca="$FABRIC_DIR/organizations/fabric-ca/ordererOrg/ca-cert.pem"
+    local org1_ca="$FABRIC_DIR/organizations/fabric-ca/org1/ca-cert.pem"
+    local org2_ca="$FABRIC_DIR/organizations/fabric-ca/org2/ca-cert.pem"
+
+    if verify_single_ca_tls_chain "ca_orderer" "9054" "$orderer_ca" && \
+       verify_single_ca_tls_chain "ca_org1" "7054" "$org1_ca" && \
+       verify_single_ca_tls_chain "ca_org2" "8054" "$org2_ca"; then
+        echo "✓ Fabric CA TLS 校验通过"
+        return 0
+    fi
+
+    echo "⚠ 检测到 Fabric CA TLS 链异常，尝试自动回填 ca-cert.pem..."
+    if ! sync_fabric_ca_certs_from_containers; then
+        echo "✗ 自动回填 ca-cert.pem 失败"
+        return 1
+    fi
+
+    if verify_single_ca_tls_chain "ca_orderer" "9054" "$orderer_ca" && \
+       verify_single_ca_tls_chain "ca_org1" "7054" "$org1_ca" && \
+       verify_single_ca_tls_chain "ca_org2" "8054" "$org2_ca"; then
+        echo "✓ Fabric CA TLS 自愈成功"
+        return 0
+    fi
+
+    return 1
+}
+
 # 函数：全局预检
 preflight_checks() {
     sanitize_proxy_env
@@ -252,6 +356,31 @@ start_fabric() {
     echo "启动/复用 Fabric 网络..."
     run_fabric_network_up
 
+    if ! ensure_fabric_ca_tls_ready; then
+        echo "⚠ Fabric CA TLS 仍异常，尝试强制重建 Fabric 网络..."
+        ./network.sh down >/dev/null 2>&1 || true
+        run_fabric_network_up
+
+        if ! ensure_fabric_ca_tls_ready; then
+            if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null && command -v systemctl >/dev/null 2>&1; then
+                echo "⚠ 尝试自动重启 Docker daemon..."
+                sudo -n systemctl restart docker || true
+                sleep 5
+                run_fabric_network_up
+                ensure_fabric_ca_tls_ready || true
+            fi
+        fi
+
+        if ! ensure_fabric_ca_tls_ready; then
+            echo "✗ Fabric CA TLS 校验持续失败（通常是 WSL 崩溃后的 docker-proxy 端口残留）"
+            echo "  请执行："
+            echo "    1) ./network.sh down"
+            echo "    2) 重启 Docker Desktop（或 sudo systemctl restart docker）"
+            echo "    3) 重新运行 start-all.sh"
+            exit 1
+        fi
+    fi
+
     if fabric_channel_exists; then
         echo "✓ Fabric 通道 ${channel_name} 已存在，跳过 createChannel"
     else
@@ -286,6 +415,10 @@ deploy_contracts() {
     
     # 构建参数
     BOOTSTRAP_ARGS="--redeploy-fisco --receive-method receiveLite"
+
+    if [ "$REDEPLOY_FABRIC_CC" = true ]; then
+        BOOTSTRAP_ARGS="$BOOTSTRAP_ARGS --redeploy-fabric-cc"
+    fi
     
     if [ "$SKIP_DEPLOY_CC" = true ]; then
         BOOTSTRAP_ARGS="$BOOTSTRAP_ARGS --skip-fabric-cc"
