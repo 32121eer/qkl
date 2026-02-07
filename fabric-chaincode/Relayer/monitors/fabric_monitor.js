@@ -16,6 +16,8 @@ class FabricMonitor extends EventEmitter {
         this.gateway = null;
         this.network = null;
         this.running = false;
+        this.latestObservedBlockNumber = 0;
+        this.restartTimer = null;
     }
     
     async initialize() {
@@ -82,6 +84,9 @@ class FabricMonitor extends EventEmitter {
                 if (!this.running) break;
 
                 const blockNumber = Number(event.blockNumber);
+                if (!Number.isNaN(blockNumber)) {
+                    this.latestObservedBlockNumber = Math.max(this.latestObservedBlockNumber, blockNumber);
+                }
                 console.log(`[FabricMonitor] Received chaincode event from block ${blockNumber}`);
 
                 // Parse event payload
@@ -118,18 +123,50 @@ class FabricMonitor extends EventEmitter {
         } catch (error) {
             if (this.running) {
                 console.error('[FabricMonitor] Error in block monitoring:', error);
-                // Attempt to reconnect after a delay
-                setTimeout(() => this.start(), 5000);
+                this.scheduleRestart();
             }
         }
+    }
+
+    scheduleRestart() {
+        if (this.restartTimer) {
+            return;
+        }
+        this.restartTimer = setTimeout(async () => {
+            this.restartTimer = null;
+            try {
+                await this.resetConnection();
+                if (this.running) {
+                    await this.start();
+                }
+            } catch (error) {
+                if (this.running) {
+                    console.error('[FabricMonitor] Reconnect attempt failed:', error.message);
+                    this.scheduleRestart();
+                }
+            }
+        }, 5000);
+    }
+
+    async resetConnection() {
+        if (this.gateway) {
+            try {
+                this.gateway.close();
+            } catch (_error) {
+            }
+        }
+        this.gateway = null;
+        this.network = null;
     }
 
     async stop() {
         console.log('[FabricMonitor] Stopping Fabric monitor...');
         this.running = false;
-        if (this.gateway) {
-            this.gateway.close();
+        if (this.restartTimer) {
+            clearTimeout(this.restartTimer);
+            this.restartTimer = null;
         }
+        await this.resetConnection();
     }
 
     async getLatestBlockNumber() {
@@ -233,13 +270,91 @@ class FabricMonitor extends EventEmitter {
 
         const contract = await this._getGatewayContract();
         const payload = JSON.stringify(blockHeader);
-        const result = await contract.submitTransaction('SubmitBlockHeader', payload);
+        let result;
+        try {
+            result = await contract.submitTransaction('SubmitBlockHeader', payload);
+        } catch (error) {
+            const message = String(error?.message || '');
+            if (/MVCC_READ_CONFLICT|MVCC|status code 11/i.test(message)) {
+                const latestAfterConflict = await this.getLightClientLatestBlockNumber(chainId);
+                if (latestAfterConflict !== null && latestAfterConflict >= blockNumber) {
+                    const output = JSON.stringify({
+                        status: 'success',
+                        chainId,
+                        blockNumber,
+                        note: 'mvcc_conflict_ignored'
+                    });
+                    console.warn(`[FabricMonitor] Submit conflict ignored for ${chainId} #${blockNumber} (latest now ${latestAfterConflict})`);
+                    return output;
+                }
+                await new Promise((resolve) => setTimeout(resolve, 500));
+                const latestAfterRetry = await this.getLightClientLatestBlockNumber(chainId);
+                if (latestAfterRetry !== null && latestAfterRetry >= blockNumber) {
+                    const output = JSON.stringify({
+                        status: 'success',
+                        chainId,
+                        blockNumber,
+                        note: 'mvcc_conflict_ignored_after_retry'
+                    });
+                    console.warn(`[FabricMonitor] Submit conflict ignored after retry for ${chainId} #${blockNumber} (latest now ${latestAfterRetry})`);
+                    return output;
+                }
+            }
+            throw error;
+        }
         const out = Buffer.from(result).toString('utf8').trim();
         console.log(`[FabricMonitor] Submitted block header: ${chainId} #${blockNumber} (latest was ${latest})`);
         if (out) {
             console.log(`[FabricMonitor] LightClient output: ${out}`);
         }
         return out;
+    }
+
+    isConnected() {
+        return this.gateway !== null;
+    }
+
+    getLatestBlockNumberSync() {
+        return this.latestObservedBlockNumber;
+    }
+
+    getLatestObservedBlockNumberSync() {
+        return this.latestObservedBlockNumber;
+    }
+
+    async getRecentBlocks(limit = 20) {
+        const parsedLimit = Number.parseInt(limit, 10);
+        const finalLimit = Number.isNaN(parsedLimit) ? 20 : Math.max(1, Math.min(50, parsedLimit));
+
+        let latest = this.latestObservedBlockNumber;
+        try {
+            const queriedLatest = await this.getLatestBlockNumber();
+            if (Number.isInteger(queriedLatest) && queriedLatest >= 0) {
+                latest = Math.max(latest, queriedLatest);
+            }
+        } catch (_error) {
+            // Keep latest observed from events as fallback.
+        }
+
+        if (!Number.isInteger(latest) || latest < 0) {
+            return [];
+        }
+
+        const start = Math.max(0, latest - finalLimit + 1);
+        const blocks = [];
+        for (let blockNumber = latest; blockNumber >= start; blockNumber--) {
+            blocks.push({
+                chainId: this.config.chainId,
+                blockNumber,
+                blockHash: null,
+                parentHash: null,
+                timestamp: null,
+                txCount: null,
+                source: blockNumber <= this.latestObservedBlockNumber ? 'event_cache' : 'fabric_cli'
+            });
+        }
+
+        return blocks;
     }
 }
 

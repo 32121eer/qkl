@@ -1558,3 +1558,31 @@ export FABRIC_CC_VERSION=1.1
 export FABRIC_CC_SEQUENCE=2
 ./start-all.sh --redeploy-fabric-cc
 ~~~
+
+---
+
+## Cross-Chain Demo UI (WSL backend/frontend, Windows access)
+
+~~~bash
+cd /home/tr/projects/cross-chain
+bash scripts/start-demo.sh
+~~~
+
+Expected output:
+- `Windows URL (localhost): http://localhost:15173`
+- `Windows URL (fallback):  http://<wsl-ip>:15173`
+
+Stop demo services:
+
+~~~bash
+cd /home/tr/projects/cross-chain
+bash scripts/stop-demo.sh
+~~~
+
+API routes for UI/integration:
+- `GET /health`
+- `GET /demo/status`
+- `GET /demo/events`
+- `GET /demo/stream` (SSE)
+- `POST /demo/trigger/fabric-to-fisco`
+- `POST /demo/trigger/fisco-to-fabric`

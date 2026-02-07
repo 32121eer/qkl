@@ -10,6 +10,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FISCO_DIR="$SCRIPT_DIR/fisco-bcos"
+RELAYER_DIR="$SCRIPT_DIR/fabric-chaincode/Relayer"
 FABRIC_SAMPLES_DIR="${FABRIC_SAMPLES_DIR:-/home/tr/fabric-samples}"
 FABRIC_DIR="$FABRIC_SAMPLES_DIR/test-network"
 BOOTSTRAP_SCRIPT="$SCRIPT_DIR/bootstrap.sh"
@@ -103,6 +104,60 @@ check_required_paths() {
     if [ ! -d "$FABRIC_DIR" ] && [ "$SKIP_FABRIC" = false ]; then
         echo "错误: Fabric 测试网络目录不存在: $FABRIC_DIR"
         exit 1
+    fi
+
+    if [ ! -d "$RELAYER_DIR" ]; then
+        echo "错误: Relayer 目录不存在: $RELAYER_DIR"
+        exit 1
+    fi
+}
+
+# 函数：强制清理残留 relayer 进程（避免旧 TLS 连接/旧配置）
+kill_pid_gracefully() {
+    local pid="$1"
+    local label="$2"
+
+    if ! kill -0 "$pid" >/dev/null 2>&1; then
+        return
+    fi
+
+    kill "$pid" >/dev/null 2>&1 || true
+    for _ in {1..8}; do
+        if ! kill -0 "$pid" >/dev/null 2>&1; then
+            break
+        fi
+        sleep 1
+    done
+
+    if kill -0 "$pid" >/dev/null 2>&1; then
+        kill -9 "$pid" >/dev/null 2>&1 || true
+    fi
+    echo "✓ 已停止 ${label} (pid=${pid})"
+}
+
+cleanup_stale_relayer_processes() {
+    local found=false
+
+    # 先尝试按命令行匹配，后校验 cwd，避免误杀其他 node 进程
+    while IFS= read -r pid; do
+        [ -z "$pid" ] && continue
+        [ "$pid" = "$$" ] && continue
+
+        local cwd cmdline
+        cwd="$(readlink -f "/proc/${pid}/cwd" 2>/dev/null || true)"
+        cmdline="$(tr '\0' ' ' < "/proc/${pid}/cmdline" 2>/dev/null || true)"
+        [ -z "$cmdline" ] && continue
+
+        if [ "$cwd" = "$RELAYER_DIR" ] && [[ "$cmdline" == *"node index.js"* ]]; then
+            found=true
+            kill_pid_gracefully "$pid" "stale-relayer"
+        fi
+    done < <(pgrep -f 'node index.js' || true)
+
+    if [ "$found" = true ]; then
+        echo "✓ 已清理残留 Relayer 进程"
+    else
+        echo "✓ 未发现残留 Relayer 进程"
     fi
 }
 
@@ -265,6 +320,7 @@ ensure_fabric_ca_tls_ready() {
 preflight_checks() {
     sanitize_proxy_env
     check_required_paths
+    cleanup_stale_relayer_processes
 
     # Fabric 启动或 Fabric chaincode 部署都依赖 Docker
     if [ "$SKIP_FABRIC" = false ] || [ "$SKIP_DEPLOY_CC" = false ]; then

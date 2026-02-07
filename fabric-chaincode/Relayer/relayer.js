@@ -1,11 +1,8 @@
-/**
- * 链下中继网络服务 (Off-Chain Relay Network)
- * 负责：
- * 1. 监听各条链的新区块
- * 2. 提取标准化区块头
- * 3. 将区块头提交到其他链的LightClient合约
- * 4. 监听跨链事件并传递消息
- */
+﻿/**
+ * 閾句笅涓户缃戠粶鏈嶅姟 (Off-Chain Relay Network)
+ * 璐熻矗锛? * 1. 鐩戝惉鍚勬潯閾剧殑鏂板尯鍧? * 2. 鎻愬彇鏍囧噯鍖栧尯鍧楀ご
+ * 3. 灏嗗尯鍧楀ご鎻愪氦鍒板叾浠栭摼鐨凩ightClient鍚堢害
+ * 4. 鐩戝惉璺ㄩ摼浜嬩欢骞朵紶閫掓秷鎭? */
 
 const EventEmitter = require('events');
 const { FiscoBcosMonitor } = require('./monitors/fisco_bcos_monitor');
@@ -19,19 +16,24 @@ class RelayerService extends EventEmitter {
         this.config = config;
         this.monitors = new Map();
         this.isRunning = false;
+        this.headerSyncQueueByPath = new Map();
+        this.enableHeaderBroadcastOnNewBlock = Boolean(
+            this.config?.relayer?.enableHeaderBroadcastOnNewBlock
+        );
+        this.headerSubmitMaxRetries = Number(this.config?.relayer?.headerSubmitMaxRetries ?? 3);
+        this.headerSubmitRetryDelayMs = Number(this.config?.relayer?.headerSubmitRetryDelayMs ?? 1200);
         
-        // 初始化组件
+        // Initialize core components
         this.extractor = new BlockHeaderExtractor();
         this.messageHandler = new MessageHandler(config);
     }
     
     /**
-     * 初始化中继服务
-     */
+     * 鍒濆鍖栦腑缁ф湇鍔?     */
     async initialize() {
         console.log('[Relayer] Initializing relay service...');
         
-        // 初始化各链监听器
+        // 鍒濆鍖栧悇閾剧洃鍚櫒
         for (const chainConfig of this.config.chains) {
             await this.initializeMonitor(chainConfig);
         }
@@ -40,8 +42,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 初始化链监听器
-     */
+     * 鍒濆鍖栭摼鐩戝惉鍣?     */
     async initializeMonitor(chainConfig) {
         let monitor;
         
@@ -56,12 +57,12 @@ class RelayerService extends EventEmitter {
                 throw new Error(`Unsupported chain type: ${chainConfig.type}`);
         }
         
-        // 监听新区块
+        // Listen to new blocks
         monitor.on('newBlock', async (block) => {
             await this.handleNewBlock(chainConfig.chainId, block);
         });
         
-        // 监听跨链事件
+        // 鐩戝惉璺ㄩ摼浜嬩欢
         monitor.on('crossChainEvent', async (event) => {
             await this.handleCrossChainEvent(chainConfig.chainId, event);
         });
@@ -73,20 +74,22 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 处理新区块
-     */
+     * 澶勭悊鏂板尯鍧?     */
     async handleNewBlock(sourceChainId, block) {
         try {
             console.log(`[Relayer] New block from ${sourceChainId}: #${block.number}`);
+            if (!this.enableHeaderBroadcastOnNewBlock) {
+                return;
+            }
             
-            // 提取标准化区块头
+            // 鎻愬彇鏍囧噯鍖栧尯鍧楀ご
             const standardHeader = await this.extractor.extractBlockHeader(
                 sourceChainId,
                 block,
                 this.config.getChainConfig(sourceChainId)
             );
             
-            // 广播到其他所有链
+            // 骞挎挱鍒板叾浠栨墍鏈夐摼
             await this.broadcastBlockHeader(sourceChainId, standardHeader);
             
             this.emit('blockRelayed', {
@@ -102,13 +105,12 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 广播区块头到其他链
-     */
+     * 骞挎挱鍖哄潡澶村埌鍏朵粬閾?     */
     async broadcastBlockHeader(sourceChainId, blockHeader) {
         const promises = [];
         
         for (const [chainId, monitor] of this.monitors.entries()) {
-            // 不发送给自己
+            // 涓嶅彂閫佺粰鑷繁
             if (chainId === sourceChainId) {
                 continue;
             }
@@ -125,8 +127,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 提交区块头到目标链
-     */
+     * 鎻愪氦鍖哄潡澶村埌鐩爣閾?     */
     async submitBlockHeaderToChain(targetChainId, blockHeader) {
         const monitor = this.monitors.get(targetChainId);
         if (!monitor) {
@@ -137,9 +138,58 @@ class RelayerService extends EventEmitter {
         
         return await monitor.submitBlockHeader(blockHeader);
     }
+
+    isTransientHeaderSubmitError(error) {
+        if (!error) {
+            return false;
+        }
+        const text = String(error?.message || error).toLowerCase();
+        return (
+            text.includes('timeout') ||
+            text.includes('etimedout') ||
+            text.includes('request timeout') ||
+            text.includes('socket hang up') ||
+            text.includes('econnreset') ||
+            text.includes('connection reset') ||
+            text.includes('econnrefused') ||
+            text.includes('temporarily unavailable')
+        );
+    }
+
+    async sleep(ms) {
+        await new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async submitBlockHeaderWithRetry(targetChainId, blockHeader) {
+        const maxAttempts = Number.isFinite(this.headerSubmitMaxRetries) && this.headerSubmitMaxRetries > 0
+            ? this.headerSubmitMaxRetries
+            : 1;
+        const baseDelay = Number.isFinite(this.headerSubmitRetryDelayMs) && this.headerSubmitRetryDelayMs > 0
+            ? this.headerSubmitRetryDelayMs
+            : 1000;
+
+        let lastError = null;
+        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+            try {
+                return await this.submitBlockHeaderToChain(targetChainId, blockHeader);
+            } catch (error) {
+                lastError = error;
+                const isRetryable = this.isTransientHeaderSubmitError(error);
+                if (!isRetryable || attempt >= maxAttempts) {
+                    throw error;
+                }
+                const delay = baseDelay * attempt;
+                console.warn(
+                    `[Relayer] Header submit retry ${attempt}/${maxAttempts} for ${blockHeader.chainId} #${blockHeader.blockNumber} -> ${targetChainId}: ${error.message}`
+                );
+                await this.sleep(delay);
+            }
+        }
+        throw lastError || new Error('Header submit failed');
+    }
     
     /**
-     * 处理跨链事件
+     * 澶勭悊璺ㄩ摼浜嬩欢
      */
     async handleCrossChainEvent(sourceChainId, event) {
         try {
@@ -148,26 +198,26 @@ class RelayerService extends EventEmitter {
                 txHash: event.txHash
             });
 
-            // 对需要顺序区块头的目标链（如 FISCO LightClient）先补齐区块头
+            // Submit missing headers sequentially before relaying the message.
             await this.submitSequentialHeaders(sourceChainId, event.targetChainId, event.blockNumber);
             
-            // 获取事件所在区块的信息
+            // 鑾峰彇浜嬩欢鎵€鍦ㄥ尯鍧楃殑淇℃伅
             const block = await this.getBlock(sourceChainId, event.blockNumber);
             
-            // 提取标准化区块头
+            // 鎻愬彇鏍囧噯鍖栧尯鍧楀ご
             const blockHeader = await this.extractor.extractBlockHeader(
                 sourceChainId,
                 block,
                 this.config.getChainConfig(sourceChainId)
             );
             
-            // 对于 receiveLite：不需要 Merkle proof，跳过
+            // receiveLite does not require merkle proof.
             const targetChain = this.config.getChainConfig(event.targetChainId);
             const receiveMethod = targetChain?.receiveMethod || 'receive';
             let merkleProof = [];
             
             if (receiveMethod === 'receive') {
-                // 只有 receive 需要 Merkle 证明
+                // 鍙湁 receive 闇€瑕?Merkle 璇佹槑
                 merkleProof = await this.generateMerkleProof(
                     sourceChainId,
                     event.blockNumber,
@@ -175,7 +225,7 @@ class RelayerService extends EventEmitter {
                 );
             }
             
-            // 构造跨链消息（从 eventData 中提取完整信息）
+            // 鏋勯€犺法閾炬秷鎭紙浠?eventData 涓彁鍙栧畬鏁翠俊鎭級
             const ed = event.eventData || {};
             const message = {
                 sourceChainId: sourceChainId,
@@ -189,13 +239,19 @@ class RelayerService extends EventEmitter {
                 blockHeader: blockHeader
             };
             
-            // 转发消息到目标链
-            await this.messageHandler.relayMessage(message);
+            // 杞彂娑堟伅鍒扮洰鏍囬摼
+            const relayResult = await this.messageHandler.relayMessage(message);
             
             this.emit('messageRelayed', {
                 from: sourceChainId,
                 to: event.targetChainId,
-                txHash: event.txHash
+                txHash: event.txHash,
+                sourceBlockNumber: event.blockNumber,
+                sourcePayloadHash: relayResult?.sourcePayloadHash || null,
+                targetPayloadHash: relayResult?.targetPayloadHash || null,
+                targetTxHash: relayResult?.targetTxHash || null,
+                targetBlockNumber: relayResult?.targetBlockNumber ?? null,
+                receiptStatus: relayResult?.receiptStatus || null
             });
             
         } catch (error) {
@@ -205,9 +261,53 @@ class RelayerService extends EventEmitter {
     }
 
     /**
-     * 确保提交到目标链的区块头是连续的（避免 LightClient 序号不连续）
+     * 纭繚鎻愪氦鍒扮洰鏍囬摼鐨勫尯鍧楀ご鏄繛缁殑锛堥伩鍏?LightClient 搴忓彿涓嶈繛缁級
      */
     async submitSequentialHeaders(sourceChainId, targetChainId, uptoBlockNumber) {
+        const pathKey = `${sourceChainId}->${targetChainId}`;
+        let queueState = this.headerSyncQueueByPath.get(pathKey);
+        if (!queueState) {
+            queueState = {
+                running: false,
+                pendingUpto: null,
+                promise: null
+            };
+            this.headerSyncQueueByPath.set(pathKey, queueState);
+        }
+
+        const normalizedUpto = Number(uptoBlockNumber);
+        if (!Number.isInteger(normalizedUpto) || normalizedUpto < 0) {
+            return;
+        }
+
+        queueState.pendingUpto = queueState.pendingUpto === null
+            ? normalizedUpto
+            : Math.max(queueState.pendingUpto, normalizedUpto);
+
+        if (queueState.running) {
+            return queueState.promise;
+        }
+
+        queueState.running = true;
+        queueState.promise = (async () => {
+            try {
+                while (queueState.pendingUpto !== null) {
+                    const nextUpto = queueState.pendingUpto;
+                    queueState.pendingUpto = null;
+                    await this.submitSequentialHeadersOnce(sourceChainId, targetChainId, nextUpto);
+                }
+            } finally {
+                queueState.running = false;
+                if (queueState.pendingUpto === null) {
+                    this.headerSyncQueueByPath.delete(pathKey);
+                }
+            }
+        })();
+
+        return queueState.promise;
+    }
+
+    async submitSequentialHeadersOnce(sourceChainId, targetChainId, uptoBlockNumber) {
         const targetChain = this.config.getChainConfig(targetChainId);
         if (!targetChain || (targetChain.type !== 'FISCO_BCOS' && targetChain.type !== 'FABRIC')) {
             return;
@@ -226,7 +326,7 @@ class RelayerService extends EventEmitter {
             return;
         }
 
-        // LightClient 为空时允许直接提交当前块；否则从 latest+1 开始补齐
+        // If LightClient has no history, allow current block as starting point.
         let from;
         if (targetChain.type === 'FISCO_BCOS') {
             from = latest === 0 ? uptoBlockNumber : latest + 1;
@@ -239,7 +339,7 @@ class RelayerService extends EventEmitter {
 
         console.log(`[Relayer] Submitting ${sourceChainId} headers to ${targetChainId}: ${from} -> ${uptoBlockNumber}`);
         for (let blockNum = from; blockNum <= uptoBlockNumber; blockNum++) {
-            // 实时查询最新高度，避免并发乱序提交
+            // 瀹炴椂鏌ヨ鏈€鏂伴珮搴︼紝閬垮厤骞跺彂涔卞簭鎻愪氦
             const currentLatest = await targetMonitor.getLightClientLatestBlockNumber(sourceChainId);
             if (currentLatest === null || Number.isNaN(currentLatest)) {
                 return;
@@ -259,12 +359,12 @@ class RelayerService extends EventEmitter {
                 block,
                 this.config.getChainConfig(sourceChainId)
             );
-            await this.submitBlockHeaderToChain(targetChainId, header);
+            await this.submitBlockHeaderWithRetry(targetChainId, header);
         }
     }
     
     /**
-     * 获取区块信息
+     * 鑾峰彇鍖哄潡淇℃伅
      */
     async getBlock(chainId, blockNumber) {
         const monitor = this.monitors.get(chainId);
@@ -275,7 +375,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 生成Merkle证明
+     * 鐢熸垚Merkle璇佹槑
      */
     async generateMerkleProof(chainId, blockNumber, txHash) {
         const monitor = this.monitors.get(chainId);
@@ -286,7 +386,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 启动中继服务
+     * 鍚姩涓户鏈嶅姟
      */
     async start() {
         if (this.isRunning) {
@@ -297,7 +397,7 @@ class RelayerService extends EventEmitter {
         console.log('[Relayer] Starting relay service...');
         this.isRunning = true;
         
-        // 启动所有监听器
+        // 鍚姩鎵€鏈夌洃鍚櫒
         for (const [chainId, monitor] of this.monitors.entries()) {
             await monitor.start();
             console.log(`[Relayer] Started monitoring ${chainId}`);
@@ -307,7 +407,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 停止中继服务
+     * 鍋滄涓户鏈嶅姟
      */
     async stop() {
         if (!this.isRunning) {
@@ -317,7 +417,7 @@ class RelayerService extends EventEmitter {
         console.log('[Relayer] Stopping relay service...');
         this.isRunning = false;
         
-        // 停止所有监听器
+        // 鍋滄鎵€鏈夌洃鍚櫒
         for (const [chainId, monitor] of this.monitors.entries()) {
             await monitor.stop();
             console.log(`[Relayer] Stopped monitoring ${chainId}`);
@@ -327,8 +427,7 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 获取服务状态
-     */
+     * 鑾峰彇鏈嶅姟鐘舵€?     */
     getStatus() {
         const status = {
             isRunning: this.isRunning,
@@ -336,14 +435,110 @@ class RelayerService extends EventEmitter {
         };
         
         for (const [chainId, monitor] of this.monitors.entries()) {
+            let isConnected = false;
+            if (typeof monitor.isConnected === 'function') {
+                try {
+                    isConnected = Boolean(monitor.isConnected());
+                } catch (_error) {
+                    isConnected = false;
+                }
+            }
+
+            let latestBlock = null;
+            if (typeof monitor.getLatestBlockNumberSync === 'function') {
+                try {
+                    latestBlock = monitor.getLatestBlockNumberSync();
+                } catch (_error) {
+                    latestBlock = null;
+                }
+            } else if (typeof monitor.getLatestBlockNumber === 'function') {
+                try {
+                    const maybeValue = monitor.getLatestBlockNumber();
+                    latestBlock = typeof maybeValue?.then === 'function' ? null : maybeValue;
+                } catch (_error) {
+                    latestBlock = null;
+                }
+            }
+
             status.chains.push({
                 chainId,
-                isConnected: monitor.isConnected(),
-                latestBlock: monitor.getLatestBlockNumber()
+                isConnected,
+                latestBlock
             });
         }
         
         return status;
+    }
+
+    getMonitor(chainId) {
+        return this.monitors.get(chainId) || null;
+    }
+
+    async getExplorerOverview() {
+        const chains = [];
+        for (const chainConfig of this.config.chains) {
+            const chainId = chainConfig.chainId;
+            const monitor = this.monitors.get(chainId);
+
+            if (!monitor) {
+                chains.push({
+                    chainId,
+                    connected: false,
+                    latestBlock: null,
+                    latestObservedBlock: null,
+                    updatedAt: new Date().toISOString()
+                });
+                continue;
+            }
+
+            let connected = false;
+            if (typeof monitor.isConnected === 'function') {
+                try {
+                    connected = Boolean(monitor.isConnected());
+                } catch (_error) {
+                    connected = false;
+                }
+            }
+
+            let latestObservedBlock = null;
+            if (typeof monitor.getLatestObservedBlockNumberSync === 'function') {
+                try {
+                    latestObservedBlock = monitor.getLatestObservedBlockNumberSync();
+                } catch (_error) {
+                    latestObservedBlock = null;
+                }
+            } else if (typeof monitor.getLatestBlockNumberSync === 'function') {
+                try {
+                    latestObservedBlock = monitor.getLatestBlockNumberSync();
+                } catch (_error) {
+                    latestObservedBlock = null;
+                }
+            }
+
+            let latestBlock = latestObservedBlock;
+            if (typeof monitor.getLatestBlockNumber === 'function') {
+                try {
+                    const fetched = await monitor.getLatestBlockNumber();
+                    if (Number.isInteger(fetched)) {
+                        latestBlock = fetched;
+                    } else if (fetched !== null && fetched !== undefined && !Number.isNaN(Number(fetched))) {
+                        latestBlock = Number(fetched);
+                    }
+                } catch (_error) {
+                    latestBlock = latestObservedBlock;
+                }
+            }
+
+            chains.push({
+                chainId,
+                connected,
+                latestBlock,
+                latestObservedBlock,
+                updatedAt: new Date().toISOString()
+            });
+        }
+
+        return { chains };
     }
 }
 

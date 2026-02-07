@@ -53,6 +53,8 @@ class FiscoBcosMonitor extends EventEmitter {
         this.gatewayContract = null;
         this.wallet = null;
         this.latestBlockNumber = 0;
+        this.recentBlocks = [];
+        this.maxRecentBlocks = 200;
         this.isMonitoring = false;
         this.pollTimer = null;
     }
@@ -196,6 +198,20 @@ class FiscoBcosMonitor extends EventEmitter {
                 timestamp: block.timestamp,
                 transactionCount: block.transactions ? block.transactions.length : 0
             });
+
+            const txCount = block.transactions ? block.transactions.length : 0;
+            this.recentBlocks.push({
+                chainId: this.config.chainId,
+                blockNumber: Number(block.number),
+                blockHash: block.hash || null,
+                parentHash: block.parentHash || null,
+                timestamp: block.timestamp ? Number(block.timestamp) : null,
+                txCount: Number.isFinite(txCount) ? txCount : null,
+                source: 'rpc'
+            });
+            if (this.recentBlocks.length > this.maxRecentBlocks) {
+                this.recentBlocks.shift();
+            }
             
             // 直接查询该区块的 CrossChainCall 事件
             await this.parseBlockEventsDirectly(blockNumber);
@@ -387,6 +403,44 @@ class FiscoBcosMonitor extends EventEmitter {
     
     getLatestBlockNumber() {
         return this.latestBlockNumber;
+    }
+
+    getLatestBlockNumberSync() {
+        return this.latestBlockNumber;
+    }
+
+    getLatestObservedBlockNumberSync() {
+        return this.latestBlockNumber;
+    }
+
+    async getRecentBlocks(limit = 20) {
+        const parsedLimit = Number.parseInt(limit, 10);
+        const finalLimit = Number.isNaN(parsedLimit) ? 20 : Math.max(1, Math.min(50, parsedLimit));
+
+        if (this.recentBlocks.length < finalLimit && this.provider) {
+            const latest = await this.provider.getBlockNumber();
+            const from = Math.max(0, latest - finalLimit + 1);
+            const fetched = [];
+            for (let blockNumber = from; blockNumber <= latest; blockNumber++) {
+                const block = await this.provider.getBlock(blockNumber, false);
+                if (!block) {
+                    continue;
+                }
+                const txCount = block.transactions ? block.transactions.length : 0;
+                fetched.push({
+                    chainId: this.config.chainId,
+                    blockNumber: Number(block.number),
+                    blockHash: block.hash || null,
+                    parentHash: block.parentHash || null,
+                    timestamp: block.timestamp ? Number(block.timestamp) : null,
+                    txCount: Number.isFinite(txCount) ? txCount : null,
+                    source: 'rpc'
+                });
+            }
+            this.recentBlocks = fetched.slice(-this.maxRecentBlocks);
+        }
+
+        return this.recentBlocks.slice(-finalLimit).reverse();
     }
 }
 

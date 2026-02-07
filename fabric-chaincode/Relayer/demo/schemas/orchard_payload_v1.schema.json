@@ -1,0 +1,48 @@
+{
+  "$id": "OrchardPayloadV1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "payloadVersion",
+    "orchardBatchId",
+    "eventType",
+    "eventAt",
+    "data"
+  ],
+  "properties": {
+    "payloadVersion": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "orchardBatchId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "eventType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "eventAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sourceSystem": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "data": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

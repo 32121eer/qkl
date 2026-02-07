@@ -3,7 +3,10 @@
     "name": "CrossChain-Relayer-01",
     "privateKey": "0xc85f4d8bb7b633cd48c2a7a8e4d62a4cf2a82404466d862a17d4692ff89744cf",
     "logLevel": "info",
+    "enableHeaderBroadcastOnNewBlock": false,
     "blockConfirmations": 1,
+    "headerSubmitMaxRetries": 4,
+    "headerSubmitRetryDelayMs": 1200,
     "retryAttempts": 3,
     "retryDelay": 5000
   },
@@ -40,12 +43,12 @@
         "endpoint": "http://127.0.0.1:8545"
       },
       "contracts": {
-        "gateway": "0x06dde0313ca13fddf6694526adb619b71e3c7ddb",
-        "lightClient": "0xf9c1fa9c25fb71f1c66d0bd5d9f0821bec66255d",
-        "registry": "0xdccaccc045b5050e52e50fa612807945ef269199",
+        "gateway": "0x56759909e640f67e5b26c4cf4a7fe543f2f4ec64",
+        "lightClient": "0x7c77db2587cd962b420ddaaff1773fe671a2a11f",
+        "registry": "0x57ffae49c65f00158180fd177cc1b684fb7d6d0e",
         "gatewayName": "GatewayAir",
         "lightClientName": "LightClientAir",
-        "chainRegistry": "0xdccaccc045b5050e52e50fa612807945ef269199"
+        "chainRegistry": "0x57ffae49c65f00158180fd177cc1b684fb7d6d0e"
       },
       "receiveMethod": "receiveLite",
       "monitoring": {

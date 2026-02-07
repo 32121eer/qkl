@@ -1,12 +1,11 @@
-/**
- * 跨链消息处理器
- * 负责验证和转发跨链消息
- */
+﻿/**
+ * 璺ㄩ摼娑堟伅澶勭悊鍣? * 璐熻矗楠岃瘉鍜岃浆鍙戣法閾炬秷鎭? */
 
 const { ethers } = require('ethers');
 const grpc = require('@grpc/grpc-js');
 const { connect, hash, signers } = require('@hyperledger/fabric-gateway');
 const crypto = require('node:crypto');
+const { createHash } = require('node:crypto');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { execFile } = require('child_process');
@@ -14,7 +13,7 @@ const { promisify } = require('util');
 
 const execFileAsync = promisify(execFile);
 
-// Gateway 合约 ABI
+// Gateway 鍚堢害 ABI
 const GatewayABI = require('../abi/Gateway.json');
 
 class MessageHandler {
@@ -28,12 +27,12 @@ class MessageHandler {
     }
     
     /**
-     * 初始化（可选，用于预建立连接）
+     * 鍒濆鍖栵紙鍙€夛紝鐢ㄤ簬棰勫缓绔嬭繛鎺ワ級
      */
     async initialize() {
         console.log('[MessageHandler] Initializing...');
         
-        // 初始化 FISCO 连接
+        // 鍒濆鍖?FISCO 杩炴帴
         const fiscoConfig = this.config.chains.find(c => c.type === 'FISCO_BCOS');
         if (fiscoConfig && fiscoConfig.enabled) {
             await this.initFiscoConnection(fiscoConfig);
@@ -43,11 +42,11 @@ class MessageHandler {
     }
     
     /**
-     * 初始化 FISCO 连接
+     * 鍒濆鍖?FISCO 杩炴帴
      */
     async initFiscoConnection(chainConfig) {
         try {
-            // 使用静态网络配置，避免 ethers.js 自动检测网络时卡住
+            // 浣跨敤闈欐€佺綉缁滈厤缃紝閬垮厤 ethers.js 鑷姩妫€娴嬬綉缁滄椂鍗′綇
             const staticNetwork = new ethers.Network('fisco-bcos', 1);
             this.fiscoProvider = new ethers.JsonRpcProvider(chainConfig.rpc.endpoint, staticNetwork, {
                 staticNetwork: true
@@ -55,7 +54,7 @@ class MessageHandler {
             
             if (this.config.relayer && this.config.relayer.privateKey) {
                 const privateKey = this.config.relayer.privateKey;
-                // 确保私钥格式正确
+                // 纭繚绉侀挜鏍煎紡姝ｇ‘
                 const formattedKey = privateKey.startsWith('0x') ? privateKey : `0x${privateKey}`;
                 this.fiscoWallet = new ethers.Wallet(formattedKey, this.fiscoProvider);
             }
@@ -73,39 +72,105 @@ class MessageHandler {
             console.warn(`[MessageHandler] Failed to init FISCO connection:`, error.message);
         }
     }
+
+    async ensureFiscoConnection(targetChain) {
+        const targetGateway = targetChain?.contracts?.gateway;
+        const currentGateway = this.fiscoGatewayContract?.target;
+        const sameGateway =
+            targetGateway &&
+            currentGateway &&
+            String(targetGateway).toLowerCase() === String(currentGateway).toLowerCase();
+        if (this.fiscoProvider && this.fiscoGatewayContract && sameGateway) {
+            return;
+        }
+        await this.initFiscoConnection(targetChain);
+    }
+
+    isFiscoTimeoutError(error) {
+        const text = String(error?.message || '');
+        return /request timeout|code=TIMEOUT|ETIMEDOUT|timed out/i.test(text);
+    }
+
+    async sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async confirmFiscoReceiveByEvent(targetChain, message, attempts = 5, delayMs = 2000) {
+        await this.ensureFiscoConnection(targetChain);
+        if (!this.fiscoProvider || !this.fiscoGatewayContract) {
+            return null;
+        }
+
+        for (let attempt = 1; attempt <= attempts; attempt++) {
+            try {
+                const latest = await this.fiscoProvider.getBlockNumber();
+                const fromBlock = Math.max(0, latest - 500);
+                const filter = this.fiscoGatewayContract.filters.CrossChainReceived(message.sourceChainId);
+                const events = await this.fiscoGatewayContract.queryFilter(filter, fromBlock, latest);
+                for (let i = events.length - 1; i >= 0; i -= 1) {
+                    const evt = events[i];
+                    const evtSourceTxId = String(evt?.args?.sourceTxId || '');
+                    const evtSourceBlock = Number(evt?.args?.sourceBlockNumber);
+                    const evtVerified = Boolean(evt?.args?.verified);
+                    if (
+                        evtSourceTxId === String(message.sourceTxHash) &&
+                        evtSourceBlock === Number(message.sourceBlockNumber)
+                    ) {
+                        if (!evtVerified) {
+                            return { confirmed: false, reason: 'verified_false' };
+                        }
+                        return {
+                            confirmed: true,
+                            txHash: evt.transactionHash || null,
+                            blockNumber: Number.isInteger(evt.blockNumber) ? evt.blockNumber : null
+                        };
+                    }
+                }
+            } catch (error) {
+                console.warn(`[MessageHandler] Failed to query FISCO CrossChainReceived events: ${error.message}`);
+            }
+
+            if (attempt < attempts) {
+                await this.sleep(delayMs);
+            }
+        }
+
+        return null;
+    }
     
     /**
-     * 转发跨链消息
+     * 杞彂璺ㄩ摼娑堟伅
      */
     async relayMessage(message) {
         console.log(`[MessageHandler] Relaying message from ${message.sourceChainId} to ${message.targetChainId}`);
         
         try {
-            // 1. 验证消息完整性
             this.validateMessage(message);
-            
-            // 2. 验证源链区块已确认
             await this.verifySourceBlock(message);
-            
-            // 3. 准备目标链调用参数
             const targetChain = this.config.getChainConfig(message.targetChainId);
             if (!targetChain) {
                 throw new Error(`Target chain ${message.targetChainId} not found in config`);
             }
             
-            // 4. 根据目标链类型进行调用
+            let relayResult;
             switch (targetChain.type) {
                 case 'FISCO_BCOS':
-                    await this.relayToFiscoBcos(targetChain, message);
+                    relayResult = await this.relayToFiscoBcos(targetChain, message);
                     break;
                 case 'FABRIC':
-                    await this.relayToFabric(targetChain, message);
+                    relayResult = await this.relayToFabric(targetChain, message);
                     break;
                 default:
                     throw new Error(`Unsupported target chain type: ${targetChain.type}`);
             }
             
             console.log(`[MessageHandler] Message relayed successfully`);
+            return {
+                success: true,
+                sourcePayloadHash: this.computePayloadHash(message.payload),
+                targetPayloadHash: relayResult?.targetPayloadHash || null,
+                ...relayResult
+            };
             
         } catch (error) {
             console.error(`[MessageHandler] Failed to relay message:`, error);
@@ -114,7 +179,7 @@ class MessageHandler {
     }
     
     /**
-     * 验证消息
+     * 楠岃瘉娑堟伅
      */
     validateMessage(message) {
         const required = [
@@ -131,23 +196,32 @@ class MessageHandler {
             }
         }
     }
+
+    computePayloadHash(payload) {
+        let payloadText;
+        if (typeof payload === 'string') {
+            payloadText = payload;
+        } else if (Buffer.isBuffer(payload)) {
+            payloadText = payload.toString('utf8');
+        } else {
+            payloadText = JSON.stringify(payload ?? {});
+        }
+        return createHash('sha256').update(payloadText, 'utf8').digest('hex');
+    }
     
     /**
-     * 验证源区块
-     */
+     * 楠岃瘉婧愬尯鍧?     */
     async verifySourceBlock(message) {
-        // 检查区块确认数
+        // 妫€鏌ュ尯鍧楃‘璁ゆ暟
         const confirmations = this.config.relayer?.blockConfirmations || 1;
         
-        // 简化处理，实际应该查询链的最新高度
         console.log(`[MessageHandler] Block confirmations check: ${confirmations} blocks required`);
         
         return true;
     }
     
     /**
-     * 转发到 FISCO-BCOS（自动通过 console.sh 调用）
-     */
+     * 杞彂鍒?FISCO-BCOS锛堣嚜鍔ㄩ€氳繃 console.sh 璋冪敤锛?     */
     async relayToFiscoBcos(targetChain, message) {
         console.log(`[MessageHandler] Relaying to FISCO-BCOS chain ${targetChain.chainId}`);
         console.log(`  - Source Chain: ${message.sourceChainId}`);
@@ -155,7 +229,7 @@ class MessageHandler {
         console.log(`  - Source Block: ${message.sourceBlockNumber}`);
         
         try {
-            // 准备 payload
+            // 鍑嗗 payload
             let payloadBytes;
             if (typeof message.payload === 'string') {
                 payloadBytes = ethers.toUtf8Bytes(message.payload);
@@ -167,13 +241,12 @@ class MessageHandler {
             
             const payloadHex = '0x' + Buffer.from(payloadBytes).toString('hex');
             
-            // 准备 Merkle 证明
+            // 鍑嗗 Merkle 璇佹槑
             const merkleProof = message.merkleProof || [];
             const merkleProofArray = merkleProof.length > 0 
                 ? '[' + merkleProof.map(p => `"${p}"`).join(',') + ']'
                 : '[]';
             
-            // 获取 receiveMethod（默认 "receive"）
             const receiveMethod = targetChain.receiveMethod || 'receive';
             const gatewayName =
                 targetChain.contracts?.gatewayName ||
@@ -182,8 +255,8 @@ class MessageHandler {
             
             console.log(`[MessageHandler] Using receiveMethod: ${receiveMethod}`);
             
-            // 构建 console.sh 命令参数
-            // 序列化 blockHeader 为 hex
+            // 鏋勫缓 console.sh 鍛戒护鍙傛暟
+            // 搴忓垪鍖?blockHeader 涓?hex
             let blockHeaderHex = '0x00';
             if (message.blockHeader) {
                 blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
@@ -217,14 +290,14 @@ class MessageHandler {
                 ];
             }
             
-            console.log(`[MessageHandler] 🚀 Calling FISCO console.sh...`);
+            console.log(`[MessageHandler] 馃殌 Calling FISCO console.sh...`);
             console.log(`  Command: ./console.sh ${consoleArgs.join(' ')}`);
             
-            // 调用 console.sh
+            // 璋冪敤 console.sh
             const consolePath = path.resolve(__dirname, '../../../fisco-bcos/console/console.sh');
             const { stdout, stderr } = await execFileAsync(consolePath, consoleArgs, {
                 cwd: path.dirname(consolePath),
-                timeout: 30000 // 30秒超时
+                timeout: 30000
             });
             
             console.log(`[MessageHandler] Console output:\n${stdout}`);
@@ -232,29 +305,63 @@ class MessageHandler {
                 console.warn(`[MessageHandler] Console stderr:\n${stderr}`);
             }
             
-            // 检查交易状态（先检查 status，再看 hash）
             const statusMatch = stdout.match(/transaction status:\s*(\d+)/);
             if (statusMatch) {
                 if (statusMatch[1] === '0') {
-                    console.log(`[MessageHandler] ✅ FISCO transaction SUCCESS`);
-                    return { success: true };
+                    console.log(`[MessageHandler] 鉁?FISCO transaction SUCCESS`);
+                    const txHashMatch = stdout.match(/transaction hash:\s*(0x[0-9a-fA-F]+)/i);
+                    return {
+                        success: true,
+                        receiptStatus: 'SUCCESS',
+                        targetTxHash: txHashMatch ? txHashMatch[1] : null,
+                        targetBlockNumber: null,
+                        targetPayloadHash: this.computePayloadHash(message.payload)
+                    };
                 } else {
-                    // status != 0 表示交易失败
+                    // status != 0 琛ㄧず浜ゆ槗澶辫触
                     const receiptMsg = stdout.match(/Receipt message:\s*(.+)/);
                     const errorDetail = receiptMsg ? receiptMsg[1].trim() : 'unknown';
                     throw new Error(`FISCO transaction REVERTED (status=${statusMatch[1]}, reason=${errorDetail})`);
                 }
             } else if (stdout.includes('transaction hash:')) {
-                // 有 hash 但没有 status 行，视为成功（query 调用）
-                console.log(`[MessageHandler] ✅ FISCO transaction SUCCESS (no status line)`);
-                return { success: true };
+                console.log(`[MessageHandler] FISCO transaction SUCCESS (no status line)`);
+                const txHashMatch = stdout.match(/transaction hash:\s*(0x[0-9a-fA-F]+)/i);
+                return {
+                    success: true,
+                    receiptStatus: 'SUCCESS',
+                    targetTxHash: txHashMatch ? txHashMatch[1] : null,
+                    targetBlockNumber: null,
+                    targetPayloadHash: this.computePayloadHash(message.payload)
+                };
             } else {
-                console.warn(`[MessageHandler] ⚠️ Cannot determine transaction status from console output`);
-                return { success: false, pending: true, output: stdout };
+                console.warn(`[MessageHandler] 鈿狅笍 Cannot determine transaction status from console output`);
+                return {
+                    success: false,
+                    pending: true,
+                    receiptStatus: 'PENDING',
+                    output: stdout,
+                    targetTxHash: null,
+                    targetBlockNumber: null,
+                    targetPayloadHash: this.computePayloadHash(message.payload)
+                };
             }
             
         } catch (error) {
-            console.error(`[MessageHandler] ❌ Failed to relay to FISCO:`, error.message);
+            if (this.isFiscoTimeoutError(error)) {
+                console.warn('[MessageHandler] FISCO call timed out, checking chain events for eventual success...');
+                const confirmed = await this.confirmFiscoReceiveByEvent(targetChain, message);
+                if (confirmed?.confirmed) {
+                    console.log('[MessageHandler] Timeout recovered: FISCO CrossChainReceived already on-chain');
+                    return {
+                        success: true,
+                        receiptStatus: 'SUCCESS',
+                        targetTxHash: confirmed.txHash || null,
+                        targetBlockNumber: confirmed.blockNumber ?? null,
+                        targetPayloadHash: this.computePayloadHash(message.payload)
+                    };
+                }
+            }
+            console.error(`[MessageHandler] Failed to relay to FISCO:`, error.message);
             if (error.stdout) {
                 console.error(`[MessageHandler] Console stdout: ${error.stdout}`);
             }
@@ -266,7 +373,7 @@ class MessageHandler {
     }
     
     /**
-     * 转发到 Fabric
+     * 杞彂鍒?Fabric
      */
     async relayToFabric(targetChain, message) {
         console.log(`[MessageHandler] Relaying to Fabric chain ${targetChain.chainId}`);
@@ -274,7 +381,6 @@ class MessageHandler {
         console.log(`  - Target Function: ${message.targetFunction}`);
         
         try {
-            // 解析目标合约路径（格式: channel/chaincode 或直接 chaincode）
             let channelName = targetChain.connection?.channelName || 'mychannel';
             let chaincodeName = message.targetContract;
             
@@ -284,14 +390,14 @@ class MessageHandler {
                 chaincodeName = parts[1];
             }
             
-            // 创建 Fabric 连接
+            // 鍒涘缓 Fabric 杩炴帴
             const { gateway, client } = await this.createFabricConnection(targetChain);
             
             try {
                 const network = gateway.getNetwork(channelName);
                 const contract = network.getContract(chaincodeName);
                 
-                // 准备 payload
+                // 鍑嗗 payload
                 let payloadStr;
                 if (typeof message.payload === 'string') {
                     payloadStr = message.payload;
@@ -301,14 +407,12 @@ class MessageHandler {
                     payloadStr = JSON.stringify(message.payload);
                 }
 
-                // JS 链码 gateway_cc.Receive() 需要一个 blockHeader（hex string）参数。
-                // 这里将标准化区块头 JSON 序列化为 hex，便于链码侧持久化/后续验证。
                 let blockHeaderHex = '0x00';
                 if (message.blockHeader) {
                     blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
                 }
                 
-                // 调用链码函数
+                // 璋冪敤閾剧爜鍑芥暟
                 console.log(`[MessageHandler] Calling ${chaincodeName}.${message.targetFunction}()...`);
                 
                 const targetFn = message.targetFunction || 'Receive';
@@ -321,9 +425,16 @@ class MessageHandler {
                     payloadStr
                 );
                 
-                console.log(`[MessageHandler] ✅ Fabric transaction success`);
+                console.log(`[MessageHandler] 鉁?Fabric transaction success`);
                 
-                return result;
+                return {
+                    success: true,
+                    receiptStatus: 'SUCCESS',
+                    targetTxHash: null,
+                    targetBlockNumber: null,
+                    targetPayloadHash: this.computePayloadHash(message.payload),
+                    output: Buffer.isBuffer(result) ? result.toString('utf8') : String(result ?? '')
+                };
                 
             } finally {
                 gateway.close();
@@ -337,12 +448,12 @@ class MessageHandler {
     }
     
     /**
-     * 创建 Fabric 连接
+     * 鍒涘缓 Fabric 杩炴帴
      */
     async createFabricConnection(targetChain) {
         const connection = targetChain.connection;
         
-        // 读取证书
+        // 璇诲彇璇佷功
         const cryptoPath = connection.cryptoPath || 
             '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
         
@@ -350,7 +461,7 @@ class MessageHandler {
         const keyPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'keystore');
         const tlsCertPath = path.resolve(cryptoPath, 'peers', 'peer0.org1.example.com', 'tls', 'ca.crt');
         
-        // 读取证书文件
+        // 璇诲彇璇佷功鏂囦欢
         const certFiles = await fs.readdir(certPath);
         const credentials = await fs.readFile(path.join(certPath, certFiles[0]));
         
@@ -360,7 +471,7 @@ class MessageHandler {
         
         const tlsRootCert = await fs.readFile(tlsCertPath);
         
-        // 创建 gRPC 连接
+        // 鍒涘缓 gRPC 杩炴帴
         const peerEndpoint = connection.peerEndpoint || 'localhost:7051';
         const peerHostAlias = connection.peerHostAlias || 'peer0.org1.example.com';
         
@@ -370,7 +481,7 @@ class MessageHandler {
             'grpc.default_authority': peerHostAlias,
         });
         
-        // 创建 Gateway
+        // 鍒涘缓 Gateway
         const gateway = connect({
             client,
             identity: { 
@@ -389,7 +500,7 @@ class MessageHandler {
     }
     
     /**
-     * 重试机制
+     * 閲嶈瘯鏈哄埗
      */
     async retryRelay(message, maxAttempts = 3, delay = 5000) {
         let lastError;
@@ -397,7 +508,7 @@ class MessageHandler {
         for (let attempt = 1; attempt <= maxAttempts; attempt++) {
             try {
                 await this.relayMessage(message);
-                return; // 成功则返回
+                return; // 鎴愬姛鍒欒繑鍥?
             } catch (error) {
                 lastError = error;
                 console.warn(`[MessageHandler] Relay attempt ${attempt}/${maxAttempts} failed:`, error.message);
