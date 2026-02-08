@@ -1,66 +1,34 @@
+const { DemoEventBus } = require('./events/event_bus');
+
+// Backwards-compatible adapter: older code expects DemoEventStore.
+// Internally we use DemoEventBus so we can wait for events (event-driven) later.
 class DemoEventStore {
     constructor(limit = 500) {
-        this.limit = limit;
-        this.events = [];
-        this.sequence = 0;
-        this.clients = new Set();
+        this.bus = new DemoEventBus(limit);
     }
 
     addEvent(event) {
-        const normalized = {
-            id: `evt_${Date.now()}_${++this.sequence}`,
-            ts: new Date().toISOString(),
-            level: 'info',
-            type: 'system',
-            direction: 'UNKNOWN',
-            relayState: 'INFO',
-            correlationId: null,
-            sourceTxHash: null,
-            sourceBlockNumber: null,
-            targetTxHash: null,
-            targetBlockNumber: null,
-            sourcePayloadHash: null,
-            targetPayloadHash: null,
-            receiptStatus: null,
-            errorCode: null,
-            message: '',
-            data: {},
-            ...event
-        };
-
-        this.events.push(normalized);
-        if (this.events.length > this.limit) {
-            this.events.shift();
-        }
-
-        const payload = `data: ${JSON.stringify(normalized)}\n\n`;
-        for (const client of this.clients) {
-            try {
-                client.write(payload);
-            } catch (_error) {
-                // Ignore closed client write errors.
-            }
-        }
-
-        return normalized;
+        return this.bus.addEvent(event);
     }
 
     getEvents(limit = 200) {
-        const safeLimit = Number.isFinite(limit) ? Number(limit) : 200;
-        const finalLimit = Math.max(1, Math.min(2000, safeLimit));
-        return this.events.slice(-finalLimit);
+        return this.bus.getEvents(limit);
     }
 
     attachClient(response) {
-        this.clients.add(response);
+        return this.bus.attachClient(response);
     }
 
     detachClient(response) {
-        this.clients.delete(response);
+        return this.bus.detachClient(response);
     }
 
     getClientCount() {
-        return this.clients.size;
+        return this.bus.getClientCount();
+    }
+
+    waitFor(predicate, timeoutMs) {
+        return this.bus.waitFor(predicate, timeoutMs);
     }
 }
 

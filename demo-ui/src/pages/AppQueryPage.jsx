@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+﻿import { Fragment, useEffect, useMemo, useState } from 'react';
 
 const STORAGE_KEYS = {
   batchId: 'app_query_batch_id',
@@ -16,6 +16,11 @@ const QUERY_STAGE_LABEL = {
   RESPONSE_SENT: '返回中',
   COMPLETED: '完成'
 };
+
+function parseTimeMs(value) {
+  const ms = Date.parse(String(value || ''));
+  return Number.isNaN(ms) ? null : ms;
+}
 
 function shorten(value) {
   if (!value || typeof value !== 'string') return '-';
@@ -70,6 +75,61 @@ function isSessionFinal(session) {
   if (verify === 'PASS' || verify === 'FAILED' || verify === 'MISMATCH') return true;
   const status = String(session?.status || '').toUpperCase();
   return status === 'COMPLETED' || status === 'FAILED';
+}
+
+function formatElapsed(ms) {
+  const value = Number(ms);
+  if (!Number.isFinite(value) || value < 0) return '-';
+  if (value < 1000) return `${Math.round(value)}ms`;
+  return `${(value / 1000).toFixed(1)}s`;
+}
+
+function getStageMetric(session, stage) {
+  const stageMetric = session?.stepMetrics?.[stage];
+  if (stageMetric && Number.isFinite(stageMetric.elapsedFromRequestMs)) {
+    return stageMetric.elapsedFromRequestMs;
+  }
+
+  const steps = Array.isArray(session?.steps) ? session.steps : [];
+  for (let index = steps.length - 1; index >= 0; index -= 1) {
+    const step = steps[index];
+    if (String(step?.step || '').toUpperCase() !== String(stage).toUpperCase()) {
+      continue;
+    }
+    const elapsed = step?.details?.elapsedFromRequestMs;
+    if (Number.isFinite(elapsed)) {
+      return elapsed;
+    }
+  }
+
+  const requestAt = parseTimeMs(session?.requestTs);
+  if (requestAt === null) return null;
+
+  let stageAt = null;
+  for (const step of steps) {
+    if (String(step?.step || '').toUpperCase() !== String(stage).toUpperCase()) {
+      continue;
+    }
+    const current = parseTimeMs(step?.ts);
+    if (current !== null && (stageAt === null || current > stageAt)) {
+      stageAt = current;
+    }
+  }
+
+  if (stageAt === null && String(session?.status || '').toUpperCase() === String(stage).toUpperCase()) {
+    stageAt = parseTimeMs(session?.updatedAt) ?? parseTimeMs(session?.settleTs);
+  }
+
+  if (stageAt === null) return null;
+  return Math.max(0, stageAt - requestAt);
+}
+
+function buildStageElapsedSummary(session) {
+  if (!session) return '-';
+  return QUERY_STAGE_ORDER.map((stage, index) => {
+    const elapsed = getStageMetric(session, stage);
+    return `${index + 1}:${formatElapsed(elapsed)}`;
+  }).join(' | ');
 }
 
 function QueryStatusBar({ session, compact = false }) {
@@ -318,12 +378,12 @@ export default function AppQueryPage() {
       const text = await file.text();
       const parsed = parseJson(text);
       if (parsed.error) {
-        throw new Error(`JSON 解析失败: ${parsed.error}`);
+        throw new Error(`JSON解析失败: ${parsed.error}`);
       }
 
       const candidates = pickImportedRecords(parsed.value);
       if (!candidates.length) {
-        throw new Error('JSON 文件中没有可导入的记录');
+        throw new Error('JSON中未找到可用记录');
       }
 
       const normalized = candidates.map((record, index) => normalizeImportedPayload(record, index));
@@ -331,7 +391,7 @@ export default function AppQueryPage() {
       setImportedFileName(file.name);
       setSelectedImportIndex(0);
       setBatchId(normalized[0].orchardBatchId);
-      setInfo(`已导入 ${normalized.length} 条记录（${file.name}）`);
+      setInfo(`已导入 ${normalized.length} 条记录，来源文件：${file.name}`);
     } catch (err) {
       setImportError(err?.message || String(err));
     }
@@ -375,7 +435,7 @@ export default function AppQueryPage() {
       }
 
       await refreshAll();
-      setInfo(`A链写入成功: ${cleanBatchId}${data.txId ? ` (tx: ${data.txId})` : ''}`);
+      setInfo('A链写入成功: ' + cleanBatchId + (data.txId ? ' (tx: ' + data.txId + ')' : ''));
     } catch (err) {
       setError(err?.message || String(err));
     } finally {
@@ -416,7 +476,7 @@ export default function AppQueryPage() {
     <main className="page">
       <header className="hero">
         <h1>跨链查询演示</h1>
-        <p>FISCO 用户按批次号查询 Fabric 果园数据，并查看可审计的跨链会话状态。</p>
+        <p>FISCO 侧用户按批次号查询 Fabric 果园数据，并展示可审计的跨链查询会话状态。</p>
         <div className="url-row">
           <span>Windows 地址: http://localhost:15173/app-query</span>
           <span>备用地址: {fallbackUrl}/app-query</span>
@@ -462,14 +522,18 @@ export default function AppQueryPage() {
             </button>
           </div>
 
-          <h3>最近写入记录（A 链可见）</h3>
+          <h3>最近写入记录（A链可见）</h3>
           <div className="query-table">
             <div className="query-row query-head">
               <span>批次号</span>
               <span>事件类型</span>
               <span>事件时间</span>
             </div>
-            {orchardItems.length === 0 ? <div className="query-row"><span className="muted">暂无记录</span></div> : null}
+            {orchardItems.length === 0 ? (
+              <div className="query-row">
+                <span className="muted">暂无记录</span>
+              </div>
+            ) : null}
             {orchardItems.map((item) => (
               <button
                 type="button"
@@ -499,13 +563,17 @@ export default function AppQueryPage() {
           </div>
           {queryError ? <p className="error">{queryError}</p> : null}
 
-          <h3>最近查询结果（B 链可见）</h3>
+          <h3>最近查询结果（B链可见）</h3>
           <div className="runtime-list">
             <div><strong>会话 ID:</strong> {selectedSession?.queryId || '-'}</div>
             <div><strong>状态:</strong> {formatQueryStatus(selectedSession?.status)}</div>
-            <div><strong>查询结果:</strong> {selectedSession?.resultFound === null ? '-' : (selectedSession?.resultFound ? '已找到' : '未找到')}</div>
+            <div>
+              <strong>查询结果:</strong>{' '}
+              {selectedSession?.resultFound === null ? '-' : selectedSession?.resultFound ? '已找到' : '未找到'}
+            </div>
             <div><strong>校验/判定:</strong> {selectedSessionBadgeText}</div>
             <div><strong>执行进度:</strong> <QueryStatusBar session={selectedSession} /></div>
+            <div><strong>阶段耗时:</strong> {buildStageElapsedSummary(selectedSession)}</div>
             <div><strong>请求交易:</strong> {shorten(selectedSession?.requestTxHash)}</div>
             <div><strong>响应交易:</strong> {shorten(selectedSession?.responseTargetTxHash)}</div>
           </div>
@@ -550,6 +618,7 @@ export default function AppQueryPage() {
                   </div>
                   <div className="proof-middle">
                     <QueryStatusBar session={item} compact />
+                    <div>阶段耗时: {buildStageElapsedSummary(item)}</div>
                     <div>错误码: {item.errorCode || '-'}</div>
                     <div>回执: {item.receiptStatus || '-'}</div>
                     <div>是否命中: {item.resultFound === null ? '-' : String(item.resultFound)}</div>
@@ -572,6 +641,9 @@ export default function AppQueryPage() {
                         <div className="timeline-meta">
                           <span>{step.ts}</span>
                           <span>{step.step}</span>
+                        </div>
+                        <div className="muted">
+                          累计: {formatElapsed(step?.details?.elapsedFromRequestMs)} / 本阶段: {formatElapsed(step?.details?.elapsedFromPreviousStepMs)}
                         </div>
                         <div>{JSON.stringify(step.details || {})}</div>
                       </div>

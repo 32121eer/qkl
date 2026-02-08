@@ -6,6 +6,7 @@ const path = require('path');
 const grpc = require('@grpc/grpc-js');
 const { exec } = require('child_process');
 const util = require('util');
+const protos = require('fabric-protos');
 
 const execAsync = util.promisify(exec);
 
@@ -170,18 +171,56 @@ class FabricMonitor extends EventEmitter {
     }
 
     async getLatestBlockNumber() {
+        const conn = this.config.connection;
+
+        // Prefer Fabric Gateway + QSCC (no external `peer` binary dependency).
+        // This avoids frequent failures on WSL where `peer` may not be executable/available in PATH.
         try {
-            const conn = this.config.connection;
+            if (!this.gateway || !this.network) {
+                await this.initialize();
+            }
+
+            const qscc = this.network.getContract('qscc');
+            const result = await qscc.evaluateTransaction('GetChainInfo', conn.channelName);
+            const info = protos.common.BlockchainInfo.decode(result);
+
+            const heightValue = info.height;
+            let height = null;
+            if (typeof heightValue === 'number') {
+                height = heightValue;
+            } else if (typeof heightValue === 'string') {
+                height = Number.parseInt(heightValue, 10);
+            } else if (heightValue && typeof heightValue.toNumber === 'function') {
+                height = heightValue.toNumber();
+            } else if (heightValue && typeof heightValue.toInt === 'function') {
+                height = heightValue.toInt();
+            } else {
+                const coerced = Number(heightValue);
+                height = Number.isNaN(coerced) ? null : coerced;
+            }
+
+            if (Number.isInteger(height) && height >= 1) {
+                return height - 1; // height is count, block number is 0-based
+            }
+        } catch (error) {
+            // QSCC may be disabled/misconfigured; fallback to peer CLI below.
+            console.warn('[FabricMonitor] QSCC GetChainInfo failed, falling back to peer CLI:', error.message);
+        }
+
+        // Fallback: peer CLI. Use an absolute path derived from cryptoPath to avoid PATH ambiguity.
+        try {
             const channelName = conn.channelName;
             const peerAddress = conn.peerEndpoint;
             const cryptoPath = path.resolve(conn.cryptoPath);
             const tlsCertPath = path.join(cryptoPath, 'peers', conn.peerHostAlias, 'tls', 'ca.crt');
-            
-            // Use peer CLI to get channel info
-            const cmd = `peer channel getinfo -c ${channelName} --peerAddresses ${peerAddress} --tlsRootCertFiles ${tlsCertPath}`;
-            
+
+            const fabricSamplesPeerBin = process.env.FABRIC_PEER_BIN
+                ? path.resolve(process.env.FABRIC_PEER_BIN)
+                : path.resolve(cryptoPath, '..', '..', '..', '..', 'bin', 'peer');
+
+            const cmd = `${fabricSamplesPeerBin} channel getinfo -c ${channelName} --peerAddresses ${peerAddress} --tlsRootCertFiles ${tlsCertPath}`;
             const mspPath = path.join(cryptoPath, 'users', 'Admin@org1.example.com', 'msp');
-            
+
             const { stdout } = await execAsync(cmd, {
                 env: {
                     ...process.env,
@@ -195,9 +234,8 @@ class FabricMonitor extends EventEmitter {
 
             const heightMatch = stdout.match(/Blockchain info: \{"height":(\d+)/);
             if (heightMatch) {
-                return parseInt(heightMatch[1]) - 1; // Height is 1-indexed, block number is 0-indexed
+                return Number.parseInt(heightMatch[1], 10) - 1;
             }
-
             throw new Error('Failed to parse block height from peer response');
         } catch (error) {
             console.error('[FabricMonitor] Error getting latest block number:', error.message);

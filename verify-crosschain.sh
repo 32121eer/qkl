@@ -16,8 +16,11 @@ VERIFY_RELAYER_RESTART="${VERIFY_RELAYER_RESTART:-true}"
 KEEP_RELAYER="${VERIFY_KEEP_RELAYER:-true}"
 PAYLOAD_HEX="${VERIFY_FISCO_PAYLOAD_HEX:-0x48656c6c6f466973636f}"
 FISCO_TO_FABRIC_RETRY="${VERIFY_FISCO_TO_FABRIC_RETRY:-3}"
+VERIFY_PRESERVE_DEMO_API="${VERIFY_PRESERVE_DEMO_API:-auto}"
+VERIFY_DEMO_API_PORT="${VERIFY_DEMO_API_PORT:-18080}"
 
 MANAGED_RELAYER_PID=""
+DEMO_API_WAS_RUNNING="false"
 
 unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY
 
@@ -145,7 +148,13 @@ start_managed_relayer() {
     : > "$LOG_FILE"
     (
         cd "$RELAYER_DIR"
-        node index.js "$CONFIG_PATH" >> "$LOG_FILE" 2>&1
+        if [[ "$VERIFY_PRESERVE_DEMO_API" == "true" ]] || \
+           [[ "$VERIFY_PRESERVE_DEMO_API" == "auto" && "$DEMO_API_WAS_RUNNING" == "true" ]]; then
+            env DEMO_API_ENABLED=true DEMO_API_PORT="$VERIFY_DEMO_API_PORT" \
+                node index.js "$CONFIG_PATH" >> "$LOG_FILE" 2>&1
+        else
+            node index.js "$CONFIG_PATH" >> "$LOG_FILE" 2>&1
+        fi
     ) &
     MANAGED_RELAYER_PID=$!
 
@@ -207,6 +216,10 @@ require_cmd curl
 require_path "$RELAYER_DIR" "Relayer directory"
 require_path "$CONFIG_PATH" "Relayer config"
 require_path "$FISCO_CONSOLE_DIR/console.sh" "FISCO console"
+
+if curl -fsS --max-time 1 "http://127.0.0.1:${VERIFY_DEMO_API_PORT}/health" >/dev/null 2>&1; then
+    DEMO_API_WAS_RUNNING="true"
+fi
 
 if ! is_container_running "peer0.org1.example.com" || \
    ! is_container_running "peer0.org2.example.com" || \

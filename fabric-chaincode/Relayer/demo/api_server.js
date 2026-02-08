@@ -1,8 +1,13 @@
-const express = require('express');
-const os = require('node:os');
 const { DemoEventStore } = require('./event_store');
 const { DemoTriggerService } = require('./trigger_service');
 const { buildOrchardValidator, ORCHARD_PAYLOAD_V1_SCHEMA } = require('./payload_schema');
+const { createDemoApp } = require('./app/create_demo_app');
+const { RelayFacade } = require('./app/relay_facade');
+const { QueryBroker } = require('./broker/query_broker');
+const { DemoMemoryStore } = require('./store/memory_store');
+const { DemoSqliteStore } = require('./store/sqlite_store');
+const { QuerySessionService } = require('./session/query_session_service');
+const path = require('node:path');
 
 function mapDirectionByChain(sourceChainId, targetChainId) {
     if (sourceChainId === 'FABRIC_NET_01' && targetChainId === 'FISCO_NET_01') {
@@ -21,19 +26,6 @@ function mapErrorCode(errorText) {
     if (/request timeout|code=TIMEOUT|ETIMEDOUT|timed out/i.test(text)) return 'ERR_CHAIN_TIMEOUT';
     if (/ECONNREFUSED|UNAVAILABLE|connect/i.test(text)) return 'ERR_CHAIN_UNREACHABLE';
     return 'ERR_UNKNOWN';
-}
-
-function getWslIpCandidates() {
-    const interfaces = os.networkInterfaces();
-    const result = [];
-    for (const records of Object.values(interfaces)) {
-        for (const record of records || []) {
-            if (record.family === 'IPv4' && !record.internal) {
-                result.push(record.address);
-            }
-        }
-    }
-    return result;
 }
 
 const EXPLORER_CHAIN_IDS = new Set(['FABRIC_NET_01', 'FISCO_NET_01']);
@@ -97,7 +89,6 @@ class DemoApiServer {
     constructor(relayer, config) {
         this.relayer = relayer;
         this.config = config;
-        this.app = express();
         this.server = null;
         this.eventStore = new DemoEventStore(1000);
         this.triggerService = new DemoTriggerService(config, this.eventStore);
@@ -105,10 +96,44 @@ class DemoApiServer {
         this.activeTriggers = new Set();
         this.pendingCorrelationBySourceTx = new Map();
         this.pendingCorrelationByPayloadHash = new Map();
-        this.querySessions = new Map();
-        this.querySessionOrder = [];
+        this.PROOF_MAX_LIMIT = PROOF_MAX_LIMIT;
+        this.EXPLORER_CHAIN_IDS = EXPLORER_CHAIN_IDS;
         this.activeQuerySessions = new Set();
         this.listeners = [];
+
+        const storeMode = String(process.env.DEMO_STORE || 'memory').toLowerCase();
+        this.store = storeMode === 'sqlite'
+            ? new DemoSqliteStore({ dbPath: path.join(process.cwd(), '.demo', 'demo.db') })
+            : new DemoMemoryStore({ maxSessions: 1000 });
+        this.querySessionService = new QuerySessionService(this.store);
+        this.relayFacade = new RelayFacade({ eventStore: this.eventStore });
+        this.queryBroker = new QueryBroker({
+            executeTrigger: this.executeTrigger.bind(this),
+            triggerService: this.triggerService,
+            relayFacade: this.relayFacade,
+            sessionService: this.querySessionService,
+            eventStore: this.eventStore,
+            activeQuerySessions: this.activeQuerySessions,
+            mapSessionErrorCode: this.mapSessionErrorCode.bind(this)
+        });
+
+        this.app = createDemoApp(this);
+    }
+
+    mapErrorCode(text) {
+        return mapErrorCode(text);
+    }
+
+    parseExplorerLimit(rawLimit) {
+        return parseExplorerLimit(rawLimit);
+    }
+
+    parseProofCardLimit(rawLimit) {
+        return parseProofCardLimit(rawLimit);
+    }
+
+    parseQuerySessionLimit(rawLimit) {
+        return parseQuerySessionLimit(rawLimit);
     }
 
     buildRelayMarkers(limit = 30) {
@@ -414,7 +439,7 @@ class DemoApiServer {
                 this.pendingCorrelationByPayloadHash.delete(`${direction}:${sourcePayloadHash}`);
             }
 
-            this.reconcileQuerySessionByRelaySuccess({
+            this.queryBroker.reconcileByRelaySuccess({
                 direction,
                 sourceTxHash,
                 correlationId,
@@ -643,61 +668,23 @@ class DemoApiServer {
     }
 
     saveQuerySession(session) {
-        this.querySessions.set(session.queryId, session);
-        const existed = this.querySessionOrder.includes(session.queryId);
-        if (!existed) {
-            this.querySessionOrder.unshift(session.queryId);
-        }
-        if (this.querySessionOrder.length > 1000) {
-            const removed = this.querySessionOrder.splice(1000);
-            for (const queryId of removed) {
-                this.querySessions.delete(queryId);
-            }
-        }
+        return this.store.saveQuerySession(session);
     }
 
     getQuerySession(queryId) {
-        const item = this.querySessions.get(queryId);
-        if (!item) {
-            return null;
-        }
-        return JSON.parse(JSON.stringify(item));
+        return this.store.getQuerySession(queryId);
     }
 
     listQuerySessions(limit = QUERY_SESSION_DEFAULT_LIMIT) {
-        const safeLimit = Math.max(1, Math.min(QUERY_SESSION_MAX_LIMIT, Number(limit) || QUERY_SESSION_DEFAULT_LIMIT));
-        const ids = this.querySessionOrder.slice(0, safeLimit);
-        const items = [];
-        for (const queryId of ids) {
-            const item = this.querySessions.get(queryId);
-            if (item) {
-                items.push(JSON.parse(JSON.stringify(item)));
-            }
-        }
-        return items;
+        return this.store.listQuerySessions(limit);
     }
 
     patchQuerySession(queryId, patch = {}) {
-        const session = this.querySessions.get(queryId);
-        if (!session) {
-            return null;
-        }
-        Object.assign(session, patch);
-        this.saveQuerySession(session);
-        return session;
+        return this.querySessionService.patch(queryId, patch);
     }
 
     appendQueryStep(queryId, step, details = {}) {
-        const session = this.querySessions.get(queryId);
-        if (!session) {
-            return;
-        }
-        session.steps.push({
-            ts: new Date().toISOString(),
-            step,
-            details
-        });
-        this.saveQuerySession(session);
+        return this.querySessionService.appendStep(queryId, step, details);
     }
 
     findRelayEvent(direction, { sourceTxHash, correlationId }) {
@@ -723,24 +710,12 @@ class DemoApiServer {
     }
 
     async waitForRelayEvent(direction, lookup, timeoutMs = QUERY_RELAY_TIMEOUT_REQUEST_MS) {
-        const startedAt = Date.now();
-        while (Date.now() - startedAt < timeoutMs) {
-            const matched = this.findRelayEvent(direction, lookup || {});
-            if (matched) {
-                return matched;
-            }
-            await new Promise((resolve) => setTimeout(resolve, QUERY_RELAY_POLL_INTERVAL_MS));
-        }
-
-        // Final lookup to avoid edge-case false timeout when event arrives near deadline.
-        const finalMatch = this.findRelayEvent(direction, lookup || {});
-        if (finalMatch) {
-            return finalMatch;
-        }
-
-        const err = new Error('Relay result query timeout');
-        err.code = 'ERR_QUERY_TIMEOUT';
-        throw err;
+        return this.relayFacade.waitForRelayEvent(
+            direction,
+            lookup || {},
+            timeoutMs,
+            Number(process.env.DEMO_QUERY_RELAY_POLL_INTERVAL_MS) || QUERY_RELAY_POLL_INTERVAL_MS
+        );
     }
 
     mapSessionErrorCode(error) {
@@ -1291,7 +1266,6 @@ class DemoApiServer {
     }
 
     async start(host, port) {
-        this.createRoutes();
         this.bindRelayerEvents();
         await new Promise((resolve) => {
             this.server = this.app.listen(port, host, resolve);
