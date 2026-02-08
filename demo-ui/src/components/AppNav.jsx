@@ -7,12 +7,15 @@ function linkClassName({ isActive }) {
 export default function AppNav() {
   return (
     <div className="app-nav-wrap">
-      <nav className="app-nav" aria-label="Demo Navigation">
+      <nav className="app-nav" aria-label="演示页面导航">
         <NavLink to="/explorer" className={linkClassName}>
-          Blockchain Explorer
+          区块链浏览器
         </NavLink>
         <NavLink to="/app-demo" className={linkClassName}>
-          Application Demo
+          应用触发（调试）
+        </NavLink>
+        <NavLink to="/app-query" className={linkClassName}>
+          跨链查询演示
         </NavLink>
       </nav>
     </div>

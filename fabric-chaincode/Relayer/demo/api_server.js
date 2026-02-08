@@ -42,6 +42,11 @@ const EXPLORER_MAX_LIMIT = 50;
 const PROOF_DEFAULT_LIMIT = 20;
 const PROOF_MAX_LIMIT = 100;
 const PROOF_PENDING_TIMEOUT_MS = 180_000;
+const QUERY_SESSION_DEFAULT_LIMIT = 20;
+const QUERY_SESSION_MAX_LIMIT = 100;
+const QUERY_RELAY_TIMEOUT_REQUEST_MS = 60_000;
+const QUERY_RELAY_TIMEOUT_RESPONSE_MS = 300_000;
+const QUERY_RELAY_POLL_INTERVAL_MS = 1200;
 
 function parseExplorerLimit(rawLimit) {
     if (rawLimit === undefined || rawLimit === null || rawLimit === '') {
@@ -73,6 +78,21 @@ function parseProofCardLimit(rawLimit) {
     return { value: parsed, error: null };
 }
 
+function parseQuerySessionLimit(rawLimit) {
+    if (rawLimit === undefined || rawLimit === null || rawLimit === '') {
+        return { value: QUERY_SESSION_DEFAULT_LIMIT, error: null };
+    }
+
+    const parsed = Number.parseInt(rawLimit, 10);
+    if (Number.isNaN(parsed)) {
+        return { value: null, error: `Invalid limit '${rawLimit}', must be integer` };
+    }
+    if (parsed < 1 || parsed > QUERY_SESSION_MAX_LIMIT) {
+        return { value: null, error: `Invalid limit '${rawLimit}', must be between 1 and ${QUERY_SESSION_MAX_LIMIT}` };
+    }
+    return { value: parsed, error: null };
+}
+
 class DemoApiServer {
     constructor(relayer, config) {
         this.relayer = relayer;
@@ -85,6 +105,9 @@ class DemoApiServer {
         this.activeTriggers = new Set();
         this.pendingCorrelationBySourceTx = new Map();
         this.pendingCorrelationByPayloadHash = new Map();
+        this.querySessions = new Map();
+        this.querySessionOrder = [];
+        this.activeQuerySessions = new Set();
         this.listeners = [];
     }
 
@@ -390,6 +413,16 @@ class DemoApiServer {
             if (sourcePayloadHash) {
                 this.pendingCorrelationByPayloadHash.delete(`${direction}:${sourcePayloadHash}`);
             }
+
+            this.reconcileQuerySessionByRelaySuccess({
+                direction,
+                sourceTxHash,
+                correlationId,
+                targetTxHash: data.targetTxHash || null,
+                targetBlockNumber: data.targetBlockNumber ?? null,
+                targetPayloadHash: data.targetPayloadHash || null,
+                receiptStatus: data.receiptStatus || null
+            });
         };
         const onError = (data) => {
             const direction = mapDirectionByChain(data.sourceChainId, data.event?.targetChainId);
@@ -441,6 +474,91 @@ class DemoApiServer {
             this.relayer.off(eventName, fn);
         }
         this.listeners = [];
+    }
+
+    reconcileQuerySessionByRelaySuccess({
+        direction,
+        sourceTxHash,
+        correlationId,
+        targetTxHash,
+        targetBlockNumber,
+        targetPayloadHash,
+        receiptStatus
+    }) {
+        if (direction !== 'FABRIC_TO_FISCO') {
+            return;
+        }
+
+        for (const queryId of this.querySessionOrder) {
+            const session = this.querySessions.get(queryId);
+            if (!session) {
+                continue;
+            }
+
+            const txMatched =
+                Boolean(sourceTxHash) &&
+                Boolean(session.responseRequestTxHash) &&
+                session.responseRequestTxHash === sourceTxHash;
+            const correlationMatched =
+                Boolean(correlationId) &&
+                Boolean(session.responseCorrelationId) &&
+                session.responseCorrelationId === correlationId;
+
+            if (!txMatched && !correlationMatched) {
+                continue;
+            }
+
+            const previousStatus = session.status;
+            const shouldRecoverFromTimeout =
+                previousStatus === 'FAILED' && session.errorCode === 'ERR_QUERY_TIMEOUT';
+            const shouldFinalize =
+                previousStatus === 'RESPONSE_SENT' || shouldRecoverFromTimeout;
+
+            if (!shouldFinalize) {
+                continue;
+            }
+
+            const finalReceiptStatus = receiptStatus || session.receiptStatus || 'SUCCESS';
+            this.patchQuerySession(queryId, {
+                status: 'COMPLETED',
+                verifyStatus: 'PASS',
+                responseTargetTxHash: targetTxHash || session.responseTargetTxHash || null,
+                responsePayloadHash: targetPayloadHash || session.responsePayloadHash || null,
+                receiptStatus: finalReceiptStatus,
+                settleTs: new Date().toISOString(),
+                errorCode: null,
+                errorMessage: null,
+                updatedAt: new Date().toISOString()
+            });
+
+            this.appendQueryStep(queryId, 'COMPLETED', {
+                targetTxHash: targetTxHash || null,
+                targetBlockNumber: targetBlockNumber ?? null,
+                receiptStatus: finalReceiptStatus,
+                recoveredFromTimeout: shouldRecoverFromTimeout
+            });
+
+            this.activeQuerySessions.delete(queryId);
+
+            this.eventStore.addEvent({
+                type: 'query',
+                direction: 'FABRIC_TO_FISCO',
+                relayState: 'SUCCESS',
+                correlationId: queryId,
+                sourceTxHash: session.responseRequestTxHash || sourceTxHash || null,
+                targetTxHash: targetTxHash || null,
+                targetBlockNumber: targetBlockNumber ?? null,
+                receiptStatus: finalReceiptStatus,
+                message: shouldRecoverFromTimeout
+                    ? `Query session ${queryId} recovered from timeout by late relay success`
+                    : `Query session ${queryId} completed by relay callback`,
+                data: {
+                    queryId,
+                    orchardBatchId: session.orchardBatchId,
+                    recoveredFromTimeout: shouldRecoverFromTimeout
+                }
+            });
+        }
     }
 
     normalizeRequestPayload(body = {}) {
@@ -509,6 +627,269 @@ class DemoApiServer {
         }
     }
 
+    normalizeBatchId(rawBatchId) {
+        const value = String(rawBatchId || '').trim();
+        if (!value) {
+            const err = new Error('orchardBatchId is required');
+            err.statusCode = 400;
+            throw err;
+        }
+        return value;
+    }
+
+    createQueryId() {
+        const rand = Math.random().toString(16).slice(2, 10);
+        return `query_${Date.now()}_${rand}`;
+    }
+
+    saveQuerySession(session) {
+        this.querySessions.set(session.queryId, session);
+        const existed = this.querySessionOrder.includes(session.queryId);
+        if (!existed) {
+            this.querySessionOrder.unshift(session.queryId);
+        }
+        if (this.querySessionOrder.length > 1000) {
+            const removed = this.querySessionOrder.splice(1000);
+            for (const queryId of removed) {
+                this.querySessions.delete(queryId);
+            }
+        }
+    }
+
+    getQuerySession(queryId) {
+        const item = this.querySessions.get(queryId);
+        if (!item) {
+            return null;
+        }
+        return JSON.parse(JSON.stringify(item));
+    }
+
+    listQuerySessions(limit = QUERY_SESSION_DEFAULT_LIMIT) {
+        const safeLimit = Math.max(1, Math.min(QUERY_SESSION_MAX_LIMIT, Number(limit) || QUERY_SESSION_DEFAULT_LIMIT));
+        const ids = this.querySessionOrder.slice(0, safeLimit);
+        const items = [];
+        for (const queryId of ids) {
+            const item = this.querySessions.get(queryId);
+            if (item) {
+                items.push(JSON.parse(JSON.stringify(item)));
+            }
+        }
+        return items;
+    }
+
+    patchQuerySession(queryId, patch = {}) {
+        const session = this.querySessions.get(queryId);
+        if (!session) {
+            return null;
+        }
+        Object.assign(session, patch);
+        this.saveQuerySession(session);
+        return session;
+    }
+
+    appendQueryStep(queryId, step, details = {}) {
+        const session = this.querySessions.get(queryId);
+        if (!session) {
+            return;
+        }
+        session.steps.push({
+            ts: new Date().toISOString(),
+            step,
+            details
+        });
+        this.saveQuerySession(session);
+    }
+
+    findRelayEvent(direction, { sourceTxHash, correlationId }) {
+        const items = this.eventStore.getEvents(2000).slice().reverse();
+        for (const item of items) {
+            if (item.direction !== direction) {
+                continue;
+            }
+            if (item.relayState !== 'SUCCESS' && item.relayState !== 'FAILED') {
+                continue;
+            }
+            const itemSourceTxHash = this.getEventField(item, ['sourceTxHash', 'data.sourceTxHash', 'data.txId', 'data.txHash']);
+            const itemCorrelationId = this.getEventField(item, ['correlationId', 'data.correlationId']);
+
+            if (sourceTxHash && itemSourceTxHash === sourceTxHash) {
+                return item;
+            }
+            if (correlationId && itemCorrelationId === correlationId) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    async waitForRelayEvent(direction, lookup, timeoutMs = QUERY_RELAY_TIMEOUT_REQUEST_MS) {
+        const startedAt = Date.now();
+        while (Date.now() - startedAt < timeoutMs) {
+            const matched = this.findRelayEvent(direction, lookup || {});
+            if (matched) {
+                return matched;
+            }
+            await new Promise((resolve) => setTimeout(resolve, QUERY_RELAY_POLL_INTERVAL_MS));
+        }
+
+        // Final lookup to avoid edge-case false timeout when event arrives near deadline.
+        const finalMatch = this.findRelayEvent(direction, lookup || {});
+        if (finalMatch) {
+            return finalMatch;
+        }
+
+        const err = new Error('Relay result query timeout');
+        err.code = 'ERR_QUERY_TIMEOUT';
+        throw err;
+    }
+
+    mapSessionErrorCode(error) {
+        if (error?.code === 'ERR_QUERY_TIMEOUT') {
+            return 'ERR_QUERY_TIMEOUT';
+        }
+        return mapErrorCode(error?.message || '');
+    }
+
+    async runQuerySession(queryId) {
+        const session = this.querySessions.get(queryId);
+        if (!session) {
+            return;
+        }
+
+        try {
+            const requestResult = await this.executeTrigger('FISCO_TO_FABRIC', async () => {
+                return this.triggerService.triggerOrchardQueryRequest(queryId, session.orchardBatchId);
+            });
+
+            this.patchQuerySession(queryId, {
+                status: 'REQUEST_SENT',
+                requestCorrelationId: requestResult?.correlationId || null,
+                requestTxHash: requestResult?.txHash || null,
+                requestPayloadHash: requestResult?.sourcePayloadHash || null,
+                updatedAt: new Date().toISOString()
+            });
+            this.appendQueryStep(queryId, 'REQUEST_SENT', {
+                txHash: requestResult?.txHash || null,
+                correlationId: requestResult?.correlationId || null
+            });
+
+            const requestRelayEvent = await this.waitForRelayEvent(
+                'FISCO_TO_FABRIC',
+                {
+                    sourceTxHash: requestResult?.txHash || null,
+                    correlationId: requestResult?.correlationId || null
+                },
+                QUERY_RELAY_TIMEOUT_REQUEST_MS
+            );
+            if (requestRelayEvent.relayState === 'FAILED') {
+                throw new Error(requestRelayEvent.message || 'Request relay failed');
+            }
+
+            let orchardRecord = null;
+            let found = false;
+            try {
+                orchardRecord = await this.triggerService.getOrchardRecord(session.orchardBatchId);
+                found = true;
+            } catch (error) {
+                if (/not found/i.test(String(error?.message || ''))) {
+                    found = false;
+                } else {
+                    throw error;
+                }
+            }
+
+            this.patchQuerySession(queryId, {
+                status: 'A_CHAIN_FETCHED',
+                resultFound: found,
+                resultPayload: orchardRecord,
+                updatedAt: new Date().toISOString()
+            });
+            this.appendQueryStep(queryId, 'A_CHAIN_FETCHED', {
+                found
+            });
+
+            const responseResult = await this.executeTrigger('FABRIC_TO_FISCO', async () => {
+                return this.triggerService.triggerOrchardQueryResponse({
+                    queryId,
+                    orchardBatchId: session.orchardBatchId,
+                    found,
+                    result: orchardRecord
+                });
+            });
+
+            this.patchQuerySession(queryId, {
+                status: 'RESPONSE_SENT',
+                responseCorrelationId: responseResult?.correlationId || null,
+                responseRequestTxHash: responseResult?.txId || null,
+                responsePayloadHash: responseResult?.sourcePayloadHash || null,
+                updatedAt: new Date().toISOString()
+            });
+            this.appendQueryStep(queryId, 'RESPONSE_SENT', {
+                txHash: responseResult?.txId || null,
+                correlationId: responseResult?.correlationId || null
+            });
+
+            const responseRelayEvent = await this.waitForRelayEvent(
+                'FABRIC_TO_FISCO',
+                {
+                    sourceTxHash: responseResult?.txId || null,
+                    correlationId: responseResult?.correlationId || null
+                },
+                QUERY_RELAY_TIMEOUT_RESPONSE_MS
+            );
+            if (responseRelayEvent.relayState === 'FAILED') {
+                throw new Error(responseRelayEvent.message || 'Response relay failed');
+            }
+
+            const targetTxHash = this.getEventField(responseRelayEvent, ['targetTxHash', 'data.targetTxHash']);
+            const receiptStatus = this.getEventField(responseRelayEvent, ['receiptStatus', 'data.receiptStatus']) || 'SUCCESS';
+
+            this.patchQuerySession(queryId, {
+                status: 'COMPLETED',
+                responseTargetTxHash: targetTxHash || null,
+                receiptStatus,
+                verifyStatus: 'PASS',
+                settleTs: new Date().toISOString(),
+                errorCode: null,
+                errorMessage: null,
+                updatedAt: new Date().toISOString()
+            });
+            this.appendQueryStep(queryId, 'COMPLETED', {
+                targetTxHash: targetTxHash || null,
+                receiptStatus
+            });
+        } catch (error) {
+            const errorCode = this.mapSessionErrorCode(error);
+            this.patchQuerySession(queryId, {
+                status: 'FAILED',
+                verifyStatus: 'FAILED',
+                errorCode,
+                errorMessage: error?.message || String(error),
+                settleTs: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            });
+            this.appendQueryStep(queryId, 'FAILED', {
+                errorCode,
+                errorMessage: error?.message || String(error)
+            });
+            this.eventStore.addEvent({
+                level: 'error',
+                type: 'query',
+                direction: 'FISCO_TO_FABRIC',
+                relayState: 'FAILED',
+                correlationId: queryId,
+                errorCode,
+                message: `Query session failed: ${error?.message || String(error)}`,
+                data: {
+                    queryId,
+                    orchardBatchId: session.orchardBatchId
+                }
+            });
+        } finally {
+            this.activeQuerySessions.delete(queryId);
+        }
+    }
+
     createRoutes() {
         this.app.use(express.json({ limit: '2mb' }));
 
@@ -528,10 +909,198 @@ class DemoApiServer {
             res.json(ORCHARD_PAYLOAD_V1_SCHEMA);
         });
 
+        this.app.get('/demo/app/orchard', async (req, res) => {
+            try {
+                const parsedLimit = parseExplorerLimit(req.query.limit);
+                if (parsedLimit.error) {
+                    return res.status(400).json({
+                        success: false,
+                        error: parsedLimit.error
+                    });
+                }
+                const bookmark = String(req.query.bookmark || '');
+                const result = await this.triggerService.listOrchardRecords(parsedLimit.value, bookmark);
+                return res.json({
+                    success: true,
+                    ...result
+                });
+            } catch (error) {
+                return res.status(500).json({
+                    success: false,
+                    error: error.message || 'Failed to list orchard records'
+                });
+            }
+        });
+
+        this.app.get('/demo/app/orchard/:batchId', async (req, res) => {
+            try {
+                const batchId = this.normalizeBatchId(req.params.batchId);
+                const record = await this.triggerService.getOrchardRecord(batchId);
+                return res.json({
+                    success: true,
+                    orchardBatchId: batchId,
+                    record
+                });
+            } catch (error) {
+                const message = String(error?.message || '');
+                const statusCode = /not found/i.test(message) ? 404 : 500;
+                return res.status(statusCode).json({
+                    success: false,
+                    error: message || 'Failed to query orchard record'
+                });
+            }
+        });
+
+        this.app.post('/demo/app/orchard/upsert', async (req, res) => {
+            try {
+                const body = req.body || {};
+                const batchId = this.normalizeBatchId(body.orchardBatchId || body.payload?.orchardBatchId);
+                const rawPayload = (body.payload && typeof body.payload === 'object') ? body.payload : body;
+                const payload = {
+                    payloadVersion: String(rawPayload.payloadVersion || '1.0'),
+                    orchardBatchId: batchId,
+                    eventType: String(rawPayload.eventType || 'unknown'),
+                    eventAt: rawPayload.eventAt || new Date().toISOString(),
+                    sourceSystem: rawPayload.sourceSystem || 'orchard-demo',
+                    data: rawPayload.data && typeof rawPayload.data === 'object' ? rawPayload.data : {}
+                };
+
+                const validation = this.validateOrchardPayload(payload);
+                if (!validation.valid) {
+                    return res.status(400).json({
+                        success: false,
+                        error: 'OrchardPayloadV1 validation failed',
+                        details: validation.errors
+                    });
+                }
+
+                const txId = await this.triggerService.putOrchardRecord(batchId, payload);
+                return res.json({
+                    success: true,
+                    orchardBatchId: batchId,
+                    txId
+                });
+            } catch (error) {
+                return res.status(500).json({
+                    success: false,
+                    error: error.message || 'Failed to upsert orchard record'
+                });
+            }
+        });
+
+        this.app.post('/demo/app/query/request', async (req, res) => {
+            try {
+                const batchId = this.normalizeBatchId(req.body?.orchardBatchId);
+                const queryId = this.createQueryId();
+                const now = new Date().toISOString();
+
+                const session = {
+                    queryId,
+                    orchardBatchId: batchId,
+                    status: 'REQUEST_SENT',
+                    verifyStatus: 'PENDING',
+                    requestedByChain: 'FISCO_NET_01',
+                    targetDataChain: 'FABRIC_NET_01',
+                    requestTs: now,
+                    settleTs: null,
+                    requestCorrelationId: null,
+                    requestTxHash: null,
+                    requestPayloadHash: null,
+                    responseCorrelationId: null,
+                    responseRequestTxHash: null,
+                    responseTargetTxHash: null,
+                    responsePayloadHash: null,
+                    resultFound: null,
+                    resultPayload: null,
+                    receiptStatus: null,
+                    errorCode: null,
+                    errorMessage: null,
+                    updatedAt: now,
+                    steps: [{
+                        ts: now,
+                        step: 'REQUEST_SENT',
+                        details: { orchardBatchId: batchId }
+                    }]
+                };
+
+                this.saveQuerySession(session);
+                this.activeQuerySessions.add(queryId);
+                this.eventStore.addEvent({
+                    type: 'query',
+                    direction: 'FISCO_TO_FABRIC',
+                    relayState: 'REQUEST_SENT',
+                    correlationId: queryId,
+                    message: `Query request created for ${batchId}`,
+                    data: {
+                        queryId,
+                        orchardBatchId: batchId
+                    }
+                });
+
+                this.runQuerySession(queryId).catch((error) => {
+                    this.eventStore.addEvent({
+                        level: 'error',
+                        type: 'query',
+                        direction: 'FISCO_TO_FABRIC',
+                        relayState: 'FAILED',
+                        correlationId: queryId,
+                        errorCode: this.mapSessionErrorCode(error),
+                        message: error.message || String(error),
+                        data: {
+                            queryId,
+                            orchardBatchId: batchId
+                        }
+                    });
+                });
+
+                return res.status(202).json({
+                    success: true,
+                    queryId,
+                    session: this.getQuerySession(queryId)
+                });
+            } catch (error) {
+                const statusCode = error.statusCode || 500;
+                return res.status(statusCode).json({
+                    success: false,
+                    error: error.message || 'Failed to create query session'
+                });
+            }
+        });
+
+        this.app.get('/demo/app/query/sessions', (req, res) => {
+            const parsedLimit = parseQuerySessionLimit(req.query.limit);
+            if (parsedLimit.error) {
+                return res.status(400).json({
+                    success: false,
+                    error: parsedLimit.error
+                });
+            }
+            return res.json({
+                items: this.listQuerySessions(parsedLimit.value),
+                updatedAt: new Date().toISOString()
+            });
+        });
+
+        this.app.get('/demo/app/query/sessions/:queryId', (req, res) => {
+            const queryId = String(req.params.queryId || '');
+            const session = this.getQuerySession(queryId);
+            if (!session) {
+                return res.status(404).json({
+                    success: false,
+                    error: `Query session '${queryId}' not found`
+                });
+            }
+            return res.json({
+                item: session,
+                updatedAt: new Date().toISOString()
+            });
+        });
+
         this.app.get('/demo/status', (_req, res) => {
             res.json({
                 relayer: this.relayer.getStatus(),
                 activeTriggers: Array.from(this.activeTriggers),
+                activeQuerySessions: Array.from(this.activeQuerySessions),
                 sseClients: this.eventStore.getClientCount(),
                 recentEvents: this.eventStore.getEvents(20),
                 windowsAccess: {

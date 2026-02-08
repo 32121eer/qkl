@@ -105,6 +105,21 @@ wait_http_ready() {
     return 1
 }
 
+check_fisco_rpc_ready() {
+    # FISCO JSON-RPC should be reachable for the relayer to start.
+    local payload='{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+    if curl -sS -m 2 -X POST -H 'content-type: application/json' --data "$payload" \
+        "http://127.0.0.1:8545" >/dev/null 2>&1; then
+        return 0
+    fi
+
+    echo "ERROR: FISCO RPC is not reachable at http://127.0.0.1:8545"
+    echo "  Fix: start the base services first:"
+    echo "    cd $ROOT_DIR"
+    echo "    bash start-all.sh"
+    exit 1
+}
+
 ensure_relayer_deps() {
     if [[ ! -d "$RELAYER_DIR/node_modules" ]]; then
         (cd "$RELAYER_DIR" && npm install)
@@ -180,6 +195,7 @@ load_existing_pids
 ensure_relayer_deps
 ensure_ui_deps
 cleanup_existing_demo_processes
+check_fisco_rpc_ready
 start_api
 start_ui
 save_pids

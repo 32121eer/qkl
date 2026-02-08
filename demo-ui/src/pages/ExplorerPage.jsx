@@ -1,13 +1,19 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 function formatStatusFlag(value) {
-  return value ? 'Connected' : 'Disconnected';
+  return value ? '已连接' : '未连接';
 }
 
 function formatDirectionLabel(direction) {
   if (direction === 'FABRIC_TO_FISCO') return 'Fabric -> FISCO';
   if (direction === 'FISCO_TO_FABRIC') return 'FISCO -> Fabric';
-  return direction || 'UNKNOWN';
+  return direction || '未知方向';
+}
+
+function formatStreamState(state) {
+  if (state === 'connected') return '已连接';
+  if (state === 'reconnecting') return '重连中';
+  return '连接中';
 }
 
 function summarizeTimelineSource(item) {
@@ -209,44 +215,44 @@ export default function ExplorerPage() {
   return (
     <main className="page">
       <header className="hero">
-        <h1>Blockchain Explorer (Lite)</h1>
-        <p>Chain status, recent blocks, relay markers and timeline</p>
+        <h1>区块链浏览器（Lite）</h1>
+        <p>查看链状态、最近区块、跨链标记与时间线</p>
         <div className="url-row">
-          <span>Windows URL: http://localhost:15173/explorer</span>
-          <span>Fallback URL: {fallbackUrl}/explorer</span>
-          <span>SSE: {streamState}</span>
+          <span>Windows 地址: http://localhost:15173/explorer</span>
+          <span>备用地址: {fallbackUrl}/explorer</span>
+          <span>实时通道: {formatStreamState(streamState)}</span>
         </div>
         {error ? <p className="error">{error}</p> : null}
       </header>
 
       <section className="grid two">
         <article className="card">
-          <h2>Chain Status</h2>
+          <h2>链状态</h2>
           <div className="status-row">
             <div>
               <h3>Fabric</h3>
               <p>{formatStatusFlag(fabric.connected)}</p>
-              <small>Latest block: {fabric.latestBlock ?? '-'}</small>
-              <small>Observed block: {fabric.latestObservedBlock ?? '-'}</small>
+              <small>最新区块: {fabric.latestBlock ?? '-'}</small>
+              <small>观察到区块: {fabric.latestObservedBlock ?? '-'}</small>
             </div>
             <div>
               <h3>FISCO</h3>
               <p>{formatStatusFlag(fisco.connected)}</p>
-              <small>Latest block: {fisco.latestBlock ?? '-'}</small>
-              <small>Observed block: {fisco.latestObservedBlock ?? '-'}</small>
+              <small>最新区块: {fisco.latestBlock ?? '-'}</small>
+              <small>观察到区块: {fisco.latestObservedBlock ?? '-'}</small>
             </div>
           </div>
         </article>
 
         <article className="card">
-          <h2>Recent Relay Markers</h2>
+          <h2>最近跨链标记</h2>
           <div className="marker-list">
-            {markerTimeline.length === 0 ? <p className="muted">No relay markers yet</p> : null}
+            {markerTimeline.length === 0 ? <p className="muted">暂无跨链标记</p> : null}
             {markerTimeline.map((marker, index) => (
               <div key={`${marker.ts}-${index}`} className={`marker-item ${marker.state === 'FAILED' ? 'marker-failed' : ''}`}>
                 <span>{marker.ts}</span>
                 <span>{formatDirectionLabel(marker.direction)}</span>
-                <span>source block #{marker.sourceBlockNumber ?? '-'}</span>
+                <span>源区块 #{marker.sourceBlockNumber ?? '-'}</span>
                 <span>{marker.state}</span>
               </div>
             ))}
@@ -255,13 +261,13 @@ export default function ExplorerPage() {
       </section>
 
       <section className="card">
-        <h2>Chain Explorer (Lite)</h2>
+        <h2>双链示意与区块摘要</h2>
         {overviewError ? <p className="error">{overviewError}</p> : null}
 
         <div className="topology-wrap">
           <div className={`topology-node ${fabric.connected ? 'ok' : 'bad'}`}>
             <strong>Fabric</strong>
-            <span>Height #{fabric.latestBlock ?? '-'}</span>
+            <span>高度 #{fabric.latestBlock ?? '-'}</span>
           </div>
           <div className="topology-links">
             <div className={`topology-link ${activeDirection === 'FABRIC_TO_FISCO' ? 'active' : ''}`}>Fabric -&gt; FISCO</div>
@@ -269,13 +275,13 @@ export default function ExplorerPage() {
           </div>
           <div className={`topology-node ${fisco.connected ? 'ok' : 'bad'}`}>
             <strong>FISCO</strong>
-            <span>Height #{fisco.latestBlock ?? '-'}</span>
+            <span>高度 #{fisco.latestBlock ?? '-'}</span>
           </div>
         </div>
 
         <div className="explorer-toolbar">
           <label>
-            Recent block count
+            最近区块数量
             <select value={blockLimit} onChange={(e) => setBlockLimit(Number(e.target.value))}>
               <option value={10}>10</option>
               <option value={20}>20</option>
@@ -287,31 +293,31 @@ export default function ExplorerPage() {
         <div className="grid two block-grid">
           <div className="block-panel">
             <div className="panel-head">
-              <h3>Fabric Recent Blocks</h3>
+              <h3>Fabric 最近区块</h3>
               {blockErrors.FABRIC_NET_01 ? <span className="panel-error">{blockErrors.FABRIC_NET_01}</span> : null}
             </div>
             <div className="block-list">
-              {fabricBlocks.length === 0 ? <p className="muted">No block data</p> : null}
+              {fabricBlocks.length === 0 ? <p className="muted">暂无区块数据</p> : null}
               {fabricBlocks.map((block) => (
                 <div key={`fabric-${block.blockNumber}`} className="block-item">
                   <div>#{block.blockNumber}</div>
-                  <div>tx: {block.txCount ?? '-'}</div>
-                  <div>source: {block.source || '-'}</div>
+                  <div>交易数: {block.txCount ?? '-'}</div>
+                  <div>来源: {block.source || '-'}</div>
                 </div>
               ))}
             </div>
           </div>
           <div className="block-panel">
             <div className="panel-head">
-              <h3>FISCO Recent Blocks</h3>
+              <h3>FISCO 最近区块</h3>
               {blockErrors.FISCO_NET_01 ? <span className="panel-error">{blockErrors.FISCO_NET_01}</span> : null}
             </div>
             <div className="block-list">
-              {fiscoBlocks.length === 0 ? <p className="muted">No block data</p> : null}
+              {fiscoBlocks.length === 0 ? <p className="muted">暂无区块数据</p> : null}
               {fiscoBlocks.map((block) => (
                 <div key={`fisco-${block.blockNumber}`} className="block-item">
                   <div>#{block.blockNumber}</div>
-                  <div>tx: {block.txCount ?? '-'}</div>
+                  <div>交易数: {block.txCount ?? '-'}</div>
                   <div className="hash-cell">{block.blockHash || '-'}</div>
                 </div>
               ))}
@@ -321,16 +327,16 @@ export default function ExplorerPage() {
       </section>
 
       <section className="card">
-        <h2>Relay Timeline</h2>
+        <h2>跨链时间线</h2>
         <div className="timeline">
-          {timeline.length === 0 ? <p className="muted">No events yet</p> : null}
+          {timeline.length === 0 ? <p className="muted">暂无事件</p> : null}
           {timeline.map((item) => (
             <div key={item.id} className={`timeline-item ${item.level === 'error' ? 'error-item' : ''}`}>
               <div className="timeline-meta">
                 <span>{item.ts}</span>
                 <span>{formatDirectionLabel(item.direction)}</span>
                 <span>{item.relayState}</span>
-                {summarizeTimelineSource(item) ? <span>source block #{summarizeTimelineSource(item)}</span> : null}
+                {summarizeTimelineSource(item) ? <span>源区块 #{summarizeTimelineSource(item)}</span> : null}
                 {item.errorCode ? <span>{item.errorCode}</span> : null}
               </div>
               <div>{item.message}</div>

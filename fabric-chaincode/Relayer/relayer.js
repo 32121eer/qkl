@@ -520,9 +520,14 @@ class RelayerService extends EventEmitter {
                 try {
                     const fetched = await monitor.getLatestBlockNumber();
                     if (Number.isInteger(fetched)) {
-                        latestBlock = fetched;
+                        latestBlock = Number.isInteger(latestObservedBlock)
+                            ? Math.max(latestObservedBlock, fetched)
+                            : fetched;
                     } else if (fetched !== null && fetched !== undefined && !Number.isNaN(Number(fetched))) {
-                        latestBlock = Number(fetched);
+                        const normalizedFetched = Number(fetched);
+                        latestBlock = Number.isInteger(latestObservedBlock)
+                            ? Math.max(latestObservedBlock, normalizedFetched)
+                            : normalizedFetched;
                     }
                 } catch (_error) {
                     latestBlock = latestObservedBlock;

@@ -43,12 +43,12 @@
         "endpoint": "http://127.0.0.1:8545"
       },
       "contracts": {
-        "gateway": "0x56759909e640f67e5b26c4cf4a7fe543f2f4ec64",
-        "lightClient": "0x7c77db2587cd962b420ddaaff1773fe671a2a11f",
-        "registry": "0x57ffae49c65f00158180fd177cc1b684fb7d6d0e",
+        "gateway": "0xfa5c52503d6f82a03b32f730b6234f004e380df4",
+        "lightClient": "0xa8dc3db42e5a3cb6f02be4d8737f69417b42eba9",
+        "registry": "0xb2be8ead9279a7647e629fd9dcf8e0830028f01f",
         "gatewayName": "GatewayAir",
         "lightClientName": "LightClientAir",
-        "chainRegistry": "0x57ffae49c65f00158180fd177cc1b684fb7d6d0e"
+        "chainRegistry": "0xb2be8ead9279a7647e629fd9dcf8e0830028f01f"
       },
       "receiveMethod": "receiveLite",
       "monitoring": {

@@ -201,7 +201,7 @@ class FabricMonitor extends EventEmitter {
             throw new Error('Failed to parse block height from peer response');
         } catch (error) {
             console.error('[FabricMonitor] Error getting latest block number:', error.message);
-            return 0;
+            return null;
         }
     }
     

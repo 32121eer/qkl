@@ -18,6 +18,10 @@ function lcHeaderKey(chainId, blockNumber) {
     return `lc_header::${chainId}::${blockNumber}`;
 }
 
+function orchardRecordKey(orchardBatchId) {
+    return `orchard::${orchardBatchId}`;
+}
+
 function normalizeHex(v) {
     if (v === undefined || v === null) return '';
     const s = String(v).trim();
@@ -370,6 +374,89 @@ class Gateway extends Contract {
      * @param {Context} ctx - 交易上下文
      * @param {string} key - 记录key (txId 或 callId)
      */
+    async PutOrchardRecord(ctx, orchardBatchId, payloadJson) {
+        const batchId = String(orchardBatchId || '').trim();
+        if (!batchId) {
+            throw new Error('orchardBatchId is required');
+        }
+        const payloadText = String(payloadJson || '').trim();
+        if (!payloadText) {
+            throw new Error('payloadJson is required');
+        }
+
+        let payload;
+        try {
+            payload = JSON.parse(payloadText);
+        } catch (_error) {
+            throw new Error('payloadJson must be valid JSON');
+        }
+
+        const key = orchardRecordKey(batchId);
+        const ts = ctx.stub.getTxTimestamp();
+        const record = {
+            orchardBatchId: batchId,
+            payload,
+            updatedAt: ts?.seconds ? Number(ts.seconds.low ?? ts.seconds) : null,
+            updatedTxId: ctx.stub.getTxID()
+        };
+
+        await ctx.stub.putState(key, Buffer.from(JSON.stringify(record)));
+        ctx.stub.setEvent(
+            'OrchardRecordUpserted',
+            Buffer.from(JSON.stringify({ orchardBatchId: batchId, updatedTxId: record.updatedTxId }))
+        );
+
+        return JSON.stringify({
+            status: 'success',
+            orchardBatchId: batchId
+        });
+    }
+
+    async GetOrchardRecord(ctx, orchardBatchId) {
+        const batchId = String(orchardBatchId || '').trim();
+        if (!batchId) {
+            throw new Error('orchardBatchId is required');
+        }
+
+        const data = await ctx.stub.getState(orchardRecordKey(batchId));
+        if (!data || data.length === 0) {
+            throw new Error(`Orchard record not found: ${batchId}`);
+        }
+        return data.toString('utf8');
+    }
+
+    async ListOrchardRecords(ctx, limit, bookmark) {
+        const parsed = parseInt(String(limit || '20'), 10);
+        const pageSize = Number.isNaN(parsed) ? 20 : Math.max(1, Math.min(100, parsed));
+        const pageBookmark = String(bookmark || '');
+
+        const { iterator, metadata } = await ctx.stub.getStateByRangeWithPagination(
+            'orchard::',
+            'orchard::\uffff',
+            pageSize,
+            pageBookmark
+        );
+
+        const items = [];
+        let result = await iterator.next();
+        while (!result.done) {
+            const value = result.value.value.toString('utf8');
+            try {
+                items.push(JSON.parse(value));
+            } catch (_error) {
+                items.push({ raw: value });
+            }
+            result = await iterator.next();
+        }
+
+        await iterator.close();
+        return JSON.stringify({
+            items,
+            fetchedRecordsCount: Number(metadata?.fetchedRecordsCount || items.length),
+            bookmark: metadata?.bookmark || ''
+        });
+    }
+
     async Query(ctx, key) {
         console.log(`[Gateway.Query] Key: ${key}`);
 

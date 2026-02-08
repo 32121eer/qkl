@@ -155,7 +155,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
@@ -393,6 +394,46 @@ textarea {
   font-size: 13px;
 }
 
+.query-table {
+  margin-top: 12px;
+  border: 1px solid rgba(141, 175, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(6, 13, 25, 0.88);
+}
+
+.query-row {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #d7e6ff;
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 1.1fr;
+  gap: 8px;
+  padding: 9px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(141, 175, 255, 0.15);
+  font-size: 12px;
+}
+
+.query-row:last-child {
+  border-bottom: 0;
+}
+
+.query-head {
+  font-weight: 700;
+  color: #f0f6ff;
+  background: rgba(14, 26, 48, 0.95);
+}
+
+.query-click {
+  cursor: pointer;
+}
+
+.query-click:hover {
+  background: rgba(29, 57, 103, 0.45);
+}
+
 .proof-list {
   display: grid;
   gap: 10px;
@@ -482,6 +523,113 @@ textarea {
   background: rgba(193, 76, 76, 0.88);
 }
 
+.query-progress {
+  width: 100%;
+  min-width: 0;
+}
+
+.query-progress-textual {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.query-progress-numeric {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.query-progress-compact {
+  margin-bottom: 4px;
+}
+
+.query-progress-textual .query-progress-step {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 6px;
+  align-items: center;
+  border: 1px solid rgba(141, 175, 255, 0.25);
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: #8ea3c7;
+  background: rgba(20, 33, 58, 0.5);
+  transition: all 0.2s ease;
+}
+
+.query-progress-numeric .query-progress-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 24px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(141, 175, 255, 0.25);
+  border-radius: 999px;
+  padding: 0;
+  color: #8ea3c7;
+  background: rgba(20, 33, 58, 0.5);
+  transition: all 0.2s ease;
+}
+
+.query-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(141, 175, 255, 0.35);
+}
+
+.query-progress-text {
+  font-size: 11px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.query-progress-index {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.query-progress-arrow {
+  flex: 0 0 auto;
+  color: #8ea3c7;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.query-progress-step.is-active {
+  border-color: rgba(215, 163, 49, 0.85);
+  color: #fff3d2;
+  background: rgba(215, 163, 49, 0.16);
+}
+
+.query-progress-textual .query-progress-step.is-active .query-progress-dot {
+  background: rgba(215, 163, 49, 0.95);
+  box-shadow: 0 0 0 4px rgba(215, 163, 49, 0.2);
+}
+
+.query-progress-step.is-done {
+  border-color: rgba(37, 175, 149, 0.8);
+  color: #d9fff6;
+  background: rgba(37, 175, 149, 0.16);
+}
+
+.query-progress-textual .query-progress-step.is-done .query-progress-dot {
+  background: rgba(37, 175, 149, 0.95);
+}
+
+.query-progress-compact .query-progress-step {
+  width: 30px;
+  height: 22px;
+}
+
+.query-progress-compact .query-progress-index {
+  font-size: 11px;
+}
+
 .proof-preview {
   overflow-wrap: anywhere;
 }
@@ -513,5 +661,13 @@ textarea {
 
   .proof-columns {
     grid-template-columns: 1fr;
+  }
+
+  .query-progress-textual {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .query-progress-numeric {
+    flex-wrap: wrap;
   }
 }

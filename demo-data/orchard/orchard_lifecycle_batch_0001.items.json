@@ -1,0 +1,105 @@
+{
+  "items": [
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "cultivation",
+      "eventAt": "2026-02-07T08:30:00.000Z",
+      "sourceSystem": "orchard-iot",
+      "data": {
+        "orchardName": "Apple Garden A",
+        "SoilTemperature": 19.6,
+        "SoilMoisture": 43.1,
+        "SoilPH": 6.4,
+        "SoilOrganicMatterContent": 3.2,
+        "SoilNPKContent": 2.7,
+        "LightDurationHours": 8,
+        "RainfallMm": 2.3,
+        "AccumulatedTemperature": 1180.5,
+        "WaterQualityPH": 6.7,
+        "IrrigationMethod": "drip",
+        "FertilizationRecord": "organic-compost 35kg, 2026-02-05",
+        "PlantProtectionRecords": "low-residue fungicide, safety interval 21d",
+        "PhenologicalPeriod": "fruit-expansion"
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "harvest",
+      "eventAt": "2026-03-18T04:10:00.000Z",
+      "sourceSystem": "orchard-ops",
+      "data": {
+        "MaturityStarchIndex": 5,
+        "MaturityFirmnessKgfCm2": 7.3,
+        "SolubleSolidsPct": 12.8,
+        "ClassificationStandard": "GB/T 10651-2008",
+        "PickingTime": "2026-03-18 11:50 CST",
+        "ToolDisinfectionPpm": 200,
+        "FieldPreCoolingTempC": 9.5,
+        "FieldPreCoolingDurationHour": 3.2
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "post_harvest",
+      "eventAt": "2026-03-18T08:45:00.000Z",
+      "sourceSystem": "packhouse",
+      "data": {
+        "WashingTemperatureC": 14.2,
+        "DisinfectantResidualPpm": 0.2,
+        "OptoelectronicSorting": "NIR sugar scan + Xray internal defect check",
+        "PreCoolingTempC": 4.0
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "storage",
+      "eventAt": "2026-03-18T12:20:00.000Z",
+      "sourceSystem": "coldroom-scada",
+      "data": {
+        "O2Pct": 2.2,
+        "CO2Pct": 1.4,
+        "StorageTempC": 0.3,
+        "StorageHumidityPct": 92.0,
+        "EthylenePpm": 0.03,
+        "MonthlyFirmnessDrop": 0.38,
+        "TigerSkinRatePct": 1.9,
+        "StockInTime": "2026-03-18T12:10:00.000Z",
+        "SlotNo": "CR-A1-08",
+        "SamplingRatePct": 5
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "transportation",
+      "eventAt": "2026-04-01T01:00:00.000Z",
+      "sourceSystem": "fleet-iot",
+      "data": {
+        "TemperatureRangeC": "0-4",
+        "TempFluctuationRule": "short fluctuation <= +/-1C, <=30min",
+        "AbnormalVibrationOver3GCount": 1,
+        "GasEnvironment": "aligned with cold room O2/CO2",
+        "GpsTrack": "CN-SX-XA -> CN-BJ-DC",
+        "ESealOpenCloseRecord": "no unauthorized open",
+        "TransitWarehouseTempHumidityLog": "2.8C, 90%"
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "retail",
+      "eventAt": "2026-04-02T09:15:00.000Z",
+      "sourceSystem": "retail-pos",
+      "data": {
+        "DisplayTemperatureC": 3.5,
+        "ExpirationWarningDate": "2026-04-20",
+        "ShelfInspectionRecord": "appearance good, no browning"
+      }
+    }
+  ]
+}
+

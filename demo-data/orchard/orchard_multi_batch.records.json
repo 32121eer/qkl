@@ -1,0 +1,64 @@
+{
+  "records": [
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0001",
+      "eventType": "cultivation",
+      "eventAt": "2026-02-07T08:30:00.000Z",
+      "sourceSystem": "orchard-iot",
+      "data": {
+        "orchardName": "Apple Garden A",
+        "SoilTemperature": 19.6,
+        "SoilMoisture": 43.1,
+        "SoilPH": 6.4,
+        "RainfallMm": 2.3,
+        "IrrigationMethod": "drip"
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0002",
+      "eventType": "cultivation",
+      "eventAt": "2026-02-08T08:10:00.000Z",
+      "sourceSystem": "orchard-iot",
+      "data": {
+        "orchardName": "Apple Garden B",
+        "SoilTemperature": 18.9,
+        "SoilMoisture": 40.6,
+        "SoilPH": 6.6,
+        "RainfallMm": 1.1,
+        "IrrigationMethod": "sprinkler"
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0003",
+      "eventType": "storage",
+      "eventAt": "2026-03-30T06:50:00.000Z",
+      "sourceSystem": "coldroom-scada",
+      "data": {
+        "O2Pct": 2.3,
+        "CO2Pct": 1.6,
+        "StorageTempC": 0.2,
+        "StorageHumidityPct": 93.5,
+        "EthylenePpm": 0.04,
+        "SlotNo": "CR-B2-11"
+      }
+    },
+    {
+      "payloadVersion": "1.0",
+      "orchardBatchId": "BATCH-APPLE-0004",
+      "eventType": "transportation",
+      "eventAt": "2026-04-01T05:35:00.000Z",
+      "sourceSystem": "fleet-iot",
+      "data": {
+        "TemperatureRangeC": "0-4",
+        "AbnormalVibrationOver3GCount": 0,
+        "GpsTrack": "CN-SX-YL -> CN-SH-PD",
+        "ESealOpenCloseRecord": "normal",
+        "TransitWarehouseTempHumidityLog": "3.2C, 88%"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,28 @@
+{
+  "payloadVersion": "1.0",
+  "orchardBatchId": "BATCH-APPLE-0001",
+  "eventType": "cultivation",
+  "eventAt": "2026-02-07T08:30:00.000Z",
+  "sourceSystem": "orchard-iot",
+  "data": {
+    "orchardName": "Apple Garden A",
+    "SoilTemperature": 19.6,
+    "SoilMoisture": 43.1,
+    "SoilPH": 6.4,
+    "SoilOrganicMatterContent": 3.2,
+    "SoilNPKContent": 2.7,
+    "LightDurationHours": 8,
+    "RainfallMm": 2.3,
+    "AccumulatedTemperature": 1180.5,
+    "EffectiveAccumulatedTemp10C": 964.2,
+    "WaterVolumeM3": 12.8,
+    "WaterQualityPH": 6.7,
+    "IrrigationMethod": "drip",
+    "FertilizationRecord": "organic-compost 35kg, 2026-02-05",
+    "PlantProtectionRecords": "low-residue fungicide, safety interval 21d",
+    "ThinningRecord": "flower-fruit thinning complete",
+    "PhenologicalPeriod": "fruit-expansion",
+    "FruitIndicators": "diameter>=75mm target, color>=80%, sugar-acid 13:1"
+  }
+}
+

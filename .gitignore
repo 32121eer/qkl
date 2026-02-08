@@ -1,3 +1,30 @@
 .demo/
 demo-ui/node_modules/
 demo-ui/dist/
+
+# Relayer runtime
+fabric-chaincode/Relayer/node_modules/
+fabric-chaincode/Relayer/data/
+
+# FISCO runtime artifacts
+fisco-bcos/console/log/
+fisco-bcos/console/deploylog.txt
+fisco-bcos/console/contracts/.compiled/
+fisco-bcos/nodes/**/data/
+fisco-bcos/nodes/**/log/
+fisco-bcos/nodes/**/nohup.out
+
+# Generic logs/temp
+*.log
+*.out
+*.pid
+*.tmp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Windows ADS metadata
+*:Zone.Identifier

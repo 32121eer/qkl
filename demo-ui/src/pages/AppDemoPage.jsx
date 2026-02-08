@@ -37,7 +37,7 @@ function parseJsonText(text) {
 function formatDirectionLabel(direction) {
   if (direction === 'FABRIC_TO_FISCO') return 'Fabric -> FISCO';
   if (direction === 'FISCO_TO_FABRIC') return 'FISCO -> Fabric';
-  return direction || 'UNKNOWN';
+  return direction || '未知方向';
 }
 
 function summarizeTimelineSource(item) {
@@ -66,7 +66,13 @@ function shortenHash(value) {
 }
 
 function formatStatusFlag(value) {
-  return value ? 'Connected' : 'Disconnected';
+  return value ? '已连接' : '未连接';
+}
+
+function formatStreamState(state) {
+  if (state === 'connected') return '已连接';
+  if (state === 'reconnecting') return '重连中';
+  return '连接中';
 }
 
 export default function AppDemoPage() {
@@ -242,32 +248,32 @@ export default function AppDemoPage() {
   return (
     <main className="page">
       <header className="hero">
-        <h1>Application Demo</h1>
-        <p>Orchard payload trigger, cross-chain execution result and application flow</p>
+        <h1>应用触发演示（调试）</h1>
+        <p>用于调试触发链路、回执结果和应用层事件流</p>
         <div className="url-row">
-          <span>Windows URL: http://localhost:15173/app-demo</span>
-          <span>Fallback URL: {fallbackUrl}/app-demo</span>
-          <span>SSE: {streamState}</span>
+          <span>Windows 地址: http://localhost:15173/app-demo</span>
+          <span>备用地址: {fallbackUrl}/app-demo</span>
+          <span>实时通道: {formatStreamState(streamState)}</span>
         </div>
       </header>
 
       <section className="grid two">
         <article className="card">
-          <h2>Trigger Relay</h2>
+          <h2>触发跨链</h2>
           <div className="mode-toggle">
             <button
               className={mode === 'orchard-v1' ? 'active' : ''}
               onClick={() => setMode('orchard-v1')}
               type="button"
             >
-              OrchardPayloadV1
+              苹果园载荷 V1
             </button>
             <button
               className={mode === 'raw-json' ? 'active' : ''}
               onClick={() => setMode('raw-json')}
               type="button"
             >
-              Raw JSON
+              原始 JSON
             </button>
           </div>
 
@@ -309,7 +315,7 @@ export default function AppDemoPage() {
                 />
               </label>
               <label className="wide">
-                data (JSON)
+                data（JSON）
                 <textarea
                   rows={6}
                   value={orchard.dataText}
@@ -319,7 +325,7 @@ export default function AppDemoPage() {
             </div>
           ) : (
             <label>
-              raw payload JSON
+              原始载荷 JSON
               <textarea rows={10} value={rawJson} onChange={(e) => setRawJson(e.target.value)} />
             </label>
           )}
@@ -337,35 +343,35 @@ export default function AppDemoPage() {
         </article>
 
         <article className="card">
-          <h2>Execution Status</h2>
+          <h2>执行状态</h2>
           <div className="status-row">
             <div>
               <h3>Fabric</h3>
               <p>{formatStatusFlag(Boolean(fabric?.isConnected))}</p>
-              <small>Latest block: {fabric?.latestBlock ?? '-'}</small>
+              <small>最新区块: {fabric?.latestBlock ?? '-'}</small>
             </div>
             <div>
               <h3>FISCO</h3>
               <p>{formatStatusFlag(Boolean(fisco?.isConnected))}</p>
-              <small>Latest block: {fisco?.latestBlock ?? '-'}</small>
+              <small>最新区块: {fisco?.latestBlock ?? '-'}</small>
             </div>
           </div>
           <div className="runtime-list">
             <div>
-              <strong>Active triggers:</strong> {activeTriggers.length ? activeTriggers.join(', ') : 'none'}
+              <strong>活跃触发:</strong> {activeTriggers.length ? activeTriggers.join(', ') : '无'}
             </div>
             <div>
-              <strong>Recent app events:</strong> {applicationFlow.length}
+              <strong>最近应用事件:</strong> {applicationFlow.length}
             </div>
           </div>
         </article>
       </section>
 
       <section className="card">
-        <h2>Cross-Chain Proof Cards</h2>
+        <h2>跨链对账卡</h2>
         {proofError ? <p className="error">{proofError}</p> : null}
         <div className="proof-list">
-          {proofCards.length === 0 ? <p className="muted">No proof cards yet</p> : null}
+          {proofCards.length === 0 ? <p className="muted">暂无对账卡</p> : null}
           {proofCards.map((card) => (
             <details key={card.cardId} className={`proof-card proof-${String(card.status || '').toLowerCase()}`}>
               <summary className="proof-summary">
@@ -377,26 +383,26 @@ export default function AppDemoPage() {
               </summary>
               <div className="proof-columns">
                 <div className="proof-side">
-                  <h4>Source</h4>
-                  <div>chain: {card.source?.chainId || '-'}</div>
-                  <div>tx: {shortenHash(card.source?.txHash)}</div>
-                  <div>block: {card.source?.blockNumber ?? '-'}</div>
-                  <div>payloadHash: {shortenHash(card.source?.payloadHash)}</div>
-                  <div className="proof-preview">payload: {card.source?.payloadPreview || '-'}</div>
+                  <h4>源链</h4>
+                  <div>链: {card.source?.chainId || '-'}</div>
+                  <div>交易: {shortenHash(card.source?.txHash)}</div>
+                  <div>区块: {card.source?.blockNumber ?? '-'}</div>
+                  <div>载荷哈希: {shortenHash(card.source?.payloadHash)}</div>
+                  <div className="proof-preview">载荷: {card.source?.payloadPreview || '-'}</div>
                 </div>
                 <div className="proof-middle">
                   <div className={`proof-badge status-${String(card.status || '').toLowerCase()}`}>{formatProofStatusLabel(card.status)}</div>
-                  <div>hashEqual: {card.verify?.hashEqual === null ? '-' : String(card.verify?.hashEqual)}</div>
-                  <div>headerVerified: {card.verify?.blockHeaderVerified === null ? '-' : String(card.verify?.blockHeaderVerified)}</div>
-                  <div>errorCode: {card.verify?.errorCode || '-'}</div>
+                  <div>哈希一致: {card.verify?.hashEqual === null ? '-' : String(card.verify?.hashEqual)}</div>
+                  <div>区块头验证: {card.verify?.blockHeaderVerified === null ? '-' : String(card.verify?.blockHeaderVerified)}</div>
+                  <div>错误码: {card.verify?.errorCode || '-'}</div>
                 </div>
                 <div className="proof-side">
-                  <h4>Target</h4>
-                  <div>chain: {card.target?.chainId || '-'}</div>
-                  <div>tx: {shortenHash(card.target?.txHash)}</div>
-                  <div>block: {card.target?.blockNumber ?? '-'}</div>
-                  <div>payloadHash: {shortenHash(card.target?.payloadHash)}</div>
-                  <div>receipt: {card.target?.receiptStatus || '-'}</div>
+                  <h4>目标链</h4>
+                  <div>链: {card.target?.chainId || '-'}</div>
+                  <div>交易: {shortenHash(card.target?.txHash)}</div>
+                  <div>区块: {card.target?.blockNumber ?? '-'}</div>
+                  <div>载荷哈希: {shortenHash(card.target?.payloadHash)}</div>
+                  <div>回执: {card.target?.receiptStatus || '-'}</div>
                 </div>
               </div>
             </details>
@@ -405,16 +411,16 @@ export default function AppDemoPage() {
       </section>
 
       <section className="card">
-        <h2>Application Flow</h2>
+        <h2>应用流程</h2>
         <div className="timeline">
-          {applicationFlow.length === 0 ? <p className="muted">No application relay events yet</p> : null}
+          {applicationFlow.length === 0 ? <p className="muted">暂无应用流程事件</p> : null}
           {applicationFlow.map((item) => (
             <div key={item.id} className={`timeline-item ${item.level === 'error' ? 'error-item' : ''}`}>
               <div className="timeline-meta">
                 <span>{item.ts}</span>
                 <span>{formatDirectionLabel(item.direction)}</span>
                 <span>{item.relayState}</span>
-                {summarizeTimelineSource(item) ? <span>source block #{summarizeTimelineSource(item)}</span> : null}
+                {summarizeTimelineSource(item) ? <span>源区块 #{summarizeTimelineSource(item)}</span> : null}
                 {item.errorCode ? <span>{item.errorCode}</span> : null}
               </div>
               <div>{item.message}</div>

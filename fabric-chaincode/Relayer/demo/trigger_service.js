@@ -96,6 +96,61 @@ class DemoTriggerService {
         return { gateway, client };
     }
 
+    async withFabricGatewayContract(handler) {
+        const fabricChain = this.getFabricChain();
+        const channelName = fabricChain.connection?.channelName || 'mychannel';
+        const chaincodeName = fabricChain.contracts?.gateway || 'gateway_cc';
+        const { gateway, client } = await this.createFabricGatewayConnection(fabricChain);
+        try {
+            const network = gateway.getNetwork(channelName);
+            const contract = network.getContract(chaincodeName);
+            return await handler(contract, { fabricChain, channelName, chaincodeName });
+        } finally {
+            gateway.close();
+            client.close();
+        }
+    }
+
+    async putOrchardRecord(orchardBatchId, payload) {
+        const batchId = String(orchardBatchId || '').trim();
+        if (!batchId) {
+            throw new Error('orchardBatchId is required');
+        }
+        const payloadJson = JSON.stringify(payload || {});
+        await this.withFabricGatewayContract(async (contract) => {
+            await contract.submitTransaction('PutOrchardRecord', batchId, payloadJson);
+        });
+        return null;
+    }
+
+    async getOrchardRecord(orchardBatchId) {
+        const batchId = String(orchardBatchId || '').trim();
+        if (!batchId) {
+            throw new Error('orchardBatchId is required');
+        }
+
+        const output = await this.withFabricGatewayContract(async (contract) => {
+            const raw = await contract.evaluateTransaction('GetOrchardRecord', batchId);
+            return Buffer.from(raw).toString('utf8');
+        });
+
+        return JSON.parse(output);
+    }
+
+    async listOrchardRecords(limit = 20, bookmark = '') {
+        const parsedLimit = Number.parseInt(limit, 10);
+        const finalLimit = Number.isNaN(parsedLimit) ? 20 : Math.max(1, Math.min(100, parsedLimit));
+        const text = await this.withFabricGatewayContract(async (contract) => {
+            const raw = await contract.evaluateTransaction(
+                'ListOrchardRecords',
+                String(finalLimit),
+                String(bookmark || '')
+            );
+            return Buffer.from(raw).toString('utf8');
+        });
+        return JSON.parse(text);
+    }
+
     normalizePayload(payload) {
         if (payload === undefined || payload === null) {
             return JSON.stringify({
@@ -308,6 +363,36 @@ class DemoTriggerService {
             txHash,
             output: outputText
         };
+    }
+
+    async triggerOrchardQueryRequest(queryId, orchardBatchId) {
+        const payload = {
+            payloadVersion: '1.0',
+            messageType: 'ORCHARD_QUERY_REQUEST',
+            queryId,
+            orchardBatchId,
+            requestTs: new Date().toISOString(),
+            requestedBy: 'FISCO_NET_01'
+        };
+        return this.triggerFiscoToFabric(payload);
+    }
+
+    async triggerOrchardQueryResponse({
+        queryId,
+        orchardBatchId,
+        found,
+        result
+    }) {
+        const payload = {
+            payloadVersion: '1.0',
+            messageType: 'ORCHARD_QUERY_RESPONSE',
+            queryId,
+            orchardBatchId,
+            found: Boolean(found),
+            result: found ? (result ?? null) : null,
+            responseTs: new Date().toISOString()
+        };
+        return this.triggerFabricToFisco(payload);
     }
 }
 

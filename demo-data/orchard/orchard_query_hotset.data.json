@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "payload": {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-APPLE-QA-001",
+        "eventType": "cultivation",
+        "eventAt": "2026-02-10T07:30:00.000Z",
+        "sourceSystem": "orchard-iot",
+        "data": {
+          "orchardName": "Demo Orchard QA-1",
+          "SoilTemperature": 20.2,
+          "SoilMoisture": 45.0,
+          "SoilPH": 6.5,
+          "RainfallMm": 0.6,
+          "FruitIndicators": "diameter target >=72mm"
+        }
+      }
+    },
+    {
+      "payload": {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-APPLE-QA-002",
+        "eventType": "harvest",
+        "eventAt": "2026-03-22T03:20:00.000Z",
+        "sourceSystem": "orchard-ops",
+        "data": {
+          "MaturityStarchIndex": 4,
+          "MaturityFirmnessKgfCm2": 7.1,
+          "SolubleSolidsPct": 13.2,
+          "ClassificationStandard": "GB/T 10651-2008"
+        }
+      }
+    },
+    {
+      "payload": {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-APPLE-QA-003",
+        "eventType": "retail",
+        "eventAt": "2026-04-04T10:05:00.000Z",
+        "sourceSystem": "retail-pos",
+        "data": {
+          "DisplayTemperatureC": 3.8,
+          "ExpirationWarningDate": "2026-04-21",
+          "ShelfInspectionRecord": "normal display"
+        }
+      }
+    }
+  ]
+}
+
