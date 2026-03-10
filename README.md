@@ -12,6 +12,9 @@ It focuses on two things:
   - `/explorer`: chain status and block explorer (lite).
   - `/app-query`: business-style cross-chain query demo.
 
+## Docs
+- Architecture overview: `docs/ARCHITECTURE_OVERVIEW.md`
+
 ## Quick Start
 ```bash
 unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY

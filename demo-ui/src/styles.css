@@ -634,6 +634,616 @@ select {
   overflow-wrap: anywhere;
 }
 
+/* ═══════════════════════════════════════
+   供应链演示页 (/supply-chain)
+   ═══════════════════════════════════════ */
+
+.sc-scenario-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.sc-scenario-btn {
+  flex: 1;
+  border: 2px solid rgba(141, 175, 255, 0.25);
+  border-radius: 14px;
+  background: rgba(10, 18, 32, 0.82);
+  color: #c8d8f8;
+  padding: 14px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.sc-scenario-btn:hover {
+  border-color: rgba(151, 190, 255, 0.6);
+  background: rgba(18, 32, 58, 0.9);
+}
+
+.sc-scenario-btn.sc-active {
+  border-color: var(--sc-color, #2ea39d);
+  background: linear-gradient(135deg, rgba(10, 18, 32, 0.95), rgba(10, 18, 32, 0.8));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--sc-color, #2ea39d) 35%, transparent);
+  color: #ffffff;
+}
+
+.sc-scenario-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.sc-scenario-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.sc-scenario-sub {
+  font-size: 11px;
+  color: #8fa3ce;
+}
+
+.sc-scenario-btn.sc-active .sc-scenario-sub {
+  color: #b4c8f0;
+}
+
+.sc-scenario-desc {
+  margin-top: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #b4c2e6;
+}
+
+.sc-record-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sc-data-card {
+  border: 1px solid rgba(141, 175, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(6, 13, 25, 0.88);
+  padding: 10px 12px;
+}
+
+.sc-data-card.sc-on-chain {
+  border-color: rgba(37, 175, 149, 0.5);
+}
+
+.sc-data-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.sc-inline-btn {
+  border: 1px solid rgba(124, 171, 255, 0.5);
+  border-radius: 8px;
+  background: rgba(24, 44, 76, 0.8);
+  color: #dce9ff;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sc-inline-btn:hover {
+  background: rgba(45, 125, 253, 0.4);
+}
+
+.sc-inline-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sc-session-detail {
+  margin-top: 12px;
+  border: 1px solid rgba(141, 175, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(6, 13, 25, 0.88);
+  padding: 12px;
+}
+
+.sc-session-detail h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.sc-session-list {
+  display: grid;
+  gap: 6px;
+  max-height: 200px;
+  overflow: auto;
+  margin-top: 8px;
+}
+
+.sc-session-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(141, 175, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(6, 13, 25, 0.85);
+  font-size: 12px;
+  color: #c8d8f8;
+  cursor: pointer;
+}
+
+.sc-session-row:hover {
+  background: rgba(29, 57, 103, 0.45);
+}
+
+.sc-session-row.sc-selected {
+  border-color: rgba(114, 237, 191, 0.6);
+  background: rgba(37, 175, 149, 0.1);
+}
+
+/* 追溯链路可视化 */
+.sc-trace-chain {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 14px;
+  padding: 10px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.sc-trace-node {
+  border: 1px solid rgba(141, 175, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(10, 20, 36, 0.9);
+  padding: 10px 12px;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+}
+
+.sc-trace-node.sc-trace-pass {
+  border-color: rgba(37, 175, 149, 0.6);
+  box-shadow: 0 0 10px rgba(37, 175, 149, 0.15);
+}
+
+.sc-trace-node.sc-trace-failed {
+  border-color: rgba(193, 76, 76, 0.6);
+}
+
+.sc-trace-step {
+  font-weight: 700;
+  color: #8fa3ce;
+  font-size: 11px;
+}
+
+.sc-trace-role {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e9f0ff;
+}
+
+.sc-trace-batch {
+  font-size: 10px;
+  color: #8fa3ce;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  white-space: nowrap;
+}
+
+.sc-trace-arrow {
+  font-size: 20px;
+  color: #8fa3ce;
+  padding: 0 6px;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════
+   双链视角 — 链标识
+   ═══════════════════════════════════════ */
+
+.sc-chain-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 4px solid;
+}
+
+.sc-fabric-header {
+  border-color: #2d7dfd;
+  color: #8abfff;
+}
+
+.sc-fisco-header {
+  border-color: #e6a23c;
+  color: #f0d098;
+}
+
+/* ═══════════════════════════════════════
+   本地查询结果 — 绿色脉冲
+   ═══════════════════════════════════════ */
+
+.sc-local-result {
+  margin-top: 10px;
+  border: 2px solid rgba(37, 175, 149, 0.7);
+  border-radius: 10px;
+  background: rgba(37, 175, 149, 0.08);
+  padding: 10px 12px;
+  animation: sc-flash-green 0.6s ease-out;
+}
+
+@keyframes sc-flash-green {
+  0%   { border-color: rgba(37, 175, 149, 1); box-shadow: 0 0 20px rgba(37, 175, 149, 0.5); }
+  100% { border-color: rgba(37, 175, 149, 0.7); box-shadow: none; }
+}
+
+.sc-local-result-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #d9fff6;
+}
+
+.sc-local-timing {
+  font-size: 32px;
+  font-weight: 800;
+  color: #25af95;
+  margin: 4px 0;
+  line-height: 1.1;
+}
+
+.sc-local-timing-small {
+  color: #25af95;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════
+   跨链中继可视化
+   ═══════════════════════════════════════ */
+
+.sc-relay-viz {
+  margin-top: 10px;
+  border: 1px solid rgba(230, 162, 60, 0.4);
+  border-radius: 10px;
+  background: rgba(230, 162, 60, 0.06);
+  padding: 12px;
+}
+
+.sc-relay-stages {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.sc-relay-node {
+  border: 1px solid rgba(141, 175, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(10, 20, 36, 0.9);
+  padding: 8px 10px;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sc-relay-node-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8fa3ce;
+}
+
+.sc-relay-node-desc {
+  font-size: 11px;
+  color: #c8d8f8;
+  margin-top: 2px;
+}
+
+.sc-relay-node-time {
+  font-size: 10px;
+  color: #e6a23c;
+  margin-top: 2px;
+}
+
+.sc-relay-node.is-active {
+  border-color: rgba(230, 162, 60, 0.8);
+  background: rgba(230, 162, 60, 0.12);
+  box-shadow: 0 0 12px rgba(230, 162, 60, 0.2);
+  animation: sc-pulse-orange 1.5s ease-in-out infinite;
+}
+
+@keyframes sc-pulse-orange {
+  0%, 100% { box-shadow: 0 0 8px rgba(230, 162, 60, 0.15); }
+  50%      { box-shadow: 0 0 18px rgba(230, 162, 60, 0.35); }
+}
+
+.sc-relay-node.is-done {
+  border-color: rgba(37, 175, 149, 0.7);
+  background: rgba(37, 175, 149, 0.1);
+}
+
+.sc-relay-arrow {
+  padding: 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(141, 175, 255, 0.3);
+  transition: color 0.3s ease;
+}
+
+.sc-relay-arrow.is-active {
+  color: #e6a23c;
+}
+
+.sc-crosschain-timing {
+  font-size: 32px;
+  font-weight: 800;
+  color: #e6a23c;
+  margin-top: 8px;
+  line-height: 1.1;
+}
+
+.sc-crosschain-timing-small {
+  color: #e6a23c;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════
+   耗时对比条形图
+   ═══════════════════════════════════════ */
+
+.sc-timing-bar-wrap h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.sc-timing-bars {
+  display: grid;
+  gap: 8px;
+}
+
+.sc-timing-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 70px;
+  gap: 8px;
+  align-items: center;
+}
+
+.sc-timing-label {
+  font-size: 12px;
+  color: #b4c2e6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-timing-track {
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(141, 175, 255, 0.1);
+  overflow: hidden;
+}
+
+.sc-timing-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s ease;
+}
+
+.sc-timing-fill.is-local {
+  background: linear-gradient(90deg, #25af95, #2dd4a8);
+}
+
+.sc-timing-fill.is-crosschain {
+  background: linear-gradient(90deg, #e6a23c, #f0c060);
+}
+
+.sc-timing-value {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════
+   FISCO 数据卡片
+   ═══════════════════════════════════════ */
+
+.sc-fisco-card {
+  border: 1px solid rgba(230, 162, 60, 0.2);
+  border-radius: 10px;
+  background: rgba(6, 13, 25, 0.88);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+.sc-fisco-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.sc-fisco-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.sc-category-badge {
+  display: inline-block;
+  border: 1px solid rgba(230, 162, 60, 0.4);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10px;
+  color: #f0d098;
+  background: rgba(230, 162, 60, 0.1);
+  white-space: nowrap;
+}
+
+.sc-cross-chain-tag {
+  display: inline-block;
+  border: 1px solid rgba(230, 100, 60, 0.5);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 10px;
+  color: #ffb088;
+  background: rgba(230, 100, 60, 0.12);
+  white-space: nowrap;
+}
+
+.sc-btn-local {
+  border-color: rgba(37, 175, 149, 0.5) !important;
+  color: #d9fff6 !important;
+}
+
+.sc-btn-local:hover {
+  background: rgba(37, 175, 149, 0.25) !important;
+}
+
+.sc-btn-crosschain {
+  border-color: rgba(230, 162, 60, 0.5) !important;
+  color: #f0d098 !important;
+}
+
+.sc-btn-crosschain:hover {
+  background: rgba(230, 162, 60, 0.2) !important;
+}
+
+/* ═══════════════════════════════════════
+   场景故事栏
+   ═══════════════════════════════════════ */
+
+.sc-story {
+  margin-top: 10px;
+  padding: 14px 16px;
+  border-left: 4px solid #e6a23c;
+}
+
+.sc-story-text {
+  font-size: 14px;
+  color: #e0d4b8;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════
+   "我的数据" / "对方数据" 标识
+   ═══════════════════════════════════════ */
+
+.sc-my-data-header {
+  font-size: 13px;
+  color: #f0d098;
+  padding: 6px 0 8px 12px;
+  border-bottom: 1px solid rgba(230, 162, 60, 0.15);
+  margin-bottom: 6px;
+}
+
+.sc-their-data-header {
+  font-size: 13px;
+  color: #8abfff;
+  padding: 6px 0 8px 12px;
+  border-bottom: 1px solid rgba(45, 125, 253, 0.15);
+  margin-bottom: 6px;
+}
+
+/* ═══════════════════════════════════════
+   决策问题提示
+   ═══════════════════════════════════════ */
+
+.sc-decision-question {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(230, 162, 60, 0.5);
+  border-left: 3px solid #e6a23c;
+  border-radius: 6px;
+  background: rgba(230, 162, 60, 0.06);
+  font-size: 12px;
+  color: #f0d098;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════
+   决策对比（需求 vs 供应）
+   ═══════════════════════════════════════ */
+
+.sc-comparison-wrap {
+  margin-top: 10px;
+  border: 1px solid rgba(141, 175, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(10, 20, 36, 0.9);
+  padding: 10px 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.sc-comparison-row {
+  display: grid;
+  grid-template-columns: 80px 90px 30px 90px 60px;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(141, 175, 255, 0.08);
+}
+
+.sc-comparison-row:last-child {
+  border-bottom: 0;
+}
+
+.sc-comparison-label {
+  color: #8fa3ce;
+  font-weight: 600;
+}
+
+.sc-comparison-local {
+  color: #f0d098;
+  text-align: center;
+}
+
+.sc-comparison-vs {
+  color: #5a6a8a;
+  text-align: center;
+  font-size: 10px;
+}
+
+.sc-comparison-remote {
+  color: #8abfff;
+  text-align: center;
+}
+
+.sc-comparison-pending {
+  color: #5a6a8a;
+  font-style: italic;
+}
+
+.sc-comparison-pass {
+  color: #25af95;
+  font-weight: 700;
+  text-align: center;
+  font-size: 11px;
+}
+
+.sc-comparison-fail {
+  color: #c14c4c;
+  font-weight: 700;
+  text-align: center;
+  font-size: 11px;
+}
+
+.sc-comparison-info {
+  color: #5a6a8a;
+  text-align: center;
+  font-size: 11px;
+}
+
 @media (max-width: 940px) {
   .app-nav {
     flex-direction: column;
@@ -669,5 +1279,20 @@ select {
 
   .query-progress-numeric {
     flex-wrap: wrap;
+  }
+
+  .sc-scenario-bar {
+    flex-direction: column;
+  }
+
+  .sc-trace-chain {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sc-trace-arrow {
+    text-align: center;
+    transform: rotate(90deg);
+    padding: 4px 0;
   }
 }

@@ -3,6 +3,7 @@ class DemoMemoryStore {
         this.maxSessions = maxSessions;
         this.querySessions = new Map();
         this.querySessionOrder = [];
+        this.fiscoLocalRecords = new Map();
     }
 
     saveQuerySession(session) {
@@ -37,7 +38,25 @@ class DemoMemoryStore {
         }
         return items;
     }
+
+    saveFiscoLocalRecord(record) {
+        this.fiscoLocalRecords.set(record.recordId, JSON.parse(JSON.stringify(record)));
+        return record;
+    }
+
+    getFiscoLocalRecord(recordId) {
+        const item = this.fiscoLocalRecords.get(recordId);
+        return item ? JSON.parse(JSON.stringify(item)) : null;
+    }
+
+    listFiscoLocalRecords(limit = 50, category = null) {
+        let items = Array.from(this.fiscoLocalRecords.values());
+        if (category) items = items.filter(r => r.category === category);
+        return items.slice(0, Math.max(1, Math.min(500, Number(limit) || 50)))
+            .map(r => JSON.parse(JSON.stringify(r)));
+    }
 }
 
 module.exports = { DemoMemoryStore };
+
 

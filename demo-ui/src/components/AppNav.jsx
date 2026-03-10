@@ -17,6 +17,9 @@ export default function AppNav() {
         <NavLink to="/app-query" className={linkClassName}>
           跨链查询演示
         </NavLink>
+        <NavLink to="/supply-chain" className={linkClassName}>
+          供应链演示
+        </NavLink>
       </nav>
     </div>
   );
