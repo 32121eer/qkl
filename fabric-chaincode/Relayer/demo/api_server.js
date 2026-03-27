@@ -36,7 +36,7 @@ const PROOF_MAX_LIMIT = 100;
 const PROOF_PENDING_TIMEOUT_MS = 180_000;
 const QUERY_SESSION_DEFAULT_LIMIT = 20;
 const QUERY_SESSION_MAX_LIMIT = 100;
-const QUERY_RELAY_TIMEOUT_REQUEST_MS = 60_000;
+const QUERY_RELAY_TIMEOUT_REQUEST_MS = 300_000;
 const QUERY_RELAY_TIMEOUT_RESPONSE_MS = 300_000;
 const QUERY_RELAY_POLL_INTERVAL_MS = 1200;
 
@@ -623,12 +623,6 @@ class DemoApiServer {
     }
 
     async executeTrigger(direction, runner) {
-        if (this.activeTriggers.has(direction)) {
-            const err = new Error(`${direction} trigger is already running`);
-            err.statusCode = 409;
-            throw err;
-        }
-
         this.activeTriggers.add(direction);
         try {
             this.eventStore.addEvent({

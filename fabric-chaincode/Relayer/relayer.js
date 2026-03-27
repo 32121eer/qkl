@@ -17,6 +17,7 @@ class RelayerService extends EventEmitter {
         this.monitors = new Map();
         this.isRunning = false;
         this.headerSyncQueueByPath = new Map();
+        this.crossChainEventQueues = new Map(); // sourceChainId -> Promise chain for serialization
         this.enableHeaderBroadcastOnNewBlock = Boolean(
             this.config?.relayer?.enableHeaderBroadcastOnNewBlock
         );
@@ -62,9 +63,12 @@ class RelayerService extends EventEmitter {
             await this.handleNewBlock(chainConfig.chainId, block);
         });
         
-        // 鐩戝惉璺ㄩ摼浜嬩欢
-        monitor.on('crossChainEvent', async (event) => {
-            await this.handleCrossChainEvent(chainConfig.chainId, event);
+        // 鐩戝惉璺ㄩ摼浜嬩欢 - 鎸夋簮閾句覆琛屾帓闃熷鐞嗭紝閬垮厤骞跺彂鎵撶垎 Fabric peer
+        monitor.on('crossChainEvent', (event) => {
+            const chainId = chainConfig.chainId;
+            const prev = this.crossChainEventQueues.get(chainId) || Promise.resolve();
+            const next = prev.then(() => this.handleCrossChainEvent(chainId, event)).catch(() => {});
+            this.crossChainEventQueues.set(chainId, next);
         });
         
         await monitor.initialize();

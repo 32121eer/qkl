@@ -51,6 +51,12 @@ cd fabric-chaincode/Relayer && node test-crosschain.js  # quick Fabric->FISCO te
 cd fabric-chaincode/Relayer && npx eslint .
 ```
 
+### Useful dev utilities
+```bash
+cd fabric-chaincode/Relayer && bash quick-test.sh        # health check: FISCO RPC, Fabric peers, cross-chain
+bash scripts/smoke-demo-api.sh                           # smoke test all demo API endpoints including SSE
+```
+
 ## Architecture
 
 ### Component Layout
