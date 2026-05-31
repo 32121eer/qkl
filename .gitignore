@@ -36,8 +36,3 @@ Thumbs.db
 # Windows ADS metadata
 *:Zone.Identifier
 
-# Large files exceeding GitHub limits
-fabric-chaincode/fisco-bcos/console/log/
-.m2-consultant/
-fabric-chaincode/fisco-bcos/nodes/
-
