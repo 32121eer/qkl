@@ -6,8 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "agent:verifier": "node demo/agents/agent_service.js",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "exp:ma3c-wbft": "node scripts/run_ma3c_wbft_experiments.js"
   },
   "keywords": [
     "blockchain",

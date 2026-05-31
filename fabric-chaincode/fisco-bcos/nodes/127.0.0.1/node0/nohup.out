@@ -81,3 +81,19 @@ Git Branch         : HEAD
 Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
 [2025-12-25 21:25:41] The fisco-bcos is running...
 [2025-12-25 21:45:50] exit because receive signal 15
+the error = [libproviders.so: 无法打开共享目标文件: 没有那个文件或目录]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-04-17 13:22:51] The fisco-bcos is running...
+[2026-04-17 14:37:21] exit because receive signal 15
+[2026-04-17 14:37:21] fisco-bcos program exit normally.
+the error = [libproviders.so: 无法打开共享目标文件: 没有那个文件或目录]
+FISCO BCOS Version : 3.11.0
+Build Time         : 20240827 04:30:34
+Build Type         : Linux/g++/Release
+Git Branch         : HEAD
+Git Commit         : 3fea676716990b2ed453b4f079915daafff451f9
+[2026-04-17 14:37:26] The fisco-bcos is running...

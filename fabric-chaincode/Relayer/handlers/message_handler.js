@@ -10,8 +10,15 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { execFile } = require('child_process');
 const { promisify } = require('util');
+const { resolveFabricCryptoPath } = require('../fabric_path_resolver');
+const { verifyNegotiatedResponseEnvelope } = require('../demo/negotiation/response_envelope');
 
 const execFileAsync = promisify(execFile);
+
+function buildFabricTlsVerifyOptions() {
+    const insecure = String(process.env.FABRIC_TLS_INSECURE || '1') !== '0';
+    return insecure ? { rejectUnauthorized: false } : {};
+}
 
 // Gateway 鍚堢害 ABI
 const GatewayABI = require('../abi/Gateway.json');
@@ -146,6 +153,7 @@ class MessageHandler {
         
         try {
             this.validateMessage(message);
+            const applicationVerifyResult = this.verifyApplicationPayload(message);
             await this.verifySourceBlock(message);
             const targetChain = this.config.getChainConfig(message.targetChainId);
             if (!targetChain) {
@@ -155,7 +163,7 @@ class MessageHandler {
             let relayResult;
             switch (targetChain.type) {
                 case 'FISCO_BCOS':
-                    relayResult = await this.relayToFiscoBcos(targetChain, message);
+                    relayResult = await this.relayToFiscoBcos(targetChain, message, applicationVerifyResult);
                     break;
                 case 'FABRIC':
                     relayResult = await this.relayToFabric(targetChain, message);
@@ -167,6 +175,7 @@ class MessageHandler {
             console.log(`[MessageHandler] Message relayed successfully`);
             return {
                 success: true,
+                applicationVerifyResult,
                 sourcePayloadHash: this.computePayloadHash(message.payload),
                 targetPayloadHash: relayResult?.targetPayloadHash || null,
                 ...relayResult
@@ -197,6 +206,19 @@ class MessageHandler {
         }
     }
 
+    verifyApplicationPayload(message) {
+        const verifyResult = verifyNegotiatedResponseEnvelope(message?.payload, {
+            requireSettlement: true
+        });
+        if (!verifyResult.skipped && !verifyResult.ok) {
+            const error = new Error('Application payload negotiation proof verification failed');
+            error.code = 'ERR_APPLICATION_PROOF_INVALID';
+            error.verifyResult = verifyResult;
+            throw error;
+        }
+        return verifyResult;
+    }
+
     computePayloadHash(payload) {
         let payloadText;
         if (typeof payload === 'string') {
@@ -207,6 +229,83 @@ class MessageHandler {
             payloadText = JSON.stringify(payload ?? {});
         }
         return createHash('sha256').update(payloadText, 'utf8').digest('hex');
+    }
+
+    normalizeBytes32Hex(value, fallback = null) {
+        const candidate = String(value || '').trim().toLowerCase();
+        if (/^0x[0-9a-f]{64}$/.test(candidate)) {
+            return candidate;
+        }
+        if (fallback) {
+            return fallback;
+        }
+        return `0x${'0'.repeat(64)}`;
+    }
+
+    deriveReceiptAnchors(message, applicationVerifyResult = null) {
+        const payloadHash = applicationVerifyResult?.expectedResponsePayloadHash
+            || `0x${this.computePayloadHash(message?.payload)}`;
+        const negotiationProofDigest = applicationVerifyResult?.envelope?.negotiationProof?.digest || null;
+
+        return {
+            payloadHash: this.normalizeBytes32Hex(payloadHash),
+            negotiationProofDigest: this.normalizeBytes32Hex(negotiationProofDigest)
+        };
+    }
+
+    buildFiscoReceiveConsoleArgs(targetChain, message, applicationVerifyResult = null) {
+        const receiveMethod = targetChain.receiveMethod || 'receive';
+        const gatewayName =
+            targetChain.contracts?.gatewayName ||
+            targetChain.gatewayName ||
+            'GatewayAir';
+        const merkleProof = message.merkleProof || [];
+        const merkleProofArray = merkleProof.length > 0
+            ? '[' + merkleProof.map(p => `"${p}"`).join(',') + ']'
+            : '[]';
+        const anchors = this.deriveReceiptAnchors(message, applicationVerifyResult);
+
+        let blockHeaderHex = '0x00';
+        if (message.blockHeader) {
+            blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
+        }
+
+        if (receiveMethod === 'receiveLite') {
+            return {
+                receiveMethod,
+                gatewayName,
+                anchors,
+                consoleArgs: [
+                    'call',
+                    gatewayName,
+                    targetChain.contracts.gateway,
+                    'receiveLite',
+                    `"${message.sourceChainId}"`,
+                    String(message.sourceBlockNumber),
+                    `"${message.sourceTxHash}"`,
+                    blockHeaderHex,
+                    anchors.payloadHash,
+                    anchors.negotiationProofDigest
+                ]
+            };
+        }
+
+        return {
+            receiveMethod,
+            gatewayName,
+            anchors,
+            consoleArgs: [
+                'call',
+                gatewayName,
+                targetChain.contracts.gateway,
+                'receiveMessage',
+                `"${message.sourceChainId}"`,
+                String(message.sourceBlockNumber),
+                `"${message.sourceTxHash}"`,
+                blockHeaderHex,
+                merkleProofArray
+            ]
+        };
     }
     
     /**
@@ -222,81 +321,34 @@ class MessageHandler {
     
     /**
      * 杞彂鍒?FISCO-BCOS锛堣嚜鍔ㄩ€氳繃 console.sh 璋冪敤锛?     */
-    async relayToFiscoBcos(targetChain, message) {
+    async relayToFiscoBcos(targetChain, message, applicationVerifyResult = null) {
         console.log(`[MessageHandler] Relaying to FISCO-BCOS chain ${targetChain.chainId}`);
         console.log(`  - Source Chain: ${message.sourceChainId}`);
         console.log(`  - Source Tx: ${message.sourceTxHash}`);
         console.log(`  - Source Block: ${message.sourceBlockNumber}`);
         
         try {
-            // 鍑嗗 payload
-            let payloadBytes;
-            if (typeof message.payload === 'string') {
-                payloadBytes = ethers.toUtf8Bytes(message.payload);
-            } else if (Buffer.isBuffer(message.payload)) {
-                payloadBytes = message.payload;
-            } else {
-                payloadBytes = ethers.toUtf8Bytes(JSON.stringify(message.payload));
-            }
-            
-            const payloadHex = '0x' + Buffer.from(payloadBytes).toString('hex');
-            
-            // 鍑嗗 Merkle 璇佹槑
-            const merkleProof = message.merkleProof || [];
-            const merkleProofArray = merkleProof.length > 0 
-                ? '[' + merkleProof.map(p => `"${p}"`).join(',') + ']'
-                : '[]';
-            
-            const receiveMethod = targetChain.receiveMethod || 'receive';
-            const gatewayName =
-                targetChain.contracts?.gatewayName ||
-                targetChain.gatewayName ||
-                'GatewayAir';
-            
+            const {
+                receiveMethod,
+                gatewayName,
+                anchors,
+                consoleArgs
+            } = this.buildFiscoReceiveConsoleArgs(targetChain, message, applicationVerifyResult);
+
             console.log(`[MessageHandler] Using receiveMethod: ${receiveMethod}`);
-            
-            // 鏋勫缓 console.sh 鍛戒护鍙傛暟
-            // 搴忓垪鍖?blockHeader 涓?hex
-            let blockHeaderHex = '0x00';
-            if (message.blockHeader) {
-                blockHeaderHex = '0x' + Buffer.from(JSON.stringify(message.blockHeader)).toString('hex');
-            }
-            
-            let consoleArgs;
             if (receiveMethod === 'receiveLite') {
-                // receiveLite(string sourceChain, uint256 sourceBlockNumber, string sourceTxId, bytes blockHeader)
-                consoleArgs = [
-                    'call',
-                    gatewayName,
-                    targetChain.contracts.gateway,
-                    'receiveLite',
-                    `"${message.sourceChainId}"`,
-                    String(message.sourceBlockNumber),
-                    `"${message.sourceTxHash}"`,
-                    blockHeaderHex
-                ];
-            } else {
-                // receiveMessage(string sourceChain, uint256 sourceBlockNumber, string sourceTxId, bytes blockHeader, bytes merkleProof)
-                consoleArgs = [
-                    'call',
-                    gatewayName,
-                    targetChain.contracts.gateway,
-                    'receiveMessage',
-                    `"${message.sourceChainId}"`,
-                    String(message.sourceBlockNumber),
-                    `"${message.sourceTxHash}"`,
-                    blockHeaderHex,
-                    merkleProofArray
-                ];
+                console.log(`[MessageHandler] Receipt anchors: payloadHash=${anchors.payloadHash}, proofDigest=${anchors.negotiationProofDigest}`);
             }
             
             console.log(`[MessageHandler] 馃殌 Calling FISCO console.sh...`);
             console.log(`  Command: ./console.sh ${consoleArgs.join(' ')}`);
             
             // 璋冪敤 console.sh
-            const consolePath = path.resolve(__dirname, '../../../fisco-bcos/console/console.sh');
+            const defaultConsoleDir = path.resolve(__dirname, '..', '..', 'fisco-bcos', 'console');
+            const consoleDir = process.env.FISCO_CONSOLE_DIR || targetChain.consoleDir || defaultConsoleDir;
+            const consolePath = path.resolve(consoleDir, 'console.sh');
             const { stdout, stderr } = await execFileAsync(consolePath, consoleArgs, {
-                cwd: path.dirname(consolePath),
+                cwd: consoleDir,
                 timeout: 30000
             });
             
@@ -454,8 +506,12 @@ class MessageHandler {
         const connection = targetChain.connection;
         
         // 璇诲彇璇佷功
-        const cryptoPath = connection.cryptoPath || 
-            '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
+        const cryptoPath = resolveFabricCryptoPath(connection.cryptoPath);
+        if (!cryptoPath) {
+            throw new Error(
+                'Fabric cryptoPath not found. Set FABRIC_CRYPTO_PATH or FABRIC_SAMPLES_DIR to a valid fabric-samples installation.'
+            );
+        }
         
         const certPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'signcerts');
         const keyPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'keystore');
@@ -475,7 +531,12 @@ class MessageHandler {
         const peerEndpoint = connection.peerEndpoint || 'localhost:7051';
         const peerHostAlias = connection.peerHostAlias || 'peer0.org1.example.com';
         
-        const tlsCredentials = grpc.credentials.createSsl(tlsRootCert);
+        const tlsCredentials = grpc.credentials.createSsl(
+            tlsRootCert,
+            null,
+            null,
+            buildFabricTlsVerifyOptions()
+        );
         const client = new grpc.Client(peerEndpoint, tlsCredentials, {
             'grpc.ssl_target_name_override': peerHostAlias,
             'grpc.default_authority': peerHostAlias,

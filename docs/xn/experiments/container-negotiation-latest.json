@@ -1,0 +1,1381 @@
+{
+  "generatedAt": "2026-05-31T05:09:31.669Z",
+  "mode": "docker-multi-container",
+  "transport": "http + hmac-sha256",
+  "agents": [
+    {
+      "agentId": "verifier-policy-01",
+      "endpoint": "http://127.0.0.1:19113",
+      "strategyType": "B_POLICY_CHECKER",
+      "hmac": true
+    },
+    {
+      "agentId": "verifier-proof-01",
+      "endpoint": "http://127.0.0.1:19111",
+      "strategyType": "A_PROOF_VALIDATOR",
+      "hmac": true
+    },
+    {
+      "agentId": "verifier-proof-02",
+      "endpoint": "http://127.0.0.1:19112",
+      "strategyType": "A_PROOF_VALIDATOR",
+      "hmac": true
+    },
+    {
+      "agentId": "verifier-semantic-01",
+      "endpoint": "http://127.0.0.1:19114",
+      "strategyType": "C_SEMANTIC_REASONER",
+      "hmac": true
+    },
+    {
+      "agentId": "verifier-semantic-02",
+      "endpoint": "http://127.0.0.1:19115",
+      "strategyType": "C_SEMANTIC_REASONER",
+      "hmac": true
+    }
+  ],
+  "task": {
+    "taskId": "cc_task_query_demo_001",
+    "queryId": "query_demo_001",
+    "risk": "NORMAL",
+    "sourceChain": "FISCO_NET_01",
+    "targetChain": "FABRIC_NET_01"
+  },
+  "elapsedMs": 9190,
+  "finalProposal": {
+    "proposalId": "proposal_query_demo_001_1_r1",
+    "taskId": "cc_task_query_demo_001",
+    "queryId": "query_demo_001",
+    "finalDecision": "COMMIT",
+    "protocolVersion": "ma3c-paper-v1",
+    "risk": "NORMAL",
+    "rounds": 1,
+    "quorum": {
+      "total": 5,
+      "required": 4,
+      "validRevealCount": 5,
+      "enoughReveals": true,
+      "approved": 5,
+      "rejected": 0,
+      "questioned": 0,
+      "totalWeight": 1,
+      "approvedWeight": 1,
+      "rejectedWeight": 0,
+      "questionedWeight": 0,
+      "approvedEffectiveWeight": 0.954,
+      "rejectedEffectiveWeight": 0,
+      "questionedEffectiveWeight": 0,
+      "thresholdWeight": 0.7,
+      "thresholdRatio": 0.7,
+      "acceptRatio": 1,
+      "rejectRatio": 0,
+      "wbftSatisfied": true,
+      "rejectSatisfied": false
+    },
+    "consensusRule": {
+      "groupSize": 5,
+      "threshold": 0.7,
+      "minimumRevealCount": 4,
+      "weightFormula": "w_i = rep_i * confidence_i",
+      "decisionRule": "CONFIRMED if acceptRatio >= theta; REJECTED if rejectRatio >= theta; otherwise ARBITRATING/OBSERVE"
+    },
+    "evidenceVersion": 1,
+    "evidenceRef": {
+      "sourceHeaderHash": "0xhdr184213",
+      "payloadHash": "0x5d41402abc4b2a76b9719d911017c5924f0e3b6a8c2d1e9f7a3b5c7d9e1f3a5b",
+      "queryCommitment": "0xc0mm1tment",
+      "sourceTxHash": "0xabc123def4567890aabbccddeeff00112233445566778899aabbccddeeff0011"
+    },
+    "evidenceAudit": {
+      "artifactCount": 0,
+      "appliedRequestCount": 0,
+      "pendingRequestCount": 0
+    },
+    "supportingAgents": [
+      {
+        "agentId": "verifier-proof-01",
+        "weight": 0.2,
+        "confidence": 0.91,
+        "effectiveWeight": 0.182
+      },
+      {
+        "agentId": "verifier-semantic-01",
+        "weight": 0.2,
+        "confidence": 1,
+        "effectiveWeight": 0.2
+      },
+      {
+        "agentId": "verifier-policy-01",
+        "weight": 0.2,
+        "confidence": 1,
+        "effectiveWeight": 0.2
+      },
+      {
+        "agentId": "verifier-proof-02",
+        "weight": 0.2,
+        "confidence": 0.91,
+        "effectiveWeight": 0.182
+      },
+      {
+        "agentId": "verifier-semantic-02",
+        "weight": 0.2,
+        "confidence": 0.95,
+        "effectiveWeight": 0.19
+      }
+    ],
+    "questioningAgents": [],
+    "rejectingAgents": [],
+    "weightVector": [
+      {
+        "agentId": "verifier-proof-01",
+        "weight": 0.2,
+        "confidence": 0.91,
+        "effectiveWeight": 0.182,
+        "latencyMs": 1,
+        "qualityWeight": 0.2,
+        "trustWeight": 0.2,
+        "qualityScore": 0.5,
+        "trustScore": 0.5,
+        "latencyScore": 1,
+        "riskPenalty": 0,
+        "formulaVersion": "ma3c-wbft-v1",
+        "judgment": "ACCEPT",
+        "commitHash": "0xc8cd8c6123e7f68a4fca1f991348f492a79523b2a25371713110043af61e269b",
+        "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+        "commitRevealValid": true
+      },
+      {
+        "agentId": "verifier-semantic-01",
+        "weight": 0.2,
+        "confidence": 1,
+        "effectiveWeight": 0.2,
+        "latencyMs": 1423,
+        "qualityWeight": 0.2,
+        "trustWeight": 0.2,
+        "qualityScore": 0.5,
+        "trustScore": 0.5,
+        "latencyScore": 1,
+        "riskPenalty": 0,
+        "formulaVersion": "ma3c-wbft-v1",
+        "judgment": "ACCEPT",
+        "commitHash": "0x7c7574788f16942c6e79292a81cce68ba527d05417942738f403247eef4e7a2a",
+        "reasonHash": "0x2b159f02e5ccd43e76c5f344074aa2474125ff7f24d1bdd65df5b6909be764e8",
+        "commitRevealValid": true
+      },
+      {
+        "agentId": "verifier-policy-01",
+        "weight": 0.2,
+        "confidence": 1,
+        "effectiveWeight": 0.2,
+        "latencyMs": 3367,
+        "qualityWeight": 0.2,
+        "trustWeight": 0.2,
+        "qualityScore": 0.5,
+        "trustScore": 0.5,
+        "latencyScore": 1,
+        "riskPenalty": 0,
+        "formulaVersion": "ma3c-wbft-v1",
+        "judgment": "ACCEPT",
+        "commitHash": "0xbc7a77b65bec4c888970696db144c354491b975574c2018e828bc283a6b2f58b",
+        "reasonHash": "0x50f4c2f68d8b5729c4a29078119377b420c9b336ae5976c63302b169332d1a9b",
+        "commitRevealValid": true
+      },
+      {
+        "agentId": "verifier-proof-02",
+        "weight": 0.2,
+        "confidence": 0.91,
+        "effectiveWeight": 0.182,
+        "latencyMs": 1,
+        "qualityWeight": 0.2,
+        "trustWeight": 0.2,
+        "qualityScore": 0.5,
+        "trustScore": 0.5,
+        "latencyScore": 1,
+        "riskPenalty": 0,
+        "formulaVersion": "ma3c-wbft-v1",
+        "judgment": "ACCEPT",
+        "commitHash": "0x7a95cf37d4f92399223ca92452c0006ba6c3888ab0d5aa8a63ed7093f44bda42",
+        "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+        "commitRevealValid": true
+      },
+      {
+        "agentId": "verifier-semantic-02",
+        "weight": 0.2,
+        "confidence": 0.95,
+        "effectiveWeight": 0.19,
+        "latencyMs": 4381,
+        "qualityWeight": 0.2,
+        "trustWeight": 0.2,
+        "qualityScore": 0.5,
+        "trustScore": 0.5,
+        "latencyScore": 1,
+        "riskPenalty": 0,
+        "formulaVersion": "ma3c-wbft-v1",
+        "judgment": "ACCEPT",
+        "commitHash": "0xdc96aa645e4230f266f9dbf298ddb1c96f3ccc40bd883ebc01400fb898632f09",
+        "reasonHash": "0x310296c50f74cd6e528b42f0095143068d3c0bc4ed69f9b71f0c6cb9e448b751",
+        "commitRevealValid": true
+      }
+    ],
+    "wbftModel": {
+      "formulaVersion": "ma3c-paper-v1",
+      "selectionFormula": "VRF(task_id, evidence_version) with reputation-proportional weighted sampling",
+      "reputationFormula": "rep_i = alpha * A_i + beta * B_i",
+      "weightFormula": "voteWeight_i = rep_i * confidence_i",
+      "qualityFormula": "A_i = Q_i / sum_j Q_j",
+      "trustFormula": "B_i = T_i / sum_j T_j",
+      "threshold": "acceptRatio >= 0.7"
+    },
+    "disagreements": [
+      {
+        "code": "TIMEOUT_BUT_LATE_SUCCESS_POSSIBLE",
+        "agents": [],
+        "message": "No relay receipts are available yet; newer evidence may change the verdict",
+        "severity": "LOW"
+      }
+    ],
+    "coordinatorSummary": {
+      "agentId": "coordinator-01",
+      "role": "COORDINATOR",
+      "taskId": "cc_task_query_demo_001",
+      "queryId": "query_demo_001",
+      "evidenceVersion": 1,
+      "generatedAt": "2026-05-31T05:09:31.668Z",
+      "organization": "org-coordinator",
+      "strategyType": "COORDINATOR",
+      "llmBackend": null,
+      "round": 1,
+      "status": "READY",
+      "summary": {
+        "approve": 5,
+        "reject": 0,
+        "question": 0
+      },
+      "disagreements": [],
+      "reasons": [
+        "initial round collected"
+      ]
+    },
+    "submitterPlan": {
+      "agentId": "submitter-01",
+      "role": "SUBMITTER",
+      "taskId": "cc_task_query_demo_001",
+      "queryId": "query_demo_001",
+      "evidenceVersion": 1,
+      "generatedAt": "2026-05-31T05:09:31.668Z",
+      "organization": "org-submitter",
+      "strategyType": "SUBMITTER",
+      "llmBackend": null,
+      "round": 1,
+      "status": "STANDBY",
+      "readyForSubmission": true,
+      "planId": "submitter_plan_query_demo_001_r1",
+      "recommendedRoute": "FABRIC_TO_FISCO",
+      "clarification": null,
+      "reasons": [
+        "submission can proceed after proposal finalization"
+      ]
+    },
+    "committee": {
+      "selected": [
+        {
+          "agentId": "verifier-proof-01",
+          "role": "VERIFIER",
+          "capabilities": [
+            "evidence_validation",
+            "query_proof_check",
+            "semantic_validation"
+          ],
+          "organization": "org-b",
+          "strategyType": "A_PROOF_VALIDATOR",
+          "llmBackend": null,
+          "focus": "proof",
+          "strictProof": true,
+          "enabled": true,
+          "kind": "remote",
+          "remote": true,
+          "endpoint": "http://127.0.0.1:19111",
+          "available": true,
+          "lastDescriptorAt": "2026-05-31T05:09:22.485Z",
+          "lastError": null
+        },
+        {
+          "agentId": "verifier-semantic-01",
+          "role": "VERIFIER",
+          "capabilities": [
+            "evidence_validation",
+            "query_proof_check",
+            "semantic_validation"
+          ],
+          "organization": "org-f",
+          "strategyType": "C_SEMANTIC_REASONER",
+          "llmBackend": "ollama",
+          "focus": "semantic",
+          "strictProof": false,
+          "enabled": true,
+          "kind": "remote",
+          "remote": true,
+          "endpoint": "http://127.0.0.1:19114",
+          "available": true,
+          "lastDescriptorAt": "2026-05-31T05:09:22.487Z",
+          "lastError": null
+        },
+        {
+          "agentId": "verifier-policy-01",
+          "role": "VERIFIER",
+          "capabilities": [
+            "evidence_validation",
+            "query_proof_check",
+            "semantic_validation"
+          ],
+          "organization": "org-c",
+          "strategyType": "B_POLICY_CHECKER",
+          "llmBackend": "ollama",
+          "focus": "balanced",
+          "strictProof": false,
+          "enabled": true,
+          "kind": "remote",
+          "remote": true,
+          "endpoint": "http://127.0.0.1:19113",
+          "available": true,
+          "lastDescriptorAt": "2026-05-31T05:09:22.484Z",
+          "lastError": null
+        },
+        {
+          "agentId": "verifier-proof-02",
+          "role": "VERIFIER",
+          "capabilities": [
+            "evidence_validation",
+            "query_proof_check",
+            "semantic_validation"
+          ],
+          "organization": "org-d",
+          "strategyType": "A_PROOF_VALIDATOR",
+          "llmBackend": null,
+          "focus": "proof",
+          "strictProof": true,
+          "enabled": true,
+          "kind": "remote",
+          "remote": true,
+          "endpoint": "http://127.0.0.1:19112",
+          "available": true,
+          "lastDescriptorAt": "2026-05-31T05:09:22.486Z",
+          "lastError": null
+        },
+        {
+          "agentId": "verifier-semantic-02",
+          "role": "VERIFIER",
+          "capabilities": [
+            "evidence_validation",
+            "query_proof_check",
+            "semantic_validation"
+          ],
+          "organization": "org-g",
+          "strategyType": "C_SEMANTIC_REASONER",
+          "llmBackend": "ollama",
+          "focus": "semantic",
+          "strictProof": false,
+          "enabled": true,
+          "kind": "remote",
+          "remote": true,
+          "endpoint": "http://127.0.0.1:19115",
+          "available": true,
+          "lastDescriptorAt": "2026-05-31T05:09:22.488Z",
+          "lastError": null
+        }
+      ],
+      "excluded": [],
+      "selectionSeed": "vrf_a9981a441e7eba4f8cf288f6",
+      "constraints": {
+        "organizationLimit": 1,
+        "requiredStrategies": [
+          "A_PROOF_VALIDATOR",
+          "C_SEMANTIC_REASONER",
+          "B_POLICY_CHECKER"
+        ],
+        "selectedOrganizations": [
+          "org-b",
+          "org-f",
+          "org-c",
+          "org-d",
+          "org-g"
+        ],
+        "selectedStrategies": [
+          "A_PROOF_VALIDATOR",
+          "C_SEMANTIC_REASONER",
+          "B_POLICY_CHECKER",
+          "A_PROOF_VALIDATOR",
+          "C_SEMANTIC_REASONER"
+        ],
+        "strategyHeterogeneous": true,
+        "organizationDiverse": true
+      }
+    },
+    "behaviorAnalysis": {
+      "reports": {
+        "verifier-policy-01": {
+          "agentId": "verifier-policy-01",
+          "role": "VERIFIER",
+          "focus": "balanced",
+          "organization": "org-c",
+          "strategyType": "B_POLICY_CHECKER",
+          "successRate": 0,
+          "avgLatencyMs": 0,
+          "faultCount": 0,
+          "collusionScore": 0,
+          "eclipseScore": 0,
+          "riskScore": 0.2,
+          "excluded": false,
+          "reasons": []
+        },
+        "verifier-proof-01": {
+          "agentId": "verifier-proof-01",
+          "role": "VERIFIER",
+          "focus": "proof",
+          "organization": "org-b",
+          "strategyType": "A_PROOF_VALIDATOR",
+          "successRate": 0,
+          "avgLatencyMs": 0,
+          "faultCount": 0,
+          "collusionScore": 0,
+          "eclipseScore": 0,
+          "riskScore": 0.2,
+          "excluded": false,
+          "reasons": []
+        },
+        "verifier-proof-02": {
+          "agentId": "verifier-proof-02",
+          "role": "VERIFIER",
+          "focus": "proof",
+          "organization": "org-d",
+          "strategyType": "A_PROOF_VALIDATOR",
+          "successRate": 0,
+          "avgLatencyMs": 0,
+          "faultCount": 0,
+          "collusionScore": 0,
+          "eclipseScore": 0,
+          "riskScore": 0.2,
+          "excluded": false,
+          "reasons": []
+        },
+        "verifier-semantic-01": {
+          "agentId": "verifier-semantic-01",
+          "role": "VERIFIER",
+          "focus": "semantic",
+          "organization": "org-f",
+          "strategyType": "C_SEMANTIC_REASONER",
+          "successRate": 0,
+          "avgLatencyMs": 0,
+          "faultCount": 0,
+          "collusionScore": 0,
+          "eclipseScore": 0,
+          "riskScore": 0.2,
+          "excluded": false,
+          "reasons": []
+        },
+        "verifier-semantic-02": {
+          "agentId": "verifier-semantic-02",
+          "role": "VERIFIER",
+          "focus": "semantic",
+          "organization": "org-g",
+          "strategyType": "C_SEMANTIC_REASONER",
+          "successRate": 0,
+          "avgLatencyMs": 0,
+          "faultCount": 0,
+          "collusionScore": 0,
+          "eclipseScore": 0,
+          "riskScore": 0.2,
+          "excluded": false,
+          "reasons": []
+        }
+      },
+      "hiddenCollusionAgents": [],
+      "eclipseRiskAgents": []
+    }
+  },
+  "negotiationEvents": [
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "APPROVE",
+      "correlationId": "query_demo_001",
+      "message": "verifier-proof-01 committed and revealed APPROVE in round 1",
+      "data": {
+        "agentId": "verifier-proof-01",
+        "role": "VERIFIER",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:22.495Z",
+        "organization": null,
+        "strategyType": "A_PROOF_VALIDATOR",
+        "llmBackend": null,
+        "round": 1,
+        "decision": "APPROVE",
+        "confidence": 0.91,
+        "assignedWeight": 0.2,
+        "focus": "proof",
+        "checks": {
+          "requestObserved": true,
+          "payloadPresent": true,
+          "targetChainPresent": true,
+          "collectorQuorum": true,
+          "cryptographicPrecheckPassed": true,
+          "sourceHeaderPresent": true,
+          "queryProofPresent": true,
+          "queryProofValid": true,
+          "queryObjectPresent": true,
+          "semanticPayloadConsistent": true,
+          "submissionPlanReady": false
+        },
+        "reasons": [
+          "request evidence observed",
+          "payload bundle available",
+          "target chain resolved",
+          "two independent collectors agree on evidence hash",
+          "cryptographic pre-verification passed",
+          "source header evidence available",
+          "query proof verified",
+          "query object available for replay checks"
+        ],
+        "remote": true,
+        "remoteEndpoint": "http://127.0.0.1:19111",
+        "latencyMs": 1,
+        "wbft": {
+          "agentId": "verifier-proof-01",
+          "weight": 0.2,
+          "qualityWeight": 0.2,
+          "trustWeight": 0.2,
+          "qualityScore": 0.5,
+          "trustScore": 0.5,
+          "latencyScore": 1,
+          "riskPenalty": 0,
+          "formulaVersion": "ma3c-wbft-v1"
+        },
+        "judgment": "ACCEPT",
+        "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+        "commitReveal": {
+          "phase": "REVEALED",
+          "commitHash": "0xc8cd8c6123e7f68a4fca1f991348f492a79523b2a25371713110043af61e269b",
+          "committedAt": "2026-05-31T05:09:22.495Z",
+          "revealedAt": "2026-05-31T05:09:22.495Z",
+          "reveal": {
+            "judgment": "ACCEPT",
+            "confidence": 0.91,
+            "nonce": "1d3fdb063ff57b31",
+            "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "APPROVE",
+      "correlationId": "query_demo_001",
+      "message": "verifier-semantic-01 committed and revealed APPROVE in round 1",
+      "data": {
+        "agentId": "verifier-semantic-01",
+        "role": "VERIFIER",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:23.917Z",
+        "organization": null,
+        "strategyType": "C_SEMANTIC_REASONER",
+        "llmBackend": "ollama",
+        "round": 1,
+        "decision": "APPROVE",
+        "confidence": 1,
+        "assignedWeight": 0.2,
+        "focus": "semantic",
+        "checks": {
+          "requestObserved": true,
+          "payloadPresent": true,
+          "targetChainPresent": true,
+          "collectorQuorum": true,
+          "cryptographicPrecheckPassed": true,
+          "sourceHeaderPresent": true,
+          "queryProofPresent": true,
+          "queryProofValid": true,
+          "queryObjectPresent": true,
+          "semanticPayloadConsistent": true,
+          "submissionPlanReady": false
+        },
+        "reasons": [
+          "request evidence observed",
+          "payload bundle available",
+          "target chain resolved",
+          "two independent collectors agree on evidence hash",
+          "cryptographic pre-verification passed",
+          "source header evidence available",
+          "query proof verified",
+          "query object available for replay checks",
+          "semantic payload is consistent with orchard query context",
+          "LLM: The evidence contains all expected fields and matches the query context without any anomalies or contradictions."
+        ],
+        "llmMetadata": {
+          "backend": "ollama",
+          "tokensUsed": 43,
+          "mock": false
+        },
+        "remote": true,
+        "remoteEndpoint": "http://127.0.0.1:19114",
+        "latencyMs": 1423,
+        "wbft": {
+          "agentId": "verifier-semantic-01",
+          "weight": 0.2,
+          "qualityWeight": 0.2,
+          "trustWeight": 0.2,
+          "qualityScore": 0.5,
+          "trustScore": 0.5,
+          "latencyScore": 1,
+          "riskPenalty": 0,
+          "formulaVersion": "ma3c-wbft-v1"
+        },
+        "judgment": "ACCEPT",
+        "reasonHash": "0x2b159f02e5ccd43e76c5f344074aa2474125ff7f24d1bdd65df5b6909be764e8",
+        "commitReveal": {
+          "phase": "REVEALED",
+          "commitHash": "0x7c7574788f16942c6e79292a81cce68ba527d05417942738f403247eef4e7a2a",
+          "committedAt": "2026-05-31T05:09:23.917Z",
+          "revealedAt": "2026-05-31T05:09:23.918Z",
+          "reveal": {
+            "judgment": "ACCEPT",
+            "confidence": 1,
+            "nonce": "f7a74f86f272a023",
+            "reasonHash": "0x2b159f02e5ccd43e76c5f344074aa2474125ff7f24d1bdd65df5b6909be764e8"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "APPROVE",
+      "correlationId": "query_demo_001",
+      "message": "verifier-policy-01 committed and revealed APPROVE in round 1",
+      "data": {
+        "agentId": "verifier-policy-01",
+        "role": "VERIFIER",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:27.285Z",
+        "organization": null,
+        "strategyType": "B_POLICY_CHECKER",
+        "llmBackend": "ollama",
+        "round": 1,
+        "decision": "APPROVE",
+        "confidence": 1,
+        "assignedWeight": 0.2,
+        "focus": "balanced",
+        "checks": {
+          "requestObserved": true,
+          "payloadPresent": true,
+          "targetChainPresent": true,
+          "collectorQuorum": true,
+          "cryptographicPrecheckPassed": true,
+          "sourceHeaderPresent": true,
+          "queryProofPresent": true,
+          "queryProofValid": true,
+          "queryObjectPresent": true,
+          "semanticPayloadConsistent": true,
+          "submissionPlanReady": false
+        },
+        "reasons": [
+          "request evidence observed",
+          "payload bundle available",
+          "target chain resolved",
+          "two independent collectors agree on evidence hash",
+          "cryptographic pre-verification passed",
+          "source header evidence available",
+          "query proof verified",
+          "query object available for replay checks",
+          "submission plan confirmation requested",
+          "LLM: The evidence contains all expected fields and matches the query context. The block height is within a reasonable range for a blockchain system. The data structure appears consistent with the query int..."
+        ],
+        "llmMetadata": {
+          "backend": "ollama",
+          "tokensUsed": 70,
+          "mock": false
+        },
+        "remote": true,
+        "remoteEndpoint": "http://127.0.0.1:19113",
+        "latencyMs": 3367,
+        "wbft": {
+          "agentId": "verifier-policy-01",
+          "weight": 0.2,
+          "qualityWeight": 0.2,
+          "trustWeight": 0.2,
+          "qualityScore": 0.5,
+          "trustScore": 0.5,
+          "latencyScore": 1,
+          "riskPenalty": 0,
+          "formulaVersion": "ma3c-wbft-v1"
+        },
+        "judgment": "ACCEPT",
+        "reasonHash": "0x50f4c2f68d8b5729c4a29078119377b420c9b336ae5976c63302b169332d1a9b",
+        "commitReveal": {
+          "phase": "REVEALED",
+          "commitHash": "0xbc7a77b65bec4c888970696db144c354491b975574c2018e828bc283a6b2f58b",
+          "committedAt": "2026-05-31T05:09:27.285Z",
+          "revealedAt": "2026-05-31T05:09:27.285Z",
+          "reveal": {
+            "judgment": "ACCEPT",
+            "confidence": 1,
+            "nonce": "028e75b996d03235",
+            "reasonHash": "0x50f4c2f68d8b5729c4a29078119377b420c9b336ae5976c63302b169332d1a9b"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "APPROVE",
+      "correlationId": "query_demo_001",
+      "message": "verifier-proof-02 committed and revealed APPROVE in round 1",
+      "data": {
+        "agentId": "verifier-proof-02",
+        "role": "VERIFIER",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:27.286Z",
+        "organization": null,
+        "strategyType": "A_PROOF_VALIDATOR",
+        "llmBackend": null,
+        "round": 1,
+        "decision": "APPROVE",
+        "confidence": 0.91,
+        "assignedWeight": 0.2,
+        "focus": "proof",
+        "checks": {
+          "requestObserved": true,
+          "payloadPresent": true,
+          "targetChainPresent": true,
+          "collectorQuorum": true,
+          "cryptographicPrecheckPassed": true,
+          "sourceHeaderPresent": true,
+          "queryProofPresent": true,
+          "queryProofValid": true,
+          "queryObjectPresent": true,
+          "semanticPayloadConsistent": true,
+          "submissionPlanReady": false
+        },
+        "reasons": [
+          "request evidence observed",
+          "payload bundle available",
+          "target chain resolved",
+          "two independent collectors agree on evidence hash",
+          "cryptographic pre-verification passed",
+          "source header evidence available",
+          "query proof verified",
+          "query object available for replay checks"
+        ],
+        "remote": true,
+        "remoteEndpoint": "http://127.0.0.1:19112",
+        "latencyMs": 1,
+        "wbft": {
+          "agentId": "verifier-proof-02",
+          "weight": 0.2,
+          "qualityWeight": 0.2,
+          "trustWeight": 0.2,
+          "qualityScore": 0.5,
+          "trustScore": 0.5,
+          "latencyScore": 1,
+          "riskPenalty": 0,
+          "formulaVersion": "ma3c-wbft-v1"
+        },
+        "judgment": "ACCEPT",
+        "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+        "commitReveal": {
+          "phase": "REVEALED",
+          "commitHash": "0x7a95cf37d4f92399223ca92452c0006ba6c3888ab0d5aa8a63ed7093f44bda42",
+          "committedAt": "2026-05-31T05:09:27.286Z",
+          "revealedAt": "2026-05-31T05:09:27.287Z",
+          "reveal": {
+            "judgment": "ACCEPT",
+            "confidence": 0.91,
+            "nonce": "1e38a5c696ae0068",
+            "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "APPROVE",
+      "correlationId": "query_demo_001",
+      "message": "verifier-semantic-02 committed and revealed APPROVE in round 1",
+      "data": {
+        "agentId": "verifier-semantic-02",
+        "role": "VERIFIER",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:31.667Z",
+        "organization": null,
+        "strategyType": "C_SEMANTIC_REASONER",
+        "llmBackend": "ollama",
+        "round": 1,
+        "decision": "APPROVE",
+        "confidence": 0.95,
+        "assignedWeight": 0.2,
+        "focus": "semantic",
+        "checks": {
+          "requestObserved": true,
+          "payloadPresent": true,
+          "targetChainPresent": true,
+          "collectorQuorum": true,
+          "cryptographicPrecheckPassed": true,
+          "sourceHeaderPresent": true,
+          "queryProofPresent": true,
+          "queryProofValid": true,
+          "queryObjectPresent": true,
+          "semanticPayloadConsistent": true,
+          "submissionPlanReady": false
+        },
+        "reasons": [
+          "request evidence observed",
+          "payload bundle available",
+          "target chain resolved",
+          "two independent collectors agree on evidence hash",
+          "cryptographic pre-verification passed",
+          "source header evidence available",
+          "query proof verified",
+          "query object available for replay checks",
+          "semantic payload is consistent with orchard query context",
+          "LLM: The evidence contains all expected fields and matches the query context. The block height is within a reasonable range for the source chain, and there are no anomalies in the data structure or inconsi..."
+        ],
+        "llmMetadata": {
+          "backend": "ollama",
+          "tokensUsed": 68,
+          "mock": false
+        },
+        "remote": true,
+        "remoteEndpoint": "http://127.0.0.1:19115",
+        "latencyMs": 4381,
+        "wbft": {
+          "agentId": "verifier-semantic-02",
+          "weight": 0.2,
+          "qualityWeight": 0.2,
+          "trustWeight": 0.2,
+          "qualityScore": 0.5,
+          "trustScore": 0.5,
+          "latencyScore": 1,
+          "riskPenalty": 0,
+          "formulaVersion": "ma3c-wbft-v1"
+        },
+        "judgment": "ACCEPT",
+        "reasonHash": "0x310296c50f74cd6e528b42f0095143068d3c0bc4ed69f9b71f0c6cb9e448b751",
+        "commitReveal": {
+          "phase": "REVEALED",
+          "commitHash": "0xdc96aa645e4230f266f9dbf298ddb1c96f3ccc40bd883ebc01400fb898632f09",
+          "committedAt": "2026-05-31T05:09:31.667Z",
+          "revealedAt": "2026-05-31T05:09:31.668Z",
+          "reveal": {
+            "judgment": "ACCEPT",
+            "confidence": 0.95,
+            "nonce": "0ce04f1b115dec18",
+            "reasonHash": "0x310296c50f74cd6e528b42f0095143068d3c0bc4ed69f9b71f0c6cb9e448b751"
+          },
+          "valid": true
+        }
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "READY",
+      "correlationId": "query_demo_001",
+      "message": "coordinator-01 summarized negotiation round 1",
+      "data": {
+        "agentId": "coordinator-01",
+        "role": "COORDINATOR",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "evidenceVersion": 1,
+        "generatedAt": "2026-05-31T05:09:31.668Z",
+        "organization": "org-coordinator",
+        "strategyType": "COORDINATOR",
+        "llmBackend": null,
+        "round": 1,
+        "status": "READY",
+        "summary": {
+          "approve": 5,
+          "reject": 0,
+          "question": 0
+        },
+        "disagreements": [],
+        "reasons": [
+          "initial round collected"
+        ]
+      }
+    },
+    {
+      "type": "negotiation",
+      "direction": "FISCO_TO_FABRIC",
+      "relayState": "READY",
+      "correlationId": "query_demo_001",
+      "message": "Final proposal proposal_query_demo_001_1_r1 produced with decision COMMIT",
+      "data": {
+        "proposalId": "proposal_query_demo_001_1_r1",
+        "taskId": "cc_task_query_demo_001",
+        "queryId": "query_demo_001",
+        "finalDecision": "COMMIT",
+        "protocolVersion": "ma3c-paper-v1",
+        "risk": "NORMAL",
+        "rounds": 1,
+        "quorum": {
+          "total": 5,
+          "required": 4,
+          "validRevealCount": 5,
+          "enoughReveals": true,
+          "approved": 5,
+          "rejected": 0,
+          "questioned": 0,
+          "totalWeight": 1,
+          "approvedWeight": 1,
+          "rejectedWeight": 0,
+          "questionedWeight": 0,
+          "approvedEffectiveWeight": 0.954,
+          "rejectedEffectiveWeight": 0,
+          "questionedEffectiveWeight": 0,
+          "thresholdWeight": 0.7,
+          "thresholdRatio": 0.7,
+          "acceptRatio": 1,
+          "rejectRatio": 0,
+          "wbftSatisfied": true,
+          "rejectSatisfied": false
+        },
+        "consensusRule": {
+          "groupSize": 5,
+          "threshold": 0.7,
+          "minimumRevealCount": 4,
+          "weightFormula": "w_i = rep_i * confidence_i",
+          "decisionRule": "CONFIRMED if acceptRatio >= theta; REJECTED if rejectRatio >= theta; otherwise ARBITRATING/OBSERVE"
+        },
+        "evidenceVersion": 1,
+        "evidenceRef": {
+          "sourceHeaderHash": "0xhdr184213",
+          "payloadHash": "0x5d41402abc4b2a76b9719d911017c5924f0e3b6a8c2d1e9f7a3b5c7d9e1f3a5b",
+          "queryCommitment": "0xc0mm1tment",
+          "sourceTxHash": "0xabc123def4567890aabbccddeeff00112233445566778899aabbccddeeff0011"
+        },
+        "evidenceAudit": {
+          "artifactCount": 0,
+          "appliedRequestCount": 0,
+          "pendingRequestCount": 0
+        },
+        "supportingAgents": [
+          {
+            "agentId": "verifier-proof-01",
+            "weight": 0.2,
+            "confidence": 0.91,
+            "effectiveWeight": 0.182
+          },
+          {
+            "agentId": "verifier-semantic-01",
+            "weight": 0.2,
+            "confidence": 1,
+            "effectiveWeight": 0.2
+          },
+          {
+            "agentId": "verifier-policy-01",
+            "weight": 0.2,
+            "confidence": 1,
+            "effectiveWeight": 0.2
+          },
+          {
+            "agentId": "verifier-proof-02",
+            "weight": 0.2,
+            "confidence": 0.91,
+            "effectiveWeight": 0.182
+          },
+          {
+            "agentId": "verifier-semantic-02",
+            "weight": 0.2,
+            "confidence": 0.95,
+            "effectiveWeight": 0.19
+          }
+        ],
+        "questioningAgents": [],
+        "rejectingAgents": [],
+        "weightVector": [
+          {
+            "agentId": "verifier-proof-01",
+            "weight": 0.2,
+            "confidence": 0.91,
+            "effectiveWeight": 0.182,
+            "latencyMs": 1,
+            "qualityWeight": 0.2,
+            "trustWeight": 0.2,
+            "qualityScore": 0.5,
+            "trustScore": 0.5,
+            "latencyScore": 1,
+            "riskPenalty": 0,
+            "formulaVersion": "ma3c-wbft-v1",
+            "judgment": "ACCEPT",
+            "commitHash": "0xc8cd8c6123e7f68a4fca1f991348f492a79523b2a25371713110043af61e269b",
+            "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+            "commitRevealValid": true
+          },
+          {
+            "agentId": "verifier-semantic-01",
+            "weight": 0.2,
+            "confidence": 1,
+            "effectiveWeight": 0.2,
+            "latencyMs": 1423,
+            "qualityWeight": 0.2,
+            "trustWeight": 0.2,
+            "qualityScore": 0.5,
+            "trustScore": 0.5,
+            "latencyScore": 1,
+            "riskPenalty": 0,
+            "formulaVersion": "ma3c-wbft-v1",
+            "judgment": "ACCEPT",
+            "commitHash": "0x7c7574788f16942c6e79292a81cce68ba527d05417942738f403247eef4e7a2a",
+            "reasonHash": "0x2b159f02e5ccd43e76c5f344074aa2474125ff7f24d1bdd65df5b6909be764e8",
+            "commitRevealValid": true
+          },
+          {
+            "agentId": "verifier-policy-01",
+            "weight": 0.2,
+            "confidence": 1,
+            "effectiveWeight": 0.2,
+            "latencyMs": 3367,
+            "qualityWeight": 0.2,
+            "trustWeight": 0.2,
+            "qualityScore": 0.5,
+            "trustScore": 0.5,
+            "latencyScore": 1,
+            "riskPenalty": 0,
+            "formulaVersion": "ma3c-wbft-v1",
+            "judgment": "ACCEPT",
+            "commitHash": "0xbc7a77b65bec4c888970696db144c354491b975574c2018e828bc283a6b2f58b",
+            "reasonHash": "0x50f4c2f68d8b5729c4a29078119377b420c9b336ae5976c63302b169332d1a9b",
+            "commitRevealValid": true
+          },
+          {
+            "agentId": "verifier-proof-02",
+            "weight": 0.2,
+            "confidence": 0.91,
+            "effectiveWeight": 0.182,
+            "latencyMs": 1,
+            "qualityWeight": 0.2,
+            "trustWeight": 0.2,
+            "qualityScore": 0.5,
+            "trustScore": 0.5,
+            "latencyScore": 1,
+            "riskPenalty": 0,
+            "formulaVersion": "ma3c-wbft-v1",
+            "judgment": "ACCEPT",
+            "commitHash": "0x7a95cf37d4f92399223ca92452c0006ba6c3888ab0d5aa8a63ed7093f44bda42",
+            "reasonHash": "0x061fc340af1a236e4d07a52cb9b9a62817f073aeebead25696f0baa2bc6fd559",
+            "commitRevealValid": true
+          },
+          {
+            "agentId": "verifier-semantic-02",
+            "weight": 0.2,
+            "confidence": 0.95,
+            "effectiveWeight": 0.19,
+            "latencyMs": 4381,
+            "qualityWeight": 0.2,
+            "trustWeight": 0.2,
+            "qualityScore": 0.5,
+            "trustScore": 0.5,
+            "latencyScore": 1,
+            "riskPenalty": 0,
+            "formulaVersion": "ma3c-wbft-v1",
+            "judgment": "ACCEPT",
+            "commitHash": "0xdc96aa645e4230f266f9dbf298ddb1c96f3ccc40bd883ebc01400fb898632f09",
+            "reasonHash": "0x310296c50f74cd6e528b42f0095143068d3c0bc4ed69f9b71f0c6cb9e448b751",
+            "commitRevealValid": true
+          }
+        ],
+        "wbftModel": {
+          "formulaVersion": "ma3c-paper-v1",
+          "selectionFormula": "VRF(task_id, evidence_version) with reputation-proportional weighted sampling",
+          "reputationFormula": "rep_i = alpha * A_i + beta * B_i",
+          "weightFormula": "voteWeight_i = rep_i * confidence_i",
+          "qualityFormula": "A_i = Q_i / sum_j Q_j",
+          "trustFormula": "B_i = T_i / sum_j T_j",
+          "threshold": "acceptRatio >= 0.7"
+        },
+        "disagreements": [
+          {
+            "code": "TIMEOUT_BUT_LATE_SUCCESS_POSSIBLE",
+            "agents": [],
+            "message": "No relay receipts are available yet; newer evidence may change the verdict",
+            "severity": "LOW"
+          }
+        ],
+        "coordinatorSummary": {
+          "agentId": "coordinator-01",
+          "role": "COORDINATOR",
+          "taskId": "cc_task_query_demo_001",
+          "queryId": "query_demo_001",
+          "evidenceVersion": 1,
+          "generatedAt": "2026-05-31T05:09:31.668Z",
+          "organization": "org-coordinator",
+          "strategyType": "COORDINATOR",
+          "llmBackend": null,
+          "round": 1,
+          "status": "READY",
+          "summary": {
+            "approve": 5,
+            "reject": 0,
+            "question": 0
+          },
+          "disagreements": [],
+          "reasons": [
+            "initial round collected"
+          ]
+        },
+        "submitterPlan": {
+          "agentId": "submitter-01",
+          "role": "SUBMITTER",
+          "taskId": "cc_task_query_demo_001",
+          "queryId": "query_demo_001",
+          "evidenceVersion": 1,
+          "generatedAt": "2026-05-31T05:09:31.668Z",
+          "organization": "org-submitter",
+          "strategyType": "SUBMITTER",
+          "llmBackend": null,
+          "round": 1,
+          "status": "STANDBY",
+          "readyForSubmission": true,
+          "planId": "submitter_plan_query_demo_001_r1",
+          "recommendedRoute": "FABRIC_TO_FISCO",
+          "clarification": null,
+          "reasons": [
+            "submission can proceed after proposal finalization"
+          ]
+        },
+        "committee": {
+          "selected": [
+            {
+              "agentId": "verifier-proof-01",
+              "role": "VERIFIER",
+              "capabilities": [
+                "evidence_validation",
+                "query_proof_check",
+                "semantic_validation"
+              ],
+              "organization": "org-b",
+              "strategyType": "A_PROOF_VALIDATOR",
+              "llmBackend": null,
+              "focus": "proof",
+              "strictProof": true,
+              "enabled": true,
+              "kind": "remote",
+              "remote": true,
+              "endpoint": "http://127.0.0.1:19111",
+              "available": true,
+              "lastDescriptorAt": "2026-05-31T05:09:22.485Z",
+              "lastError": null
+            },
+            {
+              "agentId": "verifier-semantic-01",
+              "role": "VERIFIER",
+              "capabilities": [
+                "evidence_validation",
+                "query_proof_check",
+                "semantic_validation"
+              ],
+              "organization": "org-f",
+              "strategyType": "C_SEMANTIC_REASONER",
+              "llmBackend": "ollama",
+              "focus": "semantic",
+              "strictProof": false,
+              "enabled": true,
+              "kind": "remote",
+              "remote": true,
+              "endpoint": "http://127.0.0.1:19114",
+              "available": true,
+              "lastDescriptorAt": "2026-05-31T05:09:22.487Z",
+              "lastError": null
+            },
+            {
+              "agentId": "verifier-policy-01",
+              "role": "VERIFIER",
+              "capabilities": [
+                "evidence_validation",
+                "query_proof_check",
+                "semantic_validation"
+              ],
+              "organization": "org-c",
+              "strategyType": "B_POLICY_CHECKER",
+              "llmBackend": "ollama",
+              "focus": "balanced",
+              "strictProof": false,
+              "enabled": true,
+              "kind": "remote",
+              "remote": true,
+              "endpoint": "http://127.0.0.1:19113",
+              "available": true,
+              "lastDescriptorAt": "2026-05-31T05:09:22.484Z",
+              "lastError": null
+            },
+            {
+              "agentId": "verifier-proof-02",
+              "role": "VERIFIER",
+              "capabilities": [
+                "evidence_validation",
+                "query_proof_check",
+                "semantic_validation"
+              ],
+              "organization": "org-d",
+              "strategyType": "A_PROOF_VALIDATOR",
+              "llmBackend": null,
+              "focus": "proof",
+              "strictProof": true,
+              "enabled": true,
+              "kind": "remote",
+              "remote": true,
+              "endpoint": "http://127.0.0.1:19112",
+              "available": true,
+              "lastDescriptorAt": "2026-05-31T05:09:22.486Z",
+              "lastError": null
+            },
+            {
+              "agentId": "verifier-semantic-02",
+              "role": "VERIFIER",
+              "capabilities": [
+                "evidence_validation",
+                "query_proof_check",
+                "semantic_validation"
+              ],
+              "organization": "org-g",
+              "strategyType": "C_SEMANTIC_REASONER",
+              "llmBackend": "ollama",
+              "focus": "semantic",
+              "strictProof": false,
+              "enabled": true,
+              "kind": "remote",
+              "remote": true,
+              "endpoint": "http://127.0.0.1:19115",
+              "available": true,
+              "lastDescriptorAt": "2026-05-31T05:09:22.488Z",
+              "lastError": null
+            }
+          ],
+          "excluded": [],
+          "selectionSeed": "vrf_a9981a441e7eba4f8cf288f6",
+          "constraints": {
+            "organizationLimit": 1,
+            "requiredStrategies": [
+              "A_PROOF_VALIDATOR",
+              "C_SEMANTIC_REASONER",
+              "B_POLICY_CHECKER"
+            ],
+            "selectedOrganizations": [
+              "org-b",
+              "org-f",
+              "org-c",
+              "org-d",
+              "org-g"
+            ],
+            "selectedStrategies": [
+              "A_PROOF_VALIDATOR",
+              "C_SEMANTIC_REASONER",
+              "B_POLICY_CHECKER",
+              "A_PROOF_VALIDATOR",
+              "C_SEMANTIC_REASONER"
+            ],
+            "strategyHeterogeneous": true,
+            "organizationDiverse": true
+          }
+        },
+        "behaviorAnalysis": {
+          "reports": {
+            "verifier-policy-01": {
+              "agentId": "verifier-policy-01",
+              "role": "VERIFIER",
+              "focus": "balanced",
+              "organization": "org-c",
+              "strategyType": "B_POLICY_CHECKER",
+              "successRate": 0,
+              "avgLatencyMs": 0,
+              "faultCount": 0,
+              "collusionScore": 0,
+              "eclipseScore": 0,
+              "riskScore": 0.2,
+              "excluded": false,
+              "reasons": []
+            },
+            "verifier-proof-01": {
+              "agentId": "verifier-proof-01",
+              "role": "VERIFIER",
+              "focus": "proof",
+              "organization": "org-b",
+              "strategyType": "A_PROOF_VALIDATOR",
+              "successRate": 0,
+              "avgLatencyMs": 0,
+              "faultCount": 0,
+              "collusionScore": 0,
+              "eclipseScore": 0,
+              "riskScore": 0.2,
+              "excluded": false,
+              "reasons": []
+            },
+            "verifier-proof-02": {
+              "agentId": "verifier-proof-02",
+              "role": "VERIFIER",
+              "focus": "proof",
+              "organization": "org-d",
+              "strategyType": "A_PROOF_VALIDATOR",
+              "successRate": 0,
+              "avgLatencyMs": 0,
+              "faultCount": 0,
+              "collusionScore": 0,
+              "eclipseScore": 0,
+              "riskScore": 0.2,
+              "excluded": false,
+              "reasons": []
+            },
+            "verifier-semantic-01": {
+              "agentId": "verifier-semantic-01",
+              "role": "VERIFIER",
+              "focus": "semantic",
+              "organization": "org-f",
+              "strategyType": "C_SEMANTIC_REASONER",
+              "successRate": 0,
+              "avgLatencyMs": 0,
+              "faultCount": 0,
+              "collusionScore": 0,
+              "eclipseScore": 0,
+              "riskScore": 0.2,
+              "excluded": false,
+              "reasons": []
+            },
+            "verifier-semantic-02": {
+              "agentId": "verifier-semantic-02",
+              "role": "VERIFIER",
+              "focus": "semantic",
+              "organization": "org-g",
+              "strategyType": "C_SEMANTIC_REASONER",
+              "successRate": 0,
+              "avgLatencyMs": 0,
+              "faultCount": 0,
+              "collusionScore": 0,
+              "eclipseScore": 0,
+              "riskScore": 0.2,
+              "excluded": false,
+              "reasons": []
+            }
+          },
+          "hiddenCollusionAgents": [],
+          "eclipseRiskAgents": []
+        }
+      }
+    }
+  ]
+}

@@ -22,6 +22,16 @@ function orchardRecordKey(orchardBatchId) {
     return `orchard::${orchardBatchId}`;
 }
 
+function orchardRecordSort(left, right) {
+    const leftUpdatedAt = Number(left?.updatedAt || 0);
+    const rightUpdatedAt = Number(right?.updatedAt || 0);
+    if (leftUpdatedAt !== rightUpdatedAt) {
+        return rightUpdatedAt - leftUpdatedAt;
+    }
+
+    return String(right?.orchardBatchId || '').localeCompare(String(left?.orchardBatchId || ''));
+}
+
 function normalizeHex(v) {
     if (v === undefined || v === null) return '';
     const s = String(v).trim();
@@ -224,6 +234,38 @@ class Gateway extends Contract {
             return '';
         }
         return hashBytes.toString('utf8').trim();
+    }
+
+    /**
+     * Demo maintenance helper: clear LightClient-lite state for one remote chain.
+     * This is useful when the source chain is rebuilt and block heights restart.
+     */
+    async ResetLightClient(ctx, chainId) {
+        const id = String(chainId || '').trim();
+        if (!id) {
+            throw new Error('chainId is required');
+        }
+
+        const latestBytes = await ctx.stub.getState(lcLatestKey(id));
+        const latest = latestBytes && latestBytes.length > 0
+            ? parseInt(latestBytes.toString('utf8').trim(), 10)
+            : -1;
+
+        if (!Number.isNaN(latest) && latest >= 0) {
+            for (let blockNumber = 0; blockNumber <= latest; blockNumber += 1) {
+                await ctx.stub.deleteState(lcHashKey(id, blockNumber));
+                await ctx.stub.deleteState(lcParentKey(id, blockNumber));
+                await ctx.stub.deleteState(lcHeaderKey(id, blockNumber));
+            }
+        }
+
+        await ctx.stub.deleteState(lcLatestKey(id));
+
+        return JSON.stringify({
+            status: 'success',
+            chainId: id,
+            clearedUpTo: Number.isNaN(latest) ? -1 : latest
+        });
     }
 
     /**
@@ -430,30 +472,55 @@ class Gateway extends Contract {
         const pageSize = Number.isNaN(parsed) ? 20 : Math.max(1, Math.min(100, parsed));
         const pageBookmark = String(bookmark || '');
 
-        const { iterator, metadata } = await ctx.stub.getStateByRangeWithPagination(
-            'orchard::',
-            'orchard::\uffff',
-            pageSize,
-            pageBookmark
-        );
+        const iterator = await ctx.stub.getStateByRange('orchard::', 'orchard::\uffff');
 
         const items = [];
         let result = await iterator.next();
         while (!result.done) {
+            const key = result.value.key;
             const value = result.value.value.toString('utf8');
             try {
-                items.push(JSON.parse(value));
+                const record = JSON.parse(value);
+                items.push({
+                    ...record,
+                    _stateKey: key
+                });
             } catch (_error) {
-                items.push({ raw: value });
+                items.push({
+                    raw: value,
+                    _stateKey: key
+                });
             }
             result = await iterator.next();
         }
 
         await iterator.close();
+
+        items.sort(orchardRecordSort);
+
+        let startIndex = 0;
+        if (pageBookmark) {
+            const bookmarkIndex = items.findIndex((item) => item.orchardBatchId === pageBookmark || item._stateKey === pageBookmark);
+            if (bookmarkIndex >= 0) {
+                startIndex = bookmarkIndex + 1;
+            }
+        }
+
+        const pageItems = items
+            .slice(startIndex, startIndex + pageSize)
+            .map((item) => {
+                const { _stateKey, ...record } = item;
+                return record;
+            });
+        const hasMore = startIndex + pageSize < items.length;
+        const nextBookmark = hasMore
+            ? String(pageItems[pageItems.length - 1]?.orchardBatchId || '')
+            : '';
+
         return JSON.stringify({
-            items,
-            fetchedRecordsCount: Number(metadata?.fetchedRecordsCount || items.length),
-            bookmark: metadata?.bookmark || ''
+            items: pageItems,
+            fetchedRecordsCount: pageItems.length,
+            bookmark: nextBookmark
         });
     }
 

@@ -1,0 +1,1012 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_cryptoAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "organization",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "strategyType",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "registeredAt",
+        "type": "uint256"
+      }
+    ],
+    "name": "AgentRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum AgentRegistry.AgentStatus",
+        "name": "oldStatus",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum AgentRegistry.AgentStatus",
+        "name": "newStatus",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "changedAt",
+        "type": "uint256"
+      }
+    ],
+    "name": "AgentStatusChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string[]",
+        "name": "agentIds",
+        "type": "string[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "seed",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "selectedAt",
+        "type": "uint256"
+      }
+    ],
+    "name": "CommitteeSelected",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "int256",
+        "name": "delta",
+        "type": "int256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newReputation",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "updatedAt",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReputationUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "aligned",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "confidence",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "latencyMs",
+        "type": "uint256"
+      }
+    ],
+    "name": "TaskResultRecorded",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_REPUTATION",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_REPUTATION",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MIN_REPUTATION",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "REP_SCALE",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "int256",
+        "name": "delta",
+        "type": "int256"
+      },
+      {
+        "internalType": "string",
+        "name": "reason",
+        "type": "string"
+      }
+    ],
+    "name": "adjustReputation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "admin",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "agents",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "organization",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "strategyType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "endpoint",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "publicKey",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "reputation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "successCount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalTasks",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "registeredAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lastActiveAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentStatus",
+        "name": "status",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "agentIdList",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "agentsByRole",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string[]",
+        "name": "_agentIds",
+        "type": "string[]"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentRole[]",
+        "name": "_roles",
+        "type": "uint8[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "_organizations",
+        "type": "string[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "_strategyTypes",
+        "type": "string[]"
+      },
+      {
+        "internalType": "string[]",
+        "name": "_endpoints",
+        "type": "string[]"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "_publicKeys",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "batchRegisterAgents",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "internalType": "string[]",
+        "name": "agentIds",
+        "type": "string[]"
+      },
+      {
+        "internalType": "bool[]",
+        "name": "alignedResults",
+        "type": "bool[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "confidences",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "latencies",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "batchRecordTaskResults",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      }
+    ],
+    "name": "committeeTaskIds",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "committees",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "seed",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "selectedAt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "finalized",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cryptoAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      }
+    ],
+    "name": "finalizeCommittee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      }
+    ],
+    "name": "getActiveVerifiers",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      }
+    ],
+    "name": "getAgent",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "agentId",
+            "type": "string"
+          },
+          {
+            "internalType": "enum AgentRegistry.AgentRole",
+            "name": "role",
+            "type": "uint8"
+          },
+          {
+            "internalType": "string",
+            "name": "organization",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "strategyType",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "endpoint",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "publicKey",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "reputation",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "successCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalTasks",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "registeredAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "lastActiveAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "enum AgentRegistry.AgentStatus",
+            "name": "status",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct AgentRegistry.Agent",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAgentCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      }
+    ],
+    "name": "getAgentCountByRole",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      }
+    ],
+    "name": "getAgentReputation",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "reputation",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "successRate",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      }
+    ],
+    "name": "getAgentsByRole",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      }
+    ],
+    "name": "getCommittee",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "taskId",
+            "type": "string"
+          },
+          {
+            "internalType": "string[]",
+            "name": "selectedAgents",
+            "type": "string[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "seed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "selectedAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "finalized",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct AgentRegistry.CommitteeSelection",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "limit",
+        "type": "uint256"
+      }
+    ],
+    "name": "getReputationHistory",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "agentId",
+            "type": "string"
+          },
+          {
+            "internalType": "int256",
+            "name": "delta",
+            "type": "int256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "newReputation",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "reason",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "updatedAt",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct AgentRegistry.ReputationUpdate[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      }
+    ],
+    "name": "isAgentActive",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "organization",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "strategyType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "endpoint",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "publicKey",
+        "type": "bytes32"
+      }
+    ],
+    "name": "registerAgent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "bool",
+        "name": "aligned",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "reportedConfidence",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "latencyMs",
+        "type": "uint256"
+      }
+    ],
+    "name": "recordTaskResult",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "committeeSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "riskLevel",
+        "type": "string"
+      }
+    ],
+    "name": "selectCommittee",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "taskId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentRole",
+        "name": "role",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "committeeSize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "vrfProof",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "vrfPublicKey",
+        "type": "bytes"
+      }
+    ],
+    "name": "selectCommitteeVRF",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum AgentRegistry.AgentStatus",
+        "name": "newStatus",
+        "type": "uint8"
+      }
+    ],
+    "name": "setAgentStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "agentId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "newEndpoint",
+        "type": "string"
+      }
+    ],
+    "name": "setAgentEndpoint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

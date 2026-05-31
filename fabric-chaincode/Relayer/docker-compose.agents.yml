@@ -1,0 +1,143 @@
+name: crosschain-agents
+
+# Single-machine phase. Each verifier Agent runs as an independent container with its
+# own port, config, HMAC key and logs, exposing an HTTP API. The B/C agents call a LOCAL
+# Ollama LLM server running on the GPU host (RTX 3090 Ti).
+#
+# Networking note: this host's ufw blocks the docker-bridge -> host path and we lack root
+# to change it, so the LLM-backed agents use host networking to reach Ollama over loopback
+# (127.0.0.1:11434, which ufw permits). Host networking still gives per-container process,
+# port, key and log isolation; it only shares the host network namespace. This is also the
+# natural shape for phase 2, where each server runs its own local Ollama. The proof agents
+# are rule-based (no LLM) but are kept on host networking too for a uniform setup.
+#
+# Reach Ollama is configured via Relayer/.env: LLM_BASE_URL=http://127.0.0.1:11434
+
+services:
+  agent-verifier-proof-01:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: agent-verifier-proof-01
+    network_mode: "host"
+    environment:
+      AGENT_ID: verifier-proof-01
+      AGENT_ROLE: VERIFIER
+      AGENT_FOCUS: proof
+      AGENT_STRATEGY: A_PROOF_VALIDATOR
+      AGENT_ORG: org-b
+      AGENT_PORT: 19111
+      AGENT_STATE_DIR: /app/agent-state
+      AGENT_DIRECTORY_PATH: /app/agent-directory
+      # Byzantine-test hook: flip this agent malicious by setting the env, e.g.:
+      #   VERIFIER_PROOF_01_BEHAVIOR=always_reject docker compose up -d agent-verifier-proof-01
+      AGENT_BEHAVIOR: ${VERIFIER_PROOF_01_BEHAVIOR:-honest}
+    volumes:
+      - ../../.demo/agents/verifier-proof-01:/app/agent-state
+      - ../../.demo/agents/directory:/app/agent-directory:ro
+    restart: unless-stopped
+
+  agent-verifier-proof-02:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: agent-verifier-proof-02
+    network_mode: "host"
+    environment:
+      AGENT_ID: verifier-proof-02
+      AGENT_ROLE: VERIFIER
+      AGENT_FOCUS: proof
+      AGENT_STRATEGY: A_PROOF_VALIDATOR
+      AGENT_ORG: org-d
+      AGENT_PORT: 19112
+      AGENT_STATE_DIR: /app/agent-state
+      AGENT_DIRECTORY_PATH: /app/agent-directory
+      AGENT_BEHAVIOR: ${VERIFIER_PROOF_02_BEHAVIOR:-honest}
+    volumes:
+      - ../../.demo/agents/verifier-proof-02:/app/agent-state
+      - ../../.demo/agents/directory:/app/agent-directory:ro
+    restart: unless-stopped
+
+  agent-verifier-policy-01:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: agent-verifier-policy-01
+    network_mode: "host"
+    environment:
+      AGENT_ID: verifier-policy-01
+      AGENT_ROLE: VERIFIER
+      AGENT_FOCUS: balanced
+      AGENT_STRATEGY: B_POLICY_CHECKER
+      AGENT_ORG: org-c
+      AGENT_PORT: 19113
+      AGENT_STATE_DIR: /app/agent-state
+      AGENT_DIRECTORY_PATH: /app/agent-directory
+      AGENT_BEHAVIOR: ${VERIFIER_POLICY_01_BEHAVIOR:-honest}
+      AGENT_USE_LLM: "true"
+      AGENT_LLM_BACKEND: ${LLM_BACKEND:-mock}
+      AGENT_LLM_MODEL: ${LLM_MODEL_POLICY:-llama3.1:8b}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AGENT_LLM_BASE_URL: ${LLM_BASE_URL:-http://127.0.0.1:11434}
+      AGENT_LLM_TIMEOUT_MS: "120000"
+    volumes:
+      - ../../.demo/agents/verifier-policy-01:/app/agent-state
+      - ../../.demo/agents/directory:/app/agent-directory:ro
+    restart: unless-stopped
+
+  agent-verifier-semantic-01:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: agent-verifier-semantic-01
+    network_mode: "host"
+    environment:
+      AGENT_ID: verifier-semantic-01
+      AGENT_ROLE: VERIFIER
+      AGENT_FOCUS: semantic
+      AGENT_STRATEGY: C_SEMANTIC_REASONER
+      AGENT_ORG: org-f
+      AGENT_PORT: 19114
+      AGENT_STATE_DIR: /app/agent-state
+      AGENT_DIRECTORY_PATH: /app/agent-directory
+      AGENT_BEHAVIOR: ${VERIFIER_SEMANTIC_01_BEHAVIOR:-honest}
+      AGENT_USE_LLM: "true"
+      AGENT_LLM_BACKEND: ${LLM_BACKEND:-mock}
+      AGENT_LLM_MODEL: ${LLM_MODEL_SEMANTIC:-qwen2.5:14b}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AGENT_LLM_BASE_URL: ${LLM_BASE_URL:-http://127.0.0.1:11434}
+      AGENT_LLM_TIMEOUT_MS: "120000"
+    volumes:
+      - ../../.demo/agents/verifier-semantic-01:/app/agent-state
+      - ../../.demo/agents/directory:/app/agent-directory:ro
+    restart: unless-stopped
+
+  agent-verifier-semantic-02:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    container_name: agent-verifier-semantic-02
+    network_mode: "host"
+    environment:
+      AGENT_ID: verifier-semantic-02
+      AGENT_ROLE: VERIFIER
+      AGENT_FOCUS: semantic
+      AGENT_STRATEGY: C_SEMANTIC_REASONER
+      AGENT_ORG: org-g
+      AGENT_PORT: 19115
+      AGENT_STATE_DIR: /app/agent-state
+      AGENT_DIRECTORY_PATH: /app/agent-directory
+      AGENT_BEHAVIOR: ${VERIFIER_SEMANTIC_02_BEHAVIOR:-honest}
+      AGENT_USE_LLM: "true"
+      AGENT_LLM_BACKEND: ${LLM_BACKEND:-mock}
+      AGENT_LLM_MODEL: ${LLM_MODEL_SEMANTIC:-qwen2.5:14b}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      AGENT_LLM_BASE_URL: ${LLM_BASE_URL:-http://127.0.0.1:11434}
+      AGENT_LLM_TIMEOUT_MS: "120000"
+    volumes:
+      - ../../.demo/agents/verifier-semantic-02:/app/agent-state
+      - ../../.demo/agents/directory:/app/agent-directory:ro
+    restart: unless-stopped

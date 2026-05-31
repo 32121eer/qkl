@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+coverage
+.nyc_output
+.demo
+*.log
+config.json
+config.json.backup

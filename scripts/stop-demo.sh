@@ -26,9 +26,11 @@ fi
 
 API_PID=""
 UI_PID=""
+RPC_ADAPTER_PID=""
 # shellcheck disable=SC1090
 source "$PID_FILE" || true
 
+kill_if_alive "${RPC_ADAPTER_PID:-}" "fisco-rpc-compat"
 kill_if_alive "${API_PID:-}" "demo-api"
 kill_if_alive "${UI_PID:-}" "demo-ui"
 

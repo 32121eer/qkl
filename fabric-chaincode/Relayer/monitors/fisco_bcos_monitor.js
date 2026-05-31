@@ -312,7 +312,7 @@ class FiscoBcosMonitor extends EventEmitter {
             const extraData = '0x';
 
             // 3) 通过 console.sh 写入（避免 ethers.js 写入兼容性问题）
-            const defaultConsoleDir = path.resolve(__dirname, '..', '..', '..', 'fisco-bcos', 'console');
+            const defaultConsoleDir = path.resolve(__dirname, '..', '..', 'fisco-bcos', 'console');
             const consoleDir = process.env.FISCO_CONSOLE_DIR || this.config.consoleDir || defaultConsoleDir;
             const consoleBin = path.resolve(consoleDir, 'console.sh');
             const lightClientName =
@@ -362,7 +362,7 @@ class FiscoBcosMonitor extends EventEmitter {
         }
         
         try {
-            const defaultConsoleDir = path.resolve(__dirname, '..', '..', '..', 'fisco-bcos', 'console');
+            const defaultConsoleDir = path.resolve(__dirname, '..', '..', 'fisco-bcos', 'console');
             const consoleDir = process.env.FISCO_CONSOLE_DIR || this.config.consoleDir || defaultConsoleDir;
             const consoleBin = path.resolve(consoleDir, 'console.sh');
             const lightClientName =

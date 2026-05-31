@@ -1,5 +1,5 @@
 function attachProofCardRoutes(app, demo) {
-    app.get('/demo/app/proof-cards', (req, res) => {
+    app.get('/demo/app/proof-cards', async (req, res) => {
         const parsedLimit = demo.parseProofCardLimit(req.query.limit);
         if (parsedLimit.error) {
             return res.status(400).json({
@@ -7,16 +7,16 @@ function attachProofCardRoutes(app, demo) {
                 error: parsedLimit.error
             });
         }
-        const items = demo.buildProofCards(parsedLimit.value);
+        const items = await demo.buildProofCards(parsedLimit.value);
         return res.json({
             items,
             updatedAt: new Date().toISOString()
         });
     });
 
-    app.get('/demo/app/proof-cards/:cardId', (req, res) => {
+    app.get('/demo/app/proof-cards/:cardId', async (req, res) => {
         const cardId = String(req.params.cardId || '');
-        const cards = demo.buildProofCards(demo.PROOF_MAX_LIMIT || 100);
+        const cards = await demo.buildProofCards(demo.PROOF_MAX_LIMIT || 100);
         const item = cards.find((card) => card.cardId === cardId);
         if (!item) {
             return res.status(404).json({

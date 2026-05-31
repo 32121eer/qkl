@@ -9,6 +9,9 @@ RUN_DIR="$ROOT_DIR/.demo"
 PID_FILE="$RUN_DIR/demo.pids"
 API_LOG="$RUN_DIR/demo-api.log"
 UI_LOG="$RUN_DIR/demo-ui.log"
+RPC_ADAPTER_LOG="$RUN_DIR/fisco-rpc-compat.log"
+FABRIC_RUNTIME_HELPER="$ROOT_DIR/scripts/fabric-runtime.sh"
+FISCO_CONSOLE_DIR_DEFAULT="$ROOT_DIR/fabric-chaincode/fisco-bcos/console"
 
 API_HOST="${DEMO_API_HOST:-0.0.0.0}"
 API_PORT="${DEMO_API_PORT:-18080}"
@@ -18,6 +21,15 @@ UI_PORT="${DEMO_UI_PORT:-15173}"
 unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY
 
 mkdir -p "$RUN_DIR"
+
+if [[ -f "$FABRIC_RUNTIME_HELPER" ]]; then
+    # shellcheck disable=SC1090
+    source "$FABRIC_RUNTIME_HELPER"
+    FABRIC_SAMPLES_SOURCE_DIR="$(fabric_detect_source_samples_dir || true)"
+    if [[ -n "$FABRIC_SAMPLES_SOURCE_DIR" ]]; then
+        fabric_prepare_runtime "$ROOT_DIR" "$FABRIC_SAMPLES_SOURCE_DIR" || true
+    fi
+fi
 
 require_cmd() {
     if ! command -v "$1" >/dev/null 2>&1; then
@@ -52,9 +64,16 @@ stop_pid_gracefully() {
     echo "Stopped ${label} (pid=${pid})"
 }
 
+jsonrpc_post_ok() {
+    local url="$1"
+    local payload="$2"
+    curl -sS -m 2 -X POST -H 'content-type: application/json' --data "$payload" "$url" >/dev/null 2>&1
+}
+
 load_existing_pids() {
     API_PID=""
     UI_PID=""
+    RPC_ADAPTER_PID=""
     if [[ -f "$PID_FILE" ]]; then
         # shellcheck disable=SC1090
         source "$PID_FILE" || true
@@ -67,6 +86,7 @@ cleanup_existing_demo_processes() {
     # 1) stop processes recorded by previous run
     stop_pid_gracefully "${API_PID:-}" "demo-api"
     stop_pid_gracefully "${UI_PID:-}" "demo-ui"
+    stop_pid_gracefully "${RPC_ADAPTER_PID:-}" "fisco-rpc-compat"
 
     # 2) stop stale processes that may not be in pid file
     while IFS= read -r pid; do
@@ -87,7 +107,11 @@ cleanup_existing_demo_processes() {
             stop_pid_gracefully "$pid" "stale-demo-ui"
             continue
         fi
-    done < <(pgrep -f 'node index.js|vite|npm run dev' || true)
+        if [[ "$cmdline" == *"node "* ]] && [[ "$cmdline" == *"scripts/fisco-rpc-compat.js"* ]]; then
+            stop_pid_gracefully "$pid" "stale-fisco-rpc-compat"
+            continue
+        fi
+    done < <(pgrep -f 'node index.js|vite|npm run dev|scripts/fisco-rpc-compat.js' || true)
 
     rm -f "$PID_FILE"
 }
@@ -105,18 +129,60 @@ wait_http_ready() {
     return 1
 }
 
-check_fisco_rpc_ready() {
-    # FISCO JSON-RPC should be reachable for the relayer to start.
-    local payload='{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
-    if curl -sS -m 2 -X POST -H 'content-type: application/json' --data "$payload" \
-        "http://127.0.0.1:8545" >/dev/null 2>&1; then
+check_fisco_console_ready() {
+    local console_bin="${FISCO_CONSOLE_DIR:-$FISCO_CONSOLE_DIR_DEFAULT}/console.sh"
+    if [[ ! -x "$console_bin" ]]; then
+        echo "ERROR: FISCO console is missing: $console_bin"
+        exit 1
+    fi
+
+    if "$console_bin" getBlockNumber >/dev/null 2>&1; then
         return 0
     fi
 
-    echo "ERROR: FISCO RPC is not reachable at http://127.0.0.1:8545"
+    echo "ERROR: FISCO console cannot reach the rebuilt node set"
     echo "  Fix: start the base services first:"
     echo "    cd $ROOT_DIR"
     echo "    bash start-all.sh"
+    exit 1
+}
+
+start_fisco_rpc_adapter() {
+    if is_pid_alive "${RPC_ADAPTER_PID:-}"; then
+        return
+    fi
+
+    : > "$RPC_ADAPTER_LOG"
+    local old_pwd
+    old_pwd="$(pwd)"
+    cd "$ROOT_DIR"
+    nohup env FISCO_COMPAT_HOST="127.0.0.1" FISCO_COMPAT_PORT="8545" \
+        FISCO_CONSOLE_DIR="${FISCO_CONSOLE_DIR:-$FISCO_CONSOLE_DIR_DEFAULT}" \
+        node scripts/fisco-rpc-compat.js >> "$RPC_ADAPTER_LOG" 2>&1 &
+    RPC_ADAPTER_PID=$!
+    cd "$old_pwd"
+    echo "Started FISCO RPC compat pid=${RPC_ADAPTER_PID}"
+}
+
+check_fisco_rpc_ready() {
+    local payload='{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+    if jsonrpc_post_ok "http://127.0.0.1:8545" "$payload"; then
+        return 0
+    fi
+
+    check_fisco_console_ready
+    start_fisco_rpc_adapter
+
+    local deadline=$((SECONDS + 30))
+    while (( SECONDS <= deadline )); do
+        if jsonrpc_post_ok "http://127.0.0.1:8545" "$payload"; then
+            return 0
+        fi
+        sleep 1
+    done
+
+    echo "ERROR: FISCO RPC compat layer failed to start at http://127.0.0.1:8545"
+    tail -n 120 "$RPC_ADAPTER_LOG" || true
     exit 1
 }
 
@@ -148,6 +214,10 @@ start_api() {
     old_pwd="$(pwd)"
     cd "$RELAYER_DIR"
     nohup env DEMO_API_ENABLED=true DEMO_API_HOST="$API_HOST" DEMO_API_PORT="$API_PORT" \
+        FISCO_CONSOLE_DIR="${FISCO_CONSOLE_DIR:-$FISCO_CONSOLE_DIR_DEFAULT}" \
+        FABRIC_SAMPLES_DIR="${FABRIC_SAMPLES_DIR:-}" \
+        FABRIC_CRYPTO_PATH="${FABRIC_CRYPTO_PATH:-}" \
+        FABRIC_PEER_BIN="${FABRIC_PEER_BIN:-}" \
         node index.js ./config.json >> "$API_LOG" 2>&1 &
     API_PID=$!
     cd "$old_pwd"
@@ -172,6 +242,7 @@ start_ui() {
 
 save_pids() {
     cat > "$PID_FILE" <<EOF
+RPC_ADAPTER_PID=$RPC_ADAPTER_PID
 API_PID=$API_PID
 UI_PID=$UI_PID
 EOF
@@ -219,6 +290,7 @@ echo "========================================="
 echo "Demo services started"
 echo "API log: $API_LOG"
 echo "UI  log: $UI_LOG"
+echo "RPC log: $RPC_ADAPTER_LOG"
 echo "Windows URL (localhost): http://localhost:${UI_PORT}"
 echo "Windows URL (fallback):  http://${WSL_IP}:${UI_PORT}"
 echo "API URL:                 http://127.0.0.1:${API_PORT}"

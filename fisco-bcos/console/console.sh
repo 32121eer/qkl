@@ -4,6 +4,20 @@ dirpath="$(cd "$(dirname "$0")" && pwd)"
 cd $dirpath
 
 LANG=zh_CN.UTF-8
+if [[ -z "${FISCO_JAVA_USER_HOME:-}" ]]; then
+    export FISCO_JAVA_USER_HOME="/tmp/cross-chain-home"
+fi
+mkdir -p "${FISCO_JAVA_USER_HOME}"
+export HOME="${FISCO_JAVA_USER_HOME}"
+JAVA_TOOL_OPTIONS_VALUE="-Duser.home=${FISCO_JAVA_USER_HOME}"
+if [[ -n "${JAVA_TOOL_OPTIONS:-}" ]]; then
+    case " ${JAVA_TOOL_OPTIONS} " in
+        *" -Duser.home="*) ;;
+        *) export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS} ${JAVA_TOOL_OPTIONS_VALUE}" ;;
+    esac
+else
+    export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS_VALUE}"
+fi
 ##############################################################################
 ##
 ##  Console start up script for UN*X

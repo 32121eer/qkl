@@ -37,6 +37,60 @@ function formatQueryStatus(status) {
   return status || '-';
 }
 
+function formatQueryProofStatus(status) {
+  if (status === 'PASS') return 'PASS';
+  if (status === 'FAILED') return 'FAILED';
+  if (status === 'MISMATCH') return 'MISMATCH';
+  if (status === 'MISSING') return 'MISSING';
+  if (status === 'PENDING') return 'PENDING';
+  return status || 'MISSING';
+}
+
+function formatNegotiationStatus(status) {
+  const value = String(status || '').toUpperCase();
+  if (value === 'READY') return '协商完成';
+  if (value === 'REVIEW') return '待补证据';
+  if (value === 'REJECTED') return '协商拒绝';
+  if (value === 'FAILED') return '协商失败';
+  if (value === 'PENDING') return '待协商';
+  if (value === 'COLLECTING') return '收集中';
+  return status || '-';
+}
+
+function formatFinalDecision(decision) {
+  const value = String(decision || '').toUpperCase();
+  if (value === 'COMMIT') return '允许提交';
+  if (value === 'OBSERVE') return '仅观察';
+  if (value === 'REJECT') return '拒绝提交';
+  return decision || '-';
+}
+
+function getQueryProofTone(status) {
+  const value = String(status || '').toUpperCase();
+  if (value === 'PASS') return 'pass';
+  if (value === 'FAILED') return 'failed';
+  if (value === 'MISMATCH') return 'mismatch';
+  return 'pending';
+}
+
+function formatCheckState(value) {
+  if (value === true) return '通过';
+  if (value === false) return '失败';
+  return '待定';
+}
+
+function formatWeightValue(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return '-';
+  return num.toFixed(4);
+}
+
+function formatRiskValue(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return '-';
+  return num.toFixed(3);
+}
+
 function getSessionBadgeTone(session) {
   const verify = String(session?.verifyStatus || '').toUpperCase();
   if (verify === 'PASS') return 'pass';
@@ -186,6 +240,217 @@ function QueryStatusBar({ session, compact = false }) {
   );
 }
 
+function QueryProofPanel({ session, compact = false }) {
+  const queryObject = session?.queryObject || null;
+  const commitment = session?.resultCommitment || session?.queryCommitment || null;
+  const proofSummary = session?.queryProofSummary || null;
+  const proofStatus = formatQueryProofStatus(session?.queryVerifyStatus);
+  const proofTone = getQueryProofTone(session?.queryVerifyStatus);
+  const checks = session?.queryVerifyChecks || {};
+
+  if (!queryObject && !commitment && !proofSummary && !session?.queryVerifyStatus) {
+    return <p className="muted">当前会话尚无 query-proof 摘要</p>;
+  }
+
+  return (
+    <div className={`proof-query-card ${compact ? 'proof-query-compact' : ''}`}>
+      <div className="proof-query-header">
+        <div>
+          <strong>VerifyQuery</strong>
+          <span className="proof-query-version">{session?.queryProofVersion || proofSummary?.version || 'query-proof-v1'}</span>
+        </div>
+        <span className={`proof-badge status-${proofTone}`}>{proofStatus}</span>
+      </div>
+
+      <div className="proof-query-grid">
+        <div className="proof-query-cell">
+          <span className="muted">查询对象 Q</span>
+          <strong>{queryObject?.key || '-'}</strong>
+          <span>{queryObject?.chainId || '-'} / {queryObject?.namespace || '-'}</span>
+          <span>{queryObject?.context?.chaincode || '-'} / {queryObject?.context?.schema || '-'}</span>
+        </div>
+        <div className="proof-query-cell">
+          <span className="muted">结果承诺 C_Q</span>
+          <strong>{shorten(commitment?.value || proofSummary?.commitment)}</strong>
+          <span>高度: {proofSummary?.sourceHeight ?? commitment?.sourceHeight ?? '-'}</span>
+          <span>头摘要: {shorten(proofSummary?.sourceHeaderHash || commitment?.sourceHeaderHash)}</span>
+        </div>
+        <div className="proof-query-cell">
+          <span className="muted">证明包 Π_Q</span>
+          <strong>{proofSummary?.witnessType || '-'}</strong>
+          <span>{proofSummary?.sourceFunction || '-'}</span>
+          <span>{proofSummary?.witnessNote || 'prototype witness'}</span>
+        </div>
+      </div>
+
+      <div className="muted">VerifyQuery 时间: {session?.queryVerifiedAt || session?.queryVerifyResult?.verifiedAt || '-'}</div>
+
+      <div className="proof-check-list">
+        <div className={`proof-check ${checks.queryObjectMatched === true ? 'is-ok' : checks.queryObjectMatched === false ? 'is-bad' : ''}`}>
+          查询对象: {formatCheckState(checks.queryObjectMatched)}
+        </div>
+        <div className={`proof-check ${checks.headerMatched === true ? 'is-ok' : checks.headerMatched === false ? 'is-bad' : ''}`}>
+          Header Hash: {formatCheckState(checks.headerMatched)}
+        </div>
+        <div className={`proof-check ${checks.stateWitnessMatched === true ? 'is-ok' : checks.stateWitnessMatched === false ? 'is-bad' : ''}`}>
+          Witness: {formatCheckState(checks.stateWitnessMatched)}
+        </div>
+        <div className={`proof-check ${checks.commitmentMatched === true ? 'is-ok' : checks.commitmentMatched === false ? 'is-bad' : ''}`}>
+          Commitment: {formatCheckState(checks.commitmentMatched)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NegotiationPanel({ session, compact = false }) {
+  const summary = session?.negotiationSummary || null;
+  if (!summary) {
+    return <p className="muted">当前会话尚无协商摘要</p>;
+  }
+
+  const quorum = summary.quorum || {};
+  const disagreements = Array.isArray(summary.disagreements) ? summary.disagreements : [];
+  const weightVector = Array.isArray(summary.weightVector) ? summary.weightVector : [];
+  const selectedCommittee = Array.isArray(summary.selectedCommittee) ? summary.selectedCommittee : [];
+  const excludedAgents = Array.isArray(summary.excludedAgents) ? summary.excludedAgents : [];
+  const requestedEvidence = Array.isArray(summary.requestedEvidence) ? summary.requestedEvidence : [];
+  const hiddenCollusionAgents = Array.isArray(summary.behaviorSummary?.hiddenCollusionAgents)
+    ? summary.behaviorSummary.hiddenCollusionAgents
+    : [];
+  const eclipseRiskAgents = Array.isArray(summary.behaviorSummary?.eclipseRiskAgents)
+    ? summary.behaviorSummary.eclipseRiskAgents
+    : [];
+  const behaviorReports = summary?.behaviorSummary?.reports
+    ? Object.values(summary.behaviorSummary.reports)
+        .sort((left, right) => (right?.riskScore || 0) - (left?.riskScore || 0))
+        .slice(0, 4)
+    : [];
+  const arbitration = summary?.arbitrationDecision || null;
+  const settlement = summary?.settlementResult || null;
+  const proof = summary?.negotiationProof || null;
+  const settlementAllocations = Array.isArray(settlement?.allocations) ? settlement.allocations : [];
+  const proofChecks = summary?.negotiationVerifyResult?.checks || {};
+  const consensusRule = summary?.consensusRule || {};
+
+  return (
+    <div className={`proof-query-card ${compact ? 'proof-query-compact' : ''}`}>
+      <div className="proof-query-header">
+        <div>
+          <strong>Negotiation</strong>
+          <span className="proof-query-version">round {summary.round || 0}</span>
+        </div>
+        <span className="proof-badge status-pending">{formatNegotiationStatus(summary.status)}</span>
+      </div>
+
+      <div className="proof-query-grid">
+        <div className="proof-query-cell">
+          <span className="muted">最终提案</span>
+          <strong>{summary.proposalId || '-'}</strong>
+          <span>决策: {formatFinalDecision(summary.finalDecision)}</span>
+          <span>风险: {summary.risk || '-'}</span>
+        </div>
+        <div className="proof-query-cell">
+          <span className="muted">置信度加权共识</span>
+          <strong>{formatRiskValue(quorum.acceptRatio)} / θ {formatRiskValue(consensusRule.threshold ?? quorum.thresholdRatio)}</strong>
+          <span>Reveal: {quorum.validRevealCount ?? 0} / {quorum.required ?? 0}</span>
+          <span>Reject ratio: {formatRiskValue(quorum.rejectRatio)}</span>
+        </div>
+        <div className="proof-query-cell">
+          <span className="muted">Agent 摘要</span>
+          <strong>Approve: {(summary.supportingAgents || []).length}</strong>
+          <span>Question: {(summary.questioningAgents || []).length}</span>
+          <span>分歧数: {summary.disagreementCount ?? disagreements.length}</span>
+        </div>
+      </div>
+
+      <div className="proof-detail-stack">
+        <div className="proof-mini-list">
+          <strong>委员会与权重</strong>
+          <div>委员会规模: {selectedCommittee.length || 0}</div>
+          <div className="proof-inline-list">
+            {selectedCommittee.length ? selectedCommittee.map((item) => (
+              <span key={item.agentId || item} className="proof-chip">
+                {item.agentId || item}
+              </span>
+            )) : <span className="muted">未记录</span>}
+          </div>
+          <div className="proof-inline-list">
+            {weightVector.length ? weightVector.map((item) => (
+              <span key={item.agentId} className="proof-chip">
+                {item.agentId}:{formatWeightValue(item.effectiveWeight ?? item.weight)}
+              </span>
+            )) : <span className="muted">暂无权重向量</span>}
+          </div>
+          <div className="muted">Commit-Reveal: {weightVector.filter((item) => item.commitRevealValid).length} / {weightVector.length}</div>
+        </div>
+
+        <div className="proof-mini-list">
+          <strong>风险与威胁模型</strong>
+          <div>隐性合谋: {hiddenCollusionAgents.length ? hiddenCollusionAgents.join(', ') : '未发现'}</div>
+          <div>日蚀风险: {eclipseRiskAgents.length ? eclipseRiskAgents.join(', ') : '未发现'}</div>
+          <div className="proof-inline-list">
+            {excludedAgents.length ? excludedAgents.map((item) => (
+              <span key={item.agentId} className="proof-chip is-risk">
+                {item.agentId} / risk {formatRiskValue(item.risk)}
+              </span>
+            )) : <span className="muted">无排除节点</span>}
+          </div>
+          {behaviorReports.length ? behaviorReports.map((item) => (
+            <div key={item.agentId}>
+              {item.agentId}: risk {formatRiskValue(item.riskScore)} / success {formatRiskValue(item.successRate)}
+            </div>
+          )) : null}
+        </div>
+
+        <div className="proof-mini-list">
+          <strong>仲裁、证明与结算</strong>
+          <div>仲裁结论: {formatFinalDecision(arbitration?.finalDecision)}</div>
+          <div>仲裁原因: {Array.isArray(arbitration?.reasons) && arbitration.reasons.length ? arbitration.reasons.join('; ') : '无'}</div>
+          <div>Proof Digest: {shorten(proof?.digest)}</div>
+          <div>结算池: {settlement?.feePool ?? '-'} / Slash: {settlement?.slashPenalty ?? '-'}</div>
+          <div className="proof-inline-list">
+            {settlementAllocations.length ? settlementAllocations.map((item) => (
+              <span key={item.agentId} className="proof-chip">
+                {item.agentId}: +{item.reward ?? 0} / -{item.slash ?? 0}
+              </span>
+            )) : <span className="muted">暂无结算分配</span>}
+          </div>
+        </div>
+      </div>
+
+      {disagreements.length ? (
+        <div className="proof-check-list">
+          {disagreements.map((item, index) => (
+            <div key={`${item.code}_${index}`} className="proof-check">
+              {item.code}: {item.message}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="muted">当前无结构化分歧</div>
+      )}
+
+      {(requestedEvidence.length || proof || settlement || arbitration) ? (
+        <div className="proof-check-list">
+          <div className={`proof-check ${proofChecks.digestMatched === true ? 'is-ok' : proofChecks.digestMatched === false ? 'is-bad' : ''}`}>
+            Proof Digest: {formatCheckState(proofChecks.digestMatched)}
+          </div>
+          <div className={`proof-check ${proofChecks.responsePayloadHashMatched === true ? 'is-ok' : proofChecks.responsePayloadHashMatched === false ? 'is-bad' : ''}`}>
+            Payload Hash: {formatCheckState(proofChecks.responsePayloadHashMatched)}
+          </div>
+          <div className={`proof-check ${summary?.negotiationVerifyResult?.ok === true ? 'is-ok' : summary?.negotiationVerifyResult?.ok === false ? 'is-bad' : ''}`}>
+            协商证明: {formatCheckState(summary?.negotiationVerifyResult?.ok)}
+          </div>
+          <div className={`proof-check ${requestedEvidence.length ? '' : 'is-ok'}`}>
+            补证请求: {requestedEvidence.length ? requestedEvidence.length : 0}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 function parseJson(text) {
   try {
     return { value: JSON.parse(text), error: null };
@@ -269,6 +534,7 @@ export default function AppQueryPage() {
   const [queryLoading, setQueryLoading] = useState(false);
   const [upsertLoading, setUpsertLoading] = useState(false);
   const [error, setError] = useState('');
+  const [orchardError, setOrchardError] = useState('');
   const [queryError, setQueryError] = useState('');
   const [importError, setImportError] = useState('');
   const [info, setInfo] = useState('');
@@ -293,6 +559,7 @@ export default function AppQueryPage() {
   const selectedImportedRecord = importedRecords[selectedImportIndex] || null;
   const selectedSession = sessions.find((item) => item.queryId === selectedSessionId) || sessions[0] || null;
   const selectedSessionBadgeText = getSessionBadgeText(selectedSession);
+  const selectedProofStatusText = formatQueryProofStatus(selectedSession?.queryVerifyStatus);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.batchId, batchId);
@@ -322,16 +589,24 @@ export default function AppQueryPage() {
     ]);
 
     if (!statusResp.ok) throw new Error(`status request failed: ${statusResp.status}`);
-    if (!orchardResp.ok) throw new Error(`orchard request failed: ${orchardResp.status}`);
     if (!sessionsResp.ok) throw new Error(`query sessions request failed: ${sessionsResp.status}`);
 
     const statusData = await statusResp.json();
-    const orchardData = await orchardResp.json();
     const sessionsData = await sessionsResp.json();
     const sessionItems = Array.isArray(sessionsData.items) ? sessionsData.items : [];
+    let orchardItemsNext = [];
+    let orchardErrorNext = '';
+
+    if (orchardResp.ok) {
+      const orchardData = await orchardResp.json();
+      orchardItemsNext = Array.isArray(orchardData.items) ? orchardData.items : [];
+    } else {
+      orchardErrorNext = `orchard request failed: ${orchardResp.status}`;
+    }
 
     setStatus(statusData);
-    setOrchardItems(Array.isArray(orchardData.items) ? orchardData.items : []);
+    setOrchardItems(orchardItemsNext);
+    setOrchardError(orchardErrorNext);
     setSessions(sessionItems);
     setSelectedSessionId((prev) => {
       if (!sessionItems.length) return '';
@@ -521,6 +796,7 @@ export default function AppQueryPage() {
               刷新
             </button>
           </div>
+          {orchardError ? <p className="error">{orchardError}</p> : null}
 
           <h3>最近写入记录（A链可见）</h3>
           <div className="query-table">
@@ -571,12 +847,18 @@ export default function AppQueryPage() {
               <strong>查询结果:</strong>{' '}
               {selectedSession?.resultFound === null ? '-' : selectedSession?.resultFound ? '已找到' : '未找到'}
             </div>
-            <div><strong>校验/判定:</strong> {selectedSessionBadgeText}</div>
+            <div><strong>链路判定:</strong> {selectedSessionBadgeText}</div>
+            <div><strong>Proof 校验:</strong> {selectedProofStatusText}</div>
             <div><strong>执行进度:</strong> <QueryStatusBar session={selectedSession} /></div>
             <div><strong>阶段耗时:</strong> {buildStageElapsedSummary(selectedSession)}</div>
             <div><strong>请求交易:</strong> {shorten(selectedSession?.requestTxHash)}</div>
             <div><strong>响应交易:</strong> {shorten(selectedSession?.responseTargetTxHash)}</div>
+            <div><strong>协商状态:</strong> {formatNegotiationStatus(selectedSession?.negotiationSummary?.status)}</div>
+            <div><strong>提案结论:</strong> {formatFinalDecision(selectedSession?.negotiationSummary?.finalDecision)}</div>
           </div>
+
+          <NegotiationPanel session={selectedSession} />
+          <QueryProofPanel session={selectedSession} />
 
           {selectedSession?.resultPayload ? (
             <pre className="result">{JSON.stringify(selectedSession.resultPayload, null, 2)}</pre>
@@ -634,6 +916,8 @@ export default function AppQueryPage() {
                 {item.resultPayload ? (
                   <pre className="result">{JSON.stringify(item.resultPayload, null, 2)}</pre>
                 ) : null}
+                <NegotiationPanel session={item} compact />
+                <QueryProofPanel session={item} compact />
                 {Array.isArray(item.steps) && item.steps.length ? (
                   <div className="timeline">
                     {item.steps.map((step, index) => (

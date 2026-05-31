@@ -2159,7 +2159,7 @@ deploy_nodes()
             node_dir="${output_dir}/${ip}/node${node_count}"
             local p2p_port=$((p2p_listen_port + node_count))
             local rpc_port=$((rpc_listen_port + node_count))
-            generate_config "${sm_mode}" "${node_dir}/config.ini" "${default_listen_ip}" "${p2p_port}" "${default_listen_ip}" "${rpc_port}"
+            generate_config "${sm_mode}" "${node_dir}/config.ini" "${default_listen_ip}" "${p2p_port}" "${default_listen_ip}" "${rpc_port}" "true"
             generate_p2p_connected_conf "${node_dir}/${p2p_connected_conf_name}" "${connected_nodes}" "false"
             if [ ! -z "${node_key_dir}" ]; then
                 # generate nodeids from file

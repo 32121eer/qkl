@@ -7,8 +7,14 @@ const grpc = require('@grpc/grpc-js');
 const { exec } = require('child_process');
 const util = require('util');
 const protos = require('fabric-protos');
+const { resolveFabricCryptoPath } = require('../fabric_path_resolver');
 
 const execAsync = util.promisify(exec);
+
+function buildFabricTlsVerifyOptions() {
+    const insecure = String(process.env.FABRIC_TLS_INSECURE || '1') !== '0';
+    return insecure ? { rejectUnauthorized: false } : {};
+}
 
 class FabricMonitor extends EventEmitter {
     constructor(config) {
@@ -26,7 +32,12 @@ class FabricMonitor extends EventEmitter {
         const conn = this.config.connection;
         
         // 根据 cryptoPath 生成证书路径（使用 Admin 用户）
-        const cryptoPath = path.resolve(conn.cryptoPath);
+        const cryptoPath = resolveFabricCryptoPath(conn.cryptoPath);
+        if (!cryptoPath) {
+            throw new Error(
+                'Fabric cryptoPath not found. Set FABRIC_CRYPTO_PATH or FABRIC_SAMPLES_DIR to a valid fabric-samples installation.'
+            );
+        }
         const userPath = path.join(cryptoPath, 'users', 'Admin@org1.example.com', 'msp');
         
         // 读取证书文件（第一个 .pem 文件）
@@ -41,7 +52,12 @@ class FabricMonitor extends EventEmitter {
         
         const tlsCertPath = path.join(cryptoPath, 'peers', conn.peerHostAlias, 'tls', 'ca.crt');
 
-        const credentials = grpc.credentials.createSsl(fs.readFileSync(tlsCertPath));
+        const credentials = grpc.credentials.createSsl(
+            fs.readFileSync(tlsCertPath),
+            null,
+            null,
+            buildFabricTlsVerifyOptions()
+        );
         const client = new grpc.Client(conn.peerEndpoint, credentials, {
             'grpc.ssl_target_name_override': conn.peerHostAlias,
             'grpc.default_authority': conn.peerHostAlias,
@@ -211,7 +227,12 @@ class FabricMonitor extends EventEmitter {
         try {
             const channelName = conn.channelName;
             const peerAddress = conn.peerEndpoint;
-            const cryptoPath = path.resolve(conn.cryptoPath);
+            const cryptoPath = resolveFabricCryptoPath(conn.cryptoPath);
+            if (!cryptoPath) {
+                throw new Error(
+                    'Fabric cryptoPath not found. Set FABRIC_CRYPTO_PATH or FABRIC_SAMPLES_DIR to a valid fabric-samples installation.'
+                );
+            }
             const tlsCertPath = path.join(cryptoPath, 'peers', conn.peerHostAlias, 'tls', 'ca.crt');
 
             const fabricSamplesPeerBin = process.env.FABRIC_PEER_BIN

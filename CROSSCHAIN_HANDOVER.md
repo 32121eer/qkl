@@ -161,7 +161,7 @@ if (typeof block.header.number === 'object' && block.header.number.toNumber) {
 const { execFile } = require('child_process');
 await execFile('./console.sh', [
     'call', 'GatewayAir', gatewayAddress, 'receiveLite',
-    sourceChain, blockNumber.toString(), txId, blockHeaderHex
+    sourceChain, blockNumber.toString(), txId, blockHeaderHex, payloadHash, proofDigest
 ]);
 ```
 
@@ -409,6 +409,13 @@ bash ./start-all.sh
 1. **修改合约后重新部署**:
 ```bash
 bash ./bootstrap.sh --redeploy-fisco --receive-method receiveLite
+```
+
+仅升级 `GatewayAir`:
+```bash
+bash ./bootstrap.sh --upgrade-fisco-gateway --receive-method receiveLite
+# 或
+bash ./scripts/upgrade-fisco-gateway.sh
 ```
 
 2. **查看 FISCO 合约调用详情**:

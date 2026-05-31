@@ -1,0 +1,1062 @@
+                                                                                                                                                                                     1
+
+
+
+
+                                           A Weighted Byzantine Fault Tolerance Consensus
+                                           Driven Trusted Multiple Large Language Models
+                                                              Network
+                                                         Haoxiang Luo, Gang Sun, Senior Member, IEEE, Yinqiu Liu, Dongcheng Zhao,
+                                              Dusit Niyato, Fellow, IEEE, Hongfang Yu, Senior Member, IEEE, Schahram Dustdar, Fellow, IEEE
+arXiv:2505.05103v1 [cs.CR] 8 May 2025
+
+
+
+
+                                           Abstract—Large Language Models (LLMs) have achieved                      widely adopted in all aspects of society, such as education,
+                                        remarkable success across a wide range of applications. However,            healthcare, and information technology [3], [4], [5].
+                                        individual LLMs often produce inconsistent, biased, or halluci-                With the deepening of LLM applications, a large number
+                                        nated outputs due to limitations in their training corpora and
+                                        model architectures. Recently, collaborative frameworks such as             of LLMs developed by different commercial, academic, or
+                                        the Multi-LLM Network (MultiLLMN) have been introduced,                     educational organizations have emerged. However, considering
+                                        enabling multiple LLMs to interact and jointly respond to user              the diverse learning corpus, model architectures, and training
+                                        queries. Nevertheless, MultiLLMN architectures raise critical               goals, the answers of different LLMs to the same query will
+                                        concerns regarding the reliability and security of the generated            naturally differ [6], [7]. Additionally, a single LLM is difficult
+                                        content, particularly in open environments where malicious or
+                                        compromised LLMs may be present. Moreover, reliance on                      to adapt to various application scenarios with heterogeneous
+                                        centralized coordination undermines system efficiency and intro-            contexts and requirements [8], [9]. Some LLMs even suffer
+                                        duces single points of failure. In this paper, we propose a novel           from limitations and obsolescence in the training data, result-
+                                        Trusted MultiLLMN framework, driven by a Weighted Byzantine                 ing in biased content generation and the ability to produce
+                                        Fault Tolerance (WBFT) blockchain consensus mechanism, to                   low-confidence outputs or hallucinations [10], [11], [12]. To
+                                        ensure the reliability, security, and efficiency of multi-LLM
+                                        collaboration. In WBFT, voting weights are adaptively assigned              address such challenges, the collaboration of multiple LLMs is
+                                        to each LLM based on its response quality and trustworthiness,              on the agenda. For instance, Wang et al. [13] leveraged GPT-
+                                        incentivizing reliable behavior, and reducing the impact of                 3, GPT-4o, Llama3-8B, Llama3-Chinese, Doubao, SparkDesk,
+                                        malicious nodes. Extensive simulations demonstrate that WBFT                Qwen, and Kimi to jointly provide care programs for the el-
+                                        significantly improves both consensus security and efficiency               derly. To accelerate collaboration and communication between
+                                        compared to classical and modern consensus mechanisms, par-
+                                        ticularly under wireless network conditions. Furthermore, our               multiple LLMs, Marro et al. [14] designed and developed a
+                                        evaluations reveal that Trusted MultiLLMN supported by WBFT                 versatile, efficient, and portable communication protocol for
+                                        can deliver higher-quality and more credible responses than both            them. This kind of collaborative LLM network is named as
+                                        single LLMs and conventional MultiLLMNs, thereby providing                  Multi-LLMs Network (MultiLLMN).
+                                        a promising path toward building robust, decentralized AI
+                                        collaboration networks.
+                                           Index Terms—Large language model (LLM), LLM networks,                    A. Research Motivations
+                                        blockchain consensus, trusted LLM, wireless large AI model.                    Despite realizing inter-LLM collaborations, MultiLLMN
+                                                                                                                    causes several security concerns. First, any User Equipment
+                                                                 I. I NTRODUCTION                                   (UE) can access historical queries and answers. Consequently,
+                                                                                                                    privacy disclosure [15] and security attacks can frequently
+
+                                        L    ARGE language models (LLMs) have become a cor-
+                                             nerstone of AI, showing great capabilities in natural
+                                        language understanding and generation [1], [2]. These LLMs,
+                                                                                                                    occur, especially in applications with private data such as
+                                                                                                                    medical and health information. In addition, malicious LLMs
+                                                                                                                    in MultiLLMN, such as WormGPT [16], can not only mislead
+                                        represented by ChatGPT, Deepseek, and Claude, have been                     UEs, but also escalate cybersecurity threats. Even ostensibly
+                                                                                                                    honest LLMs may run on compromised devices, resulting
+                                          This work was supported by the Major Key Project of PCL under Grant
+                                        PCL2024A05.                                                                 in tampered or dishonest responses. Furthermore, in the
+                                          H. Luo, G. Sun, and H. Yu are with the School of Information and Com-     MultiLLMN architecture, we typically need to employ an
+                                        munication Engineering, University of Electronic Science and Technology     authoritative third party to determine the most reliable answer
+                                        of China, Chengdu 611731, China (e-mail: lhx991115@163.com; {gangsun,
+                                        yuhf} @uestc.edu.cn).                                                       from the responses of multiple LLMs. The introduction of
+                                          Y. Liu and D. Niyato are with the College of Computing and Data           centralized authorities undermines the response efficiency of
+                                        Science, Nanyang Technological University, Singapore 639798 (e-mail: yin-   MultiLLMN and can cause single-point failures, hindering
+                                        qiu001@e.ntu.edu.sg; dniyato@ntu.edu.sg).
+                                          D. Zhao is with the Pengcheng Laboratory, Shenzhen 518055, China (e-      the deployment of MultiLLMN in latency-sensitive scenarios,
+                                        mail:zhaodc11@gmail.com).                                                   such as autonomous driving. These concerns pose a significant
+                                          S. Dustdar is with the Distributed Systems Group, TU Wien, Vienna 1040,   challenge to the efficient collaboration of MultiLLMN and
+                                        Austria, and also with the ICREA, Universitat Pompeu Fabra, Barcelona
+                                        08002, Spain (e-mail: dustdar@dsg.tuwien.ac.at).                            prevent UE from obtaining credible answers. Consequently,
+                                          The corresponding author: Gang Sun.                                       we present the following research questions.
+                                                                                                                                  2
+
+
+
+  •  Q1: How can users ensure that they receive the best and            weighting strategy improves the reliability and robustness
+     trusted response from MultiLLMN in an open network                 of the consensus process.
+     environment and with potentially malicious LLMs?                 • Through extensive simulations, we demonstrate that
+   • Q2: How can MultiLLMN eliminate single points of                   WBFT outperforms traditional consensus mechanisms
+     failure and achieve efficient response aggregation through         in both security and efficiency. Furthermore, Trusted
+     multi-LLM collaboration?                                           MultiLLMN generates responses of higher quality and
+   To answer these questions, we leverage blockchain to ensure          credibility compared to those from a single LLM or a
+the reliability and security of information transmission in Mul-        MultiLLMN without consensus participation.
+tiLLMNs. Specifically, blockchain consensus mechanisms en-
+able each LLM to make decisions independently of third-party        C. Structure of This Paper
+authorities through a decentralized voting process [17], [18].
+                                                                       The remainder of this paper is organized as follows. Sec-
+Existing research on blockchain-enabled LLMs has focused
+                                                                    tion II reviews the related work. Section III describes how
+mainly on distributed training processes and the traceability
+                                                                    blockchain drives Trusted MultiLLMN to work. Then, we
+of generated content, such as [19], [20], and [21]. However,
+                                                                    present the workflow of Trusted MultiLLMN enabled by
+the design of a consensus-driven MultiLLMN remains largely
+                                                                    blockchain in Section III. In Section IV, we demonstrate
+unexplored. Most of the existing consensus, such as Practical
+                                                                    the design of WBFT. Then, we analyze the security and
+Byzantine Fault Tolerance (PBFT) [22] and HotStuff [23],
+                                                                    complexity of WBFT in Section V. Furthermore, we conduct
+assign uniform trust values and equal voting weights to partici-
+                                                                    extensive performance simulations of this framework in VI,
+pants. We notice that this assumption deviates from real-world
+                                                                    which have validated its effectiveness and superiority in serv-
+scenarios, where LLMs vary significantly in their response
+                                                                    ing UE. Finally, we summarize this work in VII.
+quality, generation capabilities, and susceptibility to malicious
+behavior. Consequently, applying equal voting rights across all
+LLMs often undermines the ability of MultiLLMN to produce                               II. R ELATED W ORKS
+the highest-quality and most trustworthy responses for UEs.            In this section, we investigate the relevant work on inter-
+Hence, the following research question is raised.                   LLM collaboration and blockchain-enabled LLMs. Particu-
+   • Q3: How to assign a fair and reasonable consensus voting       larly, we compare existing research with our proposal in
+     weight to each LLM by evaluating its trustworthiness and       TABLE I to illustrate our contributions.
+     generation ability comprehensively, to assist MultiLLMN
+     to generate the best quality response?                         A. Collaboration among Multiple LLMs
+   As a result, it is necessary to design a Weighted Byzantine         A single LLM often struggles to comprehensively address
+Fault Tolerance (WBFT) consensus for MultiLLMNs to reduce           real-world requirements, suffering from issues such as biased
+the voting weight of LLMs with poor response quality, weak          outputs, low-confidence generations, and hallucinations due to
+generation ability, and possibly malicious behavior, to obtain      limitations in its training data. To overcome these inherent
+LLM answers more accurately.                                        weaknesses, the inter-LLM collaboration has emerged as a
+                                                                    promising direction and attracted great research attention.
+B. Our Contributions                                                   For instance, Feng et al. [11] designed a collaboration
+                                                                    framework involving three LLMs to mitigate the knowledge
+  To the best of our knowledge, this is the first work to           gaps of a single LLM caused by outdated or insufficient train-
+present a blockchain consensus for MultiLLMNs. Specifically,        ing data. Their framework achieved a 19.3% performance im-
+the contributions of this paper can be summarized as follows:       provement across four tasks in different domains. Similarly, in
+  • To avoid the limitations of a single LLM, we propose the        [24], the authors argued that a single LLM cannot adequately
+     innovative concept of MultiLLMN. Through inter-LLM             represent the real-world data distribution or the diversity of
+     collaborations, MultiLLMN mitigates biased responses           human perspectives, and that this limitation cannot be resolved
+     and hallucinations arising from the deficiencies of indi-      merely by training more powerful models. Therefore, they
+     vidual models.                                                 proposed a hierarchical multi-LLM collaboration structure
+  • To prevent malicious LLM behaviors and enhance the              spanning API, text, and logical levels. In addition, Owens
+     efficiency of MultiLLMNs in serving UEs, we introduce a        et al. [10] also investigated persistent bias in LLM outputs,
+     blockchain consensus mechanism to securely drive inter-        originating from limited training data. Despite advances in
+     LLM collaboration. Additionally, we design an improved         bias mitigation techniques, such as data augmentation and
+     clustering-based optimization method that dynamically          fine-tuning, biased output remains a challenge. Consequently,
+     adapts the MultiLLMN network structure, facilitating the       they developed a multi-LLM communication model to reduce
+     formation of a Trusted MultiLLMN and further strength-         output bias. Moreover, Shen et al. [25] introduced Co-LLM, a
+     ening its reliability and effectiveness.                       joint system where a general-purpose LLM invokes domain-
+  • To facilitate reliable response selection in MultiLLMN,         specific expert models, achieving superior performance in
+     we develop the WBFT consensus mechanism, which                 instruction following, question answering, and reasoning tasks
+     assigns fair and adaptive voting weights to each LLM           compared to standalone LLMs. Furthermore, knowledge distil-
+     based on their response quality and trustworthiness. This      lation techniques have been employed to continuously transfer
+                                                                                                                                                         3
+
+
+
+                                                       TABLE I: Scheme comparison
+   Ref.      Contributions                                                         Possible limitations
+             Design a decentralized and centralized multi-LLM network to
+    [10]                                                                           Lack of security and efficiency issues in the multi-LLM interaction
+             avoid the biased generated content by a single LLM
+             Propose a competitive approach to determine highly reliable
+    [11]                                                                           Lack of security and efficiency issues in the multi-LLM interaction
+             responses among multi-LLM in addition to cooperation
+    [13]     Utilize multi-LLM to jointly provide services for elderly care        Lack of security and efficiency issues in the multi-LLM interaction
+             Explore the technical routes for credibility of LLM learning
+                                                                                   Do not overcome the single LLM limitations, such as generated
+    [19]     corpora, training processes, and generated content by applying
+                                                                                   content bias and hallucinations
+             blockchain
+             Organize multi-LLM into a hierarchical structure based on levels
+    [24]                                                                           Lack of security issues in the multi-LLM interaction
+             of access and information exchange for efficient collaboration.
+             Construct a collaboration method between the general basic model
+    [25]                                                                           Lack of security and efficiency issues in the multi-LLM interaction
+             and the dedicated LLM
+             Enhance the reasoning ability of a single LLM through the
+    [26]                                                                           Lack of security issues in the multi-LLM interaction
+             knowledge fusion from multi-LLM
+             Empower the security of the LLM distributed training process
+    [27]                                                                           Do not overcome the capacity limitations of a single LLM
+             with blockchain
+             Utilize blockchain to achieve unified and secure collaboration
+    [28]                                                                           Do not overcome the capacity limitations of a single LLM
+             among multiple agents in LLM
+             Empower the traceability and immutability of AIGC content with
+    [29]                                                                           Do not overcome the capacity limitations of a single LLM
+             blockchain
+             Develop a reputation system based on blockchain to evaluate the
+    [30]                                                                           Do not overcome the capacity limitations of a single LLM
+             generated content credibility from LLM
+             Utilize blockchain to achieve efficient and trustworthy AIGC
+    [31]                                                                           Do not overcome the capacity limitations of a single LLM
+             services in Metaverse
+   Our       Design the WBFT blockchain consensus-driven Multi-LLM col-            Add additional blockchain costs and interaction delays between
+   work      laboration to provide high-quality responses for UE                   LLMs
+
+
+
+and consolidate knowledge from multiple LLMs into a target                  Content (AIGC) products, offering traceable verification of
+model, enhancing its generative capacity [26]. A recent practi-             ownership changes through smart contracts and incentive
+cal application of multi-LLM collaboration appears in elderly               mechanisms to promote free circulation. Furthermore, Bouch-
+care [13]. The authors employed eight mainstream LLMs to                    iha et al. [30] developed LLMChain, a blockchain-based repu-
+collectively provide seniors with services such as electronic               tation system designed to evaluate and monitor LLM behavior,
+payments, daily living assistance, recreational support, security           addressing vulnerabilities such as hallucinations, unreliable
+alerts, and emotional companionship. This work highlights                   reasoning, and harmful content generation. Similarly, Lin et al.
+the strong potential of multi-LLM collaboration in real-world               [31] designed a blockchain smart contract-based verification
+service scenarios.                                                          mechanism to prevent random outcomes in AIGC services,
+   However, existing work only considers the cooperation of                 thus improving service reliability in the Metaverse. Luo et
+multiple LLMs and cannot guarantee the trustworthiness of                   al. [19] systematically analyzed LLM trustworthiness from
+LLM-generated content. Moreover, how multiple LLMs can                      three key perspectives (i.e., learning corpus, training processes,
+work together to provide the best response needs to be studied.             and generated content) and emphasized the critical role of
+                                                                            blockchain technologies across these dimensions.
+B. Blockchain-enabled LLM                                                      Existing work has focused primarily on ensuring the trust-
+                                                                            worthiness of individual LLMs. However, research on the
+   Due to the existence of malicious LLMs and attackers in
+                                                                            trustworthiness of multi-LLM collaboration remains limited.
+MultiLLMN, the research on trustworthy LLMs has been put
+                                                                            Ensuring trust in a collaborative environment is inherently
+on the agenda. This vision often relies on blockchain technol-
+                                                                            more challenging, as it should account not only for the open
+ogy that integrates security features such as decentralization,
+                                                                            network environment but also for malicious behaviors induced
+traceability, and immutability.
+                                                                            by compromised or adversarial LLMs.
+   For example, to enrich LLM training datasets, Zuo et al. [27]
+developed a blockchain-based federated learning framework
+that enables various private databases to securely contribute                   III. B LOCKCHAIN -D RIVEN M ULTIPLE -LLM N ETWORK
+training data. To protect LLM training processes from Byzan-                   In this section, we introduce the architecture of Trusted Mul-
+tine behaviors, Chen et al. [28] proposed BlockAgents, which                tiLLMN driven by blockchains. The commonly used notations
+integrates blockchain into LLM training to resist adversarial               are summarized in TABLE II.
+threats. Their framework reduces the impact of poisoning
+attacks on model accuracy to less than 3% and the success
+rate of backdoor attacks to below 5%, demonstrating strong ro-              A. Workflow of Trusted MultiLLMN
+bustness. Additionally, Liu et al. [29] leveraged blockchain to               Regardless of their specific architectures, all LLMs possess
+provide trusted endorsement and protection for AI-Generated                 the ability to generate content and assess the rationality of
+                                                                                                                                           4
+
+
+
+                  TABLE II: Key Notations
+  Notations    Definitions                                                              Parallel chain
+               The response quality weight assigned by the i-th LLM                       structure
+  Ari,j
+               to the j-th LLM in the r-th round consensus
+   r           The trust weight assigned by the i-th LLM to the j-th
+  Bi,j
+               LLM in the r-th round consensus
+   r           The encrypted data of the h-th response initiated by
+  Di,h
+               the i-th LLM in the r-th round consensus
+               The communication latency for the j-th LLM to the
+  Lri,j
+               i-th LLM in the r-th round consensus
+   r
+  Pi,h         The proof of Di,hr
+
+               The response quality score of the i-th LLM to the j-th                    WBFT consensus-driven MultiLLMN
+  Qri,j
+               LLM in the r-th round consensus
+   r           The trust score of the i-th LLM to the j-th LLM in
+  Ti,j
+               the r-th round consensus
+    r          The feature vectors of the j-th LLM for the i-th LLM
+  Vi,j
+               in the r-th round consensus
+   r           The weight assigned by the i-th LLM to the j-th LLM
+  Wi,j
+               in the r-th round consensus
+               The block added to the chain for the h-th response
+  bri,h                                                                       Building Trusted MultiLLMN by the blockchain P2P network;
+               initiated by the i-th LLM in the r-th round consensus
+               The confirmation message of the j-th LLM for the             Reaching consistency to the best response by WBFT consensus.
+  crj,h
+               leader in the commit phase
+   r
+  vj,h         The voting value of the j-th LLM for Di,hr               Fig. 1: The blockchain-driven Trusted MultiLLMN. This net-
+                                                                        work is built on a blockchain P2P network and has a decen-
+                                                                        tralized architecture. The best response for UE is derived from
+generated outputs. Therefore, we regard each LLM as one                 the WBFT consensus. The consensus results are packaged
+full node within the blockchain-driven network, participating           into blocks and linked to the chains maintained by distributed
+directly in consensus processes and contributing to the valida-         LLMs.
+tion of information exchanges. However, malicious LLMs may
+produce misleading content and provide dishonest evaluations
+of other LLMs’ outputs, introducing vulnerabilities into the            of the optimal solution alongside its precise timestamp.
+MultiLLMN. This challenge will be addressed through the                    5) Blockchain Extension: Blocks are correlated with respec-
+implementation of our proposed consensus mechanism, which               tive parallel chains and stored in a distributed manner across
+is detailed in the subsequent sections.                                 smart devices. Specifically, each LLM extends and maintains
+   Building upon mainstream LLMs, including Llama, Wiz-                 the chain that incorporates its own responses, thereby enhanc-
+ardLM, GPT, and Gemini, we develop a blockchain-driven                  ing the processing efficacy of the Trusted MultiLLMN. Note
+MultiLLMN, as illustrated in Fig. 1. This network architecture          that each chain is documented by the host device of every
+not only enables collaborative interactions among heteroge-             LLM to preserve the decentralized character of the blockchain
+neous LLMs but also inherently enhances credibility and trust-          system.
+worthiness through blockchain integration. The operational                 Through the above five steps, the Trusted MultiLLMN
+workflow is outlined as follows.                                        can be established, which delivers responses with blockchain-
+   1) UE Requests: The UE submits a response request to                 guaranteed security and reliability.
+Trusted MultiLLMN.
+   2) LLM Answer Generation: Each LLM generates a re-                   B. Dynamic Optimization of Trusted MultiLLMN
+sponse to UE requests. These responses are subsequently                    While the workflow of Trusted MultiLLMN ensures ba-
+disseminated among LLMs via broadcast protocols within the              sic functionality, further optimization is needed to enhance
+blockchain’s Peer-to-Peer (P2P) network infrastructure.                 response quality for UEs and improve the efficiency of
+   3) Blockchain Consensus: Consensus serves as a key tech-             blockchain consensus. To this end, we introduce a dynamic
+nique in identifying the optimal response among multiple                networking mechanism for Trusted MultiLLMN based on a
+LLMs. In the proposed framework, a voting consensus mech-               clustering algorithm, named Hierarchical Secure Clustering
+anism is employed to evaluate and select the final proposal,            (HSC). This approach not only adapts to variations in the
+which is then relayed back to the UE requirements by                    network environment and LLM states but also significantly
+designated consensus leaders. The proposal is automatically             improves the scalability of Trusted MultiLLMN, enabling it
+determined by the WBFT consensus, which will be described               to accommodate a larger number of LLMs.
+in the next section.                                                       HSC strategically categorizes all LLM nodes into two types:
+   4) Block Package: The optimal response, as determined                Core Cluster Nodes (CCNs) and Edge Cluster Nodes (ECNs).
+by WBFT, is encapsulated within a block, which undergoes                Only CCNs actively participate in the WBFT consensus
+confirmation by each LLM. To guarantee the security, im-                mechanism, while ECNs receive consensus results through
+mutability, and traceability of the consensus outcomes, the             broadcast messages from their cluster’s designated CCN. This
+block is meticulously designed to incorporate the hash value            hierarchical structure significantly reduces consensus latency
+                                                                                                                                    5
+
+
+
+and enhances the parallel distribution of consensus outcomes,       the LLM and its associated device exhibit malicious behavior.
+thereby optimizing the Trusted MultiLLMN’s response effi-           Any LLM can serve as a consensus initiator and thus assign
+ciency to UEs’ requests.                                            variable weights to peer LLMs. Formally, we denote the
+   For effective deployment in wireless networks, our Trusted       weight assigned by the i-th LLM to the j-th LLM during
+MultiLLMN framework requires optimization to accommodate                                              r
+                                                                    the r-th round of consensus by Wi,j , which is defined as
+diverse operational conditions. The HSC algorithm therefore                         r
+incorporates two critical parameters in the LLM feature vec-                       Wi,j = αAri,j + βBi,j
+                                                                                                     r
+                                                                                                         ,
+tors: trust value and communication latency. This approach                         α + β = 1,
+effectively mitigates Byzantine LLMs’ interference, ensuring                       Xn         n
+                                                                                              X         n
+                                                                                                        X                        (4)
+                                                                                         r
+consistency within the Trusted MultiLLMN, as represented by                            Wi,j =   Ari,j =    r
+                                                                                                          Bi,j = 1,
+                                                                                   j=1          j=1          j=1
+                    r       r
+                  Vi,j = [ωTi,j , (1 − ω)Lri,j ].            (1)
+                                                                    where  Ari,j  and     r
+                                                                                         Bi,j
+                                                                                            denote the response quality and trust
+  r
+Vi,j  represents the feature vectors of the j-th LLM from the       weights assigned by the i-th LLM to the j-th LLM in the
+                                                               r
+view of the i-th LLM in the r-th round of consensus. Ti,j           r-th round consensus, respectively. The parameters α and β
+denotes the trust value assigned by i-th LLM to j-th LLM.           determine the relative importance of these two weight compo-
+Lri,j denotes communication latency from j-th to i-th LLM.          nents and can be adjusted according to specific requirements. n
+Finally, ω serves as the proportional regulator.                    denotes the total number of LLMs participating in the Trusted
+   Then, the K-means++ algorithm [32] is applied to determine       MultiLLMN.
+the number of clusters K. Specifically, we add a penalty term          In each round of consensus, the LLM receives both re-
+λ for dynamically controlling the number of clusters based on       sponses to UE queries and voting information from other
+minimizing the sum of squares of the distance between the           LLMs. Consequently, at the beginning of each consensus
+feature vectors of the nodes and the cluster center µk (i.e., the   round, the consensus initiator has the prerogative to dynam-
+tightness of the cluster), i.e.,                                    ically re-calibrate the response quality and trust weights of
+                    K                                               other LLMs according to their performance in the last round.
+                                                                    Furthermore, weights Ari,j and Bi,jr
+                    X X
+                                      r
+              min                  ∥Vi,j − µk ∥2 + λ.        (2)                                         can be determined by the
+                          r ∈C
+                    k=1 Vi,j   k
+                                                                    dual criteria of response quality and trustworthiness exhibited
+                                                                    by all other LLMs, namely
+Ck represents the k-th cluster divided by HSC. This equation
+can be solved using the Elbow method [33]. Next, we itera-                                           Qri,j
+                                                                                           Ari,j = Pn      r ,
+tively update the cluster centers until we identify exactly K                                       j=1 Qi,j
+                                                                                                      r                          (5)
+CCNs, with each CCN responsible for maintaining one distinct                                 r
+                                                                                                     Ti,j
+cluster, as expressed by:                                                                  Bi,j  = Pn      r ,
+                                  r γ                                                             j=1 Ti,j
+                                   Ti,j       r
+                                                                    where Qri,j and Ti,j
+                                                                                       r
+                          P
+                           j∈Ck Lri,j     · Vi,j                                           represent the answer quality and trust-
+                 (t+1)
+               µk      =    P        T r γ ,             (3)      worthiness of the i-th LLM to the j-th LLM in the r-th round
+                                           i,j
+                                   j∈Ck   Lri,j                     consensus, respectively.
+where γ is a nonlinear regulatory factor. This equation allows
+HSC to select LLM nodes with high reputation and low latency        B. Consensus Design
+as CCNs to optimize the cluster structure of MultiLLMN. Fur-
+thermore, HSC can dynamically adapt to changing conditions             In a MultiLLMN, UEs can access the LLM functionality
+in each consensus round for two key reasons. First, Byzantine       through any participant. We suppose that the LLM receiving
+LLMs exhibit inconsistent malicious behaviors, causing their        UE’s requests serves as the consensus leader, while other
+                r
+trust values Ti,j   to fluctuate between rounds. Second, the        LLMs act as followers. Notably, due to the design of HSC,
+inherent instability of wireless environments leads to temporal     only K CCNs participate in the consensus process, meaning
+variations in communication latency Lri,j . These dynamic           all participating follower LLMs are CCNs.
+factors require HSC to continuously adjust cluster formations          To ensure secure query-response transmission within the
+to maintain optimal performance and security throughout the         MultiLLMN, we pre-assign two public and private key pairs
+consensus process.                                                  to each LLM since each can function as either a consensus
+                                                                    leader or follower. Specifically, these pairs are (P KiL , SKiL )
+       IV. W EIGHTED B YZANTINE FAULT T OLERANCE                    and (P KiF , SKiF ). The first pair is used exclusively when
+                           C ONSENSUS                               LLM i serves as a leader, while the second pair is employed
+   In this section, we illustrate the design of WBFT, including     when it acts as a follower. Each LLM’s public keys are shared
+the weight allocation scheme and the consensus process.             network-wide for encrypting query-response data, while pri-
+                                                                    vate keys remain secured for decryption operations.
+A. Weight Allocation Scheme                                            As illustrated in Fig. 2, WBFT consensus comprises two
+   In WBFT, the weight assigned to each LLM comprises two           voting rounds, namely the prepare phase (as shown in Algo-
+components: response quality, which reflects content genera-        rithm 1) and the commit phase (as shown in Algorithm 2).
+tion capability, and trustworthiness, which indicates whether       Below, we elaborate on the process of each phase.
+                                                                                                                              6
+
+
+
+
+      LLM 1
+
+      LLM 2
+
+
+      LLM 3
+
+
+      LLM 4
+
+
+
+
+Fig. 2: The consensus process of Weighted Byzantine Fault Tolerance (WBFT) with the pipeline mechanism. It allows the
+prepare phase of the (r + 1)-th round consensus to be initiated during the commit phase of the r-th round consensus.
+
+
+ Algorithm 1: Prepare Phase                                      Algorithm 2: Commit Phase
+  Leader Operations:                                              Leader Operations:
+                                                                                r
+  1. Generate response: RL ← generate response(Q)                 1. Broadcast Pi,h to all followers
+                    r
+  2. Encrypt data: Di,h ← encrypt(Q ∥ RL , P KjF ) ;              Follower Operations:
+   // h = current block height                                    1. Decrypt Pi,hr
+                                                                                    by threshold signature
+                 r
+  3. Broadcast Di,h to all followers                              2. Verify the Byzantine character of the leader
+  Follower Operations:                                            3. if verification passes then
+                                          r                                       (r−1)
+  1. Decrypt data: (Q, RL ) ← decrypt(Di,h   , SKjF )                 expungePi,h
+  2. Verify authenticity of (Q, RL )                                  Transmit their confirmation messages back to the
+  3. if verification passes then                                        leader
+      Generate response: RF ← generate response(Q)                else
+      4. if quality(RF ) > quality(RL ) then                          Discard Pi,hr
+                                                                                     ; // Invalid data detected
+            r
+          vj,h  ← 0 ; // Follower’s response is
+            better                                                Leader Operations:
+      else                                                        1. Receive   confirmation messages from followers
+                                                                           weight(crj,h = 1) + leader self weight > 2/3
+                                                                        P
+            r
+          vj,h  ←1;      // Leader’s response is                  2. if
+            better                                                 then
+                        r
+                                                                      Reach consistency: RL with its hash value and
+       5. Send encrypt(vj,h ∥ RF , P KiL ) to leader                    timestamp packaged as bri,h is appended to the
+  else                                                                  chain.
+               r                                                  else
+      Discard Di,h ; // Invalid data detected
+                                                                      Consensus termination.
+  Leader Operations:
+  1. Receive
+        P encrypted    votes from followers
+                   r
+  2. if    weight(vj,h = 1) + leader self weight > 2/3
+   then                                                             block height within the chain maintained by said leader.
+                        r                      r
+      Generate proof: Pi,h ← generate proof(Di,h )                  Each follower then employs their pre-assigned private
+  else                                                              key SKjF to decrypt the received data and validate its
+      Consensus termination.                                        authenticity. Subsequently, each follower transmits a vote,
+                                                                     r
+                                                                    vj,h , back to the leader. Each vote comprises the vote
+                                                                    outcome and the follower’s own response RF to the
+                                                                    UE’s query Q and is encrypted by the leader’s public
+  •   Prepare Phase: The consensus leader initially encrypts        key P KiL . The voting mechanism dictates that a follower
+      the UE’s query Q and its own generated response RL            assigns a vote value of 0 if its generated response exceeds
+      using the public key P KjF , subsequently broadcasting        the leader’s in terms of quality, and 1 otherwise.
+                                       r
+      this encrypted data, denoted as Di,h , to n − 1 follower      The leader decrypts the voting information using the
+      LLMs. Here, h denotes the total number of responses           follower’s public key P KjF and tallies the voting values.
+      initiated by the leader and concurrently represents the       When the cumulative weight of votes with value 1 ex-
+                                                                                                                                                    7
+
+
+
+     ceeds two-thirds (including the leader’s own vote weight),
+                                       r                   r                                        The UE initiates a
+     the leader generates a proof Pi,h     attesting that Di,h has                                 question to an LLM
+     been successfully verified. This proof is implemented as
+     a threshold signature [23] of the aggregated votes.                                  The LLM generates an answer and
+   • Commit Phase: The consensus leader broadcasts proof                                  broadcasts it to other LLMs as the
+
+
+
+
+                                                                       Prepare
+        r                                                                                                leader
+     Pi,h   to all followers, signaling that the response has                                                                      The leader
+                                                                                                                                     selects
+     been verified as optimal. Each follower authenticates                                Other LLMs feedback to the leader       another LLM
+     this proof using threshold signature techniques to verify                            on their evaluation of this answer       as the new
+                                                                                             and their generated answers           leader and
+     both the proof itself and the leader’s non-Byzantine                                                                          restarts the
+                                                                                                                                   consensus
+     status. Upon successful validation, followers remove the
+                         r
+     previous proof Pi,h−1      to reduce storage requirements,                            The leader receives
+     then transmit confirmation messages crj,h to the leader.                           more than 2/3 weights of                       No
+                                                                                        the LLM feedback that its
+     Once the leader receives confirmations representing at                              answer quality is better
+     least a two-thirds weighted majority, the response RL                                   Yes
+     with its hash value and timestamp is encapsulated in a
+                                                                                            The leader generates proof to
+     block bri,h and appended to the corresponding chain. In                               prove that the answer is verified
+                                                                                                                                     The leader
+                                                                                                                                   has malicious
+     contrast, if the leader is detected exhibiting malicious                             and broadcasts that proof to other       behavior, and
+                                                                                                        LLMs
+
+
+
+
+                                                                       Commit
+                                                                                                                                  the MultiLLMN
+     behavior, the MultiLLMN system recommends that the                                                                            recommends
+     UE obtain responses from LLMs on different devices                                        The follower LLMs use the            that UE use
+                                                                                            threshold signature to verify the     another LLM
+     to avoid potential misinformation from the compromised                               proof to determine if the leader is a
+     leader.                                                                                        Byzantine node
+   Fig. 2 illustrates the overall consensus process. Moreover,
+Fig. 3 provides deeper insight into the dual voting stages.                               The leader receives
+                                                                                        more than 2/3 weights of                      No
+After completing these two rounds, the leader can evaluate
+                                                                                        the LLM to approve this
+the followers’ response quality and trustworthiness based on                                     proof
+the analysis of generated answers and voting feedback. This
+evaluation enables dynamic recalibration of voting weights for                                         Yes
+
+subsequent consensus rounds, highlighting a key advantage                                  MultiLLMN outputs
+                                                                                          the leader’s answer
+of LLMs, i.e., their ability to exercise independent judgment
+within the consensus mechanism.                                      Fig. 3: The prepare and commit phases of WBFT consensus.
+   Observing that our dual-round voting consensus mecha-
+nism naturally segments into distinct phases, we leverage
+this structural feature to implement a pipelined processing
+framework [34], [35] to further improve efficiency. As shown
+in Fig. 2, while the commit phase for block bri,h is being           believes it cannot generate a response superior to that of the
+                                                                                       r
+executed, the prepare phase for the subsequent block bri,h′          leader, whereas vj,h = 0 implies the follower considers its own
+can be initiated concurrently, where h′ denotes the next block       response to be of higher quality. Thus, successful consensus
+height in the blockchain managed by the j-th LLM. This               requires the following condition, denoted as Event Y :
+pipeline architecture significantly reduces the waiting time                                   K
+                                                                                               X                      2
+                                                                                                      r r
+between consecutive requests.                                                           Y =          Wi,j vj,h >        .                         (6)
+                                                                                                                      3
+   The optimal responses from independent consensus pro-                                       j=1
+cesses initiated by different leaders are assembled into separate
+blocks and added to chains maintained by their respective               Event Y involves the summation of multiple products
+leaders, creating a parallel chain architecture. Although each       of random variables, making its direct computation highly
+LLM primarily manages its own chain, it also maintains               complex. To address this challenge, we adopt two approaches
+copies of all other chains to ensure system-wide consistency         to approximate the probability of Event Y . First, the Monte
+and enable distributed storage of query-response across the          Carlo method provides a heuristic estimation based on random
+MultiLLMN.                                                           sampling. Second, when the number of LLMs, denoted by
+                                                                     n, is sufficiently large, the Law of Large Numbers [38]
+                V. P ERFORMANCE A NALYSIS                            implies that the distribution of assigned LLM weights can
+                                                                     be approximated by a normal distribution over the bounded
+  In this section, we analyze the consensus security, efficiency,                                                   r
+                                                                     interval (0, 1). Consequently, the weights  Wi,j  are assumed
+and complexity of WBFT.                                                                                 2
+                                                                                                          
+                                                                     to follow a distribution N1 µ, σ . Meanwhile, the voting
+                                                                                  r
+                                                                     outcomes vj,h    adhere to a Bernoulli distribution. Since the
+A. Consensus Security                                                assigned weights and the voting outcomes are independent,
+                                                                        r       r
+  Without loss of generality, we measure consensus security          Wi,j  and vj,h  are mutually independent random variables. By
+by the consensus success rate, as discussed in [36] and [37].        invoking the properties of linear combinations of independent
+                         r
+Specifically, we define vj,h = 1 to indicate that a follower         random variables, the expected value and variance of Event Y
+                                                                                                                                         8
+
+
+
+can be expressed as:                                                 Additionally, B, R, and C represent bandwidth, transmission
+                 
+                     n
+                                
+                                   n
+                                                                     rate, and channel capacity, respectively.
+                   X
+                        r r 
+                                   X
+                                        r r
+                                                                       Both the prepare and commit phases of the WBFT con-
+      E(Y ) = E       Wi,j vj,h =   E Wi,j vj,h
+                                                                     sensus involve two communication directions: downlink trans-
+                        j=1               j=1
+                                                              (7)    missions, where the leader broadcasts messages, and uplink
+                  n                         n
+                                                                     transmissions, where followers send feedback. The communi-
+                  X                         X
+                              r     r
+                                     
+              =         E Wi,j E vj,h =           µp = p,
+                  j=1                       j=1
+                                                                     cation structure of each phase is consistent with that of the Raft
+                                                                   consensus algorithm [44], [45], [46]. Accordingly, the latency
+            Xn             n
+                           X                                         associated with the WBFT consensus can be expressed as
+                r r            r r
+                                         
+ D(Y ) = D    Wi,j vj,h =   D Wi,j vj,h
+                  j=1               j=1                                                          tc = 2nT.                           (11)
+            n
+            X
+                  2        r                                            For consensus throughput, it can be expressed as the number
+                                 + E 2 Wi,j
+                                        r        r
+                                                 
+        =      E Wi,j   D vj,h                D vj,h    (8)
+                                                                     of UE requests processed by MultiLLMN per unit of time,
+            j=1
+            n
+                                                                     whose unit is Transactions per Second (TPS). It can be said
+            X                               1                        that, benefiting from the parallel pipeline processing of UE
+                pσ 2 + µ2 p(1 − p) = npσ 2 + p(1 − p),
+                                 
+        =
+            j=1
+                                            n                        responses, WBFT has a higher throughput than traditional
+                                                                     consensus.
+                                         r
+where p represents the probability of vj,h   = 1.
+   Following the Central Limit Theorem [39], when the num-
+                                                                     C. Correctness Analysis
+ber of LLMs n becomes sufficiently large, linear combinations
+of independent and identically distributed random variables ap-         WBFT adopts a structure similar to PBFT, ensuring that
+proach a normal distribution. Consequently, the probability of       as long as the number of faulty nodes does not exceed one-
+Event Y approximates a normal distribution with parameters          third of the total, the consensus satisfies three core properties:
+N2 p, npσ 2 + n1 p(1 − p) . Therefore, the consensus security        non-forking, consistency, and liveness. Assuming a total of
+of WBFT, i.e., P (Y > 2/3) can be expressed as                       n = 3f + 1 nodes, with at most f Byzantine nodes, the
+                                                                     corresponding proofs are presented as follows.
+          pWBFT = 1 − P (Y ≤ 2/3)
+                                                                   Property 1 (Nonforking). For any two valid committed blocks
+                                2/3 − p                       (9)    bri11,h1 and bri22,h2 , if i1 = i2 then h1 = h2 , where bri,h denotes
+                = 1 − Φ q                      ,
+                            npσ 2 + n1 p(1 − p)                      the h-th block generated by i-th LLM in the r-th consensus
+                                                                     round.
+where Φ denotes the normal distribution N (0, 1). By restrict-
+                                                                     Proof. Suppose contradictory blocks bri1 ,h1 and bri2 ,h2 (h1 ̸=
+ing the voting rights of LLMs with low credibility and weak
+                                                                     h2 ) both receive (2f + 1)/n vote weights. With n = 3f + 1,
+generation capabilities, WBFT will achieve higher consensus
+                                                                     we can acquire
+security.
+                                                                               2 · (2f + 1)/n − (3f + 1)/n = (f + 1)/n.              (12)
+
+B. Consensus Efficiency                                              It implies (f + 1)/n vote weights for both blocks, violating
+                                                                     the protocol rules. Hence, h1 should equal h2 .           ■
+   We consider two metrics to reflect consensus efficiency,
+namely throughput and latency.                                       Property 2 (Consistency). If the block bri,h is committed by
+   To facilitate the adaptable deployment and utilization of         any honest node, all honest nodes will eventually commit it.
+MultiLLMN, thereby augmenting its scope of application, we                                               r
+                                                                     Proof. Commitment requires proof Pi,h+1  to obtain (2f +1)/n
+implement the proposed WBFT-driven Trusted MultiLLMN                 vote weights. Let V Wreceived denote the received affirmative
+within wireless network contexts. According to [40], [41],           vote weights (V Wreceived ≥ (2f +1)/n). At least (2f +1)/n−
+[42], and [43], we can conclude that in wireless networks,           f /n = (f + 1)/n votes come from V Wreceived . Since weights
+the consensus latency is intrinsically linked to the consensus       of Byzantine nodes ≤ f , majority voting can ensure eventual
+success rate, namely                                                 global consistency.                                        ■
+                                                   !
+                     N T BC − N T BR + log N2 T B                    Theorem 1. For any response RL submitted by the honest
+     1 − Pl = f Q                  √                  ,   (10)
+                            (log e) N T B                            nodes, there exists a finite time Tfinite such that RL will be
+                                                                     included in block bri,j generated by an honest leader.
+where Pl denotes the channel transmission success rate. Con-
+sequently, 1−Pl means the transmission failure rate associated       Proof. The liveness proof requires analyzing two mutually
+with this channel. This failure probability can be generalized       exclusive scenarios:
+                       r
+to the scenario where vj,k = 0, as it also implies that the leader      Case 1. Transaction Recovery Protocol: Suppose that leader
+has not received the follower’s endorsement of its response.         Lri proposes block bri,h containing RL with the following
+Furthermore, fQ denotes the Q-function. In this context, T           conditions:
+and N represent the latency of a channel and the number                 1) The follower node Fjr receives bri,b but lacks RL .
+of subcarriers, respectively, with N set to 1 in this paper.            2) Fjr extracts the RL hash value h(.) from bri,h .
+                                                                                                                                     9
+
+
+
+  3) By broadcasting h(RL ), Fjr requests RL from neighbors                       VI. P ERFORMANCE E VALUATION
+     via GetData(h(RL )) messages.                                    In this section, we validate the efficiency of the proposed
+  4) The honest nodes that receive RL respond with                  blockchain-driven Trusted MultiLLMN and WBFT.
+     TxResponse(RL ), validated through:
+                    VerifyTx(h(RL ), sigtx ) = True.        (13)    A. Parameter Acquisition and Setting
+  5)   After receiving RL , Fjr executes:                              In the first round of consensus in MultiLLMN, individual
+                                                                    LLMs lack prior knowledge of the response quality and
+          Vote(bri,h ) ⇐⇒ ValidateBlock(bri,h ) = True.     (14)    trustworthiness of their peers. As a result, it is difficult for
+This process guarantees that all honest nodes can reconstruct       LLMs to assign appropriate voting weights to one another.
+bri,h in a bounded time ∆1 .                                           To address this initial challenge of response quality as-
+    Case 2. Voting Retry Protocol: If leader Lri fails to receive   sessment, we design a comprehensive evaluation framework.
+more than 2/3 of the vote weights in favor within the time          Specifically, we construct question sets spanning five distinct
+window Tinit due to network delays:                                 scenarios and engage a panel of 15 volunteers, carefully se-
+    1) When the network jitter, V Wreceived < (2f + 1)/n.           lected to ensure geographical diversity, to evaluate the content
+    2) Leader triggers timeout event:                               generation capabilities (i.e., response quality) of ten widely
+                                                                    recognized LLMs. The volunteer distribution includes China
+                        Tretry = Tinit + δbackoff ,         (15)    (4 people), the United States (4 people), the United Kingdom
+                                                                    (2 people), Singapore (2 people), Australia (1 person), the
+     where δbackoff follows exponential increasing sequence.
+                                                                    Netherlands (1 person), and Saudi Arabia (1 person).
+  3) At Tfinite = Tretry , leader reinitializes voting with new
+                                                                       The ten LLMs evaluated in our experiments: Llama 3.3,
+     timestamp:
+                                                                    WizardLM 2, GPT-4o, Gemini 2 Flash, ERNIE Bot 4.0,
+                    bri,h′ ← Repropose(bri,h , tsnew ).     (16)    SparkDesk V4.0, Qwen 2.5, Doubao Pro 4k, Hunyuan-Large,
+                                                                    and Kimi. All LLMs are deployed on a high-performance
+  4) The process repeats until:                                     server equipped with a 96-core Intel(R) Xeon(R) Gold 5220R
+         ∃ Tfinite ≤ Tmax ,   V Wcommitted ≥ (2f + 1)/n,    (17)    CPU @ 2.20GHz and 1 TB of memory. The experimental sce-
+                                                                    narios are designed to cover a broad range of LLM competen-
+     where V Wcommitted represents the affirmative vote             cies, including memory retention, everyday task performance,
+     weights of commit phase.                                       artistic creativity, logical reasoning, and code generation. The
+Therefore, the probability of success after k times of attempts     final category is specifically designed to support ongoing
+can be expressed as                                                 optimization in wireless network domains. The evaluation
+                           
+                                f
+                                    k                              questions are as follows.
+                                            k→∞
+        psuccess (k) = 1 −                 −−−−→ 1.        (18)        1) Memory Ability: After 20 rounds of interaction, each
+                             3f + 1
+                                                                    LLM is prompted to recall and restate the initial questions and
+                                                      ■             data presented in the first round. This test evaluates the model’s
+Corollary 1. The proposed WBFT achieves liveness with               ability to retain and recall historical information accurately,
+probability 1 under partial synchrony assumptions, where            which is essential to maintain contextual consistency over
+message delays are bounded by known time ∆network .                 extended dialogues.
+                                                                       2) Daily Life Ability: A set of practical, real-world tasks
+D. Consensus Complexity                                             is designed, including weather forecasting, fraud detection,
+   Compared to the communication complexity of O(n2 ) ex-           cooking advice, and other everyday scenarios. This evaluation
+hibited by PBFT [22], the proposed WBFT significantly re-           assesses each LLM’s grasp of common-sense knowledge and
+duces the communication complexity to O(K). This improve-           its capacity to assist users in routine daily activities.
+ment is achieved by restricting communication to interactions          3) Artistic Ability: LLMs are prompted to engage in creative
+solely between the leader and the followers, thereby avoiding       tasks such as composing poetry, generating aesthetic com-
+the extensive inter-follower consultations required during the      mentary, producing musical pieces, and simulating traditional
+two-round voting process [47]. In PBFT, follower-to-follower        forms of art like Chinese ink painting. The goal is to assess
+negotiations typically involve repeated flooding broadcasts,        the models’ expressive and creative capabilities in supporting
+which substantially increase communication overhead.                human artistic endeavors.
+   Furthermore, WBFT maintains an advantage even over                  4) Logical Reasoning Ability: This dimension involves
+the O(n) complexity of other parallel multi-chain consen-           mathematical problem-solving, optimization tasks relevant to
+sus mechanisms, such as Vote as Proof (VaaP) [48], [49].            network systems, and performance analysis in wireless com-
+Specifically, WBFT not only narrows the scope of consensus          munication. It is designed to measure the logical reasoning
+participation through the HSC algorithm but also restricts          and analytical capabilities of each LLM in handling structured,
+the voting influence of malicious LLMs. By reducing the             domain-specific challenges.
+likelihood of leader re-elections, caused by difficulties in           5) Code Generation Ability: Building on the logical rea-
+securing the required two-thirds voting weight, WBFT further        soning tasks, each LLM is asked to generate implementation
+lowers the overall consensus complexity.                            code in various programming languages, including MATLAB,
+                                                                                                                                        10
+
+
+
+                                         TABLE III: LLMs Generation Capability Scores
+    Volunteers       Llama     WizardLM      GPT-      Geimini       ERNIE      SparkDesk      Qwen     Doubao      Hunyuan
+                                                                                                                                Kimi
+      order           3.3          2          4o       2 Flash       Bot 4.0      V4.0          2.5     pro 4k       Large
+         1            82          80          77          75            79         81           82         80          79        82
+         2            85          83          84          84            82         83           84         83          83        84
+         3            75          78          85          76            78         72           90         85          80        93
+         4            70          75          80          73            75         70           86         82          78        90
+         5            78          77          83          75            77         73           88         84          82        82
+         6            72          76          81          82            76         81           85         83          79        81
+         7            76          79          84          84            79         74           87         75          81        83
+         8            73          78          82          73            77         72           86         84          78        90
+         9            82          74          89          78            85         79           93         78          86        86
+        10            80          82          87          86            83         77           91         86          84        79
+        11            81          83          88          77            84         78           92         77          85        85
+        12            83          84          89          78            86         83           93         78          86        76
+        13            80          82          87          76            83         82           91         86          84        84
+        14            82          83          88          77            85         78           92         75          85        80
+        15            80          82          87          86            83         82           91         76          84        74
+     Average         78.6        79.7        84.7        78.6          80.8       77.6         88.7       80.8        82.3      83.3
+  Standardization    0.19        0.31        0.83        0.19          0.42       0.13         0.98       0.42        0.59      0.70
+  Weight of Ari,j    0.04       0.065        0.175       0.04         0.088       0.027        0.206     0.088       0.124      0.147
+
+
+
+Python, and C++. The results are compared to evaluate the                In the WBFT and ABC-PBFT schemes, five LLMs are se-
+LLM’s effectiveness in translating abstract problem-solving           lected as consensus nodes using the HSC and ABC algorithms,
+into executable solutions, demonstrating their potential in           respectively. Consensus security reflects the robustness of
+software development contexts.                                        MultiLLMN in the presence of malicious LLMs, while latency
+   Table III presents the average scores assigned by 15 volun-        and throughput capture the system’s efficiency in responding
+teers to 10 representative LLMs across five distinct evaluation       to UE requests. To evaluate performance under different trust
+dimensions. Each dimension is scored on a scale from 0 to             conditions, we construct three trust weight distributions for
+100. Following score aggregation, a standardization process is        the 10 LLMs, i.e., N (0.1, 0.6), N (0.1, 0.4), and N (0.1, 0.2).
+applied to prepare the data for subsequent analysis. Specifi-         The mean is kept constant at 0.1 to ensure that the total trust
+cally: a) the raw scores are transformed into a standard normal       weight across all LLMs remains normalized to 1.
+distribution with a mean of 0 and a standard deviation of 1 (i.e.,       1) Consensus Security: Figs. 4 (a)-(c) show that WBFT has
+Z-distribution); and b) a cumulative distribution function is         significantly better consensus security than other consensus.
+used to map the standardized values into a uniform distribution       This is because WBFT effectively reduces the impact of
+over the interval [0, 1]. Based on these normalized values,           Byzantine attacks by suppressing the voting power of mali-
+the quality weights of the LLM responses are calculated by            cious nodes. PBFT and VaaP result in the same performance
+Eq. (5).                                                              due to a fixed fault tolerance threshold 2/3. Although ABC-
+   It is important to note that we do not focus on modeling           PBFT benefits from selecting some reliable LLMs as consen-
+the trustworthiness of LLMs, as extensive previous work has           sus nodes, it has higher consensus security than these two.
+addressed trust and reputation assessment schemes for network         However, the consensus nodes it selects are static and cannot
+nodes [50], [51]. In our framework, trust is characterized as the     be dynamically adjusted according to the network conditions
+probability of malicious behavior exhibited by an LLM. We             and LLM trust, compared to WBFT. Therefore, its consensus
+assume that trust weights follow a normal distribution, such          security is lower than that of WBFT.
+as N (0.1, 0.2), or another suitable distribution, with values           Additionally, in various combinations of weight ratios, the
+constrained to the interval (0, 1).                                   trust weight is of greater importance to consensus security than
+                                                                      the response quality weight. The reason for this is that when
+B. Consensus Performance                                              the value β is high, the WBFT consensus is better able to
+   In this part, we compare the security, latency, and through-       exert the voting power of a trusted LLM.
+put of WBFT against three established consensus mechanisms,              Furthermore, we observe that as the variance σ 2 of the initial
+                                                                                                   r
+i.e., PBFT [22], Vote as Proof (VaaP) [48], and Artificial Bee        trust weight distribution Bi,j decreases, the consensus security
+Colony-PBFT (ABC-PBFT) [52], under varying proportions                of WBFT also drops. This phenomenon can be attributed to
+of response quality and trust weights. Specifically, we evaluate      the fact that variance reflects the dispersion of trust weights
+three configurations: α = 0.4, β = 0.6; α = 0.5, β = 0.5;             across LLMs. A higher variance implies that some LLMs
+and α = 0.6, β = 0.4. These comparison baselines are widely           may receive significantly higher trust weights, increasing their
+adopted as effective defenses against Byzantine attacks and           influence in the consensus process and thereby enhancing
+represent three distinct categories of Byzantine Fault Tolerance      the likelihood of achieving consistency. Mathematically, as
+(BFT): classical BFT (PBFT), parallel BFT (VaaP), and BFT             shown in Eq. (9), the mean trust value remains fixed at 0.1,
+with selected reliable nodes (ABC-PBFT).                              which is below the Byzantine fault tolerance threshold of
+                                                                                                                                                  11
+
+
+
+
+     (a) The initial trust weights ~ N(0.1, 0.6)    (b) The initial trust weights ~ N(0.1, 0.4)     (c) The initial trust weights ~ N(0.1, 0.2)
+
+Fig. 4: Consensus security. (a) The initial trust weights of LLMs follow a N (0.1, 0.6) distribution. (b) The initial trust weights
+of LLMs follow a N (0.1, 0.4) distribution. (c) The initial trust weights of LLMs follow a N (0.1, 0.2) distribution.
+
+
+
+
+    (a) The initial trust weights ~ N(0.1, 0.6)    (b) The initial trust weights ~ N(0.1, 0.4)     (c) The initial trust weights ~ N(0.1, 0.2)
+
+Fig. 5: Consensus latency. (a) The initial trust weights of LLMs follow a N (0.1, 0.6) distribution. (b) The initial trust weights
+of LLMs follow a N (0.1, 0.4) distribution. (c) The initial trust weights of LLMs follow a N (0.1, 0.2) distribution.
+
+
+2/3. Taking the derivative of the consensus probability with              also shrinks the scope of consensus voting, thereby further
+respect to the variance yields a positive value, indicating that          reducing consensus latency.
+an increase in variance shifts the distribution rightward and                Additionally, the ratio of response quality and trust weights
+raises the probability of surpassing the consensus threshold.             also affects consensus latency by affecting consensus security.
+Additionally, we can observe that WBFT exhibits greater                   Specifically, the experimental results demonstrate that latency
+improvements in consensus security compared to the other                  is further reduced with increasing β value, primarily due to
+two baselines when the trust weight variance is high. This                the positive correlation between increased trust weight and
+suggests that the influence of highly trusted LLMs is more                increased probability of consensus success. It effectively mit-
+effectively leveraged in WBFT under conditions of greater                 igates the occurrence of re-election scenarios where a leader
+trust dispersion.                                                         struggles to secure the required 2/3 vote weight threshold.
+   2) Consensus Latency: To evaluate consensus latency, we                Moreover, the variance σ 2 of the initial trust weight distribu-
+                                                                                  r
+set the bandwidth B to 15 kHz, the channel capacity C to 15               tion Bi,j  impacts consensus latency as well. Specifically, as
+kbps, and the transmission rate R to 10 kbps, respectively. We            the variance decreases, the latency increases. This is because
+suppose that the MultiLLMN has 4 clusters. Then, we use the               lower variance reduces consensus security, leading to a higher
+probability Pl as a horizontal coordinate to study and compare            likelihood of leader re-elections and consequently prolonging
+the latency of each consensus and its influence parameters.               the consensus process. We further observe that under high-
+  Figs. 5 (a)-(c) respectively illustrate the latency of WBFT             variance conditions, WBFT achieves significantly lower la-
+and other baselines under different initial trust weight distri-          tency compared to the other consensus mechanisms, which can
+butions. In either case, WBFT achieves lower latency than                 be attributed to its stronger consensus security, as previously
+other consensus, showing that it can efficiently respond to UE            discussed.
+needs and provide trusted answers. This is because the two-                 An additional observation concerns the performance of
+round voting consensus and our pipeline mechanism improve                 ABC-PBFT and VaaP under varying trust weight variances.
+consensus efficiency. Meanwhile, compared with VaaP, WBFT                 When σ 2 is large, ABC-PBFT benefits from its ability to
+has a higher consensus security, thus avoiding as much as                 pre-select reliable LLMs, enabling faster consensus and out-
+possible the delay of leader re-election. Importantly, clustering         performing VaaP in terms of efficiency. However, when σ 2
+                                                                                                                                                  12
+
+
+
+
+     (a) The initial trust weights ~ N(0.1, 0.6)   (b) The initial trust weights ~ N(0.1, 0.4)      (c) The initial trust weights ~ N(0.1, 0.2)
+
+Fig. 6: Consensus throughput. (a) The initial trust weights of LLMs follow a N (0.1, 0.6) distribution. (b) The initial trust
+weights of LLMs follow a N (0.1, 0.4) distribution. (c) The initial trust weights of LLMs follow a N (0.1, 0.2) distribution.
+
+
+
+
+                 (a) Consensus security                        (b) Consensus latency                           (c) Consensus throughput
+
+Fig. 7: Ablation test of WBFT when the initial trust weights follow a N (0.1, 0.6) with α = β = 0.5. (a) Consensus security.
+(b) Consensus latency. (c) Consensus throughput.
+
+
+is small and trust differences among LLMs become less                    and ABC-PBFT, variations in trust weight variance σ 2 do
+pronounced, ABC-PBFT loses its advantage, and its latency                not alter the relative throughput performance between the two
+performance converges with or falls behind that of VaaP.                 schemes, unlike their impact on latency. VaaP consistently
+This further highlights the effectiveness of the HSC algorithm           achieves higher throughput than ABC-PBFT, primarily due to
+used in WBFT, which demonstrates superior capability in                  its parallel block processing mechanism.
+identifying trusted, low-latency consensus nodes compared to                4) Ablation Study: Through comparative experiments, we
+the ABC-based approach.                                                  have demonstrated that WBFT achieves superior consensus
+   3) Consensus Throughput: Consensus throughput is evalu-               security and efficiency compared to existing consensus mech-
+ated under the same simulation environment and configuration             anisms. To further validate the contribution of individual
+settings as those used for consensus latency, with results               modules within WBFT, we conduct ablation tests focusing
+presented in Figs. 6(a)–(c).                                             on two key components: the HSC algorithm and the weight-
+   In general, throughput exhibits an inverse relationship to            allocation scheme. The simulation parameters for these tests
+latency. Nevertheless, consistent with latency results, WBFT             are consistent with those used in earlier consensus perfor-
+consistently demonstrates the highest throughput performance             mance evaluations.
+among all baselines. The reasons are twofold. First, WBFT                   The results of the ablation study in terms of consensus se-
+employs a multi-chain and pipelined architecture, enabling               curity, latency, and throughput are illustrated in Figs. 7(a)–(c).
+it to handle multiple UE requests concurrently. Second, its              Note that the configuration without the HSC algorithm is
+high consensus security reduces the likelihood of disruptions            denoted as w/o HSC, and the configuration without the weight-
+caused by malicious LLMs. Furthermore, the proposed HSC                  allocation scheme is denoted as w/o Weighted. These results
+algorithm effectively narrows the consensus scope, further               are obtained under the conditions where the initial trust
+contributing to improved throughput.                                     weights follow N (0.1, 0.6) and α = β = 0.5. From Fig. 7, we
+   Additionally, the ratio of response quality to trust weights,         can observe that the absence of either the HSC algorithm or the
+as well as the initial trust weight distribution variance σ 2 of         weight allocation mechanism leads to degraded consensus per-
+LLMs, exhibit effects on throughput that are consistent with             formance. Specifically, the HSC algorithm enhances consensus
+their impacts on consensus security and latency. For VaaP                by excluding LLMs with low trust values or high commu-
+                                                                                                                                                                                 13
+
+
+
+                         Single LLM                           MultiLLMN                            assigned to response quality in the WBFT consensus process
+                         Trusted MultiLLMN with α=0.4,β=0.6   Trusted MultiLLMN with α=0.5,β=0.5   is found to correlate with higher UE satisfaction. However,
+                         Trusted MultiLLMN with α=0.6,β=0.4
+                                                                                                   this improvement in perceived quality comes at the expense
+                   100
+                                                                                                   of reduced consensus efficiency, suggesting a trade-off be-
+                    90
+                    80
+                                                                                                   tween optimizing consensus performance and maximizing user
+ UE satisfaction
+
+
+
+
+                    70                                                                             satisfaction. This observation highlights an important design
+                    60                                                                             consideration for deploying Trusted MultiLLMN architectures
+                    50
+                                                                                                   in future applications.
+                    40
+                    30
+                    20                                                                                                        VII. C ONCLUSION
+                    10
+                     0                                                                                In this paper, we have proposed a MultiLLMN framework
+                                                                                                   to address the inherent limitations of individual LLMs, such
+                                                                                                   as hallucinations, biased outputs, and limited generalization
+                                           Response ability comparison                             caused by static or incomplete training data. To ensure that
+                                Fig. 8: UE satisfaction comparison.                                collaboration among multiple LLMs produces reliable and
+                                                                                                   trustworthy responses, we have presented the Trusted Mul-
+                                                                                                   tiLLMN driven by blockchain. Moreover, we have proposed
+nication latency, thereby reducing the influence of malicious                                      the WBFT consensus mechanism. Unlike traditional consensus
+LLMs and improving overall consensus efficiency. Meanwhile,                                        methods that assign equal voting rights or rely on fixed trust
+the weight-allocation scheme decreases the voting influence of                                     assumptions, WBFT dynamically integrates both response
+less reputable LLMs, further strengthening consensus security.                                     quality and trust levels to guide consensus decisions. Our
+It also increases the consensus success rate and reduces latency                                   simulation results have demonstrated that WBFT not only
+by minimizing leader reselection events caused by consensus                                        enhances consensus security in the presence of potentially
+failures. In conclusion, these findings underscore the indis-                                      malicious LLMs but also significantly reduces latency and in-
+pensable role of the HSC algorithm and weight allocation                                           creases throughput compared to PBFT, VaaP, and ABC-PBFT.
+scheme in achieving the performance improvements observed                                          Furthermore, the Trusted MultiLLMN built on WBFT exhibits
+with WBFT.                                                                                         stronger responsiveness and reliability than both standalone
+                                                                                                   LLMs and collaborative LLM structures that lack consensus
+C. UE Satisfaction                                                                                 coordination.
+   In this part, we evaluate UE satisfaction with three different
+architectures: a single LLM, a MultiLLMN without blockchain                                                                       R EFERENCES
+consensus, and the Trusted MultiLLMN proposed in this                                               [1] J. Hu et al., “Federated large language model: Solutions, challenges and
+work. The evaluation is carried out using the set of questions                                          future directions,” IEEE Wireless Communications, 2024.
+described in Section VI-A. UE satisfaction is synthesized                                           [2] Y. Chang, X. Wang, J. Wang, Y. Wu, L. Yang, K. Zhu, H. Chen, X. Yi,
+                                                                                                        C. Wang, Y. Wang et al., “A survey on evaluation of large language
+by surveying the same group of 15 volunteers, each scoring                                              models,” ACM Transactions on Intelligent Systems and Technology,
+responses on a 100-point scale. Specifically, the single LLM                                            vol. 15, no. 3, pp. 1–45, 2024.
+scenario involves volunteers randomly using one of the LLMs                                         [3] P. P. Ray, “Chatgpt: A comprehensive review on background, applica-
+                                                                                                        tions, key challenges, bias, ethics, limitations and future scope,” Internet
+evaluated in Section VI-A. The MultiLLMN configuration                                                  of Things and Cyber-Physical Systems, vol. 3, pp. 121–154, 2023.
+refers to a centralized architecture without blockchain consen-                                     [4] F. Jiang, L. Dong, Y. Peng, K. Wang, K. Yang, C. Pan, and X. You,
+sus participation, leaving the system vulnerable to the influ-                                          “Large ai model empowered multimodal semantic communications,”
+                                                                                                        IEEE Communications Magazine, vol. 63, no. 1, pp. 76–82, 2025.
+ence of malicious LLMs. In contrast, the Trusted MultiLLMN                                          [5] J. Wang, C. Zhao, H. Du, G. Sun, J. Kang, S. Mao, D. Niyato, and
+represents the WBFT consensus-driven decentralized system                                               D. I. Kim, “Generative ai enabled robust data augmentation for wireless
+we have designed. The comparison among these three archi-                                               sensing in isac networks,” arXiv preprint arXiv:2502.12622, 2025.
+                                                                                                    [6] L. Zhou, W. Schellaert, F. Martı́nez-Plumed, Y. Moros-Daval, C. Ferri,
+tectures essentially serves as an ablation study to assess the                                          and J. Hernández-Orallo, “Larger and more instructable language models
+individual and combined contributions of LLM collaboration                                              become less reliable,” Nature, vol. 634, no. 8032, pp. 61–68, 2024.
+and WBFT consensus to overall generation quality.                                                   [7] E. Gibney, “What are the best ai tools for research? nature’s guide,”
+                                                                                                        Nature, 2025.
+   Fig. 8 illustrates the UE satisfaction of three architectures                                    [8] M. Ding, C. Deng, J. Choo, Z. Wu, A. Agrawal, A. Schwarzschild,
+across five evaluation dimensions. Notably, the single LLM                                              T. Zhou, T. Goldstein, J. Langford, A. Anandkumar et al., “Easy2hard-
+setup yields the lowest satisfaction scores and the highest                                             bench: Standardized difficulty labels for profiling llm performance and
+                                                                                                        generalization,” Advances in Neural Information Processing Systems,
+standard deviation, highlighting its limited ability to generalize                                      vol. 37, pp. 44 323–44 365, 2024.
+across diverse tasks and the inherent variability among differ-                                     [9] J. Lu, Z. Pang, M. Xiao, Y. Zhu, R. Xia, and J. Zhang, “Merge, ensemble,
+ent LLMs. In comparison, WBFT-driven Trusted MultiLLMN                                                  and cooperate! a survey on collaborative strategies in the era of large
+                                                                                                        language models,” arXiv preprint arXiv:2407.06089, 2024.
+achieves higher average satisfaction and reduced variability                                       [10] D. M. Owens, R. A. Rossi, S. Kim, T. Yu, F. Dernoncourt, X. Chen,
+compared to baseline MultiLLMN. This improvement is at-                                                 R. Zhang, J. Gu, H. Deilamsalehy, and N. Lipka, “A multi-llm debiasing
+tributed to the consensus mechanism, which mitigates the                                                framework,” arXiv preprint arXiv:2409.13884, 2024.
+                                                                                                   [11] S. Feng, W. Shi, Y. Wang, W. Ding, V. Balachandran, and Y. Tsvetkov,
+risk of misinformation from Byzantine LLMs and strengthens                                              “Don’t hallucinate, abstain: Identifying llm knowledge gaps via multi-
+overall system reliability. Furthermore, increasing the weight                                          llm collaboration,” arXiv preprint arXiv:2402.00367, 2024.
+                                                                                                                                                              14
+
+
+
+[12] X. Wang, J. Wang, L. Feng, D. Niyato, R. Zhang, J. Kang, Z. Xiong,         [35] D. Luo, G. Sun, H. Yu, and M. Guizani, “Blockchain-based cross-
+     H. Du, and S. Mao, “Wireless hallucination in generative ai-enabled             domain authentication with dynamic domain participation in iot,” IEEE
+     communications: Concepts, issues, and solutions,” arXiv preprint                Internet of Things Journal, vol. 12, no. 5, pp. 5385–5395, 2025.
+     arXiv:2503.06149, 2025.                                                    [36] H. Luo, J. Zhang, X. Li, Z. Li, H. Yu, G. Sun, and D. Niyato, “Esia: An
+[13] S. Wang et al., “Performance analysis on the applications of large              efficient and stable identity authentication for internet of vehicles,” IEEE
+     language models: A case for elderly care,” in 2024 IEEE International           Transactions on Vehicular Technology, vol. 73, no. 4, pp. 5602–5615,
+     Conference on High Performance Computing and Communications                     2023.
+     (HPCC). IEEE, 2024, pp. 145–151.                                           [37] W. Li, C. Feng, L. Zhang, H. Xu, B. Cao, and M. A. Imran, “A
+[14] S. Marro et al., “A scalable communication protocol for networks of             scalable multi-layer pbft consensus for blockchain,” IEEE Transactions
+     large language models,” arXiv preprint arXiv:2410.11905, 2024.                  on Parallel and Distributed Systems, vol. 32, no. 5, pp. 1146–1160,
+[15] H. Luo, Y. Wu, G. Sun, H. Yu, and M. Guizani, “Escm: An efficient and           2020.
+     secure communication mechanism for uav networks,” IEEE Transactions        [38] P. Révész, The laws of large numbers. Academic Press, 2014, vol. 4.
+     on Network and Service Management, vol. 21, no. 3, pp. 3124–3139,          [39] R. M. Dudley, Uniform central limit theorems. Cambridge university
+     2024.                                                                           press, 2014, vol. 142.
+[16] M. F. M. Firdhous et al., “WormGPT: A large language model chatbot         [40] B. Chang, L. Zhang, L. Li, G. Zhao, and Z. Chen, “Optimizing
+     for criminals,” in 2023 24th International Arab Conference on Informa-          resource allocation in urllc for real-time wireless control systems,” IEEE
+     tion Technology (ACIT). IEEE, 2023, pp. 1–6.                                    Transactions on Vehicular Technology, vol. 68, no. 9, pp. 8916–8927,
+[17] H. Luo, G. Sun, C. Chi, H. Yu, and M. Guizani, “Convergence of sym-             2019.
+     biotic communications and blockchain for sustainable and trustworthy       [41] D. Yu, W. Li, H. Xu, and L. Zhang, “Low reliable and low latency
+     6g wireless networks,” IEEE Wireless Communications, 2025.                      communications for mission critical distributed industrial internet of
+[18] H. Luo, G. Sun, J. Wang, H. Yu, D. Niyato, S. Dustdar, and Z. Han,              things,” IEEE Communications Letters, vol. 25, no. 1, pp. 313–317,
+     “Wireless blockchain meets 6g: The future trustworthy and ubiquitous            2020.
+     connectivity,” Authorea Preprints.                                         [42] H. Luo, Q. Zhang, H. Yu, G. Sun, and S. Xu, “Symbiotic pbft consensus:
+[19] H. Luo, J. Luo, and A. V. Vasilakos, “BC4LLM: A perspective of trusted          Cognitive backscatter communications-enabled wireless pbft consensus,”
+     artificial intelligence when blockchain meets large language models,”           in GLOBECOM 2023-2023 IEEE Global Communications Conference.
+     Neurocomputing, vol. 599, p. 128089, 2024.                                      IEEE, 2023, pp. 910–915.
+[20] X. Zuo, M. Wang, T. Zhu, S. Yu, and W. Zhou, “Large language               [43] J. Cao, S. Leng, L. Zhang, M. Imran, and H. Chai, “A v2v empowered
+     model federated learning with blockchain and unlearning for cross-              consensus framework for cooperative autonomous driving,” in GLOBE-
+     organizational collaboration,” arXiv preprint arXiv:2412.13551, 2024.           COM 2022-2022 IEEE Global Communications Conference. IEEE,
+[21] C. Geren, A. Board, G. G. Dagher, T. Andersen, and J. Zhuang,                   2022, pp. 5729–5734.
+     “Blockchain for large language model security and safety: A holistic       [44] H. Luo, G. Sun, H. Yu, B. Lei, and M. Guizani, “An energy-efficient
+     survey,” ACM SIGKDD Explorations Newsletter, vol. 26, no. 2, pp. 1–             wireless blockchain sharding scheme for pbft consensus,” IEEE Trans-
+     20, 2025.                                                                       actions on Network Science and Engineering, vol. 11, no. 3, pp. 3015–
+[22] M. Castro, B. Liskov et al., “Practical byzantine fault tolerance,” in          3027, 2024.
+     OsDI, vol. 99, 1999, pp. 173–186.                                          [45] H. Luo et al., “Symbiotic blockchain consensus: Cognitive backscatter
+[23] M. Yin, D. Malkhi, M. K. Reiter, G. G. Gueta, and I. Abraham, “Hot-             communications-enabled wireless blockchain consensus,” IEEE/ACM
+     stuff: Bft consensus with linearity and responsiveness,” in Proceedings         Transactions on Networking, vol. 32, no. 6, pp. 5372–5387, 2024.
+     of the 2019 ACM Symposium on Principles of Distributed Computing,          [46] H. Luo, X. Yang, H. Yu, G. Sun, B. Lei, and M. Guizani, “Performance
+     2019, pp. 347–356.                                                              analysis and comparison of nonideal wireless pbft and raft consensus
+[24] S. Feng, W. Ding, A. Liu, Z. Wang, W. Shi, Y. Wang, Z. Shen, X. Han,            networks in 6g communications,” IEEE Internet of Things Journal,
+     H. Lang, C.-Y. Lee et al., “When one llm drools, multi-llm collaboration        vol. 11, no. 6, pp. 9752–9765, 2023.
+     rules,” arXiv preprint arXiv:2502.04506, 2025.                             [47] H. Luo, K. Yang, G. Sun, H. Yu, Q. Huang, and Y. Zhang, “A multi-
+[25] S. Z. Shen, H. Lang, B. Wang, Y. Kim, and D. Sontag, “Learning to               chain consensus for power big data transaction in generation-grid-load-
+     decode collaboratively with multiple language models,” arXiv preprint           storage integrated networks,” in GLOBECOM 2024-2024 IEEE Global
+     arXiv:2403.03870, 2024.                                                         Communications Conference. IEEE, 2024, pp. 2455–2460.
+[26] F. Wan, X. Huang, D. Cai, X. Quan, W. Bi, and S. Shi, “Knowledge           [48] X. Fu, H. Wang, and P. Shi, “Votes-as-a-Proof (VaaP): Permissioned
+     fusion of large language models,” arXiv preprint arXiv:2401.10491,              blockchain consensus protocol made simple,” IEEE Transactions on
+     2024.                                                                           Parallel and Distributed Systems, vol. 33, no. 12, pp. 4964–4973, 2022.
+[27] X. Zuo, M. Wang, T. Zhu, L. Zhang, D. Ye, S. Yu, and W. Zhou, “Feder-      [49] D. Luo, Y. Zhang, G. Sun, H. Yu, and D. Niyato, “An efficient
+     ated trustchain: Blockchain-enhanced llm training and unlearning,” arXiv        consensus algorithm for blockchain-based cross-domain authentication
+     preprint arXiv:2406.04076, 2024.                                                in bandwidth-constrained wide area iot networks,” IEEE Internet of
+[28] B. Chen, G. Li, X. Lin, Z. Wang, and J. Li, “Blockagents: Towards               Things Journal, vol. 11, no. 19, pp. 31 917–31 931, 2024.
+     byzantine-robust llm-based multi-agent coordination via blockchain,” in    [50] H. Guo, X. Chen, X. Zhou, and J. Liu, “Trusted and efficient task
+     Proceedings of the ACM Turing Award Celebration Conference-China                offloading in vehicular edge computing networks,” IEEE Transactions
+     2024, 2024, pp. 187–192.                                                        on Cognitive Communications and Networking, vol. 10, no. 6, pp. 2370–
+[29] Y. Liu et al., “Blockchain-empowered lifecycle management for AI-               2382, 2024.
+     generated content products in edge networks,” IEEE Wireless Commu-         [51] J. Liao, J. Wen, J. Kang, C. Yi, Y. Zhang, Y. Jiao, D. Niyato, D. I.
+     nications, vol. 31, no. 3, pp. 286–294, 2024.                                   Kim, and S. Xie, “Graph attention network-based block propagation
+[30] M. A. Bouchiha, Q. Telnoff, S. Bakkali, R. Champagnat, M. Rabah,                with optimal AOB and reputation in Web 3.0,” IEEE Transactions on
+     M. Coustaty, and Y. Ghamri-Doudane, “Llmchain: Blockchain-based                 Cognitive Communications and Networking, vol. 10, no. 6, pp. 2427–
+     reputation system for sharing and evaluating large language models,”            2441, 2024.
+     in 2024 IEEE 48th Annual Computers, Software, and Applications             [52] J. Xu, Y. Zhao, H. Chen, and W. Deng, “Abc-gspbft: Pbft with grouping
+     Conference (COMPSAC). IEEE, 2024, pp. 439–448.                                  score mechanism and optimized consensus process for flight operation
+[31] Y. Lin, Z. Gao, H. Du, D. Niyato, J. Kang, Z. Xiong, and Z. Zheng,              data-sharing,” Information Sciences, vol. 624, pp. 110–127, 2023.
+     “Blockchain-based efficient and trustworthy aigc services in metaverse,”
+     IEEE Transactions on Services Computing, vol. 17, no. 5, pp. 2067–
+     2079, 2024.
+[32] H. Li and J. Wang, “Collaborative annealing power k-means++ cluster-
+     ing,” Knowledge-Based Systems, vol. 255, p. 109593, 2022.
+[33] F. Liu and Y. Deng, “Determine the number of unknown targets in open
+     world based on elbow method,” IEEE Transactions on Fuzzy Systems,
+     vol. 29, no. 5, pp. 986–995, 2020.
+[34] Y. Yu, J. He, X. Xu, Q. Zhang, W. Qiu, H. Zheng, B. Guo, and J. Dong,
+     “Tierflow: A pipelined layered bft consensus protocol for large-scale
+     blockchain,” in 2024 IEEE 23rd International Conference on Trust,
+     Security and Privacy in Computing and Communications (TrustCom).
+     IEEE, 2024, pp. 624–635.
+

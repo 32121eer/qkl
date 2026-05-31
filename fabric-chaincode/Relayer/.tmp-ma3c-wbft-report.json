@@ -1,0 +1,272 @@
+{
+  "convergence": [
+    {
+      "agentCount": 7,
+      "maliciousRatio": 0.2,
+      "trials": 8,
+      "avgConvergenceMs": 362.5,
+      "p95ConvergenceMs": 539,
+      "avgRounds": 2
+    },
+    {
+      "agentCount": 15,
+      "maliciousRatio": 0.2,
+      "trials": 8,
+      "avgConvergenceMs": 480.125,
+      "p95ConvergenceMs": 580,
+      "avgRounds": 2
+    },
+    {
+      "agentCount": 31,
+      "maliciousRatio": 0.2,
+      "trials": 8,
+      "avgConvergenceMs": 529.5,
+      "p95ConvergenceMs": 618,
+      "avgRounds": 2
+    },
+    {
+      "agentCount": 61,
+      "maliciousRatio": 0.2,
+      "trials": 8,
+      "avgConvergenceMs": 592.5,
+      "p95ConvergenceMs": 694,
+      "avgRounds": 2
+    }
+  ],
+  "resilience": [
+    {
+      "agentCount": 31,
+      "maliciousRatio": 0.1,
+      "trials": 60,
+      "correctnessRate": 1,
+      "falseAcceptRate": 0,
+      "falseRejectRate": 0
+    },
+    {
+      "agentCount": 31,
+      "maliciousRatio": 0.2,
+      "trials": 60,
+      "correctnessRate": 1,
+      "falseAcceptRate": 0,
+      "falseRejectRate": 0
+    },
+    {
+      "agentCount": 31,
+      "maliciousRatio": 0.3,
+      "trials": 60,
+      "correctnessRate": 1,
+      "falseAcceptRate": 0,
+      "falseRejectRate": 0
+    }
+  ],
+  "newAgentEvolution": {
+    "agentCount": 15,
+    "maliciousRatio": 0.2,
+    "warmupRounds": 24,
+    "observeRounds": 40,
+    "roundsToTopQuartile": 3,
+    "finalWeight": 0.107616,
+    "trajectory": [
+      {
+        "round": 1,
+        "newcomerWeight": 0.097611,
+        "topQuartileThreshold": 0.111562
+      },
+      {
+        "round": 2,
+        "newcomerWeight": 0.105068,
+        "topQuartileThreshold": 0.107996
+      },
+      {
+        "round": 3,
+        "newcomerWeight": 0.107055,
+        "topQuartileThreshold": 0.107055
+      },
+      {
+        "round": 4,
+        "newcomerWeight": 0.109313,
+        "topQuartileThreshold": 0.109313
+      },
+      {
+        "round": 5,
+        "newcomerWeight": 0.109627,
+        "topQuartileThreshold": 0.10935
+      },
+      {
+        "round": 6,
+        "newcomerWeight": 0.109974,
+        "topQuartileThreshold": 0.108405
+      },
+      {
+        "round": 7,
+        "newcomerWeight": 0.110364,
+        "topQuartileThreshold": 0.107649
+      },
+      {
+        "round": 8,
+        "newcomerWeight": 0.11097,
+        "topQuartileThreshold": 0.107498
+      },
+      {
+        "round": 9,
+        "newcomerWeight": 0.110356,
+        "topQuartileThreshold": 0.106672
+      },
+      {
+        "round": 10,
+        "newcomerWeight": 0.10968,
+        "topQuartileThreshold": 0.10611
+      },
+      {
+        "round": 11,
+        "newcomerWeight": 0.109967,
+        "topQuartileThreshold": 0.105736
+      },
+      {
+        "round": 12,
+        "newcomerWeight": 0.109324,
+        "topQuartileThreshold": 0.105202
+      },
+      {
+        "round": 13,
+        "newcomerWeight": 0.109538,
+        "topQuartileThreshold": 0.105569
+      },
+      {
+        "round": 14,
+        "newcomerWeight": 0.109777,
+        "topQuartileThreshold": 0.10563
+      },
+      {
+        "round": 15,
+        "newcomerWeight": 0.108787,
+        "topQuartileThreshold": 0.105345
+      },
+      {
+        "round": 16,
+        "newcomerWeight": 0.109822,
+        "topQuartileThreshold": 0.105098
+      },
+      {
+        "round": 17,
+        "newcomerWeight": 0.109935,
+        "topQuartileThreshold": 0.105056
+      },
+      {
+        "round": 18,
+        "newcomerWeight": 0.109621,
+        "topQuartileThreshold": 0.104998
+      },
+      {
+        "round": 19,
+        "newcomerWeight": 0.10914,
+        "topQuartileThreshold": 0.104644
+      },
+      {
+        "round": 20,
+        "newcomerWeight": 0.10917,
+        "topQuartileThreshold": 0.104497
+      },
+      {
+        "round": 21,
+        "newcomerWeight": 0.108933,
+        "topQuartileThreshold": 0.104017
+      },
+      {
+        "round": 22,
+        "newcomerWeight": 0.109727,
+        "topQuartileThreshold": 0.104156
+      },
+      {
+        "round": 23,
+        "newcomerWeight": 0.109378,
+        "topQuartileThreshold": 0.103632
+      },
+      {
+        "round": 24,
+        "newcomerWeight": 0.108709,
+        "topQuartileThreshold": 0.104143
+      },
+      {
+        "round": 25,
+        "newcomerWeight": 0.109164,
+        "topQuartileThreshold": 0.10419
+      },
+      {
+        "round": 26,
+        "newcomerWeight": 0.108353,
+        "topQuartileThreshold": 0.103101
+      },
+      {
+        "round": 27,
+        "newcomerWeight": 0.108407,
+        "topQuartileThreshold": 0.103664
+      },
+      {
+        "round": 28,
+        "newcomerWeight": 0.108099,
+        "topQuartileThreshold": 0.102555
+      },
+      {
+        "round": 29,
+        "newcomerWeight": 0.10804,
+        "topQuartileThreshold": 0.10231
+      },
+      {
+        "round": 30,
+        "newcomerWeight": 0.10811,
+        "topQuartileThreshold": 0.10294
+      },
+      {
+        "round": 31,
+        "newcomerWeight": 0.108785,
+        "topQuartileThreshold": 0.103294
+      },
+      {
+        "round": 32,
+        "newcomerWeight": 0.109121,
+        "topQuartileThreshold": 0.103217
+      },
+      {
+        "round": 33,
+        "newcomerWeight": 0.108164,
+        "topQuartileThreshold": 0.102241
+      },
+      {
+        "round": 34,
+        "newcomerWeight": 0.108259,
+        "topQuartileThreshold": 0.102943
+      },
+      {
+        "round": 35,
+        "newcomerWeight": 0.108074,
+        "topQuartileThreshold": 0.101913
+      },
+      {
+        "round": 36,
+        "newcomerWeight": 0.108001,
+        "topQuartileThreshold": 0.10261
+      },
+      {
+        "round": 37,
+        "newcomerWeight": 0.107704,
+        "topQuartileThreshold": 0.1016
+      },
+      {
+        "round": 38,
+        "newcomerWeight": 0.108251,
+        "topQuartileThreshold": 0.102857
+      },
+      {
+        "round": 39,
+        "newcomerWeight": 0.107525,
+        "topQuartileThreshold": 0.102071
+      },
+      {
+        "round": 40,
+        "newcomerWeight": 0.107616,
+        "topQuartileThreshold": 0.102182
+      }
+    ]
+  }
+}

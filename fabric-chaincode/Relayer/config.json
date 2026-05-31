@@ -16,7 +16,7 @@
       "type": "FABRIC",
       "enabled": true,
       "connection": {
-        "cryptoPath": "/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
+        "cryptoPath": "/mnt/fast18/xunuo/qkl/cross-chain/.fabric-runtime/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
         "channelName": "mychannel",
         "peerEndpoint": "localhost:7051",
         "peerHostAlias": "peer0.org1.example.com",
@@ -43,12 +43,12 @@
         "endpoint": "http://127.0.0.1:8545"
       },
       "contracts": {
-        "gateway": "0xda6b545a036504114a35a743eabdf85351ab0fbe",
-        "lightClient": "0x5042110904cbd30c4c83012435b6f72a8e9a0a7c",
-        "registry": "0x5cae577af5ba8a73421ef6a0d95eb8421a1a6dcd",
+        "gateway": "0xc3EEad5e05854E87d9E2952516CEafC70ADF015b",
+        "lightClient": "0x3c83baa428599e42f7c11127a5e5a9d24c076349",
+        "registry": "0x6351aa6e313061af04aea57f410e7b54dab49753",
         "gatewayName": "GatewayAir",
         "lightClientName": "LightClientAir",
-        "chainRegistry": "0x5cae577af5ba8a73421ef6a0d95eb8421a1a6dcd"
+        "chainRegistry": "0x6351aa6e313061af04aea57f410e7b54dab49753"
       },
       "receiveMethod": "receiveLite",
       "monitoring": {

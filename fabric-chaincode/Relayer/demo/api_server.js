@@ -4,9 +4,13 @@ const { buildOrchardValidator, ORCHARD_PAYLOAD_V1_SCHEMA } = require('./payload_
 const { createDemoApp } = require('./app/create_demo_app');
 const { RelayFacade } = require('./app/relay_facade');
 const { QueryBroker } = require('./broker/query_broker');
+const { AgentRuntime } = require('./agents/agent_runtime');
+const { NegotiationProtocol } = require('./negotiation/negotiation_protocol');
+const { buildRemoteAgentSpecsFromDirectory } = require('./agents/remote_agent_registry');
 const { DemoMemoryStore } = require('./store/memory_store');
 const { DemoSqliteStore } = require('./store/sqlite_store');
 const { QuerySessionService } = require('./session/query_session_service');
+const { verifyQuerySession } = require('./query/query_verifier');
 const path = require('node:path');
 
 function mapDirectionByChain(sourceChainId, targetChainId) {
@@ -21,6 +25,7 @@ function mapDirectionByChain(sourceChainId, targetChainId) {
 
 function mapErrorCode(errorText) {
     const text = String(errorText || '');
+    if (/Negotiation blocked/i.test(text) || /final proposal is missing/i.test(text)) return 'ERR_NEGOTIATION_BLOCKED';
     if (/Source block not verified/i.test(text)) return 'ERR_HEADER_UNVERIFIED';
     if (/MVCC|read conflict/i.test(text)) return 'ERR_MVCC_CONFLICT';
     if (/request timeout|code=TIMEOUT|ETIMEDOUT|timed out/i.test(text)) return 'ERR_CHAIN_TIMEOUT';
@@ -107,12 +112,22 @@ class DemoApiServer {
             : new DemoMemoryStore({ maxSessions: 1000 });
         this.querySessionService = new QuerySessionService(this.store);
         this.relayFacade = new RelayFacade({ eventStore: this.eventStore });
+        const remoteDisabled = String(process.env.DEMO_REMOTE_AGENTS_DISABLED || '').toLowerCase() === 'true';
+        const remoteAgentSpecs = remoteDisabled ? [] : buildRemoteAgentSpecsFromDirectory();
+        this.agentRuntime = new AgentRuntime({
+            eventStore: this.eventStore,
+            remoteAgents: remoteAgentSpecs,
+            remoteVerifierMode: process.env.DEMO_REMOTE_VERIFIER_MODE || 'replace'
+        });
+        this.negotiationProtocol = new NegotiationProtocol({ eventStore: this.eventStore });
         this.queryBroker = new QueryBroker({
             executeTrigger: this.executeTrigger.bind(this),
             triggerService: this.triggerService,
             relayFacade: this.relayFacade,
             sessionService: this.querySessionService,
             eventStore: this.eventStore,
+            agentRuntime: this.agentRuntime,
+            negotiationProtocol: this.negotiationProtocol,
             activeQuerySessions: this.activeQuerySessions,
             mapSessionErrorCode: this.mapSessionErrorCode.bind(this)
         });
@@ -134,6 +149,132 @@ class DemoApiServer {
 
     parseQuerySessionLimit(rawLimit) {
         return parseQuerySessionLimit(rawLimit);
+    }
+
+    summarizeQueryCommitment(queryCommitment) {
+        if (!queryCommitment) {
+            return null;
+        }
+        return {
+            version: queryCommitment.version || null,
+            algorithm: queryCommitment.algorithm || null,
+            value: queryCommitment.value || null,
+            sourceHeight: queryCommitment.inputs?.sourceHeight ?? null,
+            sourceHeaderHash: queryCommitment.inputs?.sourceHeaderHash || null
+        };
+    }
+
+    executeVerifyQuery(session) {
+        try {
+            return verifyQuerySession(session);
+        } catch (_error) {
+            return null;
+        }
+    }
+
+    hasQueryProof(session) {
+        return Boolean(session?.proofBundle || session?.queryProof);
+    }
+
+    resolveQueryProofStatus(session, verification) {
+        if (verification) {
+            return verification.ok ? 'PASS' : (session.queryVerifyStatus === 'MISMATCH' ? 'MISMATCH' : 'FAILED');
+        }
+
+        const currentStatus = session?.queryVerifyStatus || 'PENDING';
+        const finalSession = session?.status === 'COMPLETED' || session?.status === 'FAILED';
+        if (!this.hasQueryProof(session) && finalSession && currentStatus === 'PENDING') {
+            return 'MISSING';
+        }
+
+        return currentStatus;
+    }
+
+    summarizeQueryProof(queryProof) {
+        if (!queryProof) {
+            return null;
+        }
+        return {
+            version: queryProof.version || null,
+            sourceChain: queryProof.sourceChain || null,
+            sourceHeight: queryProof.sourceHeight ?? null,
+            sourceHeaderHash: queryProof.sourceHeaderHash || null,
+            witnessType: queryProof.stateWitness?.type || null,
+            witnessNote: queryProof.stateWitness?.note || null,
+            sourceFunction: queryProof.stateWitness?.sourceFunction || null,
+            recordHash: queryProof.stateWitness?.recordHash || null,
+            commitment: queryProof.commitment?.value || null
+        };
+    }
+
+    summarizeNegotiation(session) {
+        const finalProposal = session?.finalProposal || session?.crossChainTask?.negotiation?.finalProposal || null;
+        const opinions = Array.isArray(session?.agentOpinions) ? session.agentOpinions : [];
+        const latestHistory = Array.isArray(session?.crossChainTask?.negotiation?.history) && session.crossChainTask.negotiation.history.length
+            ? session.crossChainTask.negotiation.history[session.crossChainTask.negotiation.history.length - 1]
+            : null;
+        const disagreements = latestHistory?.disagreements || finalProposal?.disagreements || [];
+        const continuation = session?.negotiationContinuation || session?.crossChainTask?.negotiation?.continuation || null;
+
+        return {
+            status: session?.negotiationStatus || session?.crossChainTask?.negotiation?.status || 'PENDING',
+            round: session?.negotiationRound || session?.crossChainTask?.negotiation?.round || 0,
+            proposalId: session?.negotiationProposalId || finalProposal?.proposalId || null,
+            finalDecision: finalProposal?.finalDecision || null,
+            protocolVersion: finalProposal?.protocolVersion || null,
+            risk: finalProposal?.risk || session?.crossChainTask?.risk || 'NORMAL',
+            consensusRule: finalProposal?.consensusRule || null,
+            evidenceVersion: session?.evidenceVersion || session?.crossChainTask?.evidenceVersion || 0,
+            quorum: finalProposal?.quorum || null,
+            weightVector: finalProposal?.weightVector || [],
+            selectedCommittee: session?.selectedCommittee || session?.crossChainTask?.negotiation?.selectedCommittee || [],
+            excludedAgents: session?.excludedAgents || session?.crossChainTask?.negotiation?.excludedAgents || [],
+            behaviorSummary: session?.behaviorSummary || session?.crossChainTask?.negotiation?.behaviorSummary || null,
+            arbitrationDecision: session?.arbitrationDecision || session?.crossChainTask?.negotiation?.arbitration || finalProposal?.arbitration || null,
+            negotiationProof: session?.negotiationProof || session?.crossChainTask?.negotiation?.negotiationProof || null,
+            negotiationVerifyResult: session?.negotiationVerifyResult || null,
+            settlementResult: session?.settlementResult || session?.crossChainTask?.negotiation?.settlementResult || null,
+            supportingAgents: finalProposal?.supportingAgents || [],
+            questioningAgents: finalProposal?.questioningAgents || [],
+            rejectingAgents: finalProposal?.rejectingAgents || [],
+            disagreementCount: disagreements.length,
+            disagreements,
+            continuation,
+            requestedEvidence: Array.isArray(continuation?.requestedEvidence) ? continuation.requestedEvidence : []
+        };
+    }
+
+    presentQuerySession(session, { includeProof = false } = {}) {
+        if (!session) {
+            return null;
+        }
+
+        const verification = this.executeVerifyQuery(session);
+        const normalizedCommitment = this.summarizeQueryCommitment(
+            session.resultCommitment || session.queryCommitment || session.queryProof?.commitment
+        );
+        const effectiveVerifyStatus = this.resolveQueryProofStatus(session, verification);
+
+        const item = {
+            ...session,
+            queryCommitment: normalizedCommitment,
+            resultCommitment: normalizedCommitment,
+            queryProof: includeProof ? (session.proofBundle || session.queryProof) : undefined,
+            proofBundle: includeProof ? (session.proofBundle || session.queryProof) : undefined,
+            queryProofSummary: this.summarizeQueryProof(session.proofBundle || session.queryProof),
+            queryVerifyStatus: effectiveVerifyStatus,
+            queryVerifyChecks: verification?.checks || session.queryVerifyChecks || null,
+            queryVerifyResult: verification || session.queryVerifyResult || null,
+            queryVerifiedAt: verification?.verifiedAt || session.queryVerifyResult?.verifiedAt || null,
+            negotiationSummary: this.summarizeNegotiation(session)
+        };
+
+        if (!includeProof) {
+            delete item.queryProof;
+            delete item.proofBundle;
+        }
+
+        return item;
     }
 
     buildRelayMarkers(limit = 30) {
@@ -271,7 +412,7 @@ class DemoApiServer {
         };
     }
 
-    buildProofCards(limit = PROOF_DEFAULT_LIMIT) {
+    async buildProofCards(limit = PROOF_DEFAULT_LIMIT) {
         const allItems = this.eventStore.getEvents(2000);
         const now = Date.now();
         const cardsById = new Map();
@@ -383,13 +524,72 @@ class DemoApiServer {
             return card;
         });
 
-        cards.sort((lhs, rhs) => {
+        const sessions = await this.querySessionService.list(1000);
+        for (const session of sessions || []) {
+            if (!session?.queryId) {
+                continue;
+            }
+
+            if (!cardsById.has(session.queryId)) {
+                cardsById.set(
+                    session.queryId,
+                    this.createEmptyProofCard(
+                        session.queryId,
+                        'FISCO_TO_FABRIC',
+                        'FISCO_NET_01',
+                        'FABRIC_NET_01',
+                        session.requestTs
+                    )
+                );
+            }
+
+            const card = cardsById.get(session.queryId);
+            const verification = this.executeVerifyQuery(session);
+            const summary = this.summarizeQueryProof(session.proofBundle || session.queryProof);
+            const verifyStatus = this.resolveQueryProofStatus(session, verification);
+            const verifyChecks = verification?.checks || session.queryVerifyChecks || null;
+            card.kind = 'query-proof';
+            card.queryId = session.queryId;
+            card.queryProofVersion = session.queryProofVersion || summary?.version || null;
+            card.queryProof = {
+                status: verifyStatus,
+                checks: verifyChecks,
+                queryObject: session.queryObject || null,
+                commitment: this.summarizeQueryCommitment(session.resultCommitment || session.queryCommitment),
+                summary,
+                verifiedAt: verification?.verifiedAt || session.queryVerifyResult?.verifiedAt || null
+            };
+
+            if (summary?.sourceHeight !== null && summary?.sourceHeight !== undefined) {
+                card.source.blockNumber = summary.sourceHeight;
+            }
+            if (summary?.sourceHeaderHash) {
+                card.source.payloadHash = card.source.payloadHash || summary.sourceHeaderHash;
+            }
+            if (summary?.commitment) {
+                card.target.payloadHash = card.target.payloadHash || summary.commitment;
+            }
+
+            card.verify.queryProofStatus = verifyStatus;
+            card.verify.queryVerifyChecks = verifyChecks;
+            card.verify.prototypeWitness = summary?.witnessType === 'record-snapshot';
+
+            if (verifyStatus === 'FAILED' || verifyStatus === 'MISMATCH' || verifyStatus === 'MISSING') {
+                card.status = verifyStatus;
+            } else if (verifyStatus === 'PASS' && card.status === 'PENDING') {
+                card.status = 'PASS';
+            }
+        }
+
+        const finalCards = Array.from(cardsById.values());
+
+        finalCards.sort((lhs, rhs) => {
             const left = Date.parse(lhs.requestTs || lhs.settleTs || 0);
             const right = Date.parse(rhs.requestTs || rhs.settleTs || 0);
             return right - left;
         });
 
-        return cards.slice(0, limit);
+        return finalCards.slice(0, limit);
     }
 
     bindRelayerEvents() {
@@ -715,6 +915,9 @@ class DemoApiServer {
     mapSessionErrorCode(error) {
         if (error?.code === 'ERR_QUERY_TIMEOUT') {
             return 'ERR_QUERY_TIMEOUT';
+        }
+        if (error?.code === 'ERR_NEGOTIATION_BLOCKED') {
+            return 'ERR_NEGOTIATION_BLOCKED';
         }
         return mapErrorCode(error?.message || '');
     }
@@ -1045,7 +1248,7 @@ class DemoApiServer {
                 });
             }
             return res.json({
-                items: this.listQuerySessions(parsedLimit.value),
+                items: this.listQuerySessions(parsedLimit.value).map((item) => this.presentQuerySession(item)),
                 updatedAt: new Date().toISOString()
             });
         });
@@ -1060,7 +1263,7 @@ class DemoApiServer {
                 });
             }
             return res.json({
-                item: session,
+                item: this.presentQuerySession(session),
                 updatedAt: new Date().toISOString()
             });
         });
@@ -1086,7 +1289,7 @@ class DemoApiServer {
             });
         });
 
-        this.app.get('/demo/app/proof-cards', (req, res) => {
+        this.app.get('/demo/app/proof-cards', async (req, res) => {
             const parsedLimit = parseProofCardLimit(req.query.limit);
             if (parsedLimit.error) {
                 return res.status(400).json({
@@ -1094,16 +1297,16 @@ class DemoApiServer {
                     error: parsedLimit.error
                 });
             }
-            const items = this.buildProofCards(parsedLimit.value);
+            const items = await this.buildProofCards(parsedLimit.value);
             return res.json({
                 items,
                 updatedAt: new Date().toISOString()
             });
         });
 
-        this.app.get('/demo/app/proof-cards/:cardId', (req, res) => {
+        this.app.get('/demo/app/proof-cards/:cardId', async (req, res) => {
             const cardId = String(req.params.cardId || '');
-            const cards = this.buildProofCards(PROOF_MAX_LIMIT);
+            const cards = await this.buildProofCards(PROOF_MAX_LIMIT);
             const item = cards.find((card) => card.cardId === cardId);
             if (!item) {
                 return res.status(404).json({

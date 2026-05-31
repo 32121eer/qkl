@@ -6,8 +6,23 @@ const path = require('node:path');
 const { promisify } = require('node:util');
 const { execFile } = require('node:child_process');
 const { ethers } = require('ethers');
+const { resolveFabricCryptoPath, resolveFabricTestNetworkDir } = require('../fabric_path_resolver');
+const { buildNegotiatedResponseEnvelope } = require('./negotiation/response_envelope');
 
 const execFileAsync = promisify(execFile);
+
+function buildFabricTlsVerifyOptions() {
+    const insecure = String(process.env.FABRIC_TLS_INSECURE || '1') !== '0';
+    return insecure ? { rejectUnauthorized: false } : {};
+}
+
+function shouldFallbackToFabricCli(error) {
+    const text = String(error?.message || error || '');
+    return /creator org unknown/i.test(text)
+        || /creator is malformed/i.test(text)
+        || /unable to verify the first certificate/i.test(text)
+        || /No connection established/i.test(text);
+}
 
 class DemoTriggerService {
     constructor(config, eventStore) {
@@ -41,10 +56,12 @@ class DemoTriggerService {
 
     async createFabricGatewayConnection(fabricChain) {
         const connection = fabricChain.connection || {};
-        const cryptoPath = path.resolve(
-            connection.cryptoPath ||
-            '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com'
-        );
+        const cryptoPath = resolveFabricCryptoPath(connection.cryptoPath);
+        if (!cryptoPath) {
+            throw new Error(
+                'Fabric cryptoPath not found. Set FABRIC_CRYPTO_PATH or FABRIC_SAMPLES_DIR to a valid fabric-samples installation.'
+            );
+        }
         const peerHostAlias = connection.peerHostAlias || 'peer0.org1.example.com';
         const peerEndpoint = connection.peerEndpoint || 'localhost:7051';
         const mspId = connection.mspId || 'Org1MSP';
@@ -80,7 +97,12 @@ class DemoTriggerService {
         const privateKeyPem = await fs.readFile(path.join(mspPath, 'keystore', keyFiles[0]));
         const privateKey = crypto.createPrivateKey(privateKeyPem);
 
-        const tlsCredentials = grpc.credentials.createSsl(tlsRootCert);
+        const tlsCredentials = grpc.credentials.createSsl(
+            tlsRootCert,
+            null,
+            null,
+            buildFabricTlsVerifyOptions()
+        );
         const client = new grpc.Client(peerEndpoint, tlsCredentials, {
             'grpc.ssl_target_name_override': peerHostAlias,
             'grpc.default_authority': peerHostAlias
@@ -111,15 +133,126 @@ class DemoTriggerService {
         }
     }
 
+    resolveFabricCliContext(fabricChain) {
+        const connection = fabricChain.connection || {};
+        const cryptoPath = resolveFabricCryptoPath(connection.cryptoPath);
+        const testNetworkDir = resolveFabricTestNetworkDir();
+        if (!cryptoPath || !testNetworkDir) {
+            throw new Error('Fabric test-network runtime not found for peer CLI fallback');
+        }
+
+        const samplesDir = path.dirname(testNetworkDir);
+        const peerBin = path.join(samplesDir, 'bin', 'peer');
+        const orgName = path.basename(cryptoPath);
+        const orgNumber = /org(\d+)\.example\.com/i.exec(orgName)?.[1] || '1';
+        const ordererCa = path.join(
+            testNetworkDir,
+            'organizations',
+            'ordererOrganizations',
+            'example.com',
+            'tlsca',
+            'tlsca.example.com-cert.pem'
+        );
+        const peerTlsRoot = path.join(
+            cryptoPath,
+            'tlsca',
+            `tlsca.org${orgNumber}.example.com-cert.pem`
+        );
+        const adminMsp = path.join(
+            cryptoPath,
+            'users',
+            `Admin@org${orgNumber}.example.com`,
+            'msp'
+        );
+
+        return {
+            peerBin,
+            channelName: connection.channelName || 'mychannel',
+            chaincodeName: fabricChain.contracts?.gateway || 'gateway_cc',
+            ordererAddress: connection.ordererEndpoint || 'localhost:7050',
+            ordererTlsHostAlias: connection.ordererHostAlias || 'orderer.example.com',
+            env: {
+                ...process.env,
+                FABRIC_CFG_PATH: path.join(samplesDir, 'config'),
+                CORE_PEER_TLS_ENABLED: 'true',
+                CORE_PEER_LOCALMSPID: connection.mspId || 'Org1MSP',
+                CORE_PEER_TLS_ROOTCERT_FILE: peerTlsRoot,
+                CORE_PEER_MSPCONFIGPATH: adminMsp,
+                CORE_PEER_ADDRESS: connection.peerEndpoint || 'localhost:7051'
+            },
+            ordererCa
+        };
+    }
+
+    async peerChaincodeQuery(fabricChain, fcn, args = []) {
+        const cli = this.resolveFabricCliContext(fabricChain);
+        const payload = JSON.stringify({
+            Args: [fcn, ...args]
+        });
+        const { stdout } = await execFileAsync(cli.peerBin, [
+            'chaincode',
+            'query',
+            '-C',
+            cli.channelName,
+            '-n',
+            cli.chaincodeName,
+            '-c',
+            payload
+        ], {
+            env: cli.env,
+            cwd: path.dirname(cli.peerBin),
+            timeout: 60_000
+        });
+        return String(stdout || '').trim();
+    }
+
+    async peerChaincodeInvoke(fabricChain, fcn, args = []) {
+        const cli = this.resolveFabricCliContext(fabricChain);
+        const payload = JSON.stringify({
+            Args: [fcn, ...args]
+        });
+        const { stdout, stderr } = await execFileAsync(cli.peerBin, [
+            'chaincode',
+            'invoke',
+            '-o',
+            cli.ordererAddress,
+            '--ordererTLSHostnameOverride',
+            cli.ordererTlsHostAlias,
+            '--tls',
+            '--cafile',
+            cli.ordererCa,
+            '-C',
+            cli.channelName,
+            '-n',
+            cli.chaincodeName,
+            '-c',
+            payload,
+            '--waitForEvent'
+        ], {
+            env: cli.env,
+            cwd: path.dirname(cli.peerBin),
+            timeout: 120_000
+        });
+        return `${stdout || ''}${stderr || ''}`.trim();
+    }
+
     async putOrchardRecord(orchardBatchId, payload) {
         const batchId = String(orchardBatchId || '').trim();
         if (!batchId) {
             throw new Error('orchardBatchId is required');
         }
         const payloadJson = JSON.stringify(payload || {});
-        await this.withFabricGatewayContract(async (contract) => {
-            await contract.submitTransaction('PutOrchardRecord', batchId, payloadJson);
-        });
+        const fabricChain = this.getFabricChain();
+        try {
+            await this.withFabricGatewayContract(async (contract) => {
+                await contract.submitTransaction('PutOrchardRecord', batchId, payloadJson);
+            });
+        } catch (error) {
+            if (!shouldFallbackToFabricCli(error)) {
+                throw error;
+            }
+            await this.peerChaincodeInvoke(fabricChain, 'PutOrchardRecord', [batchId, payloadJson]);
+        }
         return null;
     }
 
@@ -129,10 +262,19 @@ class DemoTriggerService {
             throw new Error('orchardBatchId is required');
         }
 
-        const output = await this.withFabricGatewayContract(async (contract) => {
-            const raw = await contract.evaluateTransaction('GetOrchardRecord', batchId);
-            return Buffer.from(raw).toString('utf8');
-        });
+        const fabricChain = this.getFabricChain();
+        let output;
+        try {
+            output = await this.withFabricGatewayContract(async (contract) => {
+                const raw = await contract.evaluateTransaction('GetOrchardRecord', batchId);
+                return Buffer.from(raw).toString('utf8');
+            });
+        } catch (error) {
+            if (!shouldFallbackToFabricCli(error)) {
+                throw error;
+            }
+            output = await this.peerChaincodeQuery(fabricChain, 'GetOrchardRecord', [batchId]);
+        }
 
         return JSON.parse(output);
     }
@@ -140,14 +282,27 @@ class DemoTriggerService {
     async listOrchardRecords(limit = 20, bookmark = '') {
         const parsedLimit = Number.parseInt(limit, 10);
         const finalLimit = Number.isNaN(parsedLimit) ? 20 : Math.max(1, Math.min(100, parsedLimit));
-        const text = await this.withFabricGatewayContract(async (contract) => {
-            const raw = await contract.evaluateTransaction(
+        const fabricChain = this.getFabricChain();
+        let text;
+        try {
+            text = await this.withFabricGatewayContract(async (contract) => {
+                const raw = await contract.evaluateTransaction(
+                    'ListOrchardRecords',
+                    String(finalLimit),
+                    String(bookmark || '')
+                );
+                return Buffer.from(raw).toString('utf8');
+            });
+        } catch (error) {
+            if (!shouldFallbackToFabricCli(error)) {
+                throw error;
+            }
+            text = await this.peerChaincodeQuery(
+                fabricChain,
                 'ListOrchardRecords',
-                String(finalLimit),
-                String(bookmark || '')
+                [String(finalLimit), String(bookmark || '')]
             );
-            return Buffer.from(raw).toString('utf8');
-        });
+        }
         return JSON.parse(text);
     }
 
@@ -381,17 +536,18 @@ class DemoTriggerService {
         queryId,
         orchardBatchId,
         found,
-        result
+        result,
+        negotiationProof = null,
+        settlementResult = null
     }) {
-        const payload = {
-            payloadVersion: '1.0',
-            messageType: 'ORCHARD_QUERY_RESPONSE',
+        const payload = buildNegotiatedResponseEnvelope({
             queryId,
             orchardBatchId,
-            found: Boolean(found),
-            result: found ? (result ?? null) : null,
-            responseTs: new Date().toISOString()
-        };
+            found,
+            result,
+            negotiationProof,
+            settlementResult
+        });
         return this.triggerFabricToFisco(payload);
     }
 }

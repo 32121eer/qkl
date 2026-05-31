@@ -13,7 +13,7 @@
       "type": "FABRIC",
       "enabled": true,
       "connection": {
-        "cryptoPath": "/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
+        "cryptoPath": "/mnt/fast18/xunuo/czs/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
         "channelName": "mychannel",
         "peerEndpoint": "localhost:7051",
         "peerHostAlias": "peer0.org1.example.com",

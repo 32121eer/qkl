@@ -14,6 +14,8 @@ contract GatewayAir {
     
     // 已处理的跨链调用记录（防止重放攻击）
     mapping(bytes32 => bool) public processedCalls;
+    mapping(bytes32 => bytes32) public anchoredPayloadHashes;
+    mapping(bytes32 => bytes32) public anchoredNegotiationProofDigests;
     
     // 事件：跨链调用发起
     event CrossChainCall(
@@ -29,6 +31,14 @@ contract GatewayAir {
         uint256 sourceBlockNumber,
         string sourceTxId,
         bool verified
+    );
+
+    event CrossChainReceiptAnchored(
+        string indexed sourceChain,
+        uint256 sourceBlockNumber,
+        string sourceTxId,
+        bytes32 payloadHash,
+        bytes32 negotiationProofDigest
     );
     
     constructor(address _chainRegistry, address _lightClient) {
@@ -70,11 +80,7 @@ contract GatewayAir {
         bytes memory merkleProof
     ) public {
         // 生成唯一调用ID
-        bytes32 callId = keccak256(abi.encodePacked(
-            sourceChain,
-            sourceBlockNumber,
-            sourceTxId
-        ));
+        bytes32 callId = _buildCallId(sourceChain, sourceBlockNumber, sourceTxId);
         
         require(!processedCalls[callId], "Call already processed");
         
@@ -90,6 +96,7 @@ contract GatewayAir {
         
         // 标记为已处理
         processedCalls[callId] = true;
+        _anchorReceipt(callId, sourceChain, sourceBlockNumber, sourceTxId, bytes32(0), bytes32(0));
         
         emit CrossChainReceived(sourceChain, sourceBlockNumber, sourceTxId, true);
     }
@@ -108,14 +115,12 @@ contract GatewayAir {
         string memory sourceChain,
         uint256 sourceBlockNumber,
         string memory sourceTxId,
-        bytes memory blockHeader
+        bytes memory blockHeader,
+        bytes32 payloadHash,
+        bytes32 negotiationProofDigest
     ) public {
         // 生成唯一调用ID
-        bytes32 callId = keccak256(abi.encodePacked(
-            sourceChain,
-            sourceBlockNumber,
-            sourceTxId
-        ));
+        bytes32 callId = _buildCallId(sourceChain, sourceBlockNumber, sourceTxId);
         
         require(!processedCalls[callId], "Call already processed");
         
@@ -127,8 +132,52 @@ contract GatewayAir {
         
         // 标记为已处理
         processedCalls[callId] = true;
+        _anchorReceipt(callId, sourceChain, sourceBlockNumber, sourceTxId, payloadHash, negotiationProofDigest);
         
         emit CrossChainReceived(sourceChain, sourceBlockNumber, sourceTxId, true);
+    }
+
+    function getReceiptAnchor(
+        string memory sourceChain,
+        uint256 sourceBlockNumber,
+        string memory sourceTxId
+    ) public view returns (bytes32 payloadHash, bytes32 negotiationProofDigest) {
+        bytes32 callId = _buildCallId(sourceChain, sourceBlockNumber, sourceTxId);
+        return (
+            anchoredPayloadHashes[callId],
+            anchoredNegotiationProofDigests[callId]
+        );
+    }
+
+    function _buildCallId(
+        string memory sourceChain,
+        uint256 sourceBlockNumber,
+        string memory sourceTxId
+    ) internal pure returns (bytes32) {
+        return keccak256(abi.encodePacked(
+            sourceChain,
+            sourceBlockNumber,
+            sourceTxId
+        ));
+    }
+
+    function _anchorReceipt(
+        bytes32 callId,
+        string memory sourceChain,
+        uint256 sourceBlockNumber,
+        string memory sourceTxId,
+        bytes32 payloadHash,
+        bytes32 negotiationProofDigest
+    ) internal {
+        anchoredPayloadHashes[callId] = payloadHash;
+        anchoredNegotiationProofDigests[callId] = negotiationProofDigest;
+        emit CrossChainReceiptAnchored(
+            sourceChain,
+            sourceBlockNumber,
+            sourceTxId,
+            payloadHash,
+            negotiationProofDigest
+        );
     }
 }
 

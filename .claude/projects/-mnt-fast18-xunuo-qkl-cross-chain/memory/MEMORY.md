@@ -1,0 +1,1 @@
+- [Env & multi-agent status](env-and-multiagent-status.md) — this machine has no fabric-samples; Dockerized multi-agent negotiation is verified (host relayer → 127.0.0.1:191xx), full chain demo isn't runnable here

@@ -11,9 +11,21 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FISCO_DIR="$SCRIPT_DIR/fisco-bcos"
 RELAYER_DIR="$SCRIPT_DIR/fabric-chaincode/Relayer"
-FABRIC_SAMPLES_DIR="${FABRIC_SAMPLES_DIR:-/home/tr/fabric-samples}"
-FABRIC_DIR="$FABRIC_SAMPLES_DIR/test-network"
 BOOTSTRAP_SCRIPT="$SCRIPT_DIR/bootstrap.sh"
+FABRIC_RUNTIME_HELPER="$SCRIPT_DIR/scripts/fabric-runtime.sh"
+
+if [ ! -f "$FABRIC_RUNTIME_HELPER" ]; then
+    echo "错误: Fabric 运行时助手不存在: $FABRIC_RUNTIME_HELPER"
+    exit 1
+fi
+# shellcheck disable=SC1090
+source "$FABRIC_RUNTIME_HELPER"
+
+FABRIC_SAMPLES_SOURCE_DIR="$(fabric_detect_source_samples_dir || true)"
+if [[ -n "$FABRIC_SAMPLES_SOURCE_DIR" ]]; then
+    fabric_prepare_runtime "$SCRIPT_DIR" "$FABRIC_SAMPLES_SOURCE_DIR" || true
+fi
+FABRIC_USE_CA=true
 
 # 默认参数
 SKIP_FISCO=false
@@ -103,6 +115,8 @@ check_required_paths() {
 
     if [ ! -d "$FABRIC_DIR" ] && [ "$SKIP_FABRIC" = false ]; then
         echo "错误: Fabric 测试网络目录不存在: $FABRIC_DIR"
+        echo "可用候选已搜索: /mnt/fast18/xunuo/czs/fabric-samples, /home/tr/fabric-samples"
+        echo "如路径不同，请先执行: export FABRIC_SAMPLES_DIR=/your/fabric-samples"
         exit 1
     fi
 
@@ -193,9 +207,16 @@ fabric_network_running() {
 run_fabric_network_up() {
     local log_file
     log_file="$(mktemp)"
+    local up_args=()
+
+    if [ "$FABRIC_USE_CA" = true ]; then
+        up_args=(-ca -s couchdb)
+    else
+        up_args=(-s couchdb)
+    fi
 
     set +e
-    ./network.sh up -ca -s couchdb 2>&1 | tee "$log_file"
+    ./network.sh up "${up_args[@]}" 2>&1 | tee "$log_file"
     local rc=${PIPESTATUS[0]}
     set -e
 
@@ -207,7 +228,11 @@ run_fabric_network_up() {
     if grep -qiE 'proxyconnect|Failed to pull|pull access denied|registry-1\.docker\.io|toomanyrequests|context canceled' "$log_file"; then
         echo "⚠ 检测到镜像拉取异常，自动降级为 goleveldb 重试..."
         set +e
-        ./network.sh up -ca 2>&1 | tee "$log_file"
+        if [ "$FABRIC_USE_CA" = true ]; then
+            ./network.sh up -ca 2>&1 | tee "$log_file"
+        else
+            ./network.sh up 2>&1 | tee "$log_file"
+        fi
         rc=${PIPESTATUS[0]}
         set -e
 
@@ -279,6 +304,11 @@ verify_single_ca_tls_chain() {
 
 # 函数：Fabric CA TLS 健康检查与自愈
 ensure_fabric_ca_tls_ready() {
+    if [ "$FABRIC_USE_CA" != true ]; then
+        echo "⚠ 当前 Fabric 使用 cryptogen 模式，跳过 CA TLS 校验"
+        return 0
+    fi
+
     if [ "$SKIP_CA_TLS_VERIFY" = true ]; then
         echo "⚠ 已跳过 Fabric CA TLS 校验 (--skip-ca-tls-verify)"
         return 0
@@ -361,12 +391,14 @@ start_fisco() {
     echo "启动 FISCO 节点..."
     bash start_all.sh
     sleep 5
-    
-    # 验证启动
-    if ps aux | grep -v grep | grep "fisco-bcos" > /dev/null; then
+
+    # 验证启动：必须通过 console RPC 读到区块号，避免仅凭 nohup 文案误判成功
+    local console_bin="$FISCO_DIR/console/console.sh"
+    if "$console_bin" getBlockNumber >/tmp/fisco-start-check.log 2>&1; then
         echo "✓ FISCO-BCOS 启动成功"
     else
         echo "✗ FISCO-BCOS 启动失败"
+        cat /tmp/fisco-start-check.log
         exit 1
     fi
     
@@ -377,6 +409,11 @@ start_fisco() {
 start_fabric() {
     echo ""
     echo "[2/3] 启动 Hyperledger Fabric 网络..."
+
+    fabric_prepare_runtime "$SCRIPT_DIR" "${FABRIC_SAMPLES_SOURCE_DIR:-}" || {
+        echo "错误: 未找到可用的 fabric-samples，无法准备可写 Fabric 运行时"
+        exit 1
+    }
     
     if [ ! -d "$FABRIC_DIR" ]; then
         echo "错误: Fabric 测试网络目录不存在: $FABRIC_DIR"
@@ -384,6 +421,23 @@ start_fabric() {
     fi
 
     cd "$FABRIC_DIR"
+
+    if [ -d "$FABRIC_BIN_DIR" ]; then
+        export PATH="$FABRIC_BIN_DIR:$PATH"
+    fi
+    if [ -d "$FABRIC_CONFIG_DIR" ]; then
+        export FABRIC_CFG_PATH="$FABRIC_CONFIG_DIR"
+    fi
+
+    if ! command -v peer >/dev/null 2>&1; then
+        echo "错误: 未找到 Fabric peer 二进制，请确认 $FABRIC_BIN_DIR 可用"
+        exit 1
+    fi
+
+    if ! command -v fabric-ca-client >/dev/null 2>&1; then
+        FABRIC_USE_CA=false
+        echo "⚠ 未检测到 fabric-ca-client，Fabric 网络将回退到 cryptogen 模式"
+    fi
 
     local channel_name="${FABRIC_CHANNEL_NAME:-mychannel}"
 
@@ -481,6 +535,9 @@ deploy_contracts() {
     fi
     
     # 调用 bootstrap.sh
+    FABRIC_SAMPLES_DIR="$FABRIC_SAMPLES_DIR" \
+    FABRIC_CRYPTO_PATH="$FABRIC_CRYPTO_PATH" \
+    FABRIC_PEER_BIN="$FABRIC_PEER_BIN" \
     bash "$BOOTSTRAP_SCRIPT" $BOOTSTRAP_ARGS
     
     echo "✓ 合约部署完成"

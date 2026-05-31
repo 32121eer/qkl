@@ -10,11 +10,11 @@ const crypto = require('node:crypto');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 
-const cryptoPath = '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
+const cryptoPath = process.env.FABRIC_CRYPTO_PATH || '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
 const mspId = 'Org1MSP';
 const channelName = 'mychannel';
-const peerEndpoint = '172.18.0.4:7051';  // 直接用容器 IP
-const peerHostAlias = 'peer0.org1.example.com';
+const peerEndpoint = process.env.FABRIC_PEER_ENDPOINT || 'localhost:7051';
+const peerHostAlias = process.env.FABRIC_PEER_HOST_ALIAS || 'peer0.org1.example.com';
 
 const keyDirectoryPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'keystore');
 const certDirectoryPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'signcerts');

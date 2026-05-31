@@ -1,4 +1,13 @@
 function attachQueryRoutes(app, demo) {
+    function present(session, req) {
+        if (typeof demo.presentQuerySession === 'function') {
+            return demo.presentQuerySession(session, {
+                includeProof: String(req?.query?.includeProof || '') === '1'
+            });
+        }
+        return session;
+    }
+
     app.post('/demo/app/query/request', async (req, res) => {
         try {
             const batchId = demo.normalizeBatchId(req.body?.orchardBatchId);
@@ -41,7 +50,7 @@ function attachQueryRoutes(app, demo) {
             return res.status(202).json({
                 success: true,
                 queryId,
-                session
+                session: present(session, req)
             });
         } catch (error) {
             const statusCode = error.statusCode || 500;
@@ -61,7 +70,7 @@ function attachQueryRoutes(app, demo) {
             });
         }
         return res.json({
-            items: await demo.querySessionService.list(parsedLimit.value),
+            items: (await demo.querySessionService.list(parsedLimit.value)).map((item) => present(item, req)),
             updatedAt: new Date().toISOString()
         });
     });
@@ -76,7 +85,37 @@ function attachQueryRoutes(app, demo) {
             });
         }
         return res.json({
-            item: session,
+            item: present(session, req),
+            updatedAt: new Date().toISOString()
+        });
+    });
+
+    app.get('/demo/app/query/sessions/:queryId/verify', async (req, res) => {
+        const queryId = String(req.params.queryId || '');
+        const session = await demo.querySessionService.get(queryId);
+        if (!session) {
+            return res.status(404).json({
+                success: false,
+                error: `Query session '${queryId}' not found`
+            });
+        }
+
+        const verified = typeof demo.executeVerifyQuery === 'function'
+            ? demo.executeVerifyQuery(session)
+            : null;
+
+        if (!verified) {
+            return res.status(409).json({
+                success: false,
+                error: `Query proof '${queryId}' not available`
+            });
+        }
+
+        return res.json({
+            success: true,
+            queryId,
+            verified,
+            session: present(session, req),
             updatedAt: new Date().toISOString()
         });
     });
