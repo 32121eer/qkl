@@ -8,6 +8,40 @@
 
 set -e
 
+# macOS: start Docker API version proxy so that Fabric peers (go-dockerclient 1.25)
+# can talk to Docker Desktop 29.x (which requires minimum API 1.40).
+if [[ "$(uname)" == "Darwin" ]]; then
+    _PROXY_SOCK=/tmp/docker-api-proxy.sock
+    _PROXY_PID_FILE=/tmp/docker-api-proxy.pid
+    _PROXY_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/scripts/docker-api-proxy.js"
+    _RUNNING=false
+    if [[ -f "$_PROXY_PID_FILE" ]]; then
+        _PID=$(cat "$_PROXY_PID_FILE")
+        if kill -0 "$_PID" 2>/dev/null; then _RUNNING=true; fi
+    fi
+    if [[ "$_RUNNING" == false ]]; then
+        nohup node "$_PROXY_SCRIPT" "$_PROXY_SOCK" /var/run/docker.sock \
+            > /tmp/docker-api-proxy.log 2>&1 &
+        echo $! > "$_PROXY_PID_FILE"
+        sleep 1
+        echo "✓ Docker API 代理已启动 (PID=$(cat $_PROXY_PID_FILE))"
+    else
+        echo "✓ Docker API 代理已在运行 (PID=$(cat $_PROXY_PID_FILE))"
+    fi
+fi
+
+# macOS: prepend Homebrew OpenJDK to PATH (takes precedence over /usr/bin/java stub)
+for _jdk_path in \
+    /opt/homebrew/opt/openjdk@21/bin \
+    /opt/homebrew/opt/openjdk@17/bin \
+    /opt/homebrew/opt/openjdk/bin \
+    /usr/local/opt/openjdk@21/bin; do
+    if [[ -x "$_jdk_path/java" ]]; then
+        export PATH="$_jdk_path:$PATH"
+        break
+    fi
+done
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FISCO_DIR="$SCRIPT_DIR/fisco-bcos"
 RELAYER_DIR="$SCRIPT_DIR/fabric-chaincode/Relayer"

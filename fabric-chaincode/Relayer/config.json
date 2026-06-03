@@ -3,7 +3,7 @@
     "name": "CrossChain-Relayer-01",
     "privateKey": "0xc85f4d8bb7b633cd48c2a7a8e4d62a4cf2a82404466d862a17d4692ff89744cf",
     "logLevel": "info",
-    "enableHeaderBroadcastOnNewBlock": false,
+    "enableHeaderBroadcastOnNewBlock": true,
     "blockConfirmations": 1,
     "headerSubmitMaxRetries": 4,
     "headerSubmitRetryDelayMs": 1200,
@@ -16,7 +16,7 @@
       "type": "FABRIC",
       "enabled": true,
       "connection": {
-        "cryptoPath": "/mnt/fast18/xunuo/qkl/cross-chain/.fabric-runtime/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
+        "cryptoPath": "/Users/xn/github/qkl/qkl/.fabric-runtime/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
         "channelName": "mychannel",
         "peerEndpoint": "localhost:7051",
         "peerHostAlias": "peer0.org1.example.com",
@@ -40,20 +40,20 @@
       "type": "FISCO_BCOS",
       "enabled": true,
       "rpc": {
-        "endpoint": "http://127.0.0.1:8545"
+        "endpoint": "http://127.0.0.1:18545"
       },
       "contracts": {
-        "gateway": "0xc3EEad5e05854E87d9E2952516CEafC70ADF015b",
-        "lightClient": "0x3c83baa428599e42f7c11127a5e5a9d24c076349",
-        "registry": "0x6351aa6e313061af04aea57f410e7b54dab49753",
+        "gateway": "0xe46925CA51074d3b83Ba993a4e88d0156ECA6A06",
+        "lightClient": "0xace9eb31c30d607e91214b8c540d73f276d63656",
+        "registry": "0xa28ac30a792a59c3cd114a87a75193c6b8278d7e",
         "gatewayName": "GatewayAir",
         "lightClientName": "LightClientAir",
-        "chainRegistry": "0x6351aa6e313061af04aea57f410e7b54dab49753"
+        "chainRegistry": "0xa28ac30a792a59c3cd114a87a75193c6b8278d7e"
       },
       "receiveMethod": "receiveLite",
       "monitoring": {
         "startBlock": "latest",
-        "pollInterval": 3000,
+        "pollInterval": 20000,
         "events": [
           "CrossChainCall",
           "MessageReceived"

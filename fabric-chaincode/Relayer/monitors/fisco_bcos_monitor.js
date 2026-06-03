@@ -72,11 +72,16 @@ class FiscoBcosMonitor extends EventEmitter {
             
             // 使用静态网络配置，避免 ethers.js 自动检测网络时卡住
             // FISCO-BCOS 使用 chainId 1（或根据实际配置）
-            const staticNetwork = new ethers.Network('fisco-bcos', 1);
+            // FISCO-BCOS web3_rpc chain_id comes from config.genesis [web3] chain_id (default 20200)
+            const staticNetwork = new ethers.Network('fisco-bcos', 20200);
+            const pollIntervalMs = this.config.monitoring?.pollInterval || 5000;
             this.provider = new ethers.JsonRpcProvider(rpcEndpoint, staticNetwork, {
-                staticNetwork: true
+                staticNetwork: true,
+                polling: true,
+                pollingInterval: pollIntervalMs
             });
-            
+            this.provider.pollingInterval = pollIntervalMs;
+
             // 测试连接
             const blockNumber = await this.provider.getBlockNumber();
             console.log(`[FiscoBcosMonitor] Connected! Current block: ${blockNumber}`);

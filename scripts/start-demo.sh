@@ -2,6 +2,18 @@
 
 set -euo pipefail
 
+# macOS: prepend Homebrew OpenJDK to PATH (takes precedence over /usr/bin/java stub)
+for _jdk_path in \
+    /opt/homebrew/opt/openjdk@21/bin \
+    /opt/homebrew/opt/openjdk@17/bin \
+    /opt/homebrew/opt/openjdk/bin \
+    /usr/local/opt/openjdk@21/bin; do
+    if [[ -x "$_jdk_path/java" ]]; then
+        export PATH="$_jdk_path:$PATH"
+        break
+    fi
+done
+
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RELAYER_DIR="$ROOT_DIR/fabric-chaincode/Relayer"
 UI_DIR="$ROOT_DIR/demo-ui"
@@ -213,7 +225,15 @@ start_api() {
     local old_pwd
     old_pwd="$(pwd)"
     cd "$RELAYER_DIR"
-    nohup env DEMO_API_ENABLED=true DEMO_API_HOST="$API_HOST" DEMO_API_PORT="$API_PORT" \
+    # Detect Homebrew Java for console.sh (macOS /usr/bin/java is just a stub)
+    local _java_path=""
+    for _jdk in /opt/homebrew/opt/openjdk@21/bin /opt/homebrew/opt/openjdk@17/bin \
+                /opt/homebrew/opt/openjdk/bin /usr/local/opt/openjdk@21/bin; do
+        if [[ -x "$_jdk/java" ]]; then _java_path="$_jdk"; break; fi
+    done
+    local _api_path="${_java_path:+$_java_path:}${PATH}"
+    nohup env PATH="$_api_path" \
+        DEMO_API_ENABLED=true DEMO_API_HOST="$API_HOST" DEMO_API_PORT="$API_PORT" \
         FISCO_CONSOLE_DIR="${FISCO_CONSOLE_DIR:-$FISCO_CONSOLE_DIR_DEFAULT}" \
         FABRIC_SAMPLES_DIR="${FABRIC_SAMPLES_DIR:-}" \
         FABRIC_CRYPTO_PATH="${FABRIC_CRYPTO_PATH:-}" \

@@ -321,13 +321,25 @@ async function execConsole(args, timeout = 30_000) {
     return output;
 }
 
+// Cache the latest block number for up to 15 seconds to avoid hammering
+// console.sh on every ethers.js poll (each call takes ~8-15 s on macOS).
+let _latestBlockNumberCache = null;
+let _latestBlockNumberTs = 0;
+const BLOCK_NUMBER_CACHE_MS = 15_000;
+
 async function getLatestBlockNumber() {
+    const now = Date.now();
+    if (_latestBlockNumberCache !== null && (now - _latestBlockNumberTs) < BLOCK_NUMBER_CACHE_MS) {
+        return _latestBlockNumberCache;
+    }
     const output = await execConsole(['getBlockNumber']);
     const match = output.match(/(\d+)/);
     if (!match) {
         throw new Error(`Unable to parse block number: ${output}`);
     }
-    return Number(match[1]);
+    _latestBlockNumberCache = Number(match[1]);
+    _latestBlockNumberTs = now;
+    return _latestBlockNumberCache;
 }
 
 async function getBlockHashByNumber(blockNumber) {
