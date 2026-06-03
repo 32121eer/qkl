@@ -1,0 +1,214 @@
+{
+  "_description": "跨链查询完整演示文件 — 果园溯源批次 BATCH-PEAR-2026-001",
+  "_workflow": [
+    "Step 1: POST /demo/app/supply-chain/seed  (body: seedRequest)  → 将溯源数据写入 Fabric 链",
+    "Step 2: POST /demo/app/query/request      (body: queryRequest)  → 从 FISCO 侧发起跨链查询",
+    "Step 3: GET  /demo/app/query/sessions/:queryId                   → 轮询查询状态",
+    "Step 4: GET  /demo/app/query/sessions/:queryId/verify            → 验证跨链证明"
+  ],
+
+  "seedRequest": {
+    "records": [
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "cultivation",
+        "eventAt": "2026-03-10T06:20:00.000Z",
+        "sourceSystem": "orchard-iot",
+        "data": {
+          "orchardName": "南疆香梨示范园",
+          "variety": "库尔勒香梨",
+          "plotArea": "12.6亩",
+          "SoilTemperature": 16.8,
+          "SoilMoisture": 38.5,
+          "SoilPH": 7.2,
+          "SoilOrganicMatterContent": 2.1,
+          "SoilNPKContent": 1.9,
+          "LightDurationHours": 10,
+          "RainfallMm": 0.8,
+          "AccumulatedTemperature": 890.4,
+          "EffectiveAccumulatedTemp10C": 712.3,
+          "WaterVolumeM3": 9.6,
+          "WaterQualityPH": 7.1,
+          "IrrigationMethod": "滴灌",
+          "FertilizationRecord": "有机肥 28kg + 磷钾肥 6kg，施肥日期 2026-03-08",
+          "PlantProtectionRecords": "梨木虱预防处理，安全间隔期 14d",
+          "ThinningRecord": "疏花疏果完成，留果率 92%",
+          "PhenologicalPeriod": "幼果膨大期",
+          "FruitIndicators": "目标横径 ≥65mm，糖度 ≥11%"
+        }
+      },
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "harvest",
+        "eventAt": "2026-08-22T03:30:00.000Z",
+        "sourceSystem": "orchard-ops",
+        "data": {
+          "HarvestDate": "2026-08-22",
+          "MaturityStarchIndex": 3,
+          "MaturityFirmnessKgfCm2": 8.4,
+          "SolubleSolidsPct": 12.6,
+          "TitratableAcidityPct": 0.12,
+          "SugarAcidRatio": "105:1",
+          "ClassificationStandard": "GB/T 10650-2008",
+          "GradeDistribution": {
+            "premium": "68%",
+            "grade1": "24%",
+            "grade2": "8%"
+          },
+          "PickingTime": "2026-08-22 10:00 CST",
+          "TotalWeightKg": 4820,
+          "BoxCount": 241,
+          "ToolDisinfectionPpm": 150,
+          "FieldPreCoolingTempC": 12.0,
+          "FieldPreCoolingDurationHour": 2.5,
+          "QCInspectorId": "QC-XJ-0047",
+          "QCPassRate": "99.2%"
+        }
+      },
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "post_harvest",
+        "eventAt": "2026-08-22T09:00:00.000Z",
+        "sourceSystem": "packhouse",
+        "data": {
+          "WashingTemperatureC": 13.0,
+          "DisinfectantResidualPpm": 0.15,
+          "OptoelectronicSorting": "近红外糖度扫描 + X射线内部缺陷检测 + 色差仪外观分级",
+          "PreCoolingTempC": 2.0,
+          "PackagingMaterial": "EPE防震托 + 纸箱",
+          "LabelInfo": "产地: 新疆库尔勒, 品种: 库尔勒香梨, 净重: 20kg",
+          "PesticideScreening": {
+            "testMethod": "GC-MS多农药残留检测",
+            "result": "未检出（低于检出限）",
+            "reportNo": "LAB-2026-XJ-3821"
+          }
+        }
+      },
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "storage",
+        "eventAt": "2026-08-22T14:00:00.000Z",
+        "sourceSystem": "coldroom-scada",
+        "data": {
+          "O2Pct": 3.0,
+          "CO2Pct": 0.5,
+          "StorageTempC": -1.0,
+          "StorageHumidityPct": 90.0,
+          "EthylenePpm": 0.02,
+          "StorageFacility": "库尔勒冷链中心 CA-库03",
+          "SlotNo": "CR-B2-05",
+          "StockInTime": "2026-08-22T14:00:00.000Z",
+          "EstimatedShelfLifeDays": 180,
+          "MonthlyFirmnessDropKgfCm2": 0.22,
+          "SamplingRatePct": 5,
+          "MonitoringFrequencyH": 4
+        }
+      },
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "transportation",
+        "eventAt": "2026-09-05T18:00:00.000Z",
+        "sourceSystem": "fleet-iot",
+        "data": {
+          "DepartureLocation": "新疆库尔勒冷链中心",
+          "DestinationLocation": "北京新发地批发市场",
+          "VehicleNo": "新B·T8826",
+          "DriverName": "李建国",
+          "TemperatureRangeC": "-1 ~ 2",
+          "TempFluctuationRule": "短时波动 ≤±1°C，持续时间 ≤20min",
+          "AbnormalVibrationOver3GCount": 0,
+          "GasEnvironment": "与气调库保持一致",
+          "GpsTrack": "新疆库尔勒 → 甘肃 → 陕西 → 北京",
+          "ESealOpenCloseRecord": "全程封签完好，未发生未授权开启",
+          "TransportDurationH": 58,
+          "ArrivalTempC": 0.8,
+          "ColdChainBreakEvents": 0
+        }
+      },
+      {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "retail",
+        "eventAt": "2026-09-07T08:30:00.000Z",
+        "sourceSystem": "retail-pos",
+        "data": {
+          "RetailLocation": "北京新发地批发市场 A区 28号摊位",
+          "DisplayTemperatureC": 2.5,
+          "ExpirationWarningDate": "2027-02-18",
+          "ShelfInspectionRecord": "外观良好，无褐变，皮色均匀黄绿色",
+          "RetailPricePerKg": 18.0,
+          "ConsumerQRScanCount": 0,
+          "BatchStatus": "在售"
+        }
+      }
+    ]
+  },
+
+  "queryRequest": {
+    "_endpoint": "POST /demo/app/query/request",
+    "_description": "FISCO-BCOS 侧发起跨链查询 — 向 Fabric 请求 BATCH-PEAR-2026-001 的完整溯源记录",
+    "orchardBatchId": "BATCH-PEAR-2026-001"
+  },
+
+  "expectedQueryResponse": {
+    "_note": "以下为跨链查询完成后 GET /demo/app/query/sessions/:queryId 的预期返回结构",
+    "item": {
+      "queryId": "<由系统生成的 UUID>",
+      "orchardBatchId": "BATCH-PEAR-2026-001",
+      "status": "VERIFIED",
+      "sourceChainId": "FABRIC_NET_01",
+      "requesterChainId": "FISCO_NET_01",
+      "createdAt": "<ISO8601时间戳>",
+      "completedAt": "<ISO8601时间戳>",
+      "queryContext": {
+        "channel": "mychannel",
+        "chaincode": "gateway_cc",
+        "schema": "orchard-record-v1",
+        "queryFunction": "GetOrchardRecord"
+      },
+      "result": {
+        "payloadVersion": "1.0",
+        "orchardBatchId": "BATCH-PEAR-2026-001",
+        "eventType": "retail",
+        "sourceSystem": "retail-pos",
+        "eventAt": "2026-09-07T08:30:00.000Z",
+        "data": {
+          "RetailLocation": "北京新发地批发市场 A区 28号摊位",
+          "DisplayTemperatureC": 2.5,
+          "BatchStatus": "在售"
+        }
+      },
+      "proof": {
+        "type": "record-snapshot",
+        "version": "query-proof-v1",
+        "blockNumber": "<Fabric 区块高度>",
+        "txId": "<Fabric 交易哈希>",
+        "fabricBlockHash": "<区块哈希>",
+        "witness": "prototype witness, not full merkle proof"
+      }
+    }
+  },
+
+  "chainMeta": {
+    "sourceChain": {
+      "chainId": "FABRIC_NET_01",
+      "type": "Hyperledger Fabric",
+      "channel": "mychannel",
+      "chaincode": "gateway_cc",
+      "peerEndpoint": "localhost:7051"
+    },
+    "requesterChain": {
+      "chainId": "FISCO_NET_01",
+      "type": "FISCO-BCOS",
+      "rpcEndpoint": "http://127.0.0.1:8545",
+      "gatewayContract": "0xc860aB27901B3C2B810165A6096C64D88763617F",
+      "lightClientContract": "0x19a6434154de51c7a7406edf312f01527441b561",
+      "chainRegistryContract": "0x33e56a083e135936c1144960a708c43a661706c0"
+    }
+  }
+}
