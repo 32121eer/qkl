@@ -1,6 +1,7 @@
 const {
     ma3cDecision,
     repWeightedDecision,
+    weightedBftDecision,
     equalMajorityDecision,
     pbftDecision,
     singleRelayDecision,
@@ -92,6 +93,40 @@ describe('decision strategies', () => {
         expect(r5.finalDecision).toBe('COMMIT');
     });
 
+    test('weighted BFT needs ≥⅔ of total weight; abstentions count against it', () => {
+        // 3 APPROVE vs 2 REJECT, equal weight: approve = 3/5 = 0.6 < ⅔ ⇒ OBSERVE
+        // (stricter than simple majority — a malicious bloc cannot force a result
+        // without > ⅔ of weight).
+        const r1 = weightedBftDecision(ops([
+            ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2],
+            ['REJECT', 0.9, 0.2], ['REJECT', 0.9, 0.2]
+        ]), { n: 5 });
+        expect(r1.finalDecision).toBe('OBSERVE');
+        // 4 of 5 approve = 0.8 ≥ ⅔ ⇒ COMMIT.
+        const r2 = weightedBftDecision(ops([
+            ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2],
+            ['APPROVE', 0.9, 0.2], ['REJECT', 0.9, 0.2]
+        ]), { n: 5 });
+        expect(r2.finalDecision).toBe('COMMIT');
+        // Abstentions dilute the quorum: 3 approve + 2 QUESTION → 0.6 < ⅔ ⇒ OBSERVE.
+        const r3 = weightedBftDecision(ops([
+            ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2],
+            ['QUESTION', 0.9, 0.2], ['QUESTION', 0.9, 0.2]
+        ]), { n: 5 });
+        expect(r3.finalDecision).toBe('OBSERVE');
+    });
+
+    test('weighted BFT weights by reputation, unlike equal-vote PBFT', () => {
+        // One high-reputation REJECT outweighs three low-reputation APPROVE:
+        // approve = 3×0.1 = 0.3, reject = 0.7; total = 1.0 ⇒ reject 0.7 ≥ ⅔ ⇒ REJECT.
+        // Equal-vote PBFT would instead see a 3-vs-1 approve lead.
+        const o = ops([
+            ['APPROVE', 0.9, 0.1], ['APPROVE', 0.9, 0.1], ['APPROVE', 0.9, 0.1],
+            ['REJECT', 0.9, 0.7]
+        ]);
+        expect(weightedBftDecision(o.map((x) => ({ ...x })), { n: 4 }).finalDecision).toBe('REJECT');
+    });
+
     test('single relay follows the pre-selected agent', () => {
         const o = ops([['REJECT', 0.9, 0.2], ['APPROVE', 0.9, 0.2], ['APPROVE', 0.9, 0.2]]);
         expect(singleRelayDecision(o, { relayIndex: 0 }).finalDecision).toBe('REJECT');
@@ -131,7 +166,7 @@ describe('comparative runner (smoke + directional)', () => {
         // evolved reputation, so MA3C is conservative (many OBSERVE) at high
         // malicious ratios. The reputation advantage shows up in the sequential
         // run, not here. We only assert the harness emits valid paired stats.
-        for (const key of ['equalMajority', 'pbft', 'singleRelay', 'repWeighted']) {
+        for (const key of ['equalMajority', 'pbft', 'singleRelay', 'repWeighted', 'weightedBft']) {
             expect(report.comparisons[`ma3c_vs_${key}`].correctness).toBeDefined();
             expect(report.comparisons[`ma3c_vs_${key}`].correctness.n).toBe(40);
         }

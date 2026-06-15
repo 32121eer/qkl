@@ -29,7 +29,7 @@ const {
 const { summarize, pairedComparison } = require('./stats');
 const fs = require('fs');
 
-const DEFAULT_METHODS = ['ma3c', 'repWeighted', 'equalMajority', 'pbft', 'singleRelay'];
+const DEFAULT_METHODS = ['ma3c', 'repWeighted', 'weightedBft', 'equalMajority', 'pbft', 'singleRelay'];
 
 /**
  * Optional calibration from real LLM measurements (scripts/collect_llm_calibration.js).

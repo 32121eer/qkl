@@ -146,6 +146,48 @@ function pbftDecision(opinions, cfg = {}) {
 }
 
 /**
+ * B4 — weighted (stake/reputation) BFT. A reputation-weighted Byzantine quorum:
+ * a side finalizes only if its weight reaches a super-majority `bftQuorum`
+ * (default 2/3) of the TOTAL committee weight — abstentions (QUESTION) and
+ * non-revealing agents count against the quorum, exactly like a stake-weighted
+ * BFT (e.g. Tendermint) tolerating < ⅓ Byzantine weight. Distinct from B2 PBFT
+ * (one-agent-one-vote 2f+1) by weighting votes, and from MA3C by using NO
+ * confidence weighting, a fixed (non-risk-adaptive) quorum, and NO arbitration
+ * escalation. Safer than simple majority (a malicious bloc must control > ⅔ of
+ * weight to force acceptance) but it trades liveness: under disagreement neither
+ * side reaches ⅔ → OBSERVE (no result).
+ */
+function weightedBftDecision(opinions, cfg = {}) {
+    const quorum = Number.isFinite(cfg.bftQuorum) ? cfg.bftQuorum : 2 / 3;
+    let approveWeight = 0;
+    let rejectWeight = 0;
+    let totalWeight = 0;
+    for (const item of opinions) {
+        const w = Math.max(0, Number(item.assignedWeight) || 0);
+        totalWeight += w;
+        const decision = String(item.decision || 'QUESTION').toUpperCase();
+        if (decision === 'APPROVE') approveWeight += w;
+        else if (decision === 'REJECT') rejectWeight += w;
+    }
+
+    let finalDecision = 'OBSERVE';
+    if (totalWeight > 0) {
+        if (approveWeight >= quorum * totalWeight) finalDecision = 'COMMIT';
+        else if (rejectWeight >= quorum * totalWeight) finalDecision = 'REJECT';
+    }
+
+    const decisive = approveWeight + rejectWeight;
+    return {
+        finalDecision,
+        approveWeight: round6(approveWeight),
+        rejectWeight: round6(rejectWeight),
+        totalWeight: round6(totalWeight),
+        quorumWeight: round6(quorum * totalWeight),
+        acceptRatio: round6(decisive > 0 ? approveWeight / decisive : 0)
+    };
+}
+
+/**
  * B0 — single relay (no consensus). One pre-selected agent's judgment is the
  * result. cfg.relayIndex is chosen by the caller's shared RNG so the pick is
  * identical across the comparison (paired). QUESTION → OBSERVE.
@@ -176,6 +218,7 @@ const STRATEGIES = {
     // (MA3C-only protocol feature; baselines have no escalation path).
     ma3c: { label: 'MA3C (rep×conf)', decide: ma3cDecision, usesReputation: true, usesArbitration: true },
     repWeighted: { label: 'B3 reputation-only', decide: repWeightedDecision, usesReputation: true, usesArbitration: false },
+    weightedBft: { label: 'B4 weighted BFT (≥⅔ weight)', decide: weightedBftDecision, usesReputation: true, usesArbitration: false },
     equalMajority: { label: 'B1 equal majority', decide: equalMajorityDecision, usesReputation: false, usesArbitration: false },
     pbft: { label: 'B2 PBFT 2f+1', decide: pbftDecision, usesReputation: false, usesArbitration: false },
     singleRelay: { label: 'B0 single relay', decide: singleRelayDecision, usesReputation: false, usesArbitration: false }
@@ -202,6 +245,7 @@ module.exports = {
     STRATEGIES,
     ma3cDecision,
     repWeightedDecision,
+    weightedBftDecision,
     equalMajorityDecision,
     pbftDecision,
     singleRelayDecision,

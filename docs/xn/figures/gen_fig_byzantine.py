@@ -27,6 +27,7 @@ plt.rcParams.update({
 
 OUR_COLOR = "#E76F51"      # coral — MA3C (ours)
 EQUAL_COLOR = "#2A9D8F"    # teal — equal majority / PBFT
+WBFT_COLOR = "#6A4C93"     # purple — weighted BFT (≥⅔ weight)
 RELAY_COLOR = "#8C8C8C"    # gray — single relay
 FIG_FULL = (6.75, 2.8)
 
@@ -38,16 +39,19 @@ malicious = np.array([0, 20, 40, 60])
 corr = {
     "MA3C (ours)":            [100, 100, 100, 100],
     "Equal majority / PBFT":  [100, 100, 100, 50],
+    "Weighted BFT (≥⅔)":      [100, 100, 50, 50],
     "Single relay":           [100, 90, 80, 70],
 }
 fa = {
     "MA3C (ours)":            [0, 0, 0, 0],
     "Equal majority / PBFT":  [0, 0, 0, 50],
+    "Weighted BFT (≥⅔)":      [0, 0, 0, 0],
     "Single relay":           [0, 10, 20, 30],
 }
 styles = {
     "MA3C (ours)":           dict(color=OUR_COLOR, marker="o", zorder=5, linewidth=2.4),
     "Equal majority / PBFT": dict(color=EQUAL_COLOR, marker="s", linestyle="--", zorder=4),
+    "Weighted BFT (≥⅔)":     dict(color=WBFT_COLOR, marker="D", linestyle="-.", zorder=4),
     "Single relay":          dict(color=RELAY_COLOR, marker="^", linestyle=":", zorder=3),
 }
 
@@ -83,10 +87,10 @@ print("wrote fig_real_agent_byzantine.{pdf,png}")
 # ---------------------------------------------------------------------------
 # Figure 2: simulation with probabilistic honest error (40% malicious)
 # ---------------------------------------------------------------------------
-methods = ["MA3C\n(ours)", "Equal\nmajority", "PBFT", "Single\nrelay"]
-correctness = [95.9, 67.8, 67.8, 52.5]
-false_accept = [1.8, 16.3, 16.3, 23.8]
-bar_colors = [OUR_COLOR, EQUAL_COLOR, EQUAL_COLOR, RELAY_COLOR]
+methods = ["MA3C\n(ours)", "Equal\nmajority", "PBFT", "Weighted\nBFT", "Single\nrelay"]
+correctness = [95.9, 67.8, 67.8, 0.0, 52.5]
+false_accept = [1.8, 16.3, 16.3, 1.8, 23.8]
+bar_colors = [OUR_COLOR, EQUAL_COLOR, EQUAL_COLOR, WBFT_COLOR, RELAY_COLOR]
 
 fig2, (bx1, bx2) = plt.subplots(1, 2, figsize=FIG_FULL)
 x = np.arange(len(methods))

@@ -28,7 +28,7 @@ const { summarize, pairedComparison } = require('./stats');
 
 const ORGS = ['org-a', 'org-b', 'org-c', 'org-d', 'org-e', 'org-f', 'org-g'];
 const FOCUS_CYCLE = ['proof', 'balanced', 'semantic'];
-const DEFAULT_METHODS = ['ma3c', 'equalMajority', 'pbft', 'singleRelay'];
+const DEFAULT_METHODS = ['ma3c', 'weightedBft', 'equalMajority', 'pbft', 'singleRelay'];
 const THRESHOLD_ARB = 0.75;
 
 /** A complete, valid evidence bundle the real agents accept. */
