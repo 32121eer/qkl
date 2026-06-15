@@ -26,6 +26,13 @@ class AgentRegistry {
         }
         return agents.filter((agent) => agent.role === role);
     }
+
+    listAvailable(role = null) {
+        return this.list(role).filter((agent) => {
+            const status = agent.availabilityStatus;
+            return status === undefined || status === 'available';
+        });
+    }
 }
 
 module.exports = { AgentRegistry };

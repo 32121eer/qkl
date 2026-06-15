@@ -7,6 +7,8 @@ const DEFAULT_CRITICAL_GROUP_SIZE = 7;
 const DEFAULT_NORMAL_THRESHOLD = 0.70;
 const DEFAULT_CRITICAL_THRESHOLD = 0.75;
 const DEFAULT_ARBITRATION_THRESHOLD = 0.75;
+const DEFAULT_ARBITRATION_GROUP_SIZE = 5;
+const DEFAULT_ARBITRATION_REP_THRESHOLD = 0.05;
 const DEFAULT_REPUTATION_MIN = 0.1;
 const DEFAULT_REPUTATION_MAX_RATIO = 2;
 
@@ -55,12 +57,15 @@ function organizationLimit(groupSize) {
 function buildProtocolParams(risk) {
     const normalizedRisk = normalizeRisk(risk);
     const groupSize = groupSizeForRisk(normalizedRisk);
+    const arbitrationGroupSize = Math.max(1, Math.round(readPositiveNumberEnv('DEMO_MA3C_ARBITRATION_GROUP_SIZE', DEFAULT_ARBITRATION_GROUP_SIZE)));
     return {
         protocolVersion: DEFAULT_PROTOCOL_VERSION,
         risk: normalizedRisk,
         groupSize,
         threshold: thresholdForRisk(normalizedRisk),
         arbitrationThreshold: readRatioEnv('DEMO_MA3C_ARBITRATION_THRESHOLD', DEFAULT_ARBITRATION_THRESHOLD),
+        arbitrationGroupSize,
+        arbitrationRepThreshold: readRatioEnv('DEMO_MA3C_ARBITRATION_REP_THRESHOLD', DEFAULT_ARBITRATION_REP_THRESHOLD),
         minimumRevealCount: minimumRevealCount(groupSize),
         organizationLimit: organizationLimit(groupSize),
         reputationMin: readRatioEnv('DEMO_MA3C_REPUTATION_MIN', DEFAULT_REPUTATION_MIN),
@@ -70,6 +75,9 @@ function buildProtocolParams(risk) {
 
 module.exports = {
     CRITICAL_RISK,
+    DEFAULT_ARBITRATION_GROUP_SIZE,
+    DEFAULT_ARBITRATION_REP_THRESHOLD,
+    DEFAULT_ARBITRATION_THRESHOLD,
     DEFAULT_CRITICAL_THRESHOLD,
     DEFAULT_NORMAL_THRESHOLD,
     DEFAULT_PROTOCOL_VERSION,

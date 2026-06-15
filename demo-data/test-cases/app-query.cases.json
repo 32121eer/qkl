@@ -1,0 +1,117 @@
+{
+  "_description": "/demo/app/query/request 接口测试数据集 — 覆盖正常、边界、错误用例",
+  "baseUrl": "http://localhost:18080",
+  "endpoint": "/demo/app/query/request",
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "cases": [
+    {
+      "name": "happy_apple_batch",
+      "description": "已 seed 的苹果批次，期望 202 + queryId",
+      "body": { "orchardBatchId": "BATCH-APPLE-0001" },
+      "expect": {
+        "status": 202,
+        "jsonPath": {
+          "success": true,
+          "queryId.startsWith": "query_",
+          "session.queryId.startsWith": "query_",
+          "session.orchardBatchId": "BATCH-APPLE-0001"
+        }
+      }
+    },
+    {
+      "name": "happy_pear_batch",
+      "description": "梨子批次（demo 数据中也存在），期望 202",
+      "body": { "orchardBatchId": "BATCH-PEAR-2026-001" },
+      "expect": {
+        "status": 202,
+        "jsonPath": {
+          "success": true,
+          "session.orchardBatchId": "BATCH-PEAR-2026-001"
+        }
+      }
+    },
+    {
+      "name": "edge_whitespace_trim",
+      "description": "前后空白应被 trim",
+      "body": { "orchardBatchId": "  BATCH-APPLE-0002  " },
+      "expect": {
+        "status": 202,
+        "jsonPath": {
+          "success": true,
+          "session.orchardBatchId": "BATCH-APPLE-0002"
+        }
+      }
+    },
+    {
+      "name": "edge_unknown_batch",
+      "description": "未 seed 的批次仍能创建 session（后续异步流程可能 FAILED）",
+      "body": { "orchardBatchId": "BATCH-DOES-NOT-EXIST-9999" },
+      "expect": {
+        "status": 202,
+        "jsonPath": {
+          "success": true,
+          "session.orchardBatchId": "BATCH-DOES-NOT-EXIST-9999"
+        }
+      }
+    },
+    {
+      "name": "error_missing_field",
+      "description": "缺少 orchardBatchId 字段，期望 400",
+      "body": {},
+      "expect": {
+        "status": 400,
+        "jsonPath": {
+          "success": false,
+          "error.contains": "orchardBatchId"
+        }
+      }
+    },
+    {
+      "name": "error_empty_string",
+      "description": "空字符串视为缺失，期望 400",
+      "body": { "orchardBatchId": "" },
+      "expect": {
+        "status": 400,
+        "jsonPath": {
+          "success": false,
+          "error.contains": "orchardBatchId"
+        }
+      }
+    },
+    {
+      "name": "error_whitespace_only",
+      "description": "纯空白等同于空，期望 400",
+      "body": { "orchardBatchId": "   " },
+      "expect": {
+        "status": 400,
+        "jsonPath": {
+          "success": false,
+          "error.contains": "orchardBatchId"
+        }
+      }
+    },
+    {
+      "name": "error_null_field",
+      "description": "null 视为缺失，期望 400",
+      "body": { "orchardBatchId": null },
+      "expect": {
+        "status": 400,
+        "jsonPath": {
+          "success": false,
+          "error.contains": "orchardBatchId"
+        }
+      }
+    }
+  ],
+  "followUp": {
+    "_description": "对成功用例，使用返回的 queryId 拉取 session 状态",
+    "endpoints": [
+      "GET /demo/app/query/sessions",
+      "GET /demo/app/query/sessions/{queryId}",
+      "GET /demo/app/query/sessions/{queryId}/verify"
+    ]
+  }
+}

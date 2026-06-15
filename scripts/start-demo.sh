@@ -34,6 +34,16 @@ unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy
 
 mkdir -p "$RUN_DIR"
 
+# Load cloud-agent configuration if present. The file defines
+# DEMO_REMOTE_AGENTS_JSON / DEMO_REMOTE_VERIFIER_MODE so every negotiation
+# routes verifier work to the cloud agents instead of local stubs.
+CLOUD_AGENTS_ENV="$RUN_DIR/cloud-agents.env"
+if [[ -f "$CLOUD_AGENTS_ENV" ]]; then
+    # shellcheck disable=SC1090
+    source "$CLOUD_AGENTS_ENV"
+    echo "Loaded cloud agent config from $CLOUD_AGENTS_ENV (mode=${DEMO_REMOTE_VERIFIER_MODE:-augment})"
+fi
+
 if [[ -f "$FABRIC_RUNTIME_HELPER" ]]; then
     # shellcheck disable=SC1090
     source "$FABRIC_RUNTIME_HELPER"
@@ -238,6 +248,14 @@ start_api() {
         FABRIC_SAMPLES_DIR="${FABRIC_SAMPLES_DIR:-}" \
         FABRIC_CRYPTO_PATH="${FABRIC_CRYPTO_PATH:-}" \
         FABRIC_PEER_BIN="${FABRIC_PEER_BIN:-}" \
+        DEMO_REMOTE_AGENTS_JSON="${DEMO_REMOTE_AGENTS_JSON:-}" \
+        DEMO_REMOTE_VERIFIER_MODE="${DEMO_REMOTE_VERIFIER_MODE:-}" \
+        DEMO_LOCAL_VERIFIER_IDS="${DEMO_LOCAL_VERIFIER_IDS:-}" \
+        DEMO_QUERY_RELAY_TIMEOUT_REQUEST_MS="${DEMO_QUERY_RELAY_TIMEOUT_REQUEST_MS:-}" \
+        DEMO_STORE="${DEMO_STORE:-}" \
+        DEMO_ONCHAIN_AGENTS_ENABLED="${DEMO_ONCHAIN_AGENTS_ENABLED:-}" \
+        AGENT_REGISTRY_ADDRESS="${AGENT_REGISTRY_ADDRESS:-}" \
+        NODE_TLS_REJECT_UNAUTHORIZED="${NODE_TLS_REJECT_UNAUTHORIZED:-}" \
         node index.js ./config.json >> "$API_LOG" 2>&1 &
     API_PID=$!
     cd "$old_pwd"

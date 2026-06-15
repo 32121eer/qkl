@@ -23,7 +23,12 @@ class BehaviorAnalyzer {
             voteMatrix[agent.agentId] = [];
         }
 
-        for (const entry of history) {
+        // Sliding window: only consider the most recent COLLUSION_WINDOW disputed
+        // entries. Full-history traversal skews collusion scores when early sparse
+        // data produces artificially high vote similarity between agents (§IV-G).
+        const COLLUSION_WINDOW = 50;
+        const recentDisputed = history.filter((e) => e.wasDisputed).slice(-COLLUSION_WINDOW);
+        for (const entry of recentDisputed) {
             const opinions = Array.isArray(entry?.coordination?.opinions)
                 ? entry.coordination.opinions
                 : Array.isArray(entry?.opinions)
@@ -45,7 +50,7 @@ class BehaviorAnalyzer {
                 const left = voteMatrix[ids[i]] || [];
                 const right = voteMatrix[ids[j]] || [];
                 const overlap = Math.min(left.length, right.length);
-                if (overlap < 2) {
+                if (overlap < 20) {
                     continue;
                 }
                 let sameCount = 0;
@@ -55,7 +60,7 @@ class BehaviorAnalyzer {
                     }
                 }
                 const similarity = sameCount / overlap;
-                if (similarity >= 0.85) {
+                if (similarity >= 0.9) {
                     reports[ids[i]].collusionScore = Math.max(reports[ids[i]].collusionScore, similarity);
                     reports[ids[j]].collusionScore = Math.max(reports[ids[j]].collusionScore, similarity);
                 }
@@ -76,7 +81,7 @@ class BehaviorAnalyzer {
                 report.eclipseScore += 0.35;
                 report.reasons.push('persistent faulty history');
             }
-            if (report.collusionScore >= 0.85) {
+            if (report.collusionScore >= 0.9) {
                 report.reasons.push('vote similarity suggests hidden collusion');
             }
 
@@ -92,7 +97,7 @@ class BehaviorAnalyzer {
 
         return {
             reports,
-            hiddenCollusionAgents: Object.values(reports).filter((item) => item.collusionScore >= 0.85).map((item) => item.agentId),
+            hiddenCollusionAgents: Object.values(reports).filter((item) => item.collusionScore >= 0.9).map((item) => item.agentId),
             eclipseRiskAgents: Object.values(reports).filter((item) => item.eclipseScore >= 0.35).map((item) => item.agentId)
         };
     }

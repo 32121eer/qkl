@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "gitCommit": "e348515b",
+    "generatedAt": "2026-06-14T15:22:32.544Z",
+    "trials": 300,
+    "n": 7
+  },
+  "strategic": {
+    "meta": {
+      "n": 7,
+      "flipAt": 50,
+      "observeTasks": 40,
+      "honestErrorRate": 0.08,
+      "trials": 300
+    },
+    "observationPeriod": {
+      "detectionRate": 1,
+      "tasksToDetect": {
+        "mean": 1.456667,
+        "lower": 1.400205,
+        "upper": 1.513128,
+        "halfWidth": 0.056462,
+        "n": 300,
+        "std": 0.498951
+      }
+    },
+    "weightBelowHonestMedian": {
+      "detectionRate": 1,
+      "tasksToDetect": {
+        "mean": 1.63,
+        "lower": 1.562645,
+        "upper": 1.697355,
+        "halfWidth": 0.067355,
+        "n": 300,
+        "std": 0.595215
+      }
+    }
+  },
+  "collusion": [
+    {
+      "meta": {
+        "n": 7,
+        "colluderCount": 2,
+        "disputedTasks": 10,
+        "honestErrorRate": 0.12,
+        "trials": 300
+      },
+      "trueDetectionRate": 0,
+      "falsePositiveRate": 0
+    },
+    {
+      "meta": {
+        "n": 7,
+        "colluderCount": 2,
+        "disputedTasks": 20,
+        "honestErrorRate": 0.12,
+        "trials": 300
+      },
+      "trueDetectionRate": 0,
+      "falsePositiveRate": 0
+    },
+    {
+      "meta": {
+        "n": 7,
+        "colluderCount": 2,
+        "disputedTasks": 30,
+        "honestErrorRate": 0.12,
+        "trials": 300
+      },
+      "trueDetectionRate": 0.9233,
+      "falsePositiveRate": 0.21
+    },
+    {
+      "meta": {
+        "n": 7,
+        "colluderCount": 2,
+        "disputedTasks": 50,
+        "honestErrorRate": 0.12,
+        "trials": 300
+      },
+      "trueDetectionRate": 1,
+      "falsePositiveRate": 0.03
+    }
+  ]
+}

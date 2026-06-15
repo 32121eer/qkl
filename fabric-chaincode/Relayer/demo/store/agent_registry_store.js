@@ -44,6 +44,12 @@ function normalizeAgentRecord(record = {}) {
         enabled: record.enabled !== false,
         source: record.source || null,
         available: record.available === undefined ? undefined : Boolean(record.available),
+        availabilityStatus: (() => {
+            const s = record.availabilityStatus;
+            // Normalize 'in_use' → 'available' on load (task may have been interrupted)
+            if (s === 'unavailable') return 'unavailable';
+            return 'available';
+        })(),
         firstSeenAt: record.firstSeenAt || null,
         lastSeenAt: record.lastSeenAt || null,
         lastDescriptorAt: record.lastDescriptorAt || null,

@@ -405,6 +405,7 @@ function runAllExperiments(options = {}) {
 module.exports = {
     SeededRng,
     buildAgentPopulation,
+    buildOpinion,
     simulateNegotiationTask,
     runConvergenceBenchmark,
     runResilienceBenchmark,

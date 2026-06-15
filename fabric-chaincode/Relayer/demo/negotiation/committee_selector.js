@@ -22,16 +22,20 @@ class CommitteeSelector {
 
     buildScore(agent, behaviorReport) {
         const snapshot = this.reputationStore?.get(agent.agentId) || null;
-        const weight = snapshot?.weight || 0;
+        const reputation = snapshot?.reputation || 0;
+        const rawWeight = snapshot?.weight || 0;
         const qualityWeight = snapshot?.qualityWeight || 0;
         const trustWeight = snapshot?.trustWeight || 0;
         const trustScore = snapshot?.trustScore ?? 0.5;
         const latencyScore = snapshot?.latencyScore || 0;
         const risk = behaviorReport?.riskScore || 0;
+        const inObservation = snapshot?.inObservationPeriod || false;
+        const weight = inObservation ? round6(rawWeight * 0.5) : rawWeight;
         const score = (0.55 * weight) + (0.2 * qualityWeight) + (0.15 * trustWeight) + (0.1 * latencyScore) - risk;
         return {
             agent,
             score: Number(score.toFixed(6)),
+            reputation,
             weight,
             qualityWeight,
             trustWeight,
@@ -106,7 +110,7 @@ class CommitteeSelector {
         const selectionSeed = this.buildSelectionSeed({ task, protocolParams: params });
         const eligible = this.rankEligible(scored
             .filter((item) => !item.excluded)
-            .filter((item) => item.trustScore >= params.reputationMin || scored.length <= finalSize), selectionSeed);
+            .filter((item) => item.reputation >= params.reputationMin || scored.length <= finalSize), selectionSeed);
 
         const selected = [];
         const availableStrategies = Array.from(new Set(eligible.map((item) => item.strategyType).filter(Boolean)));
@@ -160,7 +164,9 @@ class CommitteeSelector {
             },
             excluded: scored.filter((item) => !selected.find((selectedItem) => selectedItem.agent.agentId === item.agent.agentId)).map((item) => ({
                 agentId: item.agent.agentId,
+                availabilityStatus: item.agent.availabilityStatus || 'available',
                 score: item.score,
+                reputation: item.reputation,
                 weight: item.weight,
                 qualityWeight: item.qualityWeight,
                 trustWeight: item.trustWeight,

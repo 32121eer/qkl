@@ -8,21 +8,28 @@ const crypto = require('node:crypto');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 
-// 配置
-const channelName = 'mychannel';
-const chaincodeName = 'gateway_cc';
-const mspId = 'Org1MSP';
+// Defaults populated from Relayer config.json at startup; env vars take precedence.
+const _bootstrapConfigPath = process.argv[2] || path.resolve(__dirname, 'config.json');
+let _bootstrapFabric = {};
+try {
+    const _cfg = JSON.parse(require('node:fs').readFileSync(_bootstrapConfigPath, 'utf8'));
+    _bootstrapFabric = (_cfg.chains || []).find((c) => c.type === 'FABRIC' && c.enabled)?.connection || {};
+} catch (_) { /* fall back to env/hardcoded below */ }
 
-// fabric-samples 路径（根据实际情况调整）
-const cryptoPath = process.env.FABRIC_CRYPTO_PATH || 
-    '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
+const channelName = _bootstrapFabric.channelName || 'mychannel';
+const chaincodeName = 'gateway_cc';
+const mspId = _bootstrapFabric.mspId || 'Org1MSP';
+
+const cryptoPath = process.env.FABRIC_CRYPTO_PATH
+    || _bootstrapFabric.cryptoPath
+    || '/home/tr/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com';
 
 const certPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'signcerts');
 const keyPath = path.resolve(cryptoPath, 'users', 'User1@org1.example.com', 'msp', 'keystore');
 const tlsCertPath = path.resolve(cryptoPath, 'peers', 'peer0.org1.example.com', 'tls', 'ca.crt');
 
-const peerEndpoint = 'localhost:7051';
-const peerHostAlias = 'peer0.org1.example.com';
+const peerEndpoint = _bootstrapFabric.peerEndpoint || 'localhost:7051';
+const peerHostAlias = _bootstrapFabric.peerHostAlias || 'peer0.org1.example.com';
 
 async function main() {
     console.log('=== 跨链测试：Fabric -> FISCO-BCOS ===\n');

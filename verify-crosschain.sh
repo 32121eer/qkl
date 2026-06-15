@@ -2,12 +2,30 @@
 
 set -euo pipefail
 
+# macOS: prepend Homebrew OpenJDK to PATH so FISCO console.sh finds Java.
+for _jdk_path in \
+    /opt/homebrew/opt/openjdk@21/bin \
+    /opt/homebrew/opt/openjdk@17/bin \
+    /opt/homebrew/opt/openjdk/bin \
+    /usr/local/opt/openjdk@21/bin; do
+    if [[ -x "$_jdk_path/java" ]]; then
+        export PATH="$_jdk_path:$PATH"
+        break
+    fi
+done
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RELAYER_DIR="$SCRIPT_DIR/fabric-chaincode/Relayer"
 CONFIG_PATH="$RELAYER_DIR/config.json"
 FISCO_CONSOLE_DIR="$SCRIPT_DIR/fisco-bcos/console"
 
-LOG_FILE="${RELAYER_LOG:-$HOME/relayer.log}"
+_DEMO_LOG="$SCRIPT_DIR/.demo/demo-api.log"
+if [[ -z "${RELAYER_LOG:-}" && -f "$_DEMO_LOG" && -f "$SCRIPT_DIR/.demo/demo.pids" ]]; then
+    # Auto-detect: if start-demo.sh is running, use its log instead of $HOME/relayer.log
+    LOG_FILE="$_DEMO_LOG"
+else
+    LOG_FILE="${RELAYER_LOG:-$HOME/relayer.log}"
+fi
 FABRIC_TEST_CHANNEL="${VERIFY_FABRIC_CHANNEL:-mychannel}"
 SLEEP_SECONDS="${VERIFY_SLEEP_SECONDS:-3}"
 WAIT_TIMEOUT="${VERIFY_WAIT_TIMEOUT:-90}"

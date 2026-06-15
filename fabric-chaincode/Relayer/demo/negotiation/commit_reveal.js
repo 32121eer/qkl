@@ -29,14 +29,8 @@ function buildCommitment({ judgment, confidence, nonce }) {
     }));
 }
 
-function buildDeterministicNonce({ taskId, agentId, round, evidenceVersion }) {
-    return sha256Hex(stableStringify({
-        taskId: taskId || null,
-        agentId: agentId || null,
-        round: Number(round || 1),
-        evidenceVersion: Number(evidenceVersion || 0),
-        salt: 'ma3c-commit-reveal'
-    })).slice(2, 18);
+function generateNonce() {
+    return crypto.randomBytes(16).toString('hex');
 }
 
 function sealOpinion(opinion, { task, round } = {}) {
@@ -45,12 +39,7 @@ function sealOpinion(opinion, { task, round } = {}) {
         : opinion.decision === 'REJECT'
             ? 'REJECT'
             : 'ABSTAIN';
-    const nonce = buildDeterministicNonce({
-        taskId: task?.taskId || opinion.taskId,
-        agentId: opinion.agentId,
-        round: round || opinion.round,
-        evidenceVersion: task?.evidenceVersion ?? opinion.evidenceVersion
-    });
+    const nonce = generateNonce();
     const reasonHash = buildReasonHash(opinion.reasons || []);
     const commitHash = buildCommitment({
         judgment,

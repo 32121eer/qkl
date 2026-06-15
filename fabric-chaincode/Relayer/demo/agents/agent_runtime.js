@@ -10,7 +10,9 @@ const { ReputationStore } = require('../negotiation/reputation_store');
 const { WeightAllocator } = require('../negotiation/weight_allocator');
 const { BehaviorAnalyzer } = require('../negotiation/behavior_analyzer');
 const { CommitteeSelector } = require('../negotiation/committee_selector');
+const { ArbitrationCommittee } = require('../negotiation/arbitration_committee');
 const { sealOpinion } = require('../negotiation/commit_reveal');
+const { CommitRevealSession } = require('../negotiation/commit_reveal_session');
 const { buildProtocolParams } = require('../negotiation/protocol_config');
 const { createRemoteAgents, readRemoteAgentSpecs } = require('./remote_agent_registry');
 const { AgentRegistryJsonStore, normalizeAgentRecord } = require('../store/agent_registry_store');
@@ -288,59 +290,81 @@ class AgentRuntime {
 
     bootstrapDefaults({ includeLocalVerifiers = true } = {}) {
         if (includeLocalVerifiers) {
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-structural-01',
-                focus: 'structural',
-                strictProof: false,
-                organization: 'org-a',
-                strategyType: 'A_PROOF_VALIDATOR'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-proof-01',
-                focus: 'proof',
-                strictProof: true,
-                organization: 'org-b',
-                strategyType: 'A_PROOF_VALIDATOR'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-balanced-01',
-                focus: 'balanced',
-                strictProof: false,
-                organization: 'org-c',
-                strategyType: 'B_POLICY_CHECKER',
-                llmBackend: 'rules-plus-llm-a'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-proof-02',
-                focus: 'proof',
-                strictProof: true,
-                organization: 'org-d',
-                strategyType: 'A_PROOF_VALIDATOR'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-balanced-02',
-                focus: 'balanced',
-                strictProof: false,
-                organization: 'org-e',
-                strategyType: 'B_POLICY_CHECKER',
-                llmBackend: 'rules-plus-llm-b'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-semantic-01',
-                focus: 'semantic',
-                strictProof: false,
-                organization: 'org-f',
-                strategyType: 'C_SEMANTIC_REASONER',
-                llmBackend: 'semantic-llm-a'
-            }));
-            this.registry.register(new VerifierAgent({
-                agentId: 'verifier-semantic-02',
-                focus: 'semantic',
-                strictProof: false,
-                organization: 'org-g',
-                strategyType: 'C_SEMANTIC_REASONER',
-                llmBackend: 'semantic-llm-b'
-            }));
+            // Optional allowlist: DEMO_LOCAL_VERIFIER_IDS="verifier-proof-01,verifier-balanced-01,..."
+            // When set, only listed verifier IDs are registered. Comma-separated, whitespace ignored.
+            const allowEnv = String(process.env.DEMO_LOCAL_VERIFIER_IDS || '').trim();
+            const allowSet = allowEnv
+                ? new Set(allowEnv.split(',').map((s) => s.trim()).filter(Boolean))
+                : null;
+            const allowed = (id) => !allowSet || allowSet.has(id);
+
+            if (allowed('verifier-structural-01')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-structural-01',
+                    focus: 'structural',
+                    strictProof: false,
+                    organization: 'org-a',
+                    strategyType: 'A_PROOF_VALIDATOR'
+                }));
+            }
+            if (allowed('verifier-proof-01')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-proof-01',
+                    focus: 'proof',
+                    strictProof: true,
+                    organization: 'org-b',
+                    strategyType: 'A_PROOF_VALIDATOR'
+                }));
+            }
+            if (allowed('verifier-balanced-01')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-balanced-01',
+                    focus: 'balanced',
+                    strictProof: false,
+                    organization: 'org-c',
+                    strategyType: 'B_POLICY_CHECKER',
+                    llmBackend: 'rules-plus-llm-a'
+                }));
+            }
+            if (allowed('verifier-proof-02')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-proof-02',
+                    focus: 'proof',
+                    strictProof: true,
+                    organization: 'org-d',
+                    strategyType: 'A_PROOF_VALIDATOR'
+                }));
+            }
+            if (allowed('verifier-balanced-02')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-balanced-02',
+                    focus: 'balanced',
+                    strictProof: false,
+                    organization: 'org-e',
+                    strategyType: 'B_POLICY_CHECKER',
+                    llmBackend: 'rules-plus-llm-b'
+                }));
+            }
+            if (allowed('verifier-semantic-01')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-semantic-01',
+                    focus: 'semantic',
+                    strictProof: false,
+                    organization: 'org-f',
+                    strategyType: 'C_SEMANTIC_REASONER',
+                    llmBackend: 'semantic-llm-a'
+                }));
+            }
+            if (allowed('verifier-semantic-02')) {
+                this.registry.register(new VerifierAgent({
+                    agentId: 'verifier-semantic-02',
+                    focus: 'semantic',
+                    strictProof: false,
+                    organization: 'org-g',
+                    strategyType: 'C_SEMANTIC_REASONER',
+                    llmBackend: 'semantic-llm-b'
+                }));
+            }
         }
         this.registry.register(new CoordinatorAgent({
             agentId: 'coordinator-01',
@@ -354,9 +378,32 @@ class AgentRuntime {
             agentId: 'evidence-02',
             organization: 'org-collector-b'
         }));
+        // Arbitration pool: k=5, all 3 strategy types present, each from a
+        // distinct org so the org-diversity constraint (≤⌊5/3⌋=1) can be met.
         this.registry.register(new ArbitrationAgent({
             agentId: 'arbitration-01',
-            organization: 'org-arbitration'
+            organization: 'org-arb-a',
+            strategyType: 'A_PROOF_VALIDATOR'
+        }));
+        this.registry.register(new ArbitrationAgent({
+            agentId: 'arbitration-02',
+            organization: 'org-arb-b',
+            strategyType: 'B_POLICY_CHECKER'
+        }));
+        this.registry.register(new ArbitrationAgent({
+            agentId: 'arbitration-03',
+            organization: 'org-arb-c',
+            strategyType: 'C_SEMANTIC_REASONER'
+        }));
+        this.registry.register(new ArbitrationAgent({
+            agentId: 'arbitration-04',
+            organization: 'org-arb-d',
+            strategyType: 'A_PROOF_VALIDATOR'
+        }));
+        this.registry.register(new ArbitrationAgent({
+            agentId: 'arbitration-05',
+            organization: 'org-arb-e',
+            strategyType: 'B_POLICY_CHECKER'
         }));
         this.registry.register(new SubmitterAgent({
             agentId: 'submitter-01',
@@ -490,6 +537,10 @@ class AgentRuntime {
         return this.registry.list('SUBMITTER')[0] || null;
     }
 
+    getArbitrationAgents() {
+        return this.registry.list('ARBITRATION');
+    }
+
     getArbitrationAgent() {
         return this.registry.list('ARBITRATION')[0] || null;
     }
@@ -531,10 +582,16 @@ class AgentRuntime {
     }
 
     async evaluateTask(task, context = {}) {
-        const opinions = [];
         this.refreshPersistedAgentState();
         let allVerifiers = this.getVerifiers();
         await this.refreshRemoteAgentDescriptors(allVerifiers);
+        const unavailableAgents = allVerifiers
+            .filter((agent) => !agent.supports(task))
+            .map((agent) => ({
+                agentId: agent.agentId,
+                availabilityStatus: agent.availabilityStatus || 'unavailable',
+                lastError: agent.lastError || null
+            }));
         allVerifiers = allVerifiers.filter((agent) => agent.supports(task));
         const round = Number(context.round || context.currentRound || 1);
         const protocolParams = buildProtocolParams(task?.risk);
@@ -551,22 +608,52 @@ class AgentRuntime {
             protocolParams
         });
         const verifiers = committee.selected;
+        for (const v of verifiers) {
+            if (typeof v.markInUse === 'function') v.markInUse();
+        }
+        try {
         const assignedWeights = this.weightAllocator.assign(verifiers.map((agent) => agent.agentId));
         const weightVector = this.reputationStore.getWeightVector(verifiers.map((agent) => agent.agentId));
         const weightVectorMap = new Map(weightVector.map((item) => [item.agentId, item]));
 
-        for (const verifier of verifiers) {
-            const startedAt = Date.now();
-            let verdict;
-            try {
-                verdict = await verifier.execute(task, {
+        // ── COMMIT-REVEAL SESSION (论文 §IV-E) ────────────────────────────────
+        // Phase separation: agents commit a hash first, reveal plaintext after
+        // the commit window closes. In this single-process demo both phases
+        // execute synchronously, preserving the structural audit trail and
+        // correct penalty classification for absent / silent agents.
+        const crSession = new CommitRevealSession({
+            agentIds: verifiers.map((v) => v.agentId),
+            taskId: task?.taskId,
+            round
+        });
+
+        // COMMIT PHASE: all verifiers execute in parallel (Promise.allSettled) so
+        // that latency is bounded by max(latency_i) rather than sum(latency_i), and
+        // each agent's decision is independent of the others' timing — preserving the
+        // isolation assumption of the commit-reveal scheme (§IV-E).
+        const sealedByAgent = new Map();
+        const commitSettled = await Promise.allSettled(
+            verifiers.map(async (verifier) => {
+                const startedAt = Date.now();
+                const verdict = await verifier.execute(task, {
                     ...context,
                     assignedWeight: assignedWeights[verifier.agentId] || 0
                 });
-            } catch (error) {
-                // A Byzantine/silent or transiently-faulty agent must not crash the round.
-                // Skip its opinion; the WBFT aggregation degrades naturally (fewer reveals,
-                // possibly below minimumRevealCount → no quorum).
+                return sealOpinion({
+                    ...verdict,
+                    assignedWeight: assignedWeights[verifier.agentId] || 0,
+                    latencyMs: Date.now() - startedAt,
+                    wbft: weightVectorMap.get(verifier.agentId) || null
+                }, { task, round });
+            })
+        );
+        for (let i = 0; i < commitSettled.length; i++) {
+            const verifier = verifiers[i];
+            const result = commitSettled[i];
+            if (result.status === 'rejected') {
+                // Byzantine/silent or transiently-faulty agent — no commit submitted;
+                // will appear in crSession.absentCommitters after closeCommitPhase().
+                const error = result.reason;
                 if (typeof verifier.markUnavailable === 'function') {
                     verifier.markUnavailable(error);
                 }
@@ -577,31 +664,80 @@ class AgentRuntime {
                     relayState: 'AGENT_NO_RESPONSE',
                     correlationId: task?.queryId || null,
                     message: `${verifier.agentId} failed to respond: ${error.message || error}`,
+                    data: { agentId: verifier.agentId, code: error.code || null, round }
+                });
+            } else {
+                const sealed = result.value;
+                crSession.submitCommit(verifier.agentId, sealed.commitReveal.commitHash);
+                sealedByAgent.set(verifier.agentId, sealed);
+                this.emitEvent({
+                    type: 'negotiation',
+                    direction: 'FISCO_TO_FABRIC',
+                    relayState: 'COMMITTED',
+                    correlationId: task?.queryId || null,
+                    message: `${verifier.agentId} submitted commit in round ${round}`,
                     data: {
                         agentId: verifier.agentId,
-                        code: error.code || null,
+                        commitHash: sealed.commitReveal.commitHash,
                         round
                     }
                 });
-                continue;
             }
-            const sealedVerdict = sealOpinion({
-                ...verdict,
-                assignedWeight: assignedWeights[verifier.agentId] || 0,
-                latencyMs: Date.now() - startedAt,
-                wbft: weightVectorMap.get(verifier.agentId) || null
-            }, {
-                task,
-                round
+        }
+
+        // Close commit phase — absent agents (threw errors above) are recorded.
+        crSession.closeCommitPhase();
+        if (crSession.absentCommitters.length) {
+            this.emitEvent({
+                level: 'warn',
+                type: 'negotiation',
+                direction: 'FISCO_TO_FABRIC',
+                relayState: 'COMMIT_PHASE_CLOSED',
+                correlationId: task?.queryId || null,
+                message: `Commit phase closed: ${crSession.absentCommitters.length} agent(s) absent`,
+                data: { absentCommitters: crSession.absentCommitters, round }
             });
-            opinions.push(sealedVerdict);
+        }
+
+        // REVEAL PHASE: submit reveals for all committed agents and verify hashes.
+        for (const [agentId, sealed] of sealedByAgent) {
+            const rev = sealed.commitReveal.reveal;
+            crSession.submitReveal(agentId, {
+                judgment: rev.judgment,
+                confidence: rev.confidence,
+                nonce: rev.nonce,
+                reasonHash: rev.reasonHash
+            });
+        }
+
+        // Close reveal phase — in the synchronous demo silentRevealers will
+        // always be empty, but the session tracks it for correctness.
+        crSession.closeRevealPhase();
+        if (crSession.silentRevealers.length) {
+            this.emitEvent({
+                level: 'warn',
+                type: 'negotiation',
+                direction: 'FISCO_TO_FABRIC',
+                relayState: 'SILENCE_ATTACK_DETECTED',
+                correlationId: task?.queryId || null,
+                message: `Reveal phase: ${crSession.silentRevealers.length} agent(s) withheld reveal`,
+                data: { silentRevealers: crSession.silentRevealers, round }
+            });
+        }
+
+        // Only valid reveals (hash-verified) contribute to consensus opinions.
+        const validRevealIds = new Set(crSession.validReveals().map((r) => r.agentId));
+        const opinions = [];
+        for (const [agentId, sealed] of sealedByAgent) {
+            if (!validRevealIds.has(agentId)) continue;
+            opinions.push(sealed);
             this.emitEvent({
                 type: 'negotiation',
                 direction: 'FISCO_TO_FABRIC',
-                relayState: sealedVerdict.decision,
+                relayState: sealed.decision,
                 correlationId: task?.queryId || null,
-                message: `${sealedVerdict.agentId} committed and revealed ${sealedVerdict.decision} in round ${round}`,
-                data: sealedVerdict
+                message: `${agentId} revealed ${sealed.decision} (confidence=${sealed.confidence}) in round ${round}`,
+                data: sealed
             });
         }
 
@@ -632,13 +768,21 @@ class AgentRuntime {
             weightVector,
             behaviorAnalysis,
             protocolParams,
+            sessionSummary: crSession.summary(),
+            unavailableAgents,
             committee: {
                 selected: verifiers.map((agent) => agent.getDescriptor ? agent.getDescriptor() : { agentId: agent.agentId, role: agent.role }),
                 excluded: committee.excluded,
+                unavailableAgents,
                 selectionSeed: committee.selectionSeed || null,
                 constraints: committee.constraints || null
             }
         };
+        } finally {
+            for (const v of verifiers) {
+                if (typeof v.markAvailable === 'function') v.markAvailable();
+            }
+        }
     }
 
     async collectEvidence(task, context = {}) {
@@ -690,8 +834,11 @@ class AgentRuntime {
         };
     }
 
-    finalizeRound({ opinions = [], finalProposal = null } = {}) {
-        const updates = this.reputationStore.updateFromRound(opinions, finalProposal);
+    finalizeRound({ opinions = [], finalProposal = null, sessionSummary = null } = {}) {
+        const updates = this.reputationStore.updateFromRound(opinions, finalProposal, {
+            absentCommitters: sessionSummary?.absentCommitters || [],
+            silentRevealers: sessionSummary?.silentRevealers || []
+        });
         this.persistAgentRegistrySnapshot({
             recentRound: {
                 proposalId: finalProposal?.proposalId || null,
@@ -752,17 +899,50 @@ class AgentRuntime {
     }
 
     async arbitrate(task, context = {}) {
-        const agent = this.getArbitrationAgent();
-        if (!agent) {
+        const arbitrators = this.getArbitrationAgents();
+        if (!arbitrators.length) {
             return null;
         }
-        const result = await agent.execute(task, context);
+
+        // Build full context for arbitrators (论文 §IV-F):
+        // evidence + all verifier opinions + reason hashes + conflict evidence.
+        const fullContext = {
+            evidence: task?.evidenceBundle || {},
+            verifierOpinions: context.opinions || [],
+            reasonHashes: (context.opinions || [])
+                .map((op) => op.reasonHash || op.commitReveal?.reveal?.reasonHash)
+                .filter(Boolean),
+            conflictEvidence: context.disagreements || null,
+            behaviorAnalysis: context.behaviorAnalysis || null,
+            round: context.round || 1,
+            currentRound: context.round || 1
+        };
+
+        const protocolParams = buildProtocolParams(task?.risk);
+        const committee = new ArbitrationCommittee({
+            agentPool: arbitrators,
+            reputationStore: this.reputationStore,
+            committeeSelector: this.committeeSelector
+        });
+
+        const result = await committee.run(task, fullContext, {
+            protocolParams,
+            eventEmit: (evt) => this.emitEvent({
+                type: 'negotiation',
+                direction: 'FISCO_TO_FABRIC',
+                relayState: evt.phase,
+                correlationId: task?.queryId || null,
+                message: `Arbitration ${evt.phase}: ${evt.agentId || evt.finalDecision || ''}`,
+                data: evt
+            })
+        });
+
         this.emitEvent({
             type: 'negotiation',
             direction: 'FISCO_TO_FABRIC',
-            relayState: result.finalDecision || 'OBSERVE',
+            relayState: result.finalDecision,
             correlationId: task?.queryId || null,
-            message: `${result.agentId} issued arbitration decision ${result.finalDecision}`,
+            message: `Arbitration committee reached terminal decision: ${result.finalDecision} — ${result.decisionReason}`,
             data: result
         });
         return result;

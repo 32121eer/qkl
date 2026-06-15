@@ -1,0 +1,19 @@
+{
+  "payloadVersion": "1.0",
+  "orchardBatchId": "BATCH-TEST-0099",
+  "eventType": "cultivation",
+  "eventAt": "2026-06-08T03:00:00.000Z",
+  "sourceSystem": "orchard-test-writer",
+  "data": {
+    "orchardName": "Test Orchard 99",
+    "SoilTemperature": 21.4,
+    "SoilMoisture": 47.3,
+    "SoilPH": 6.6,
+    "SoilOrganicMatterContent": 3.5,
+    "LightDurationHours": 9,
+    "RainfallMm": 1.8,
+    "IrrigationMethod": "drip",
+    "PhenologicalPeriod": "fruit-setting",
+    "FruitIndicators": "diameter>=70mm target, color>=75%"
+  }
+}

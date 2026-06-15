@@ -18,6 +18,8 @@ class RelayerService extends EventEmitter {
         this.isRunning = false;
         this.headerSyncQueueByPath = new Map();
         this.crossChainEventQueues = new Map(); // sourceChainId -> Promise chain for serialization
+        this.recentTxHashes = new Set(); // short-lived dedup cache for crossChainEvents
+        this._txHashCleanupTimer = setInterval(() => this.recentTxHashes.clear(), 5 * 60 * 1000);
         this.enableHeaderBroadcastOnNewBlock = Boolean(
             this.config?.relayer?.enableHeaderBroadcastOnNewBlock
         );
@@ -66,6 +68,11 @@ class RelayerService extends EventEmitter {
         // 鐩戝惉璺ㄩ摼浜嬩欢 - 鎸夋簮閾句覆琛屾帓闃熷鐞嗭紝閬垮厤骞跺彂鎵撶垎 Fabric peer
         monitor.on('crossChainEvent', (event) => {
             const chainId = chainConfig.chainId;
+            if (this.recentTxHashes.has(event.txHash)) {
+                console.log(`[Relayer] Skipping duplicate crossChainEvent from ${chainId}: ${event.txHash}`);
+                return;
+            }
+            this.recentTxHashes.add(event.txHash);
             const prev = this.crossChainEventQueues.get(chainId) || Promise.resolve();
             const next = prev.then(() => this.handleCrossChainEvent(chainId, event)).catch(() => {});
             this.crossChainEventQueues.set(chainId, next);
@@ -78,30 +85,34 @@ class RelayerService extends EventEmitter {
     }
     
     /**
-     * 澶勭悊鏂板尯鍧?     */
+     * 处理新区块：通过 submitSequentialHeaders 补齐目标链 LightClient 的块头缺口
+     */
     async handleNewBlock(sourceChainId, block) {
         try {
             console.log(`[Relayer] New block from ${sourceChainId}: #${block.number}`);
             if (!this.enableHeaderBroadcastOnNewBlock) {
                 return;
             }
-            
-            // 鎻愬彇鏍囧噯鍖栧尯鍧楀ご
-            const standardHeader = await this.extractor.extractBlockHeader(
-                sourceChainId,
-                block,
-                this.config.getChainConfig(sourceChainId)
-            );
-            
-            // 骞挎挱鍒板叾浠栨墍鏈夐摼
-            await this.broadcastBlockHeader(sourceChainId, standardHeader);
-            
+
+            const blockNumber = Number(block?.number);
+            if (!Number.isInteger(blockNumber) || blockNumber < 0) {
+                return;
+            }
+
+            // 对每条目标链异步触发顺序补头（内部队列保证不会并发乱序）
+            for (const [targetChainId] of this.monitors.entries()) {
+                if (targetChainId === sourceChainId) continue;
+                this.submitSequentialHeaders(sourceChainId, targetChainId, blockNumber).catch((err) => {
+                    console.error(`[Relayer] Header sync error (${sourceChainId}->${targetChainId}): ${err.message}`);
+                });
+            }
+
             this.emit('blockRelayed', {
                 sourceChainId,
-                blockNumber: block.number,
+                blockNumber,
                 targetsCount: this.monitors.size - 1
             });
-            
+
         } catch (error) {
             console.error(`[Relayer] Error handling block from ${sourceChainId}:`, error);
             this.emit('error', { sourceChainId, error });
@@ -342,6 +353,8 @@ class RelayerService extends EventEmitter {
         }
 
         console.log(`[Relayer] Submitting ${sourceChainId} headers to ${targetChainId}: ${from} -> ${uptoBlockNumber}`);
+        const PER_BLOCK_MAX_ATTEMPTS = 3;
+        const PER_BLOCK_BACKOFF_MS = 1500;
         for (let blockNum = from; blockNum <= uptoBlockNumber; blockNum++) {
             // 瀹炴椂鏌ヨ鏈€鏂伴珮搴︼紝閬垮厤骞跺彂涔卞簭鎻愪氦
             const currentLatest = await targetMonitor.getLightClientLatestBlockNumber(sourceChainId);
@@ -353,17 +366,50 @@ class RelayerService extends EventEmitter {
                 continue;
             }
             if (targetChain.type === 'FABRIC' && currentLatest >= 0 && blockNum !== currentLatest + 1) {
+                // Fabric requires strictly sequential headers. If we lag by more than 1,
+                // rewind to currentLatest+1 instead of leaving the gap forever.
+                if (blockNum > currentLatest + 1) {
+                    console.log(`[Relayer] Resyncing ${sourceChainId} headers: requested #${blockNum}, latest=${currentLatest}, rewinding to ${currentLatest + 1}`);
+                    blockNum = currentLatest; // for-loop ++ will land at currentLatest+1
+                    continue;
+                }
                 console.log(`[Relayer] Skip submit ${sourceChainId} #${blockNum} (non-sequential, latest=${currentLatest})`);
                 continue;
             }
-            
-            const block = await this.getBlock(sourceChainId, blockNum);
-            const header = await this.extractor.extractBlockHeader(
-                sourceChainId,
-                block,
-                this.config.getChainConfig(sourceChainId)
-            );
-            await this.submitBlockHeaderWithRetry(targetChainId, header);
+
+            let lastError = null;
+            let succeeded = false;
+            for (let attempt = 1; attempt <= PER_BLOCK_MAX_ATTEMPTS; attempt += 1) {
+                try {
+                    const block = await this.getBlock(sourceChainId, blockNum);
+                    const header = await this.extractor.extractBlockHeader(
+                        sourceChainId,
+                        block,
+                        this.config.getChainConfig(sourceChainId)
+                    );
+                    await this.submitBlockHeaderWithRetry(targetChainId, header);
+                    succeeded = true;
+                    break;
+                } catch (err) {
+                    lastError = err;
+                    const transient = /timeout|TIMEOUT|ETIMEDOUT|ECONNRESET|ENETUNREACH/i.test(String(err?.message || err?.code || ''));
+                    console.warn(`[Relayer] Header attempt ${attempt}/${PER_BLOCK_MAX_ATTEMPTS} failed for ${sourceChainId} #${blockNum}: ${err.message || err}${transient ? ' (transient)' : ''}`);
+                    if (attempt < PER_BLOCK_MAX_ATTEMPTS) {
+                        await new Promise((resolve) => setTimeout(resolve, PER_BLOCK_BACKOFF_MS * attempt));
+                    }
+                }
+            }
+            if (!succeeded) {
+                console.error(`[Relayer] Giving up on ${sourceChainId} #${blockNum} after ${PER_BLOCK_MAX_ATTEMPTS} attempts: ${lastError?.message || lastError}`);
+                // Re-queue so the next event/block triggers another catch-up instead of dropping the gap forever.
+                const queueState = this.headerSyncQueueByPath.get(`${sourceChainId}->${targetChainId}`);
+                if (queueState) {
+                    queueState.pendingUpto = queueState.pendingUpto === null
+                        ? uptoBlockNumber
+                        : Math.max(queueState.pendingUpto, uptoBlockNumber);
+                }
+                return;
+            }
         }
     }
     
@@ -420,6 +466,11 @@ class RelayerService extends EventEmitter {
         
         console.log('[Relayer] Stopping relay service...');
         this.isRunning = false;
+        if (this._txHashCleanupTimer) {
+            clearInterval(this._txHashCleanupTimer);
+            this._txHashCleanupTimer = null;
+        }
+
         
         // 鍋滄鎵€鏈夌洃鍚櫒
         for (const [chainId, monitor] of this.monitors.entries()) {

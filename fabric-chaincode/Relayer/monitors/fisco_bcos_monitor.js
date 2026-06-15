@@ -57,6 +57,7 @@ class FiscoBcosMonitor extends EventEmitter {
         this.maxRecentBlocks = 200;
         this.isMonitoring = false;
         this.pollTimer = null;
+        this._isPolling = false;
     }
     
     /**
@@ -156,29 +157,31 @@ class FiscoBcosMonitor extends EventEmitter {
      * 轮询新区块
      */
     async poll() {
-        if (!this.isMonitoring || !this.provider) {
+        if (!this.isMonitoring || !this.provider || this._isPolling) {
             return;
         }
-        
+        this._isPolling = true;
         try {
             // 获取最新区块号
             const currentBlock = await this.provider.getBlockNumber();
-            
+
             if (currentBlock <= this.latestBlockNumber) {
                 return; // 没有新区块
             }
-            
+
             console.log(`\n[FiscoBcosMonitor] New blocks: ${this.latestBlockNumber + 1} -> ${currentBlock}`);
-            
+
             // 处理新区块
             for (let blockNum = this.latestBlockNumber + 1; blockNum <= currentBlock; blockNum++) {
                 await this.processBlock(blockNum);
             }
-            
+
             this.latestBlockNumber = currentBlock;
-            
+
         } catch (error) {
             console.error(`[FiscoBcosMonitor] Error polling:`, error.message);
+        } finally {
+            this._isPolling = false;
         }
     }
     

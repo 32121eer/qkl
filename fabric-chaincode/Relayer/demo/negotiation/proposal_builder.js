@@ -73,6 +73,7 @@ function summarizeQuorum(opinions = [], { risk = 'NORMAL', protocolParams = null
         thresholdRatio: round6(thresholdRatio),
         acceptRatio: round6(acceptRatio),
         rejectRatio: round6(rejectRatio),
+        questionRatio: total > 0 ? round6(question / total) : 0,
         wbftSatisfied,
         rejectSatisfied
     };
@@ -160,6 +161,7 @@ function buildFinalProposal({
             })),
         weightVector: opinions.map((item) => ({
             agentId: item.agentId,
+            reputation: Number(item.wbft?.reputation || 0),
             weight: Number(item.assignedWeight || 0),
             confidence: Number(item.confidence || 0),
             effectiveWeight: round6((Number(item.assignedWeight || 0) * Number(item.confidence || 0))),
@@ -170,6 +172,7 @@ function buildFinalProposal({
             trustScore: Number(item.wbft?.trustScore || 0),
             latencyScore: Number(item.wbft?.latencyScore || 0),
             riskPenalty: Number(item.wbft?.riskPenalty || 0),
+            questionPenalty: Number(item.wbft?.questionPenalty || 0),
             formulaVersion: item.wbft?.formulaVersion || 'ma3c-wbft-v1',
             judgment: item.judgment || null,
             commitHash: item.commitReveal?.commitHash || null,

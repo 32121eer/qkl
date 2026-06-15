@@ -113,6 +113,9 @@ fabric_detect_source_samples_dir() {
         "/mnt/fast18/xunuo/qukuialian/czs/fabric-samples-main"
         "/home/tr/fabric-samples"
         "/root/czs/fabric/fabric-samples-main"
+        "$HOME/fabric-samples-dl/fabric-samples"
+        "$HOME/fabric-samples"
+        "$HOME/github/fabric-samples"
     )
 
     for candidate in "${candidates[@]}"; do

@@ -237,20 +237,61 @@ function startAgentService({
 if (require.main === module) {
     const runtime = startAgentService();
 
-    const shutdown = (signal) => {
-        runtime.server.close(() => {
-            console.log(JSON.stringify({
-                event: 'agent-service-stopped',
-                signal,
-                agentId: runtime.agent.agentId,
-                ts: new Date().toISOString()
-            }));
-            process.exit(0);
-        });
-    };
+    // 链驱动模式：同时启动链上事件监听器，让 agent 主动参与链上 commit-reveal
+    // 启用条件：AGENT_CHAIN_MODE=true 且配置了 TASK_MANAGER_ADDRESS + AGENT_PRIVATE_KEY
+    const chainMode = parseBoolean(process.env.AGENT_CHAIN_MODE, false);
+    if (chainMode) {
+        const { AgentChainListener } = require('./agent_chain_listener');
+        const chainClientConfig = {
+            rpcUrl:              process.env.FISCO_RPC_URL        || 'http://127.0.0.1:8545',
+            taskManagerAddress:  process.env.TASK_MANAGER_ADDRESS || '',
+            privateKey:          process.env.AGENT_PRIVATE_KEY    || ''
+        };
+        const evidenceBaseUrl = process.env.RELAYER_BASE_URL || 'http://127.0.0.1:18080';
 
-    process.on('SIGTERM', () => shutdown('SIGTERM'));
-    process.on('SIGINT', () => shutdown('SIGINT'));
+        if (chainClientConfig.taskManagerAddress && chainClientConfig.privateKey) {
+            const listener = new AgentChainListener({
+                agent: runtime.agent,
+                chainClientConfig,
+                evidenceBaseUrl,
+                logger: console
+            });
+            listener.start();
+
+            const _shutdown = (signal) => {
+                listener.stop();
+                runtime.server.close(() => {
+                    console.log(JSON.stringify({
+                        event: 'agent-service-stopped', signal,
+                        agentId: runtime.agent.agentId,
+                        ts: new Date().toISOString()
+                    }));
+                    process.exit(0);
+                });
+            };
+            process.on('SIGTERM', () => _shutdown('SIGTERM'));
+            process.on('SIGINT',  () => _shutdown('SIGINT'));
+        } else {
+            console.warn(JSON.stringify({
+                event: 'chain_mode_disabled',
+                reason: 'TASK_MANAGER_ADDRESS or AGENT_PRIVATE_KEY not set'
+            }));
+        }
+    } else {
+        const shutdown = (signal) => {
+            runtime.server.close(() => {
+                console.log(JSON.stringify({
+                    event: 'agent-service-stopped',
+                    signal,
+                    agentId: runtime.agent.agentId,
+                    ts: new Date().toISOString()
+                }));
+                process.exit(0);
+            });
+        };
+        process.on('SIGTERM', () => shutdown('SIGTERM'));
+        process.on('SIGINT',  () => shutdown('SIGINT'));
+    }
 }
 
 module.exports = {

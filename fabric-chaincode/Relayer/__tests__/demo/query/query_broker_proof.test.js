@@ -254,9 +254,13 @@ describe('QueryBroker proof integration', () => {
             expect(session.status).toBe('COMPLETED');
             expect(session.negotiationRound).toBe(1);
             expect(session.arbitrationDecision).toEqual(expect.objectContaining({
-                agentId: 'arbitration-01',
-                finalDecision: 'COMMIT'
+                finalDecision: 'COMMIT',
+                phase: 'ARBITRATION_COMMITTEE',
+                isTerminal: true
             }));
+            expect(session.arbitrationDecision.selected).toEqual(
+                expect.arrayContaining(['arbitration-01'])
+            );
             expect(session.finalProposal).toEqual(expect.objectContaining({
                 finalDecision: 'COMMIT',
                 arbitration: expect.objectContaining({

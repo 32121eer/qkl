@@ -70,11 +70,12 @@ function analyzeDisagreements({ opinions = [], task, behaviorAnalysis = null }) 
         ));
     }
 
-    if (!Array.isArray(evidence.relayReceipts) || evidence.relayReceipts.length === 0) {
+    const taskTimedOut = task?.status === 'TIMEOUT' || task?.timedOut === true;
+    if (taskTimedOut && (!Array.isArray(evidence.relayReceipts) || evidence.relayReceipts.length === 0)) {
         disagreements.push(buildDisagreement(
             'TIMEOUT_BUT_LATE_SUCCESS_POSSIBLE',
             [],
-            'No relay receipts are available yet; newer evidence may change the verdict',
+            'Task timed out with no relay receipts; late evidence may still arrive',
             'LOW'
         ));
     }

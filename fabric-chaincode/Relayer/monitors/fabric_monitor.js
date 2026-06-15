@@ -25,6 +25,9 @@ class FabricMonitor extends EventEmitter {
         this.running = false;
         this.latestObservedBlockNumber = 0;
         this.restartTimer = null;
+        this.latestPolledBlockNumber = 0;
+        this._isBlockPolling = false;
+        this.blockPollTimer = null;
     }
     
     async initialize() {
@@ -90,6 +93,44 @@ class FabricMonitor extends EventEmitter {
         this._startEventLoop().catch(err => {
             console.error('[FabricMonitor] Event loop error:', err);
         });
+
+        // 启动区块轮询，主动推送块头给 FISCO LightClient
+        this._startBlockPolling();
+    }
+
+    _startBlockPolling() {
+        const intervalMs = this.config.monitoring?.blockPollInterval || 10_000;
+        this.blockPollTimer = setInterval(() => {
+            this._pollBlocks().catch(err => {
+                if (this.running) {
+                    console.warn('[FabricMonitor] Block poll error:', err.message);
+                }
+            });
+        }, intervalMs);
+        // 启动后立即执行一次
+        this._pollBlocks().catch(() => {});
+    }
+
+    async _pollBlocks() {
+        if (!this.running || this._isBlockPolling) {
+            return;
+        }
+        this._isBlockPolling = true;
+        try {
+            const latest = await this.getLatestBlockNumber();
+            if (!Number.isInteger(latest) || latest < 0) {
+                return;
+            }
+            if (latest <= this.latestPolledBlockNumber) {
+                return;
+            }
+            this.latestPolledBlockNumber = latest;
+            this.latestObservedBlockNumber = Math.max(this.latestObservedBlockNumber, latest);
+            // 只广播最新块号；relayer.handleNewBlock 会通过 submitSequentialHeaders 补齐中间缺口
+            this.emit('newBlock', { number: latest });
+        } finally {
+            this._isBlockPolling = false;
+        }
     }
 
     async _startEventLoop() {
@@ -182,6 +223,10 @@ class FabricMonitor extends EventEmitter {
         if (this.restartTimer) {
             clearTimeout(this.restartTimer);
             this.restartTimer = null;
+        }
+        if (this.blockPollTimer) {
+            clearInterval(this.blockPollTimer);
+            this.blockPollTimer = null;
         }
         await this.resetConnection();
     }

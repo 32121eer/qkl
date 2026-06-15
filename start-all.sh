@@ -66,7 +66,8 @@ SKIP_FISCO=false
 SKIP_FABRIC=false
 SKIP_DEPLOY_CC=false
 FAST_MODE=false
-NO_DOWN=false
+# Default: keep Fabric ledger across restarts. Pass --reset to tear down.
+NO_DOWN=true
 REDEPLOY_FABRIC_CC=false
 SKIP_CA_TLS_VERIFY=false
 
@@ -97,13 +98,20 @@ while [[ $# -gt 0 ]]; do
             NO_DOWN=true
             shift
             ;;
+        --reset)
+            # Force tear-down of Fabric network; clears all chaincode state.
+            # Use after schema changes or when state corruption is suspected.
+            NO_DOWN=false
+            shift
+            ;;
         --skip-ca-tls-verify)
             SKIP_CA_TLS_VERIFY=true
             shift
             ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 [--skip-fisco] [--skip-fabric] [--skip-deploy-cc] [--redeploy-fabric-cc] [--fast] [--no-down] [--skip-ca-tls-verify]"
+            echo "Usage: $0 [--skip-fisco] [--skip-fabric] [--skip-deploy-cc] [--redeploy-fabric-cc] [--fast] [--no-down] [--reset] [--skip-ca-tls-verify]"
+            echo "  Default: Fabric ledger PERSISTS across restarts. Pass --reset to wipe."
             exit 1
             ;;
     esac

@@ -6,7 +6,7 @@ const { RelayFacade } = require('./app/relay_facade');
 const { QueryBroker } = require('./broker/query_broker');
 const { AgentRuntime } = require('./agents/agent_runtime');
 const { NegotiationProtocol } = require('./negotiation/negotiation_protocol');
-const { buildRemoteAgentSpecsFromDirectory } = require('./agents/remote_agent_registry');
+const { buildRemoteAgentSpecsFromDirectory, readRemoteAgentSpecs } = require('./agents/remote_agent_registry');
 const { DemoMemoryStore } = require('./store/memory_store');
 const { DemoSqliteStore } = require('./store/sqlite_store');
 const { QuerySessionService } = require('./session/query_session_service');
@@ -113,7 +113,13 @@ class DemoApiServer {
         this.querySessionService = new QuerySessionService(this.store);
         this.relayFacade = new RelayFacade({ eventStore: this.eventStore });
         const remoteDisabled = String(process.env.DEMO_REMOTE_AGENTS_DISABLED || '').toLowerCase() === 'true';
-        const remoteAgentSpecs = remoteDisabled ? [] : buildRemoteAgentSpecsFromDirectory();
+        // Merge sources: env (DEMO_REMOTE_AGENTS_JSON / DEMO_REMOTE_VERIFIER_URLS) takes
+        // priority over the legacy directory-based specs so a deliberate env
+        // config can override stale ./.demo/agents/directory/*.json files.
+        const envSpecs = remoteDisabled ? [] : readRemoteAgentSpecs(process.env);
+        const dirSpecs = remoteDisabled ? [] : buildRemoteAgentSpecsFromDirectory();
+        const seenIds = new Set(envSpecs.map((s) => s.agentId));
+        const remoteAgentSpecs = [...envSpecs, ...dirSpecs.filter((s) => !seenIds.has(s.agentId))];
         this.agentRuntime = new AgentRuntime({
             eventStore: this.eventStore,
             remoteAgents: remoteAgentSpecs,
@@ -129,7 +135,9 @@ class DemoApiServer {
             agentRuntime: this.agentRuntime,
             negotiationProtocol: this.negotiationProtocol,
             activeQuerySessions: this.activeQuerySessions,
-            mapSessionErrorCode: this.mapSessionErrorCode.bind(this)
+            mapSessionErrorCode: this.mapSessionErrorCode.bind(this),
+            warmRequestHeaders: this.warmRequestHeaders.bind(this),
+            warmResponseHeaders: this.warmResponseHeaders.bind(this)
         });
 
         this.app = createDemoApp(this);
@@ -137,6 +145,42 @@ class DemoApiServer {
 
     mapErrorCode(text) {
         return mapErrorCode(text);
+    }
+
+    async warmRequestHeaders() {
+        const fiscoMonitor = this.relayer?.monitors?.get?.('FISCO_NET_01');
+        if (!fiscoMonitor) return;
+        let currentBlock = null;
+        try {
+            currentBlock = typeof fiscoMonitor.getLatestBlockNumber === 'function'
+                ? fiscoMonitor.getLatestBlockNumber()
+                : null;
+        } catch (_err) {
+            return;
+        }
+        if (!currentBlock || currentBlock <= 0) return;
+        try {
+            await this.relayer.submitSequentialHeaders('FISCO_NET_01', 'FABRIC_NET_01', currentBlock);
+        } catch (_err) {
+            // non-fatal
+        }
+    }
+
+    async warmResponseHeaders() {
+        const fabricMonitor = this.relayer?.monitors?.get?.('FABRIC_NET_01');
+        if (!fabricMonitor) return;
+        let currentBlock = null;
+        try {
+            currentBlock = await fabricMonitor.getLatestBlockNumber();
+        } catch (_err) {
+            return;
+        }
+        if (!currentBlock || currentBlock <= 0) return;
+        try {
+            await this.relayer.submitSequentialHeaders('FABRIC_NET_01', 'FISCO_NET_01', currentBlock);
+        } catch (_err) {
+            // non-fatal: relay will catch up after the tx fires
+        }
     }
 
     parseExplorerLimit(rawLimit) {
@@ -229,6 +273,7 @@ class DemoApiServer {
             weightVector: finalProposal?.weightVector || [],
             selectedCommittee: session?.selectedCommittee || session?.crossChainTask?.negotiation?.selectedCommittee || [],
             excludedAgents: session?.excludedAgents || session?.crossChainTask?.negotiation?.excludedAgents || [],
+            unavailableAgents: session?.unavailableAgents || session?.crossChainTask?.negotiation?.unavailableAgents || [],
             behaviorSummary: session?.behaviorSummary || session?.crossChainTask?.negotiation?.behaviorSummary || null,
             arbitrationDecision: session?.arbitrationDecision || session?.crossChainTask?.negotiation?.arbitration || finalProposal?.arbitration || null,
             negotiationProof: session?.negotiationProof || session?.crossChainTask?.negotiation?.negotiationProof || null,
@@ -913,7 +958,7 @@ class DemoApiServer {
     }
 
     mapSessionErrorCode(error) {
-        if (error?.code === 'ERR_QUERY_TIMEOUT') {
+        if (error?.code === 'ERR_QUERY_TIMEOUT' || error?.code === 'ERR_WAIT_TIMEOUT') {
             return 'ERR_QUERY_TIMEOUT';
         }
         if (error?.code === 'ERR_NEGOTIATION_BLOCKED') {

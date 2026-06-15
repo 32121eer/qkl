@@ -22,7 +22,9 @@ class QueryBroker {
         agentRuntime,
         negotiationProtocol,
         activeQuerySessions,
-        mapSessionErrorCode
+        mapSessionErrorCode,
+        warmRequestHeaders,
+        warmResponseHeaders
     }) {
         this.executeTrigger = executeTrigger;
         this.triggerService = triggerService;
@@ -33,6 +35,8 @@ class QueryBroker {
         this.negotiationProtocol = negotiationProtocol;
         this.activeQuerySessions = activeQuerySessions;
         this.mapSessionErrorCode = mapSessionErrorCode;
+        this.warmRequestHeaders = warmRequestHeaders || null;
+        this.warmResponseHeaders = warmResponseHeaders || null;
         this.settlementEngine = new SettlementEngine();
     }
 
@@ -73,6 +77,26 @@ class QueryBroker {
 
     async runInitialAgentRound(queryId, session) {
         if (!this.agentRuntime || !session?.crossChainTask) {
+            return session;
+        }
+
+        // Paper Phase 1 (§IV-C): if the dual-collector comparison detected a
+        // conflict (E₁ ≠ E₂), the task is already in ARBITRATING status and
+        // must NOT proceed to the normal agent verification round.
+        if (session.crossChainTask.status === 'ARBITRATING') {
+            const collectorComparison = session.crossChainTask?.evidenceBundle?.collectorComparison || null;
+            this.eventStore.addEvent({
+                type: 'negotiation',
+                direction: 'FISCO_TO_FABRIC',
+                relayState: 'ARBITRATING',
+                correlationId: queryId,
+                message: 'Dual-collector conflict detected; task routed to arbitration without agent evaluation',
+                data: { queryId, collectorComparison }
+            });
+            await this.sessionService.appendStep(queryId, 'COLLECTOR_CONFLICT_DETECTED', {
+                collectorComparison,
+                taskStatus: 'ARBITRATING'
+            });
             return session;
         }
 
@@ -187,7 +211,8 @@ class QueryBroker {
                 arbitration,
                 continuationIn: carryContinuation,
                 continuation: protocolResult.continuation || null,
-                evidenceCollection
+                evidenceCollection,
+                sessionSummary: runtimeResult.sessionSummary || null
             };
 
             currentSession = await this.patchTask(queryId, currentSession, {
@@ -200,6 +225,7 @@ class QueryBroker {
                     requestedEvidence: protocolResult.continuation?.requestedEvidence || [],
                     selectedCommittee: runtimeResult.committee?.selected || [],
                     excludedAgents: runtimeResult.committee?.excluded || [],
+                    unavailableAgents: runtimeResult.unavailableAgents || [],
                     behaviorSummary: runtimeResult.behaviorAnalysis || null,
                     arbitration: arbitration || null,
                     finalProposal: protocolResult.finalProposal || null,
@@ -209,7 +235,8 @@ class QueryBroker {
             });
             this.agentRuntime.finalizeRound({
                 opinions: runtimeResult.opinions || [],
-                finalProposal: protocolResult.finalProposal || null
+                finalProposal: protocolResult.finalProposal || null,
+                sessionSummary: runtimeResult.sessionSummary || null
             });
 
             await this.sessionService.appendStep(queryId, `NEGOTIATION_ROUND_${round}`, {
@@ -403,6 +430,14 @@ class QueryBroker {
         });
 
         try {
+            if (this.warmRequestHeaders) {
+                const preWarmStart = Date.now();
+                await this.warmRequestHeaders().catch(() => {});
+                await this.sessionService.appendStep(queryId, 'HEADERS_PREWARMED_REQUEST', {
+                    elapsedMs: Date.now() - preWarmStart
+                });
+            }
+
             const requestResult = await this.executeTrigger('FISCO_TO_FABRIC', async () => {
                 return this.triggerService.triggerOrchardQueryRequest(queryId, session.orchardBatchId);
             });
@@ -441,7 +476,7 @@ class QueryBroker {
                     sourceTxHash: requestResult?.txHash || null,
                     correlationId: requestResult?.correlationId || null
                 },
-                Number(process.env.DEMO_QUERY_RELAY_TIMEOUT_REQUEST_MS) || 60_000,
+                Number(process.env.DEMO_QUERY_RELAY_TIMEOUT_REQUEST_MS) || 600_000,
                 Number(process.env.DEMO_QUERY_RELAY_POLL_INTERVAL_MS) || 300
             );
             if (requestRelayEvent.relayState === 'FAILED') {
@@ -591,6 +626,14 @@ class QueryBroker {
                 }
             });
 
+            if (this.warmResponseHeaders) {
+                const preWarmStart = Date.now();
+                await this.warmResponseHeaders().catch(() => {});
+                await this.sessionService.appendStep(queryId, 'HEADERS_PREWARMED', {
+                    elapsedMs: Date.now() - preWarmStart
+                });
+            }
+
             const responseResult = await this.executeTrigger('FABRIC_TO_FISCO', async () => {
                 return this.triggerService.triggerOrchardQueryResponse({
                     queryId,
@@ -631,7 +674,7 @@ class QueryBroker {
                     sourceTxHash: responseResult?.txId || null,
                     correlationId: responseResult?.correlationId || null
                 },
-                Number(process.env.DEMO_QUERY_RELAY_TIMEOUT_RESPONSE_MS) || 300_000,
+                Number(process.env.DEMO_QUERY_RELAY_TIMEOUT_RESPONSE_MS) || 600_000,
                 Number(process.env.DEMO_QUERY_RELAY_POLL_INTERVAL_MS) || 300
             );
             if (responseRelayEvent.relayState === 'FAILED') {

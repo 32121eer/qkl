@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "gitCommit": "e348515b",
+    "generatedAt": "2026-06-14T16:17:22.473Z",
+    "trials": 60
+  },
+  "throughput": {
+    "meta": {
+      "lMax": 3,
+      "n": 5,
+      "tasksPerPool": 400,
+      "optimisticShare": 0.75,
+      "latencyModel": {
+        "optimistic": 8,
+        "arbitration": 21
+      }
+    },
+    "rows": [
+      {
+        "poolSize": 10,
+        "maxConcurrency": 6,
+        "computeMsPerTask": 0.0075,
+        "measuredComputeThroughputPerSec": 134100.7472,
+        "modeledE2EThroughputPerSec": 0.5333
+      },
+      {
+        "poolSize": 20,
+        "maxConcurrency": 12,
+        "computeMsPerTask": 0.0052,
+        "measuredComputeThroughputPerSec": 193498.452,
+        "modeledE2EThroughputPerSec": 1.0667
+      },
+      {
+        "poolSize": 30,
+        "maxConcurrency": 18,
+        "computeMsPerTask": 0.0049,
+        "measuredComputeThroughputPerSec": 206140.7261,
+        "modeledE2EThroughputPerSec": 1.6
+      }
+    ]
+  },
+  "silence": {
+    "meta": {
+      "n": 7,
+      "tasksPerTrial": 40,
+      "trials": 60
+    },
+    "results": [
+      {
+        "silentRatio": 0,
+        "silentCount": 0,
+        "minRevealsNeeded": 5,
+        "finalizeRate": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "silentAgentFinalReputation": null
+      },
+      {
+        "silentRatio": 0.14,
+        "silentCount": 1,
+        "minRevealsNeeded": 5,
+        "finalizeRate": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "silentAgentFinalReputation": {
+          "mean": -10,
+          "lower": -10,
+          "upper": -10,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        }
+      },
+      {
+        "silentRatio": 0.28,
+        "silentCount": 2,
+        "minRevealsNeeded": 5,
+        "finalizeRate": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "silentAgentFinalReputation": {
+          "mean": -10,
+          "lower": -10,
+          "upper": -10,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        }
+      },
+      {
+        "silentRatio": 0.43,
+        "silentCount": 3,
+        "minRevealsNeeded": 5,
+        "finalizeRate": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        },
+        "silentAgentFinalReputation": {
+          "mean": -10,
+          "lower": -10,
+          "upper": -10,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        }
+      }
+    ]
+  },
+  "sensitivity": {
+    "meta": {
+      "n": 5,
+      "maliciousRatio": 0.4,
+      "seeds": 120,
+      "tasksPerSeed": 16,
+      "honestErrorRate": 0.12,
+      "baseSeed": 20260417,
+      "swept": [
+        "theta",
+        "honestErrorRate"
+      ]
+    },
+    "theta": [
+      {
+        "theta": 0.65,
+        "ma3cCorrect": 0.9599,
+        "ma3cFalseAccept": 0.0172,
+        "vsEqualDeltaPP": 27.2917,
+        "sig": true
+      },
+      {
+        "theta": 0.7,
+        "ma3cCorrect": 0.9573,
+        "ma3cFalseAccept": 0.0172,
+        "vsEqualDeltaPP": 27.0313,
+        "sig": true
+      },
+      {
+        "theta": 0.75,
+        "ma3cCorrect": 0.9646,
+        "ma3cFalseAccept": 0.0172,
+        "vsEqualDeltaPP": 27.7604,
+        "sig": true
+      }
+    ],
+    "honestErrorRate": [
+      {
+        "honestErrorRate": 0.05,
+        "ma3cCorrect": 0.9948,
+        "ma3cFalseAccept": 0.0042,
+        "vsEqualDeltaPP": 13.3333,
+        "sig": true
+      },
+      {
+        "honestErrorRate": 0.1,
+        "ma3cCorrect": 0.9698,
+        "ma3cFalseAccept": 0.012,
+        "vsEqualDeltaPP": 23.8021,
+        "sig": true
+      },
+      {
+        "honestErrorRate": 0.15,
+        "ma3cCorrect": 0.9349,
+        "ma3cFalseAccept": 0.0276,
+        "vsEqualDeltaPP": 31.25,
+        "sig": true
+      },
+      {
+        "honestErrorRate": 0.2,
+        "ma3cCorrect": 0.8906,
+        "ma3cFalseAccept": 0.0474,
+        "vsEqualDeltaPP": 38.0729,
+        "sig": true
+      }
+    ]
+  },
+  "incentive": {
+    "meta": {
+      "n": 8,
+      "tasksPerTrial": 300,
+      "trials": 60,
+      "honestErrorRate": 0.1,
+      "verifyCost": 0.2
+    },
+    "strategies": {
+      "honest": {
+        "cumulativePayoff": {
+          "mean": 165.683333,
+          "lower": 164.463139,
+          "upper": 166.903527,
+          "halfWidth": 1.220194,
+          "n": 60,
+          "std": 4.822235
+        },
+        "finalReputation": {
+          "mean": 9.669073,
+          "lower": 9.57486,
+          "upper": 9.763287,
+          "halfWidth": 0.094213,
+          "n": 60,
+          "std": 0.372334
+        }
+      },
+      "freerider": {
+        "cumulativePayoff": {
+          "mean": 30.013333,
+          "lower": 29.9872,
+          "upper": 30.039467,
+          "halfWidth": 0.026133,
+          "n": 60,
+          "std": 0.10328
+        },
+        "finalReputation": {
+          "mean": 4.790713,
+          "lower": 4.785307,
+          "upper": 4.796118,
+          "halfWidth": 0.005405,
+          "n": 60,
+          "std": 0.021362
+        }
+      },
+      "overconfident": {
+        "cumulativePayoff": {
+          "mean": 161.25,
+          "lower": 158.057184,
+          "upper": 164.442816,
+          "halfWidth": 3.192816,
+          "n": 60,
+          "std": 12.618086
+        },
+        "finalReputation": {
+          "mean": 9.555475,
+          "lower": 9.307113,
+          "upper": 9.803837,
+          "halfWidth": 0.248362,
+          "n": 60,
+          "std": 0.981533
+        }
+      },
+      "malicious": {
+        "cumulativePayoff": {
+          "mean": -74.958333,
+          "lower": -75.04,
+          "upper": -74.876667,
+          "halfWidth": 0.081667,
+          "n": 60,
+          "std": 0.322749
+        },
+        "finalReputation": {
+          "mean": -10,
+          "lower": -10,
+          "upper": -10,
+          "halfWidth": 0,
+          "n": 60,
+          "std": 0
+        }
+      },
+      "_honestDominates": true
+    }
+  }
+}

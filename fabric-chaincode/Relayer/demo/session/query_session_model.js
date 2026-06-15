@@ -12,6 +12,7 @@ function createQuerySession({ queryId, orchardBatchId, now = new Date().toISOStr
         negotiationDisagreements: [],
         selectedCommittee: [],
         excludedAgents: [],
+        unavailableAgents: [],
         behaviorSummary: null,
         arbitrationDecision: null,
         agentOpinions: [],

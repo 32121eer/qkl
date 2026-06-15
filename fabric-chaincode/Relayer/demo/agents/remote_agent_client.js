@@ -103,7 +103,7 @@ class RemoteAgentClient {
         this.llmBackend = llmBackend;
         this.focus = focus;
         this.enabled = enabled !== false;
-        this.available = true;
+        this.availabilityStatus = 'available'; // 'available' | 'unavailable' | 'in_use'
         this.timeoutMs = parseTimeout(timeoutMs);
         this.remote = true;
         this.lastError = null;
@@ -146,9 +146,22 @@ class RemoteAgentClient {
         this.strictProof = descriptor.strictProof === undefined ? this.strictProof : Boolean(descriptor.strictProof);
     }
 
+    get available() {
+        return this.availabilityStatus !== 'unavailable';
+    }
+
+    markAvailable() {
+        this.availabilityStatus = 'available';
+        this.lastError = null;
+    }
+
     markUnavailable(error) {
-        this.available = false;
+        this.availabilityStatus = 'unavailable';
         this.lastError = error?.message || String(error || 'remote agent unavailable');
+    }
+
+    markInUse() {
+        this.availabilityStatus = 'in_use';
     }
 
     getDescriptor() {
@@ -162,17 +175,18 @@ class RemoteAgentClient {
             focus: this.focus,
             strictProof: this.strictProof,
             enabled: this.enabled,
+            availabilityStatus: this.availabilityStatus,
+            available: this.available,
             kind: 'remote',
             remote: true,
             endpoint: this.baseUrl,
-            available: this.available,
             lastDescriptorAt: this.lastDescriptorAt,
             lastError: this.lastError
         };
     }
 
     supports(_task) {
-        return this.enabled && this.available;
+        return this.enabled && this.availabilityStatus === 'available';
     }
 
     async getJson(path) {
@@ -207,7 +221,10 @@ class RemoteAgentClient {
         const data = await this.getJson('/descriptor');
         const descriptor = data?.descriptor || data;
         this.applyDescriptor(descriptor);
-        this.available = true;
+        // Restore to available only if currently unavailable; preserve in_use.
+        if (this.availabilityStatus === 'unavailable') {
+            this.availabilityStatus = 'available';
+        }
         this.lastError = null;
         this.lastDescriptorAt = new Date().toISOString();
         return this.getDescriptor();
