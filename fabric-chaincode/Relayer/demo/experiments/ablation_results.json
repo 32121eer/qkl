@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "gitCommit": "e348515b",
+    "generatedAt": "2026-06-15T03:04:08.277Z",
+    "seeds": 200,
+    "tasksPerSeed": 40
+  },
+  "heterogeneity": {
+    "meta": {
+      "ablation": "heterogeneity",
+      "threat": "correlated honest errors",
+      "n": 7,
+      "maliciousRatio": 0.2,
+      "maliciousCount": 1,
+      "honestErrorRate": 0.12,
+      "rho": 0.85,
+      "threshold": 0.7,
+      "seeds": 200,
+      "tasksPerSeed": 40
+    },
+    "on": {
+      "correctness": {
+        "mean": 0.865,
+        "lower": 0.857566,
+        "upper": 0.872434,
+        "halfWidth": 0.007434,
+        "n": 200,
+        "std": 0.053637
+      },
+      "falseAccept": {
+        "mean": 0.001875,
+        "lower": 0.00096,
+        "upper": 0.00279,
+        "halfWidth": 0.000915,
+        "n": 200,
+        "std": 0.006601
+      },
+      "falseReject": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "observe": {
+        "mean": 0.133125,
+        "lower": 0.125684,
+        "upper": 0.140566,
+        "halfWidth": 0.007441,
+        "n": 200,
+        "std": 0.053691
+      }
+    },
+    "off": {
+      "correctness": {
+        "mean": 0.875,
+        "lower": 0.868247,
+        "upper": 0.881753,
+        "halfWidth": 0.006753,
+        "n": 200,
+        "std": 0.048728
+      },
+      "falseAccept": {
+        "mean": 0.055625,
+        "lower": 0.050622,
+        "upper": 0.060628,
+        "halfWidth": 0.005003,
+        "n": 200,
+        "std": 0.036097
+      },
+      "falseReject": {
+        "mean": 0.04375,
+        "lower": 0.039029,
+        "upper": 0.048471,
+        "halfWidth": 0.004721,
+        "n": 200,
+        "std": 0.034066
+      },
+      "observe": {
+        "mean": 0.025625,
+        "lower": 0.022008,
+        "upper": 0.029242,
+        "halfWidth": 0.003617,
+        "n": 200,
+        "std": 0.026099
+      }
+    },
+    "correctnessGain": {
+      "n": 200,
+      "meanTreatment": 0.865,
+      "meanBaseline": 0.875,
+      "meanDiff": -0.01,
+      "diffCi95": {
+        "lower": -0.019,
+        "upper": -0.0005
+      },
+      "ciExcludesZero": true,
+      "cohensD": -0.146873,
+      "sign": {
+        "wins": 70,
+        "losses": 97,
+        "ties": 33,
+        "pValue": 0.043902
+      }
+    },
+    "falseAcceptReduction": {
+      "n": 200,
+      "meanTreatment": 0.055625,
+      "meanBaseline": 0.001875,
+      "meanDiff": 0.05375,
+      "diffCi95": {
+        "lower": 0.04875,
+        "upper": 0.059125
+      },
+      "ciExcludesZero": true,
+      "cohensD": 1.460073,
+      "sign": {
+        "wins": 181,
+        "losses": 2,
+        "ties": 17,
+        "pValue": 0
+      }
+    },
+    "loadBearing": true
+  },
+  "vrfRotation": {
+    "meta": {
+      "ablation": "vrf-rotation",
+      "threat": "co-located collusion",
+      "n": 7,
+      "poolSize": 21,
+      "colluders": 5,
+      "orgCap": 2,
+      "honestErrorRate": 0.1,
+      "threshold": 0.7,
+      "seeds": 200,
+      "tasksPerSeed": 40
+    },
+    "on": {
+      "correctness": {
+        "mean": 0.780875,
+        "lower": 0.772395,
+        "upper": 0.789355,
+        "halfWidth": 0.00848,
+        "n": 200,
+        "std": 0.061185
+      },
+      "falseAccept": {
+        "mean": 0.00175,
+        "lower": 0.000864,
+        "upper": 0.002636,
+        "halfWidth": 0.000886,
+        "n": 200,
+        "std": 0.006395
+      },
+      "falseReject": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "observe": {
+        "mean": 0.217375,
+        "lower": 0.208951,
+        "upper": 0.225799,
+        "halfWidth": 0.008424,
+        "n": 200,
+        "std": 0.060784
+      }
+    },
+    "off": {
+      "correctness": {
+        "mean": 0.5,
+        "lower": 0.5,
+        "upper": 0.5,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "falseAccept": {
+        "mean": 0.5,
+        "lower": 0.5,
+        "upper": 0.5,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "falseReject": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "observe": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      }
+    },
+    "correctnessGain": {
+      "n": 200,
+      "meanTreatment": 0.780875,
+      "meanBaseline": 0.5,
+      "meanDiff": 0.280875,
+      "diffCi95": {
+        "lower": 0.272375,
+        "upper": 0.289125
+      },
+      "ciExcludesZero": true,
+      "cohensD": 4.590602,
+      "sign": {
+        "wins": 200,
+        "losses": 0,
+        "ties": 0,
+        "pValue": 0
+      }
+    },
+    "falseAcceptReduction": {
+      "n": 200,
+      "meanTreatment": 0.5,
+      "meanBaseline": 0.00175,
+      "meanDiff": 0.49825,
+      "diffCi95": {
+        "lower": 0.497375,
+        "upper": 0.499125
+      },
+      "ciExcludesZero": true,
+      "cohensD": 77.916304,
+      "sign": {
+        "wins": 200,
+        "losses": 0,
+        "ties": 0,
+        "pValue": 0
+      }
+    },
+    "loadBearing": true
+  },
+  "commitReveal": {
+    "meta": {
+      "ablation": "commit-reveal",
+      "threat": "herding cascade",
+      "n": 7,
+      "maliciousRatio": 0.2,
+      "maliciousCount": 1,
+      "honestErrorRate": 0.1,
+      "herding": 0.6,
+      "threshold": 0.7,
+      "seeds": 200,
+      "tasksPerSeed": 40
+    },
+    "on": {
+      "correctness": {
+        "mean": 0.89925,
+        "lower": 0.892799,
+        "upper": 0.905701,
+        "halfWidth": 0.006451,
+        "n": 200,
+        "std": 0.046546
+      },
+      "falseAccept": {
+        "mean": 0.00075,
+        "lower": 0.000157,
+        "upper": 0.001343,
+        "halfWidth": 0.000593,
+        "n": 200,
+        "std": 0.004275
+      },
+      "falseReject": {
+        "mean": 0,
+        "lower": 0,
+        "upper": 0,
+        "halfWidth": 0,
+        "n": 200,
+        "std": 0
+      },
+      "observe": {
+        "mean": 0.1,
+        "lower": 0.093576,
+        "upper": 0.106424,
+        "halfWidth": 0.006424,
+        "n": 200,
+        "std": 0.046349
+      }
+    },
+    "off": {
+      "correctness": {
+        "mean": 0.681125,
+        "lower": 0.674208,
+        "upper": 0.688042,
+        "halfWidth": 0.006917,
+        "n": 200,
+        "std": 0.049906
+      },
+      "falseAccept": {
+        "mean": 0.23625,
+        "lower": 0.229049,
+        "upper": 0.243451,
+        "halfWidth": 0.007201,
+        "n": 200,
+        "std": 0.051956
+      },
+      "falseReject": {
+        "mean": 0.001375,
+        "lower": 0.000583,
+        "upper": 0.002167,
+        "halfWidth": 0.000792,
+        "n": 200,
+        "std": 0.005714
+      },
+      "observe": {
+        "mean": 0.08125,
+        "lower": 0.075641,
+        "upper": 0.086859,
+        "halfWidth": 0.005609,
+        "n": 200,
+        "std": 0.040471
+      }
+    },
+    "correctnessGain": {
+      "n": 200,
+      "meanTreatment": 0.89925,
+      "meanBaseline": 0.681125,
+      "meanDiff": 0.218125,
+      "diffCi95": {
+        "lower": 0.208625,
+        "upper": 0.227125
+      },
+      "ciExcludesZero": true,
+      "cohensD": 3.275623,
+      "sign": {
+        "wins": 200,
+        "losses": 0,
+        "ties": 0,
+        "pValue": 0
+      }
+    },
+    "falseAcceptReduction": {
+      "n": 200,
+      "meanTreatment": 0.23625,
+      "meanBaseline": 0.00075,
+      "meanDiff": 0.2355,
+      "diffCi95": {
+        "lower": 0.22825,
+        "upper": 0.24275
+      },
+      "ciExcludesZero": true,
+      "cohensD": 4.513756,
+      "sign": {
+        "wins": 200,
+        "losses": 0,
+        "ties": 0,
+        "pValue": 0
+      }
+    },
+    "loadBearing": true
+  }
+}
