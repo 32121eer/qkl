@@ -1,0 +1,993 @@
+{
+  "meta": {
+    "seed": 20260417,
+    "gitCommit": "184607d6",
+    "generatedAt": "2026-06-16T04:50:29.574Z",
+    "enableArbitration": true,
+    "honestErrorRate": 0,
+    "calibration": {
+      "source": "demo/experiments/calibration/calibration.json",
+      "honestErrorRate": 0,
+      "arbiterErrorFactor": 0,
+      "meanConfidenceCorrect": 0.92,
+      "meanConfidenceWrong": 0
+    }
+  },
+  "decision": {
+    "meta": {
+      "mode": "decision",
+      "n": 5,
+      "maliciousRatio": 0.4,
+      "threshold": 0.7,
+      "seeds": 200,
+      "tasksPerSeed": 20,
+      "honestErrorRate": 0,
+      "enableArbitration": true
+    },
+    "methods": {
+      "ma3c": {
+        "label": "MA3C (rep×conf)",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0.76225,
+          "lower": 0.750348,
+          "upper": 0.774152,
+          "halfWidth": 0.011902,
+          "n": 200,
+          "std": 0.085874
+        },
+        "avgLatencyMs": {
+          "mean": 17909.25,
+          "lower": 17754.530486,
+          "upper": 18063.969514,
+          "halfWidth": 154.719514,
+          "n": 200,
+          "std": 1116.359364
+        }
+      },
+      "repWeighted": {
+        "label": "B3 reputation-only",
+        "correctness": {
+          "mean": 0.226,
+          "lower": 0.214211,
+          "upper": 0.237789,
+          "halfWidth": 0.011789,
+          "n": 200,
+          "std": 0.08506
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        }
+      },
+      "weightedBft": {
+        "label": "B4 weighted BFT (≥⅔ weight)",
+        "correctness": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        }
+      },
+      "equalMajority": {
+        "label": "B1 equal majority",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        }
+      },
+      "pbft": {
+        "label": "B2 PBFT 2f+1",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        }
+      },
+      "singleRelay": {
+        "label": "B0 single relay",
+        "correctness": {
+          "mean": 0.60175,
+          "lower": 0.586796,
+          "upper": 0.616704,
+          "halfWidth": 0.014954,
+          "n": 200,
+          "std": 0.107901
+        },
+        "falseAccept": {
+          "mean": 0.19875,
+          "lower": 0.188459,
+          "upper": 0.209041,
+          "halfWidth": 0.010291,
+          "n": 200,
+          "std": 0.074253
+        },
+        "falseReject": {
+          "mean": 0.1465,
+          "lower": 0.136638,
+          "upper": 0.156362,
+          "halfWidth": 0.009862,
+          "n": 200,
+          "std": 0.071155
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 200,
+          "std": 0
+        }
+      }
+    },
+    "comparisons": {
+      "ma3c_vs_repWeighted": {
+        "correctness": {
+          "n": 200,
+          "meanTreatment": 1,
+          "meanBaseline": 0.226,
+          "meanDiff": 0.774,
+          "diffCi95": {
+            "lower": 0.762,
+            "upper": 0.786
+          },
+          "ciExcludesZero": true,
+          "cohensD": 9.099477,
+          "sign": {
+            "wins": 200,
+            "losses": 0,
+            "ties": 0,
+            "pValue": 0
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 200,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_weightedBft": {
+        "correctness": {
+          "n": 200,
+          "meanTreatment": 1,
+          "meanBaseline": 0,
+          "meanDiff": 1,
+          "diffCi95": {
+            "lower": 1,
+            "upper": 1
+          },
+          "ciExcludesZero": true,
+          "cohensD": 0,
+          "sign": {
+            "wins": 200,
+            "losses": 0,
+            "ties": 0,
+            "pValue": 0
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 200,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_equalMajority": {
+        "correctness": {
+          "n": 200,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 200,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_pbft": {
+        "correctness": {
+          "n": 200,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 200,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 200,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_singleRelay": {
+        "correctness": {
+          "n": 200,
+          "meanTreatment": 1,
+          "meanBaseline": 0.60175,
+          "meanDiff": 0.39825,
+          "diffCi95": {
+            "lower": 0.3835,
+            "upper": 0.4135
+          },
+          "ciExcludesZero": true,
+          "cohensD": 3.690879,
+          "sign": {
+            "wins": 200,
+            "losses": 0,
+            "ties": 0,
+            "pValue": 0
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 200,
+          "meanTreatment": 0.19875,
+          "meanBaseline": 0,
+          "meanDiff": 0.19875,
+          "diffCi95": {
+            "lower": 0.1885,
+            "upper": 0.209
+          },
+          "ciExcludesZero": true,
+          "cohensD": 2.67666,
+          "sign": {
+            "wins": 199,
+            "losses": 0,
+            "ties": 1,
+            "pValue": 0
+          }
+        }
+      }
+    }
+  },
+  "sequential": {
+    "meta": {
+      "mode": "sequential",
+      "n": 7,
+      "maliciousRatio": 0.3,
+      "threshold": 0.7,
+      "seeds": 100,
+      "tasksPerSeed": 120,
+      "warmupTasks": 60,
+      "honestErrorRate": 0,
+      "enableArbitration": true
+    },
+    "methods": {
+      "ma3c": {
+        "label": "MA3C (rep×conf)",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "lateCorrectness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      },
+      "repWeighted": {
+        "label": "B3 reputation-only",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "lateCorrectness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      },
+      "weightedBft": {
+        "label": "B4 weighted BFT (≥⅔ weight)",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "lateCorrectness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      },
+      "equalMajority": {
+        "label": "B1 equal majority",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "lateCorrectness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      },
+      "pbft": {
+        "label": "B2 PBFT 2f+1",
+        "correctness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseAccept": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "falseReject": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "lateCorrectness": {
+          "mean": 1,
+          "lower": 1,
+          "upper": 1,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      },
+      "singleRelay": {
+        "label": "B0 single relay",
+        "correctness": {
+          "mean": 0.712583,
+          "lower": 0.704726,
+          "upper": 0.720441,
+          "halfWidth": 0.007857,
+          "n": 100,
+          "std": 0.040088
+        },
+        "falseAccept": {
+          "mean": 0.1435,
+          "lower": 0.137588,
+          "upper": 0.149412,
+          "halfWidth": 0.005912,
+          "n": 100,
+          "std": 0.030165
+        },
+        "falseReject": {
+          "mean": 0.10775,
+          "lower": 0.103235,
+          "upper": 0.112265,
+          "halfWidth": 0.004515,
+          "n": 100,
+          "std": 0.023036
+        },
+        "lateCorrectness": {
+          "mean": 0.709333,
+          "lower": 0.698551,
+          "upper": 0.720116,
+          "halfWidth": 0.010783,
+          "n": 100,
+          "std": 0.055014
+        },
+        "escalationRate": {
+          "mean": 0,
+          "lower": 0,
+          "upper": 0,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        },
+        "avgLatencyMs": {
+          "mean": 8000,
+          "lower": 8000,
+          "upper": 8000,
+          "halfWidth": 0,
+          "n": 100,
+          "std": 0
+        }
+      }
+    },
+    "comparisons": {
+      "ma3c_vs_repWeighted": {
+        "correctness": {
+          "n": 100,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 100,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_weightedBft": {
+        "correctness": {
+          "n": 100,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 100,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_equalMajority": {
+        "correctness": {
+          "n": 100,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 100,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_pbft": {
+        "correctness": {
+          "n": 100,
+          "meanTreatment": 1,
+          "meanBaseline": 1,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 100,
+          "meanTreatment": 0,
+          "meanBaseline": 0,
+          "meanDiff": 0,
+          "diffCi95": {
+            "lower": 0,
+            "upper": 0
+          },
+          "ciExcludesZero": false,
+          "cohensD": 0,
+          "sign": {
+            "wins": 0,
+            "losses": 0,
+            "ties": 100,
+            "pValue": 1
+          }
+        }
+      },
+      "ma3c_vs_singleRelay": {
+        "correctness": {
+          "n": 100,
+          "meanTreatment": 1,
+          "meanBaseline": 0.712583,
+          "meanDiff": 0.287417,
+          "diffCi95": {
+            "lower": 0.279333,
+            "upper": 0.295
+          },
+          "ciExcludesZero": true,
+          "cohensD": 7.16967,
+          "sign": {
+            "wins": 100,
+            "losses": 0,
+            "ties": 0,
+            "pValue": 0
+          }
+        },
+        "falseAcceptReduction": {
+          "n": 100,
+          "meanTreatment": 0.1435,
+          "meanBaseline": 0,
+          "meanDiff": 0.1435,
+          "diffCi95": {
+            "lower": 0.137417,
+            "upper": 0.149417
+          },
+          "ciExcludesZero": true,
+          "cohensD": 4.757228,
+          "sign": {
+            "wins": 100,
+            "losses": 0,
+            "ties": 0,
+            "pValue": 0
+          }
+        }
+      }
+    }
+  }
+}

@@ -120,25 +120,75 @@ function summarizeAgg(agg) {
 }
 
 /**
- * Run the labeled benchmark through the LLM client.
+ * Layer-1 deterministic gate (论文 A 型证明验证器：确定性密码/结构预验证).
+ * Cryptographic-proof failure, missing tx hash, missing payload, and block heights
+ * outside the light client's committed range are decidable WITHOUT an LLM, so the
+ * production architecture rejects them here and they never reach semantic consensus.
+ * Returns { pass:true } or { pass:false, reason }. A FAIL on an INVALID case is a
+ * correct deterministic rejection; it is NOT a semantic-layer error.
+ *
+ * LIGHT_CLIENT_MIN_HEIGHT models the lowest header height the light client has
+ * committed in this benchmark (good evidence anchors at 1039); a height below it is
+ * not in the light client's state and is rejected deterministically.
+ */
+const LIGHT_CLIENT_MIN_HEIGHT = 1000;
+
+function deterministicPreCheck(evidence) {
+    if (!evidence) return { pass: false, reason: 'no evidence' };
+    if (evidence.preVerification && evidence.preVerification.status === 'FAIL') {
+        return { pass: false, reason: 'cryptographic/proof verification failed' };
+    }
+    if (!evidence.txHash || !evidence.sourceTxHash) {
+        return { pass: false, reason: 'missing transaction hash' };
+    }
+    if (!evidence.payload) {
+        return { pass: false, reason: 'missing payload (structural)' };
+    }
+    const h = Number(evidence.blockHeight);
+    const headerH = Number(evidence.sourceHeader && evidence.sourceHeader.number);
+    if (!Number.isFinite(h) || h !== headerH) {
+        return { pass: false, reason: 'block height / header number mismatch' };
+    }
+    if (h < LIGHT_CLIENT_MIN_HEIGHT) {
+        return { pass: false, reason: 'block height outside light-client committed range' };
+    }
+    return { pass: true };
+}
+
+/**
+ * Run the labeled benchmark through the two-layer architecture:
+ *   Layer 1 (deterministic gate) → Layer 2 (LLM semantic verifier + arbiter committee).
+ * Only evidence that PASSES Layer 1 reaches the LLM, so honestErrorRate reflects the
+ * SEMANTIC layer alone (what the simulator's pᵢ actually models).
  * @param {Object} client - an LLMClient (createLLMClientFromEnv)
  */
 async function collectCalibration({ client, cases, arbiterK = 5 } = {}) {
-    const verifier = emptyAgg();
-    const arbiter = emptyAgg();
+    const verifier = emptyAgg();      // semantic layer only (post-gate)
+    const arbiter = emptyAgg();       // semantic-layer arbiter committee
+    const deterministic = emptyAgg(); // Layer-1 gate outcomes
     const byTamper = {};
 
     for (const testCase of cases) {
         const { task, groundTruth, tamper } = testCase;
-        byTamper[tamper] = byTamper[tamper] || emptyAgg();
+        if (!byTamper[tamper]) byTamper[tamper] = { layer: null, agg: emptyAgg() };
 
-        // Single line verifier.
+        const gate = deterministicPreCheck(task.evidenceBundle);
+        if (!gate.pass) {
+            // Layer 1 rejects deterministically — correct iff ground truth is INVALID.
+            recordVerdict(deterministic, INVALID, groundTruth, 1.0);
+            byTamper[tamper].layer = 'deterministic';
+            recordVerdict(byTamper[tamper].agg, INVALID, groundTruth, 1.0);
+            continue; // never reaches the LLM
+        }
+
+        // Layer 2 — single LLM line verifier.
+        byTamper[tamper].layer = 'semantic';
         const v = await client.verify(task, {});
         const vVerdict = verdictOf(v.judgment);
         recordVerdict(verifier, vVerdict, groundTruth, v.confidence);
-        recordVerdict(byTamper[tamper], vVerdict, groundTruth, v.confidence);
+        recordVerdict(byTamper[tamper].agg, vVerdict, groundTruth, v.confidence);
 
-        // Arbiter committee: k independent calls, majority verdict.
+        // Layer 2 — arbiter committee: k independent calls, majority verdict.
         const verdicts = [];
         let confAccum = 0;
         for (let i = 0; i < arbiterK; i += 1) {
@@ -151,6 +201,7 @@ async function collectCalibration({ client, cases, arbiterK = 5 } = {}) {
 
     const verifierSummary = summarizeAgg(verifier);
     const arbiterSummary = summarizeAgg(arbiter);
+    const deterministicSummary = summarizeAgg(deterministic);
     const arbiterErrorFactor = verifierSummary.errorRate > 0
         ? round6(arbiterSummary.errorRate / verifierSummary.errorRate)
         : 0;
@@ -160,6 +211,9 @@ async function collectCalibration({ client, cases, arbiterK = 5 } = {}) {
         model: client.model,
         arbiterK,
         caseCount: cases.length,
+        // Layer 1: deterministic gate (errorRate 0 ⇒ all structural/crypto tampers caught here).
+        deterministicLayer: deterministicSummary,
+        // Layer 2: semantic verifier (only post-gate cases) — this is the simulator's pᵢ.
         verifier: verifierSummary,
         arbiter: arbiterSummary,
         // ↓ exactly what the simulator needs (replaces hand-picked defaults).
@@ -169,7 +223,7 @@ async function collectCalibration({ client, cases, arbiterK = 5 } = {}) {
             meanConfidenceCorrect: verifierSummary.meanConfidenceCorrect,
             meanConfidenceWrong: verifierSummary.meanConfidenceWrong
         },
-        byTamper: Object.fromEntries(Object.entries(byTamper).map(([k, v]) => [k, summarizeAgg(v)]))
+        byTamper: Object.fromEntries(Object.entries(byTamper).map(([k, v]) => [k, { layer: v.layer, ...summarizeAgg(v.agg) }]))
     };
 }
 
@@ -179,5 +233,6 @@ module.exports = {
     buildCalibrationCases,
     verdictOf,
     majorityVerdict,
+    deterministicPreCheck,
     collectCalibration
 };

@@ -188,6 +188,97 @@ function weightedBftDecision(opinions, cfg = {}) {
 }
 
 /**
+ * B5 — static notary committee. A fixed M-of-N notary set: the result finalizes
+ * only when one side gathers ≥ `notaryQuorum` agreeing signatures (default simple
+ * majority), exactly like a classic threshold-signature notary bridge. The
+ * decision rule equals equal-weight majority (one notary, one vote, no
+ * reputation/confidence); what makes it a DISTINCT baseline is selection-time:
+ * the committee is FIXED across tasks (no VRF rotation, no organization
+ * diversity constraint), so it is the natural foil for the decentralization /
+ * concentration experiment (a fixed bloc can permanently dominate). Downstream
+ * runners read `staticCommittee: true` to pin the committee instead of rotating.
+ */
+function staticNotaryDecision(opinions, cfg = {}) {
+    const n = Number(cfg.n) || opinions.length;
+    const { approve, reject, question } = tally(opinions);
+    const quorum = Number.isFinite(cfg.notaryQuorum)
+        ? cfg.notaryQuorum
+        : Math.floor(n / 2) + 1;
+
+    let finalDecision = 'OBSERVE';
+    if (approve >= quorum) finalDecision = 'COMMIT';
+    else if (reject >= quorum) finalDecision = 'REJECT';
+
+    const decisive = approve + reject;
+    return {
+        finalDecision,
+        approveVotes: approve,
+        rejectVotes: reject,
+        questionVotes: question,
+        requiredVotes: quorum,
+        acceptRatio: round6(decisive > 0 ? approve / decisive : 0)
+    };
+}
+
+/**
+ * B6 — confidence-only weighted voting. Vote weight = self-reported confidence,
+ * with NO reputation (mirror of B3 reputation-only, isolating the other factor).
+ * Decided against the same risk-adaptive threshold θ. Exposes the failure mode
+ * the proposed rep×conf guards against: a malicious agent that simply reports
+ * confidence = 1.0 gains maximal weight when reputation is ignored.
+ */
+function confWeightedDecision(opinions, cfg = {}) {
+    const threshold = Number(cfg.threshold) || DEFAULT_NORMAL_THRESHOLD;
+    return weightedRatioDecision(
+        opinions,
+        threshold,
+        (item) => Number(item.confidence) || 0
+    );
+}
+
+/**
+ * B7 — CP-WBFT adapted (Zheng et al., AAAI-26, ref [2]). A confidence-probed
+ * weighted Byzantine quorum: vote weight = confidence (the "confidence probe"),
+ * and a side finalizes only if its confidence-weight reaches a super-majority
+ * `bftQuorum` (default 2/3) of the TOTAL confidence-weight — abstentions and
+ * non-revealers count against the quorum, tolerating < ⅓ Byzantine
+ * confidence-weight. Adapted to our setting it differs from MA3C by using
+ * confidence WITHOUT reputation, a fixed (non-risk-adaptive) quorum, and NO
+ * arbitration escalation; differs from B4 weighted-BFT by weighting on
+ * confidence rather than reputation. Like all BFT-quorum rules it trades
+ * liveness: under disagreement neither side reaches ⅔ → OBSERVE.
+ */
+function cpwbftDecision(opinions, cfg = {}) {
+    const quorum = Number.isFinite(cfg.bftQuorum) ? cfg.bftQuorum : 2 / 3;
+    let approveWeight = 0;
+    let rejectWeight = 0;
+    let totalWeight = 0;
+    for (const item of opinions) {
+        const w = Math.max(0, Number(item.confidence) || 0);
+        totalWeight += w;
+        const decision = String(item.decision || 'QUESTION').toUpperCase();
+        if (decision === 'APPROVE') approveWeight += w;
+        else if (decision === 'REJECT') rejectWeight += w;
+    }
+
+    let finalDecision = 'OBSERVE';
+    if (totalWeight > 0) {
+        if (approveWeight >= quorum * totalWeight) finalDecision = 'COMMIT';
+        else if (rejectWeight >= quorum * totalWeight) finalDecision = 'REJECT';
+    }
+
+    const decisive = approveWeight + rejectWeight;
+    return {
+        finalDecision,
+        approveWeight: round6(approveWeight),
+        rejectWeight: round6(rejectWeight),
+        totalWeight: round6(totalWeight),
+        quorumWeight: round6(quorum * totalWeight),
+        acceptRatio: round6(decisive > 0 ? approveWeight / decisive : 0)
+    };
+}
+
+/**
  * B0 — single relay (no consensus). One pre-selected agent's judgment is the
  * result. cfg.relayIndex is chosen by the caller's shared RNG so the pick is
  * identical across the comparison (paired). QUESTION → OBSERVE.
@@ -221,6 +312,9 @@ const STRATEGIES = {
     weightedBft: { label: 'B4 weighted BFT (≥⅔ weight)', decide: weightedBftDecision, usesReputation: true, usesArbitration: false },
     equalMajority: { label: 'B1 equal majority', decide: equalMajorityDecision, usesReputation: false, usesArbitration: false },
     pbft: { label: 'B2 PBFT 2f+1', decide: pbftDecision, usesReputation: false, usesArbitration: false },
+    staticNotary: { label: 'B5 static notary (M-of-N, fixed)', decide: staticNotaryDecision, usesReputation: false, usesArbitration: false, staticCommittee: true },
+    confWeighted: { label: 'B6 confidence-only', decide: confWeightedDecision, usesReputation: false, usesArbitration: false },
+    cpwbft: { label: 'B7 CP-WBFT adapted (≥⅔ conf-weight)', decide: cpwbftDecision, usesReputation: false, usesArbitration: false },
     singleRelay: { label: 'B0 single relay', decide: singleRelayDecision, usesReputation: false, usesArbitration: false }
 };
 
@@ -248,6 +342,9 @@ module.exports = {
     weightedBftDecision,
     equalMajorityDecision,
     pbftDecision,
+    staticNotaryDecision,
+    confWeightedDecision,
+    cpwbftDecision,
     singleRelayDecision,
     weightedRatioDecision,
     tally,

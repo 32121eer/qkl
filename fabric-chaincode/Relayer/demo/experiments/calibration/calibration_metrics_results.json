@@ -1,0 +1,409 @@
+{
+  "experiment": "5.6-confidence-calibration",
+  "model": {
+    "description": "latent-competence Monte-Carlo grounded in calibration.json",
+    "honestErrorRate": 0.12,
+    "targetMeanConfidenceCorrect": 0.92,
+    "nAgents": 24,
+    "samplesPerAgent": 600,
+    "pErr": 0.12,
+    "seed": 20260626
+  },
+  "realizedMeanSelfConfCorrect": 0.902825,
+  "signals": {
+    "self_conf": {
+      "label": "Self-reported confidence",
+      "n": 14400,
+      "accuracy": 0.876528,
+      "ece": 0.030666,
+      "mce": 0.284557,
+      "brier": 0.101652,
+      "auc": 0.719717,
+      "curve": [
+        {
+          "bin": 0,
+          "lo": 0,
+          "hi": 0.1,
+          "count": 1,
+          "pMean": 0.079709,
+          "accuracy": 0
+        },
+        {
+          "bin": 1,
+          "lo": 0.1,
+          "hi": 0.2,
+          "count": 13,
+          "pMean": 0.176981,
+          "accuracy": 0.461538
+        },
+        {
+          "bin": 2,
+          "lo": 0.2,
+          "hi": 0.3,
+          "count": 43,
+          "pMean": 0.260443,
+          "accuracy": 0.511628
+        },
+        {
+          "bin": 3,
+          "lo": 0.3,
+          "hi": 0.4,
+          "count": 102,
+          "pMean": 0.355273,
+          "accuracy": 0.5
+        },
+        {
+          "bin": 4,
+          "lo": 0.4,
+          "hi": 0.5,
+          "count": 165,
+          "pMean": 0.453001,
+          "accuracy": 0.587879
+        },
+        {
+          "bin": 5,
+          "lo": 0.5,
+          "hi": 0.6,
+          "count": 338,
+          "pMean": 0.553813,
+          "accuracy": 0.713018
+        },
+        {
+          "bin": 6,
+          "lo": 0.6,
+          "hi": 0.7,
+          "count": 619,
+          "pMean": 0.654417,
+          "accuracy": 0.684976
+        },
+        {
+          "bin": 7,
+          "lo": 0.7,
+          "hi": 0.8,
+          "count": 1098,
+          "pMean": 0.756499,
+          "accuracy": 0.758652
+        },
+        {
+          "bin": 8,
+          "lo": 0.8,
+          "hi": 0.9,
+          "count": 2734,
+          "pMean": 0.857936,
+          "accuracy": 0.844916
+        },
+        {
+          "bin": 9,
+          "lo": 0.9,
+          "hi": 1,
+          "count": 9287,
+          "pMean": 0.960192,
+          "accuracy": 0.930117
+        }
+      ]
+    },
+    "reputation": {
+      "label": "Historical reputation",
+      "n": 14400,
+      "accuracy": 0.876528,
+      "ece": 0,
+      "mce": 0,
+      "brier": 0.106014,
+      "auc": 0.616862,
+      "curve": [
+        {
+          "bin": 7,
+          "lo": 0.7,
+          "hi": 0.8,
+          "count": 1200,
+          "pMean": 0.759167,
+          "accuracy": 0.759167
+        },
+        {
+          "bin": 8,
+          "lo": 0.8,
+          "hi": 0.9,
+          "count": 7800,
+          "pMean": 0.864615,
+          "accuracy": 0.864615
+        },
+        {
+          "bin": 9,
+          "lo": 0.9,
+          "hi": 1,
+          "count": 5400,
+          "pMean": 0.919815,
+          "accuracy": 0.919815
+        }
+      ]
+    },
+    "evidence_consist": {
+      "label": "Evidence-consistency score",
+      "n": 14400,
+      "accuracy": 0.876528,
+      "ece": 0.011815,
+      "mce": 0.205771,
+      "brier": 0.097401,
+      "auc": 0.749326,
+      "curve": [
+        {
+          "bin": 0,
+          "lo": 0,
+          "hi": 0.1,
+          "count": 1,
+          "pMean": 0.093637,
+          "accuracy": 0
+        },
+        {
+          "bin": 1,
+          "lo": 0.1,
+          "hi": 0.2,
+          "count": 8,
+          "pMean": 0.169229,
+          "accuracy": 0.375
+        },
+        {
+          "bin": 2,
+          "lo": 0.2,
+          "hi": 0.3,
+          "count": 45,
+          "pMean": 0.268797,
+          "accuracy": 0.244444
+        },
+        {
+          "bin": 3,
+          "lo": 0.3,
+          "hi": 0.4,
+          "count": 94,
+          "pMean": 0.356925,
+          "accuracy": 0.446809
+        },
+        {
+          "bin": 4,
+          "lo": 0.4,
+          "hi": 0.5,
+          "count": 181,
+          "pMean": 0.45214,
+          "accuracy": 0.563536
+        },
+        {
+          "bin": 5,
+          "lo": 0.5,
+          "hi": 0.6,
+          "count": 354,
+          "pMean": 0.557362,
+          "accuracy": 0.629944
+        },
+        {
+          "bin": 6,
+          "lo": 0.6,
+          "hi": 0.7,
+          "count": 781,
+          "pMean": 0.653669,
+          "accuracy": 0.717029
+        },
+        {
+          "bin": 7,
+          "lo": 0.7,
+          "hi": 0.8,
+          "count": 1487,
+          "pMean": 0.756568,
+          "accuracy": 0.771352
+        },
+        {
+          "bin": 8,
+          "lo": 0.8,
+          "hi": 0.9,
+          "count": 3509,
+          "pMean": 0.85795,
+          "accuracy": 0.855799
+        },
+        {
+          "bin": 9,
+          "lo": 0.9,
+          "hi": 1,
+          "count": 7940,
+          "pMean": 0.952769,
+          "accuracy": 0.948489
+        }
+      ]
+    },
+    "evidence_probe": {
+      "label": "Evidence-aware probe (ours)",
+      "n": 14400,
+      "accuracy": 0.876528,
+      "ece": 0.013015,
+      "mce": 0.142674,
+      "brier": 0.097453,
+      "auc": 0.748532,
+      "curve": [
+        {
+          "bin": 1,
+          "lo": 0.1,
+          "hi": 0.2,
+          "count": 8,
+          "pMean": 0.16489,
+          "accuracy": 0.25
+        },
+        {
+          "bin": 2,
+          "lo": 0.2,
+          "hi": 0.3,
+          "count": 37,
+          "pMean": 0.262731,
+          "accuracy": 0.405405
+        },
+        {
+          "bin": 3,
+          "lo": 0.3,
+          "hi": 0.4,
+          "count": 97,
+          "pMean": 0.353746,
+          "accuracy": 0.391753
+        },
+        {
+          "bin": 4,
+          "lo": 0.4,
+          "hi": 0.5,
+          "count": 181,
+          "pMean": 0.457844,
+          "accuracy": 0.58011
+        },
+        {
+          "bin": 5,
+          "lo": 0.5,
+          "hi": 0.6,
+          "count": 394,
+          "pMean": 0.554629,
+          "accuracy": 0.614213
+        },
+        {
+          "bin": 6,
+          "lo": 0.6,
+          "hi": 0.7,
+          "count": 700,
+          "pMean": 0.655419,
+          "accuracy": 0.705714
+        },
+        {
+          "bin": 7,
+          "lo": 0.7,
+          "hi": 0.8,
+          "count": 1520,
+          "pMean": 0.756533,
+          "accuracy": 0.767763
+        },
+        {
+          "bin": 8,
+          "lo": 0.8,
+          "hi": 0.9,
+          "count": 3359,
+          "pMean": 0.857785,
+          "accuracy": 0.863054
+        },
+        {
+          "bin": 9,
+          "lo": 0.9,
+          "hi": 1,
+          "count": 8104,
+          "pMean": 0.952886,
+          "accuracy": 0.945212
+        }
+      ]
+    },
+    "cpwbft_probe": {
+      "label": "CP-WBFT adapted probe [2]",
+      "n": 14400,
+      "accuracy": 0.876528,
+      "ece": 0.068053,
+      "mce": 0.41082,
+      "brier": 0.105395,
+      "auc": 0.719625,
+      "curve": [
+        {
+          "bin": 0,
+          "lo": 0,
+          "hi": 0.1,
+          "count": 6,
+          "pMean": 0.072985,
+          "accuracy": 0.166667
+        },
+        {
+          "bin": 1,
+          "lo": 0.1,
+          "hi": 0.2,
+          "count": 37,
+          "pMean": 0.156748,
+          "accuracy": 0.567568
+        },
+        {
+          "bin": 2,
+          "lo": 0.2,
+          "hi": 0.3,
+          "count": 57,
+          "pMean": 0.250543,
+          "accuracy": 0.438596
+        },
+        {
+          "bin": 3,
+          "lo": 0.3,
+          "hi": 0.4,
+          "count": 100,
+          "pMean": 0.347887,
+          "accuracy": 0.55
+        },
+        {
+          "bin": 4,
+          "lo": 0.4,
+          "hi": 0.5,
+          "count": 124,
+          "pMean": 0.45209,
+          "accuracy": 0.596774
+        },
+        {
+          "bin": 5,
+          "lo": 0.5,
+          "hi": 0.6,
+          "count": 233,
+          "pMean": 0.556002,
+          "accuracy": 0.733906
+        },
+        {
+          "bin": 6,
+          "lo": 0.6,
+          "hi": 0.7,
+          "count": 327,
+          "pMean": 0.654161,
+          "accuracy": 0.681957
+        },
+        {
+          "bin": 7,
+          "lo": 0.7,
+          "hi": 0.8,
+          "count": 600,
+          "pMean": 0.753486,
+          "accuracy": 0.705
+        },
+        {
+          "bin": 8,
+          "lo": 0.8,
+          "hi": 0.9,
+          "count": 1318,
+          "pMean": 0.858917,
+          "accuracy": 0.776176
+        },
+        {
+          "bin": 9,
+          "lo": 0.9,
+          "hi": 1,
+          "count": 11598,
+          "pMean": 0.977121,
+          "accuracy": 0.914468
+        }
+      ]
+    }
+  },
+  "meta": {
+    "generatedAt": "2026-06-26T08:16:06.247Z"
+  }
+}

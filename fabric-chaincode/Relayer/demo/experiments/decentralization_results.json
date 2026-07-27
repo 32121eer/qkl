@@ -1,0 +1,46 @@
+{
+  "experiment": "5.5-decentralization-concentration",
+  "config": {
+    "n": 7,
+    "tasks": 4000,
+    "poolSize": 24,
+    "malAgents": 8,
+    "providers": 5,
+    "seed": 20260626
+  },
+  "regimes": {
+    "withOrgCap": {
+      "regime": "withOrgCap",
+      "organizationLimit": 2,
+      "meanMaxOrgShare": 0.284821,
+      "meanMaxProviderShare": 0.427321,
+      "pMalOrgMajority": 0,
+      "selectionHHI": 0.05742,
+      "selectionGini": 0.284705,
+      "highRepSeatShare": 0.24225
+    },
+    "noOrgCap": {
+      "regime": "noOrgCap",
+      "organizationLimit": 7,
+      "meanMaxOrgShare": 0.463893,
+      "meanMaxProviderShare": 0.568679,
+      "pMalOrgMajority": 0.38325,
+      "selectionHHI": 0.05369,
+      "selectionGini": 0.197015,
+      "highRepSeatShare": 0.372607
+    },
+    "staticNotary": {
+      "regime": "staticNotary",
+      "organizationLimit": 2,
+      "meanMaxOrgShare": 0.285714,
+      "meanMaxProviderShare": 0.571429,
+      "pMalOrgMajority": 0,
+      "selectionHHI": 0.142857,
+      "selectionGini": 0.708333,
+      "highRepSeatShare": 0.142857
+    }
+  },
+  "meta": {
+    "generatedAt": "2026-06-26T08:24:53.237Z"
+  }
+}

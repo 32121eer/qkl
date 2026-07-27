@@ -1,0 +1,1614 @@
+{
+  "models": [
+    "llama3.1:8b",
+    "qwen2.5:7b"
+  ],
+  "casesMeta": [
+    {
+      "id": "sf1",
+      "truth": "REJECT"
+    },
+    {
+      "id": "sf2",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "sf3",
+      "truth": "REJECT"
+    },
+    {
+      "id": "sf4",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "sf5",
+      "truth": "REJECT"
+    },
+    {
+      "id": "reg1",
+      "truth": "REJECT"
+    },
+    {
+      "id": "reg2",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "reg3",
+      "truth": "REJECT"
+    },
+    {
+      "id": "cc1",
+      "truth": "REJECT"
+    },
+    {
+      "id": "cc2",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "cc3",
+      "truth": "REJECT"
+    },
+    {
+      "id": "amb1",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "amb2",
+      "truth": "REJECT"
+    },
+    {
+      "id": "amb3",
+      "truth": "ACCEPT"
+    },
+    {
+      "id": "amb4",
+      "truth": "REJECT"
+    },
+    {
+      "id": "amb5",
+      "truth": "ACCEPT"
+    }
+  ],
+  "rawSamples": {
+    "llama3.1:8b": [
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      }
+    ],
+    "qwen2.5:7b": [
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf4",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "sf5",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "reg3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc1",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc2",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "cc3",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb1",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb2",
+        "truth": "REJECT",
+        "judgment": "REJECT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb3",
+        "truth": "ACCEPT",
+        "judgment": "ACCEPT",
+        "correct": 1
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb4",
+        "truth": "REJECT",
+        "judgment": "ACCEPT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      },
+      {
+        "caseId": "amb5",
+        "truth": "ACCEPT",
+        "judgment": "REJECT",
+        "correct": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "generatedAt": "2026-06-16T05:16:35.047Z",
+    "note": "real CommitteeSelector+VerifierAgent+ReputationStore+ma3cDecision, arbitration OFF (isolates VRF)"
+  },
+  "on": {
+    "meta": {
+      "rotate": true,
+      "poolSize": 21,
+      "colluderCount": 5,
+      "n": 7,
+      "organizationLimit": 2,
+      "threshold": 0.75,
+      "tasksPerTrial": 40,
+      "trials": 100,
+      "meanBlocSeatsPerCommittee": 2
+    },
+    "correctness": {
+      "mean": 0.5,
+      "lower": 0.5,
+      "upper": 0.5,
+      "halfWidth": 0,
+      "n": 100,
+      "std": 0
+    },
+    "falseAccept": {
+      "mean": 0,
+      "lower": 0,
+      "upper": 0,
+      "halfWidth": 0,
+      "n": 100,
+      "std": 0
+    }
+  },
+  "off": {
+    "meta": {
+      "rotate": false,
+      "poolSize": 21,
+      "colluderCount": 5,
+      "n": 7,
+      "organizationLimit": 2,
+      "threshold": 0.75,
+      "tasksPerTrial": 40,
+      "trials": 100,
+      "meanBlocSeatsPerCommittee": 5
+    },
+    "correctness": {
+      "mean": 0.5,
+      "lower": 0.5,
+      "upper": 0.5,
+      "halfWidth": 0,
+      "n": 100,
+      "std": 0
+    },
+    "falseAccept": {
+      "mean": 0.5,
+      "lower": 0.5,
+      "upper": 0.5,
+      "halfWidth": 0,
+      "n": 100,
+      "std": 0
+    }
+  },
+  "correctnessGain": {
+    "n": 100,
+    "meanTreatment": 0.5,
+    "meanBaseline": 0.5,
+    "meanDiff": 0,
+    "diffCi95": {
+      "lower": 0,
+      "upper": 0
+    },
+    "ciExcludesZero": false,
+    "cohensD": 0,
+    "sign": {
+      "wins": 0,
+      "losses": 0,
+      "ties": 100,
+      "pValue": 1
+    }
+  },
+  "falseAcceptReduction": {
+    "n": 100,
+    "meanTreatment": 0.5,
+    "meanBaseline": 0,
+    "meanDiff": 0.5,
+    "diffCi95": {
+      "lower": 0.5,
+      "upper": 0.5
+    },
+    "ciExcludesZero": true,
+    "cohensD": 0,
+    "sign": {
+      "wins": 100,
+      "losses": 0,
+      "ties": 0,
+      "pValue": 0
+    }
+  }
+}

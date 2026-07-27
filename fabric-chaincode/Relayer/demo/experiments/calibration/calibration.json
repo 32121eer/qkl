@@ -1,75 +1,88 @@
 {
-  "backend": "mock",
-  "model": "mock",
+  "backend": "ollama",
+  "model": "llama3.1:8b",
   "arbiterK": 5,
-  "caseCount": 30,
-  "verifier": {
-    "total": 30,
-    "errorRate": 0.666667,
+  "caseCount": 60,
+  "deterministicLayer": {
+    "total": 40,
+    "errorRate": 0,
     "abstainRate": 0,
-    "meanConfidenceCorrect": 0.842,
-    "meanConfidenceWrong": 0.811
+    "meanConfidenceCorrect": 1,
+    "meanConfidenceWrong": 0
+  },
+  "verifier": {
+    "total": 20,
+    "errorRate": 0,
+    "abstainRate": 0,
+    "meanConfidenceCorrect": 0.92,
+    "meanConfidenceWrong": 0
   },
   "arbiter": {
-    "total": 30,
-    "errorRate": 0.666667,
+    "total": 20,
+    "errorRate": 0,
     "abstainRate": 0,
-    "meanConfidenceCorrect": 0.836,
-    "meanConfidenceWrong": 0.8233
+    "meanConfidenceCorrect": 0.917,
+    "meanConfidenceWrong": 0
   },
   "calibratedParams": {
-    "honestErrorRate": 0.666667,
-    "arbiterErrorFactor": 1,
-    "meanConfidenceCorrect": 0.842,
-    "meanConfidenceWrong": 0.811
+    "honestErrorRate": 0,
+    "arbiterErrorFactor": 0,
+    "meanConfidenceCorrect": 0.92,
+    "meanConfidenceWrong": 0
   },
   "byTamper": {
     "none": {
-      "total": 5,
+      "layer": "semantic",
+      "total": 10,
       "errorRate": 0,
       "abstainRate": 0,
-      "meanConfidenceCorrect": 0.834,
+      "meanConfidenceCorrect": 0.99,
       "meanConfidenceWrong": 0
     },
     "crypto_fail": {
-      "total": 5,
+      "layer": "deterministic",
+      "total": 10,
+      "errorRate": 0,
+      "abstainRate": 0,
+      "meanConfidenceCorrect": 1,
+      "meanConfidenceWrong": 0
+    },
+    "missing_txhash": {
+      "layer": "deterministic",
+      "total": 10,
+      "errorRate": 0,
+      "abstainRate": 0,
+      "meanConfidenceCorrect": 1,
+      "meanConfidenceWrong": 0
+    },
+    "missing_payload": {
+      "layer": "deterministic",
+      "total": 10,
+      "errorRate": 0,
+      "abstainRate": 0,
+      "meanConfidenceCorrect": 1,
+      "meanConfidenceWrong": 0
+    },
+    "height_out_of_range": {
+      "layer": "deterministic",
+      "total": 10,
+      "errorRate": 0,
+      "abstainRate": 0,
+      "meanConfidenceCorrect": 1,
+      "meanConfidenceWrong": 0
+    },
+    "payload_mismatch": {
+      "layer": "semantic",
+      "total": 10,
       "errorRate": 0,
       "abstainRate": 0,
       "meanConfidenceCorrect": 0.85,
       "meanConfidenceWrong": 0
-    },
-    "missing_txhash": {
-      "total": 5,
-      "errorRate": 1,
-      "abstainRate": 0,
-      "meanConfidenceCorrect": 0,
-      "meanConfidenceWrong": 0.798
-    },
-    "missing_payload": {
-      "total": 5,
-      "errorRate": 1,
-      "abstainRate": 0,
-      "meanConfidenceCorrect": 0,
-      "meanConfidenceWrong": 0.804
-    },
-    "height_out_of_range": {
-      "total": 5,
-      "errorRate": 1,
-      "abstainRate": 0,
-      "meanConfidenceCorrect": 0,
-      "meanConfidenceWrong": 0.83
-    },
-    "payload_mismatch": {
-      "total": 5,
-      "errorRate": 1,
-      "abstainRate": 0,
-      "meanConfidenceCorrect": 0,
-      "meanConfidenceWrong": 0.812
     }
   },
   "meta": {
-    "gitCommit": "e348515b",
-    "generatedAt": "2026-06-14T03:48:12.954Z",
-    "repeats": 5
+    "gitCommit": "unknown",
+    "generatedAt": "2026-06-15T10:46:56.616Z",
+    "repeats": 10
   }
 }

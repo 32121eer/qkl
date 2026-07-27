@@ -1,0 +1,102 @@
+{
+  "experiment": "5.4-onchain-cost",
+  "chain": {
+    "endpoint": "http://127.0.0.1:18545",
+    "latestBlock": 1122,
+    "scannedFrom": 0
+  },
+  "ledger": {
+    "nonEmptyBlocks": 1122,
+    "totalProtocolTx": 127,
+    "interBlockMs": {
+      "median": 7531,
+      "p10": 7207,
+      "min": 503
+    },
+    "totalProtocolInputBytes": 61756
+  },
+  "methods": {
+    "Registry.0x2a763181": {
+      "gasUsed": {
+        "count": 2,
+        "mean": 88519,
+        "min": 88519,
+        "max": 88519,
+        "median": 88519
+      },
+      "inputBytesMean": 676,
+      "inputBytesTotal": 1352
+    },
+    "Gateway.send": {
+      "gasUsed": {
+        "count": 9,
+        "mean": 17414,
+        "min": 17414,
+        "max": 17414,
+        "median": 17414
+      },
+      "inputBytesMean": 580,
+      "inputBytesTotal": 5220
+    },
+    "LightClient.submitBlockHeader": {
+      "gasUsed": {
+        "count": 109,
+        "mean": 82079.1,
+        "min": 74534,
+        "max": 82149,
+        "median": 82149
+      },
+      "inputBytesMean": 452,
+      "inputBytesTotal": 49268
+    },
+    "Gateway.receiveLite": {
+      "gasUsed": {
+        "count": 7,
+        "mean": 39517.6,
+        "min": 39487,
+        "max": 39585,
+        "median": 39487
+      },
+      "inputBytesMean": 845,
+      "inputBytesTotal": 5916
+    }
+  },
+  "onchainPerTask": {
+    "note": "commit-reveal/aggregation run OFF-chain; per-task on-chain write = ONE receiveLite result anchor (negotiationProofDigest+payloadHash). Source-header submit is broadcast-on-new-block and amortized across tasks.",
+    "perTaskAnchor": "Gateway.receiveLite",
+    "perTaskGas": 39518,
+    "perTaskInputBytes": 845,
+    "amortizedHeaderGas": 82079,
+    "constantInCommitteeSize": true
+  },
+  "committeeScaling": {
+    "n=3": {
+      "ours_per_task_gas": 39518,
+      "naive_onchain_bft_gas": 104484,
+      "savings_x": 2.64
+    },
+    "n=5": {
+      "ours_per_task_gas": 39518,
+      "naive_onchain_bft_gas": 174140,
+      "savings_x": 4.41
+    },
+    "n=7": {
+      "ours_per_task_gas": 39518,
+      "naive_onchain_bft_gas": 243796,
+      "savings_x": 6.17
+    },
+    "n=9": {
+      "ours_per_task_gas": 39518,
+      "naive_onchain_bft_gas": 313452,
+      "savings_x": 7.93
+    },
+    "n=15": {
+      "ours_per_task_gas": 39518,
+      "naive_onchain_bft_gas": 522420,
+      "savings_x": 13.22
+    }
+  },
+  "meta": {
+    "generatedAt": "2026-06-26T09:35:45.646Z"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "methods": [
+      "ma3c",
+      "repWeighted",
+      "weightedBft",
+      "equalMajority",
+      "pbft",
+      "singleRelay"
+    ],
+    "sizes": [
+      5,
+      15,
+      31,
+      63
+    ],
+    "iters": 100000,
+    "reps": 5
+  },
+  "rows": [
+    {
+      "n": 5,
+      "ma3c": 0.3051,
+      "repWeighted": 0.3101,
+      "weightedBft": 0.3091,
+      "equalMajority": 0.1002,
+      "pbft": 0.1036,
+      "singleRelay": 0.012
+    },
+    {
+      "n": 15,
+      "ma3c": 0.4381,
+      "repWeighted": 0.436,
+      "weightedBft": 0.4178,
+      "equalMajority": 0.1987,
+      "pbft": 0.1987,
+      "singleRelay": 0.011
+    },
+    {
+      "n": 31,
+      "ma3c": 0.6058,
+      "repWeighted": 0.6084,
+      "weightedBft": 0.5878,
+      "equalMajority": 0.3725,
+      "pbft": 0.3702,
+      "singleRelay": 0.012
+    },
+    {
+      "n": 63,
+      "ma3c": 0.9262,
+      "repWeighted": 0.9498,
+      "weightedBft": 0.9161,
+      "equalMajority": 0.6853,
+      "pbft": 0.6744,
+      "singleRelay": 0.0121
+    }
+  ]
+}

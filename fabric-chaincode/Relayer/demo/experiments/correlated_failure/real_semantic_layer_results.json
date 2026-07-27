@@ -1,0 +1,865 @@
+{
+  "experiment": "real-judgment-driven-semantic-layer (D.2 real counterpart)",
+  "note": "Honest votes are REAL per-case LLM judgments (exp 5.7), not a modeled pᵢ. Homogeneous = all honest agents share one model (errors correlated, ρ high); heterogeneous = honest votes drawn across both models (model-diverse, ρ lower). Confidence fixed from calibration mean; reputation uniform — isolates honest-error realism in the judgments.",
+  "measuredHonestErrorRate": {
+    "llama3.1:8b": 0.3203,
+    "qwen2.5:7b": 0.2031
+  },
+  "config": {
+    "n": 5,
+    "trials": 400,
+    "tasksPerTrial": 20,
+    "ratios": [
+      0.2,
+      0.4,
+      0.6
+    ],
+    "honestConf": 0.9,
+    "malConf": 0.95
+  },
+  "modes": {
+    "homo:llama3.1:8b": "homogeneous (llama3.1:8b only)",
+    "homo:qwen2.5:7b": "homogeneous (qwen2.5:7b only)",
+    "hetero": "heterogeneous (mix of llama3.1:8b + qwen2.5:7b)"
+  },
+  "results": {
+    "homo:llama3.1:8b": {
+      "mr0.2": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.664375,
+            "lower": 0.6546,
+            "upper": 0.67415,
+            "halfWidth": 0.009775,
+            "n": 400,
+            "std": 0.099747
+          },
+          "falseAccept": {
+            "mean": 0.174625,
+            "lower": 0.166745,
+            "upper": 0.182505,
+            "halfWidth": 0.00788,
+            "n": 400,
+            "std": 0.080412
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.677375,
+            "lower": 0.66767,
+            "upper": 0.68708,
+            "halfWidth": 0.009705,
+            "n": 400,
+            "std": 0.099027
+          },
+          "falseAccept": {
+            "mean": 0.173,
+            "lower": 0.165099,
+            "upper": 0.180901,
+            "halfWidth": 0.007901,
+            "n": 400,
+            "std": 0.080621
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.677375,
+            "lower": 0.66767,
+            "upper": 0.68708,
+            "halfWidth": 0.009705,
+            "n": 400,
+            "std": 0.099027
+          },
+          "falseAccept": {
+            "mean": 0.173,
+            "lower": 0.165099,
+            "upper": 0.180901,
+            "halfWidth": 0.007901,
+            "n": 400,
+            "std": 0.080621
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.6045,
+            "lower": 0.594667,
+            "upper": 0.614333,
+            "halfWidth": 0.009833,
+            "n": 400,
+            "std": 0.100337
+          },
+          "falseAccept": {
+            "mean": 0.13025,
+            "lower": 0.123305,
+            "upper": 0.137195,
+            "halfWidth": 0.006945,
+            "n": 400,
+            "std": 0.07087
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.636375,
+            "lower": 0.626168,
+            "upper": 0.646582,
+            "halfWidth": 0.010207,
+            "n": 400,
+            "std": 0.104152
+          },
+          "falseAccept": {
+            "mean": 0.2245,
+            "lower": 0.215765,
+            "upper": 0.233235,
+            "halfWidth": 0.008735,
+            "n": 400,
+            "std": 0.089133
+          }
+        }
+      },
+      "mr0.4": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.684625,
+            "lower": 0.674418,
+            "upper": 0.694832,
+            "halfWidth": 0.010207,
+            "n": 400,
+            "std": 0.104149
+          },
+          "falseAccept": {
+            "mean": 0.175375,
+            "lower": 0.166927,
+            "upper": 0.183823,
+            "halfWidth": 0.008448,
+            "n": 400,
+            "std": 0.086203
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.717625,
+            "lower": 0.707938,
+            "upper": 0.727312,
+            "halfWidth": 0.009687,
+            "n": 400,
+            "std": 0.098843
+          },
+          "falseAccept": {
+            "mean": 0.17775,
+            "lower": 0.169378,
+            "upper": 0.186122,
+            "halfWidth": 0.008372,
+            "n": 400,
+            "std": 0.085429
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.717625,
+            "lower": 0.707938,
+            "upper": 0.727312,
+            "halfWidth": 0.009687,
+            "n": 400,
+            "std": 0.098843
+          },
+          "falseAccept": {
+            "mean": 0.17775,
+            "lower": 0.169378,
+            "upper": 0.186122,
+            "halfWidth": 0.008372,
+            "n": 400,
+            "std": 0.085429
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.26,
+            "lower": 0.251142,
+            "upper": 0.268858,
+            "halfWidth": 0.008858,
+            "n": 400,
+            "std": 0.09039
+          },
+          "falseAccept": {
+            "mean": 0.144,
+            "lower": 0.136502,
+            "upper": 0.151498,
+            "halfWidth": 0.007498,
+            "n": 400,
+            "std": 0.076509
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.582375,
+            "lower": 0.572239,
+            "upper": 0.592511,
+            "halfWidth": 0.010136,
+            "n": 400,
+            "std": 0.103428
+          },
+          "falseAccept": {
+            "mean": 0.309875,
+            "lower": 0.300058,
+            "upper": 0.319692,
+            "halfWidth": 0.009817,
+            "n": 400,
+            "std": 0.100169
+          }
+        }
+      },
+      "mr0.6": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.707,
+            "lower": 0.697704,
+            "upper": 0.716296,
+            "halfWidth": 0.009296,
+            "n": 400,
+            "std": 0.09486
+          },
+          "falseAccept": {
+            "mean": 0.181875,
+            "lower": 0.173649,
+            "upper": 0.190101,
+            "halfWidth": 0.008226,
+            "n": 400,
+            "std": 0.083937
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.441625,
+            "lower": 0.4306,
+            "upper": 0.45265,
+            "halfWidth": 0.011025,
+            "n": 400,
+            "std": 0.112496
+          },
+          "falseAccept": {
+            "mean": 0.558375,
+            "lower": 0.54735,
+            "upper": 0.5694,
+            "halfWidth": 0.011025,
+            "n": 400,
+            "std": 0.112496
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.441625,
+            "lower": 0.4306,
+            "upper": 0.45265,
+            "halfWidth": 0.011025,
+            "n": 400,
+            "std": 0.112496
+          },
+          "falseAccept": {
+            "mean": 0.558375,
+            "lower": 0.54735,
+            "upper": 0.5694,
+            "halfWidth": 0.011025,
+            "n": 400,
+            "std": 0.112496
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.3115,
+            "lower": 0.301265,
+            "upper": 0.321735,
+            "halfWidth": 0.010235,
+            "n": 400,
+            "std": 0.104439
+          },
+          "falseAccept": {
+            "mean": 0.169375,
+            "lower": 0.161265,
+            "upper": 0.177485,
+            "halfWidth": 0.00811,
+            "n": 400,
+            "std": 0.082753
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.5355,
+            "lower": 0.524109,
+            "upper": 0.546891,
+            "halfWidth": 0.011391,
+            "n": 400,
+            "std": 0.116237
+          },
+          "falseAccept": {
+            "mean": 0.39125,
+            "lower": 0.380079,
+            "upper": 0.402421,
+            "halfWidth": 0.011171,
+            "n": 400,
+            "std": 0.113989
+          }
+        }
+      }
+    },
+    "homo:qwen2.5:7b": {
+      "mr0.2": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.8075,
+            "lower": 0.79847,
+            "upper": 0.81653,
+            "halfWidth": 0.00903,
+            "n": 400,
+            "std": 0.092141
+          },
+          "falseAccept": {
+            "mean": 0.0655,
+            "lower": 0.060184,
+            "upper": 0.070816,
+            "halfWidth": 0.005316,
+            "n": 400,
+            "std": 0.054241
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.806625,
+            "lower": 0.797599,
+            "upper": 0.815651,
+            "halfWidth": 0.009026,
+            "n": 400,
+            "std": 0.092106
+          },
+          "falseAccept": {
+            "mean": 0.0655,
+            "lower": 0.060184,
+            "upper": 0.070816,
+            "halfWidth": 0.005316,
+            "n": 400,
+            "std": 0.054241
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.806625,
+            "lower": 0.797599,
+            "upper": 0.815651,
+            "halfWidth": 0.009026,
+            "n": 400,
+            "std": 0.092106
+          },
+          "falseAccept": {
+            "mean": 0.0655,
+            "lower": 0.060184,
+            "upper": 0.070816,
+            "halfWidth": 0.005316,
+            "n": 400,
+            "std": 0.054241
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.79275,
+            "lower": 0.783507,
+            "upper": 0.801993,
+            "halfWidth": 0.009243,
+            "n": 400,
+            "std": 0.094312
+          },
+          "falseAccept": {
+            "mean": 0.0655,
+            "lower": 0.060184,
+            "upper": 0.070816,
+            "halfWidth": 0.005316,
+            "n": 400,
+            "std": 0.054241
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.717375,
+            "lower": 0.707241,
+            "upper": 0.727509,
+            "halfWidth": 0.010134,
+            "n": 400,
+            "std": 0.10341
+          },
+          "falseAccept": {
+            "mean": 0.1685,
+            "lower": 0.160516,
+            "upper": 0.176484,
+            "halfWidth": 0.007984,
+            "n": 400,
+            "std": 0.081467
+          }
+        }
+      },
+      "mr0.4": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.80875,
+            "lower": 0.800043,
+            "upper": 0.817457,
+            "halfWidth": 0.008707,
+            "n": 400,
+            "std": 0.088844
+          },
+          "falseAccept": {
+            "mean": 0.05875,
+            "lower": 0.053845,
+            "upper": 0.063655,
+            "halfWidth": 0.004905,
+            "n": 400,
+            "std": 0.050047
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.809375,
+            "lower": 0.800623,
+            "upper": 0.818127,
+            "halfWidth": 0.008752,
+            "n": 400,
+            "std": 0.089307
+          },
+          "falseAccept": {
+            "mean": 0.05875,
+            "lower": 0.053845,
+            "upper": 0.063655,
+            "halfWidth": 0.004905,
+            "n": 400,
+            "std": 0.050047
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.809375,
+            "lower": 0.800623,
+            "upper": 0.818127,
+            "halfWidth": 0.008752,
+            "n": 400,
+            "std": 0.089307
+          },
+          "falseAccept": {
+            "mean": 0.05875,
+            "lower": 0.053845,
+            "upper": 0.063655,
+            "halfWidth": 0.004905,
+            "n": 400,
+            "std": 0.050047
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.303125,
+            "lower": 0.293302,
+            "upper": 0.312948,
+            "halfWidth": 0.009823,
+            "n": 400,
+            "std": 0.100233
+          },
+          "falseAccept": {
+            "mean": 0.05875,
+            "lower": 0.053845,
+            "upper": 0.063655,
+            "halfWidth": 0.004905,
+            "n": 400,
+            "std": 0.050047
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.659375,
+            "lower": 0.649426,
+            "upper": 0.669324,
+            "halfWidth": 0.009949,
+            "n": 400,
+            "std": 0.101522
+          },
+          "falseAccept": {
+            "mean": 0.254375,
+            "lower": 0.245021,
+            "upper": 0.263729,
+            "halfWidth": 0.009354,
+            "n": 400,
+            "std": 0.095446
+          }
+        }
+      },
+      "mr0.6": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.811,
+            "lower": 0.80227,
+            "upper": 0.81973,
+            "halfWidth": 0.00873,
+            "n": 400,
+            "std": 0.089086
+          },
+          "falseAccept": {
+            "mean": 0.063875,
+            "lower": 0.058121,
+            "upper": 0.069629,
+            "halfWidth": 0.005754,
+            "n": 400,
+            "std": 0.058714
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.438,
+            "lower": 0.4278,
+            "upper": 0.4482,
+            "halfWidth": 0.0102,
+            "n": 400,
+            "std": 0.104082
+          },
+          "falseAccept": {
+            "mean": 0.562,
+            "lower": 0.5518,
+            "upper": 0.5722,
+            "halfWidth": 0.0102,
+            "n": 400,
+            "std": 0.104082
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.438,
+            "lower": 0.4278,
+            "upper": 0.4482,
+            "halfWidth": 0.0102,
+            "n": 400,
+            "std": 0.104082
+          },
+          "falseAccept": {
+            "mean": 0.562,
+            "lower": 0.5518,
+            "upper": 0.5722,
+            "halfWidth": 0.0102,
+            "n": 400,
+            "std": 0.104082
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.30925,
+            "lower": 0.299443,
+            "upper": 0.319057,
+            "halfWidth": 0.009807,
+            "n": 400,
+            "std": 0.100072
+          },
+          "falseAccept": {
+            "mean": 0.063875,
+            "lower": 0.058121,
+            "upper": 0.069629,
+            "halfWidth": 0.005754,
+            "n": 400,
+            "std": 0.058714
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.58,
+            "lower": 0.569145,
+            "upper": 0.590855,
+            "halfWidth": 0.010855,
+            "n": 400,
+            "std": 0.110762
+          },
+          "falseAccept": {
+            "mean": 0.36,
+            "lower": 0.34892,
+            "upper": 0.37108,
+            "halfWidth": 0.01108,
+            "n": 400,
+            "std": 0.113057
+          }
+        }
+      }
+    },
+    "hetero": {
+      "mr0.2": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.757375,
+            "lower": 0.747278,
+            "upper": 0.767472,
+            "halfWidth": 0.010097,
+            "n": 400,
+            "std": 0.103033
+          },
+          "falseAccept": {
+            "mean": 0.116,
+            "lower": 0.108661,
+            "upper": 0.123339,
+            "halfWidth": 0.007339,
+            "n": 400,
+            "std": 0.074887
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.74675,
+            "lower": 0.736665,
+            "upper": 0.756835,
+            "halfWidth": 0.010085,
+            "n": 400,
+            "std": 0.102912
+          },
+          "falseAccept": {
+            "mean": 0.127875,
+            "lower": 0.119916,
+            "upper": 0.135834,
+            "halfWidth": 0.007959,
+            "n": 400,
+            "std": 0.081214
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.74675,
+            "lower": 0.736665,
+            "upper": 0.756835,
+            "halfWidth": 0.010085,
+            "n": 400,
+            "std": 0.102912
+          },
+          "falseAccept": {
+            "mean": 0.127875,
+            "lower": 0.119916,
+            "upper": 0.135834,
+            "halfWidth": 0.007959,
+            "n": 400,
+            "std": 0.081214
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.67175,
+            "lower": 0.661045,
+            "upper": 0.682455,
+            "halfWidth": 0.010705,
+            "n": 400,
+            "std": 0.109233
+          },
+          "falseAccept": {
+            "mean": 0.079625,
+            "lower": 0.073583,
+            "upper": 0.085667,
+            "halfWidth": 0.006042,
+            "n": 400,
+            "std": 0.061649
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.6775,
+            "lower": 0.667624,
+            "upper": 0.687376,
+            "halfWidth": 0.009876,
+            "n": 400,
+            "std": 0.10078
+          },
+          "falseAccept": {
+            "mean": 0.195125,
+            "lower": 0.186229,
+            "upper": 0.204021,
+            "halfWidth": 0.008896,
+            "n": 400,
+            "std": 0.090778
+          }
+        }
+      },
+      "mr0.4": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.744,
+            "lower": 0.733814,
+            "upper": 0.754186,
+            "halfWidth": 0.010186,
+            "n": 400,
+            "std": 0.10394
+          },
+          "falseAccept": {
+            "mean": 0.13325,
+            "lower": 0.125677,
+            "upper": 0.140823,
+            "halfWidth": 0.007573,
+            "n": 400,
+            "std": 0.077278
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.73375,
+            "lower": 0.723378,
+            "upper": 0.744122,
+            "halfWidth": 0.010372,
+            "n": 400,
+            "std": 0.105837
+          },
+          "falseAccept": {
+            "mean": 0.159375,
+            "lower": 0.151362,
+            "upper": 0.167388,
+            "halfWidth": 0.008013,
+            "n": 400,
+            "std": 0.081762
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.73375,
+            "lower": 0.723378,
+            "upper": 0.744122,
+            "halfWidth": 0.010372,
+            "n": 400,
+            "std": 0.105837
+          },
+          "falseAccept": {
+            "mean": 0.159375,
+            "lower": 0.151362,
+            "upper": 0.167388,
+            "halfWidth": 0.008013,
+            "n": 400,
+            "std": 0.081762
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.299875,
+            "lower": 0.289841,
+            "upper": 0.309909,
+            "halfWidth": 0.010034,
+            "n": 400,
+            "std": 0.102384
+          },
+          "falseAccept": {
+            "mean": 0.10325,
+            "lower": 0.096293,
+            "upper": 0.110207,
+            "halfWidth": 0.006957,
+            "n": 400,
+            "std": 0.07099
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.62175,
+            "lower": 0.610967,
+            "upper": 0.632533,
+            "halfWidth": 0.010783,
+            "n": 400,
+            "std": 0.110033
+          },
+          "falseAccept": {
+            "mean": 0.285625,
+            "lower": 0.275529,
+            "upper": 0.295721,
+            "halfWidth": 0.010096,
+            "n": 400,
+            "std": 0.103023
+          }
+        }
+      },
+      "mr0.6": {
+        "ma3c": {
+          "correctness": {
+            "mean": 0.7335,
+            "lower": 0.723828,
+            "upper": 0.743172,
+            "halfWidth": 0.009672,
+            "n": 400,
+            "std": 0.098689
+          },
+          "falseAccept": {
+            "mean": 0.15525,
+            "lower": 0.147533,
+            "upper": 0.162967,
+            "halfWidth": 0.007717,
+            "n": 400,
+            "std": 0.078743
+          }
+        },
+        "equalMajority": {
+          "correctness": {
+            "mean": 0.442,
+            "lower": 0.431359,
+            "upper": 0.452641,
+            "halfWidth": 0.010641,
+            "n": 400,
+            "std": 0.108584
+          },
+          "falseAccept": {
+            "mean": 0.558,
+            "lower": 0.547359,
+            "upper": 0.568641,
+            "halfWidth": 0.010641,
+            "n": 400,
+            "std": 0.108584
+          }
+        },
+        "pbft": {
+          "correctness": {
+            "mean": 0.442,
+            "lower": 0.431359,
+            "upper": 0.452641,
+            "halfWidth": 0.010641,
+            "n": 400,
+            "std": 0.108584
+          },
+          "falseAccept": {
+            "mean": 0.558,
+            "lower": 0.547359,
+            "upper": 0.568641,
+            "halfWidth": 0.010641,
+            "n": 400,
+            "std": 0.108584
+          }
+        },
+        "weightedBft": {
+          "correctness": {
+            "mean": 0.322875,
+            "lower": 0.312315,
+            "upper": 0.333435,
+            "halfWidth": 0.01056,
+            "n": 400,
+            "std": 0.107759
+          },
+          "falseAccept": {
+            "mean": 0.1395,
+            "lower": 0.132164,
+            "upper": 0.146836,
+            "halfWidth": 0.007336,
+            "n": 400,
+            "std": 0.074858
+          }
+        },
+        "singleRelay": {
+          "correctness": {
+            "mean": 0.566,
+            "lower": 0.555543,
+            "upper": 0.576457,
+            "halfWidth": 0.010457,
+            "n": 400,
+            "std": 0.1067
+          },
+          "falseAccept": {
+            "mean": 0.3685,
+            "lower": 0.358147,
+            "upper": 0.378853,
+            "halfWidth": 0.010353,
+            "n": 400,
+            "std": 0.105644
+          }
+        }
+      }
+    }
+  },
+  "meta": {
+    "generatedAt": "2026-06-29T07:25:28.517Z",
+    "source": "raw_samples.json (real LLM judgments, exp 5.7)"
+  }
+}

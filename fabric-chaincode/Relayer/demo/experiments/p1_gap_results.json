@@ -1,0 +1,3977 @@
+{
+  "meta": {
+    "gitCommit": "184607d6",
+    "generatedAt": "2026-06-29T08:02:40.611Z"
+  },
+  "phaseLatency": {
+    "meta": {
+      "n": 5,
+      "threshold": 0.7,
+      "note": "compute=measured(real rule path, LLM excluded); anchor=measured block interval; rpc/llm=§VII model"
+    },
+    "offChainComputeMs": {
+      "executeCommit": 0.0064,
+      "revealVerify": 0.0001,
+      "aggregate": 0.0006,
+      "arbitrate": 0.0061
+    },
+    "onChainMeasuredMs": {
+      "resultAnchor": 7531
+    },
+    "modeledMs": {
+      "sourceChainRpc": 3000,
+      "llmVerify": 4000,
+      "llmArbiterVerify": 10000
+    }
+  },
+  "falseReject": {
+    "meta": {
+      "behavior": "always_reject",
+      "n": 5,
+      "trials": 30,
+      "tasksPerTrial": 10,
+      "methods": [
+        "ma3c",
+        "repWeighted",
+        "confWeighted",
+        "weightedBft",
+        "equalMajority",
+        "pbft",
+        "singleRelay"
+      ]
+    },
+    "sweep": [
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0,
+          "behavior": "always_reject",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.2,
+          "behavior": "always_reject",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.9,
+              "lower": 0.9,
+              "upper": 0.9,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0.1,
+              "lower": 0.1,
+              "upper": 0.1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.9,
+              "meanDiff": 0.1,
+              "diffCi95": {
+                "lower": 0.1,
+                "upper": 0.1
+              },
+              "ciExcludesZero": true,
+              "cohensD": 1416929115599460.2,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.4,
+          "behavior": "always_reject",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.8,
+              "lower": 0.8,
+              "upper": 0.8,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0.2,
+              "lower": 0.2,
+              "upper": 0.2,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.8,
+              "meanDiff": 0.2,
+              "diffCi95": {
+                "lower": 0.2,
+                "upper": 0.2
+              },
+              "ciExcludesZero": true,
+              "cohensD": 1416929115599460.2,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.6,
+          "behavior": "always_reject",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.7,
+              "lower": 0.7,
+              "upper": 0.7,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0.3,
+              "lower": 0.3,
+              "upper": 0.3,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.7,
+              "meanDiff": 0.3,
+              "diffCi95": {
+                "lower": 0.3,
+                "upper": 0.3
+              },
+              "ciExcludesZero": true,
+              "cohensD": 5313484183497973,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "falseAcceptFullBaselines": {
+    "meta": {
+      "behavior": "always_approve",
+      "n": 5,
+      "trials": 30,
+      "tasksPerTrial": 10,
+      "methods": [
+        "ma3c",
+        "repWeighted",
+        "confWeighted",
+        "weightedBft",
+        "equalMajority",
+        "pbft",
+        "singleRelay"
+      ]
+    },
+    "sweep": [
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0,
+          "behavior": "always_approve",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.2,
+          "behavior": "always_approve",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.9,
+              "lower": 0.9,
+              "upper": 0.9,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0.1,
+              "lower": 0.1,
+              "upper": 0.1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.9,
+              "meanDiff": 0.1,
+              "diffCi95": {
+                "lower": 0.1,
+                "upper": 0.1
+              },
+              "ciExcludesZero": true,
+              "cohensD": 1416929115599460.2,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0.1,
+              "meanBaseline": 0,
+              "meanDiff": 0.1,
+              "diffCi95": {
+                "lower": 0.1,
+                "upper": 0.1
+              },
+              "ciExcludesZero": true,
+              "cohensD": 2361548525999100.5,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.4,
+          "behavior": "always_approve",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.8,
+              "lower": 0.8,
+              "upper": 0.8,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0.2,
+              "lower": 0.2,
+              "upper": 0.2,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 1,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.8,
+              "meanDiff": 0.2,
+              "diffCi95": {
+                "lower": 0.2,
+                "upper": 0.2
+              },
+              "ciExcludesZero": true,
+              "cohensD": 1416929115599460.2,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0.2,
+              "meanBaseline": 0,
+              "meanDiff": 0.2,
+              "diffCi95": {
+                "lower": 0.2,
+                "upper": 0.2
+              },
+              "ciExcludesZero": true,
+              "cohensD": 2361548525999100.5,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "meta": {
+          "mode": "real-agent",
+          "n": 5,
+          "maliciousRatio": 0.6,
+          "behavior": "always_approve",
+          "threshold": 0.7,
+          "trials": 30,
+          "tasksPerTrial": 10,
+          "enableArbitration": true
+        },
+        "methods": {
+          "ma3c": {
+            "label": "MA3C (rep×conf)",
+            "correctness": {
+              "mean": 1,
+              "lower": 1,
+              "upper": 1,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "repWeighted": {
+            "label": "B3 reputation-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "confWeighted": {
+            "label": "B6 confidence-only",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "weightedBft": {
+            "label": "B4 weighted BFT (≥⅔ weight)",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "equalMajority": {
+            "label": "B1 equal majority",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "pbft": {
+            "label": "B2 PBFT 2f+1",
+            "correctness": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0.5,
+              "lower": 0.5,
+              "upper": 0.5,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          },
+          "singleRelay": {
+            "label": "B0 single relay",
+            "correctness": {
+              "mean": 0.7,
+              "lower": 0.7,
+              "upper": 0.7,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseAccept": {
+              "mean": 0.3,
+              "lower": 0.3,
+              "upper": 0.3,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "falseReject": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            },
+            "escalationRate": {
+              "mean": 0,
+              "lower": 0,
+              "upper": 0,
+              "halfWidth": 0,
+              "n": 30,
+              "std": 0
+            }
+          }
+        },
+        "comparisons": {
+          "ma3c_vs_repWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_confWeighted": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_weightedBft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0,
+              "meanBaseline": 0,
+              "meanDiff": 0,
+              "diffCi95": {
+                "lower": 0,
+                "upper": 0
+              },
+              "ciExcludesZero": false,
+              "cohensD": 0,
+              "sign": {
+                "wins": 0,
+                "losses": 0,
+                "ties": 30,
+                "pValue": 1
+              }
+            }
+          },
+          "ma3c_vs_equalMajority": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0.5,
+              "meanBaseline": 0,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            }
+          },
+          "ma3c_vs_pbft": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.5,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0.5,
+              "meanBaseline": 0,
+              "meanDiff": 0.5,
+              "diffCi95": {
+                "lower": 0.5,
+                "upper": 0.5
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            }
+          },
+          "ma3c_vs_singleRelay": {
+            "correctness": {
+              "n": 30,
+              "meanTreatment": 1,
+              "meanBaseline": 0.7,
+              "meanDiff": 0.3,
+              "diffCi95": {
+                "lower": 0.3,
+                "upper": 0.3
+              },
+              "ciExcludesZero": true,
+              "cohensD": 5313484183497973,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            },
+            "falseAcceptReduction": {
+              "n": 30,
+              "meanTreatment": 0.3,
+              "meanBaseline": 0,
+              "meanDiff": 0.3,
+              "diffCi95": {
+                "lower": 0.3,
+                "upper": 0.3
+              },
+              "ciExcludesZero": true,
+              "cohensD": 0,
+              "sign": {
+                "wins": 30,
+                "losses": 0,
+                "ties": 0,
+                "pValue": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

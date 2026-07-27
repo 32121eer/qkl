@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>面向跨链语义查询的智能合约可信调用链下智能体协议</title>
+<style>
+
+:root {
+  --paper-width: 8.5in;
+  --paper-height: 11in;
+  --text-width: 7.16in;
+  --text-height: 9.25in;
+  --column-gap: 0.24in;
+  --column-width: 3.46in;
+  --body-size: 10pt;
+  --body-leading: 11pt;
+  --ink: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #ececec;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #ececec;
+  font-family: "Times New Roman", Times, "STIXGeneral", "STIX Two Math", "Apple Symbols", "STSong", "Songti SC", serif;
+  font-size: var(--body-size);
+  line-height: var(--body-leading);
+}
+
+.paper,
+.paper * {
+  font-family: "Times New Roman", Times, "STIXGeneral", "STIX Two Math", "Apple Symbols", "STSong", "Songti SC", serif !important;
+}
+
+.paper {
+  width: var(--paper-width);
+  min-height: var(--paper-height);
+  margin: 24px auto;
+  padding: 0.75in 0.67in 1in;
+  background: #fff;
+  box-shadow: 0 2px 22px rgba(0, 0, 0, 0.14);
+  column-count: 2;
+  column-gap: var(--column-gap);
+  column-fill: auto;
+}
+
+h1,
+h1 + blockquote {
+  column-span: all;
+}
+
+h1 {
+  margin: 0 0 10pt;
+  text-align: center;
+  font-size: 24pt;
+  line-height: 28pt;
+  font-weight: 700;
+}
+
+h1 + blockquote {
+  margin: 0 0 16pt;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-size: 10pt;
+  line-height: 12pt;
+}
+
+h1 + blockquote p {
+  margin: 0;
+  text-align: center;
+  text-indent: 0;
+}
+
+h2 {
+  margin: 12pt 0 5pt;
+  break-after: avoid;
+  text-align: center;
+  font-size: 10pt;
+  line-height: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 9pt 0 3pt;
+  break-after: avoid;
+  font-size: 10pt;
+  line-height: 11pt;
+  font-style: italic;
+  font-weight: 700;
+}
+
+h4 {
+  margin: 8pt 0 3pt;
+  break-after: avoid;
+  font-size: 10pt;
+  line-height: 11pt;
+  font-style: italic;
+  font-weight: 400;
+}
+
+p {
+  margin: 0 0 3.5pt;
+  text-align: justify;
+  text-indent: 0.14in;
+  orphans: 2;
+  widows: 2;
+}
+
+h2 + p,
+h3 + p,
+h4 + p,
+blockquote p,
+li p,
+.abstract,
+.caption,
+.references {
+  text-indent: 0;
+}
+
+hr {
+  display: none;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+}
+
+ul,
+ol {
+  margin: 0 0 4pt 0.18in;
+  padding-left: 0.12in;
+}
+
+li {
+  margin: 0 0 2pt;
+  text-align: justify;
+}
+
+li > p {
+  margin: 0 0 2pt;
+}
+
+.code-block {
+  margin: 4pt 0 5pt;
+  padding: 3pt 4pt;
+  border: 0.4pt solid #777;
+  break-inside: avoid;
+  white-space: pre-wrap;
+  font-family: "Times New Roman", Times, "STIXGeneral", "STIX Two Math", "Apple Symbols", serif;
+  font-size: 8.5pt;
+  line-height: 9.5pt;
+}
+
+.code-inline {
+  font-family: "Times New Roman", Times, "STIXGeneral", "STIX Two Math", "Apple Symbols", serif;
+  font-size: inherit;
+}
+
+table {
+  column-span: all;
+  width: 100%;
+  margin: 6pt auto 8pt;
+  border-collapse: collapse;
+  break-inside: avoid;
+  font-size: 8.5pt;
+  line-height: 9.5pt;
+}
+
+thead th {
+  border-top: 0.9pt solid #000;
+  border-bottom: 0.6pt solid #000;
+  font-weight: 700;
+  text-align: center;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0.9pt solid #000;
+}
+
+th,
+td {
+  padding: 2pt 3pt;
+  vertical-align: top;
+  text-align: center;
+}
+
+td:first-child,
+th:first-child {
+  text-align: left;
+}
+
+p:has(> img) {
+  column-span: all;
+  margin: 7pt 0 2pt;
+  text-indent: 0;
+  break-inside: avoid;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 3.6in;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.caption {
+  column-span: all;
+  margin: 0 auto 7pt;
+  max-width: var(--text-width);
+  text-align: center;
+  font-size: 8.5pt;
+  line-height: 9.5pt;
+}
+
+.abstract {
+  margin-bottom: 4pt;
+  text-align: justify;
+  font-size: 9.2pt;
+  line-height: 10.2pt;
+}
+
+.references {
+  margin: 0 0 2pt;
+  padding-left: 0.17in;
+  text-indent: -0.17in;
+  text-align: left;
+  font-size: 8.5pt;
+  line-height: 9.5pt;
+}
+
+@page {
+  size: Letter;
+  margin: 0.75in 0.67in 1in;
+}
+
+@media print {
+  html,
+  body {
+    width: var(--paper-width);
+    min-height: var(--paper-height);
+    background: #fff;
+  }
+
+  .paper {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+</style>
+</head>
+<body>
+<main class="paper">
+<h1>面向跨链语义查询的智能合约可信调用链下智能体协议</h1>
+<blockquote><p><strong>作者(投稿时填写;盲审版本请匿名):</strong> 第一作者¹,第二作者²,通讯作者¹*<br>
+<strong>单位:</strong> ¹ ××大学 ××学院;² ××研究院<br>
+<strong>邮箱:</strong> {author1, corresponding}@example.edu　　* 通讯作者</p></blockquote>
+<h2>摘要</h2>
+<p>智能合约是确定性执行环境，无法直接访问外部大模型、外部 API 或链下业务系统；当区块链应用从资产转移走向跨组织业务协同时，合约却越来越需要消费复杂的链下语义判断。传统的预言机与跨链中继主要传递数据与状态证明，难以处理密码学有效但业务语义不确定的查询——源链状态的密码学证明只能说明数据存在且未被篡改，不能说明其是否满足目标链的业务语义、时序约束与合规规则。本文提出一种可信的智能合约到链下智能体调用（smart-contract-to-agent invocation）协议，使合约能够通过链上事件异步调用由不同组织运营的链下智能体，并通过 commit-reveal 密封提交、信誉与置信度加权聚合、仲裁升级与链上信誉问责安全地消费智能体输出。协议不假设链上合约能够判定语义真值，而是在明确的威胁模型下，借助 Byzantine-robust 多智能体冗余执行降低错误链下输出被合约接受的概率，并提供可审计、可问责的执行记录。博弈论分析证明，在理性参与者条件下，诚实执行并如实报告置信度构成占优策略均衡，满足激励相容性、个体理性和联盟防护性质。我们以异构联盟链（Hyperledger Fabric 与 FISCO-BCOS）跨链语义查询作为主要应用场景实现原型并评估：乐观路径确认延迟约 8 秒，仲裁路径约 21 秒。基于真实智能体的实验显示，在 40% 恶意智能体下本协议维持约 96% 的查询正确率（对比等权投票约 68%），误受率由 16% 降至 2%；当恶意智能体占调用委员会多数（60%）时，等权投票与 PBFT 因伪造证据获得多数票而沦陷（误受率 50%），而本协议凭借阈值机制与仲裁升级维持 100% 正确率与 0% 误受率（配对检验 p&lt;0.01）。我们进一步报告任务成功率、端到端与分阶段延迟、链上成本、仲裁开销以及组织/模型异构性带来的去中心化约束效果。</p>
+<p><strong>关键词:</strong> 智能合约调用链下智能体;跨链语义查询;Byzantine-robust 多智能体聚合;commit-reveal;置信度加权;信誉与链上问责;仲裁机制;联盟区块链</p>
+<p><strong>Index Terms:</strong> smart-contract-to-agent invocation, cross-chain semantic query, Byzantine-robust multi-agent aggregation, commit-reveal, confidence-weighted aggregation, reputation and on-chain accountability, arbitration, consortium blockchain</p>
+<hr>
+<h2>I. 引言</h2>
+<p>智能合约是确定性执行环境：相同输入在所有节点上必须产生相同输出，因此合约不能直接调用外部大模型、Web API 或链下业务系统。然而随着区块链应用从单纯的资产转移走向跨组织业务协同，合约需要消费的链下判断日益复杂——不再只是&quot;某价格是多少&quot;这类数值喂价，而是&quot;这批发货记录是否真实满足融资放款条件&quot;&quot;这家企业的上链数据是否符合监管合规规则&quot;这类需要收集证据、关联多源、进行语义推理的判断。现有的预言机与跨链中继能够把数据和状态证明搬上链，但无法充分解决链下智能体输出的<em>可信调用、抗恶意聚合和链上问责</em>问题。</p>
+<p>这一矛盾在联盟区块链的跨链协同中尤为突出。不同组织通常部署独立的区块链网络——Hyperledger Fabric 用于企业工作流，FISCO-BCOS 用于金融服务——各自维护权威记录。当一个组织的业务合约需要消费另一组织链上记录时，便产生跨链查询需求。当前方案主要有三类：用于原子交换的哈希时间锁定合约、用于资产转移的侧链桥接，以及用于通用消息传递的中继协议；其中中继最为灵活，但大多数中继设计将信任委托给单个中继节点或静态公证人委员会，一旦中继被攻破或恶意行为，目标链没有独立手段检测错误。IEEE 3221.01-2025 标准[10]承认了这一局限性，并将中继治理确定为一个开放问题。</p>
+<p>需要强调的是，并非所有跨链查询都需要链下智能体。对于<em>状态存在性</em>与<em>证明有效性</em>查询——某交易是否已上链、某 Merkle 证明是否成立——传统密码学机制已经足够。本文关注的是另一类查询：<em>密码学证据有效，但业务语义未必成立</em>。在供应链金融中，发货记录确实存在于源链，并不等于融资条件真实满足；在监管审计中，企业数据确实已上链，并不等于其满足合规规则。这类判断本质上是概率性的——不同推理方法可能得出不同结论——单一中继或单一预言机无从独立核验，这正是需要把合约的调用分发到多个链下智能体、并对其输出做 Byzantine-robust 聚合的场景。近期关于 LLM 多智能体系统中 Byzantine robustness 与 confidence-weighted aggregation 的研究[2]为此提供了理论支撑：加权聚合即使在相当比例的参与者故障时仍能维持正确性。</p>
+<p>这些多智能体可靠性的研究为可信调用提供了量化支撑。CP-WBFT 协议[2]通过基于置信度的加权，在 85.7% 的故障率下仍实现可靠共识；Six Sigma Agent 架构[5]证明系统错误随独立验证者数量呈指数级下降：P_sys = O(p^{⌈n/2⌉})。这些结果表明，将合约对链下语义任务的调用分发到多个智能体并配合适当的聚合机制，可以显著降低单一恶意、错误或沉默智能体对最终结果的影响。但要把这一思想落到链上合约可信消费的工程现实，还需解决合约无法直连模型、智能体可能串谋或扣留、同组织/同模型导致相关失败、以及结果必须可问责等一系列问题——这正是本文协议要回答的。</p>
+<p>我们因此提出一种可信的 smart-contract-to-agent invocation 协议：合约不直接执行复杂链下语义任务，而是通过链上事件异步调用由不同组织运营的链下智能体，并通过 Byzantine-robust 聚合、信誉机制、仲裁机制和链上问责机制安全消费智能体输出。我们将该协议实例化到异构联盟链跨链语义查询这一典型场景，并在此明确区分<em>密码学可验证层</em>与<em>业务语义判断层</em>。本文的主要贡献为：</p>
+<ol><li><strong>调用模型。</strong> 提出 smart-contract-to-agent invocation 模型，刻画智能合约异步调用链下智能体执行复杂语义任务的问题，明确&quot;合约不判定语义真值、只降低错误输出被接受的概率并保留问责记录&quot;的安全边界。</li><li><strong>可信调用协议。</strong> 设计完整的调用协议，包括链上任务发布、链下智能体执行、commit-reveal 密封提交、信誉与置信度加权聚合、仲裁升级与信誉问责；博弈论分析证明在理性参与者条件下，诚实执行并如实报告置信度构成占优策略均衡。</li><li><strong>跨链语义查询实例化。</strong> 将协议实例化到联盟链跨链语义查询，区分确定性密码学检查（单智能体、无需共识的前置门控）与概率性语义推理（多智能体聚合），为何时以及为何调用聚合提供原则性论证。</li><li><strong>原型与评估。</strong> 在 Fabric/FISCO-BCOS 原型上评估协议在恶意智能体、沉默攻击、证据冲突、链上成本与去中心化约束下的表现。</li></ol>
+<p>本文其余部分组织如下：第II节回顾相关工作；第III节定义系统模型和威胁模型；第IV节介绍协议设计；第V节提供博弈论分析；第VI节讨论残余安全性质；第VII节分析性能；第VIII节描述实验评估；第IX节总结全文。</p>
+<hr>
+<h2>II. 相关工作</h2>
+<h3>A. 跨链互操作性</h3>
+<p>跨链互操作性在公有链背景下已被广泛研究。基于公证人的方案依赖可信中介来证明跨链事件。基于HTLC的协议[13]实现了无信任的原子交换，但仅限于资产交换场景。基于中继的方法在目标链上维护轻客户端或验证合约以验证源链状态；近期工作提出可扩展的跨链桥[17]并对桥异常进行监测[18]。zkBridge通过使用零知识证明进行区块头验证消除了外部信任假设，但其计算开销对于联盟链部署仍然显著。联盟链互操作的安全与隐私问题已有系统性综述[14][15]。</p>
+<p>针对联盟区块链，Hyperledger Cacti框架（前身为Weaver）[11]为Fabric到Fabric和Fabric到Besu的互操作提供中继基础设施。WeCross[12]通过统一资源模型支持FISCO-BCOS与Fabric之间的跨链交互。HMNG-CCM机制[1]在Fabric上引入了基于PageRank信誉评估的分层管理公证人组，PowerTrust 等算法亦被用于中继链的信誉治理[16]。然而，这些解决方案要么假设固定的中继拓扑，要么缺乏对中继不当行为的形式化处理。</p>
+<p>Proof of Repute Consensus（PoRC）框架[7]提出了一种两层架构，将链内共识0与链间协作分离，使用行为驱动的信誉来治理跨链参与。虽然PoRC解决了中继选择问题，但它没有对验证过程本身进行建模，也没有提供解决中继节点间分歧的机制。</p>
+<h3>B. 多智能体共识与可靠性</h3>
+<p>随着基于LLM的智能体的出现，多智能体系统中的Byzantine容错受到了新的关注。Zheng等人[2]提出CP-WBFT，一种基于置信度探测的加权BFT机制，通过赋予对其判断具有更高置信度的智能体更大影响力，在极端故障条件下实现共识。Luo等人[3]将这一思想扩展到基于区块链的多LLM网络，采用加权BFT共识，其中投票权重结合了响应质量和历史信任。Jo和Park[4]提出DecentLLMs，一种无领导者架构，其中评估智能体独立评分工作者输出，截断均值聚合过滤Byzantine影响。Ding等人[8]与Qi等人[9]进一步研究了去中心化多智能体系统中的信任感知通信与激励相容协作。</p>
+<p>Six Sigma Agent架构[5]证明，冗余独立执行配合多数投票可实现指数级可靠性提升。对于n个具有个体错误率p的智能体，系统错误率的上界为O(p^{⌈n/2⌉})。这一理论结果激发了我们使用多个独立验证者进行跨链证据验证的设计。</p>
+<p>Cemri等人[6]进行了首个多智能体故障模式的系统性研究，识别了三个类别中的14种故障模式：系统设计问题（44.2%）、智能体间不对齐（32.3%）和任务验证失败（23.5%）。他们的发现为我们的协议设计提供了参考，特别是commit-reveal机制（防止智能体间相互影响）和显式超时处理（防止无限期停滞）。</p>
+<h3>C. 本工作的定位</h3>
+<p>现有跨链解决方案与预言机关注的是<em>数据与状态证明的传递</em>：中继选择、消息传递、轻客户端验证，但将&quot;如何让链上合约可信地消费链下复杂语义判断&quot;视为黑盒——它们能证明数据存在且未被篡改，却不处理链下智能体输出的可信调用、抗恶意聚合与链上问责。另一方面，现有多智能体 BFT 共识工作处理通用决策问题，未考虑区块链证据的特定属性（确定性终局性、密码学证明、结构化状态），也未将其嵌入&quot;智能合约异步调用链下智能体&quot;的链上协议中。本工作在二者交集上，提出一个可信的智能合约到链下智能体调用协议：以加权 BFT 聚合安全消费智能体输出，利用联盟区块链证据的确定性特性把确定性密码层与概率性语义层分离，并以链上协调合约提供选组、聚合、仲裁与问责，同时维持形式化安全保证。</p>
+<p>表 A 从两条研究脉络出发，对代表性工作的核心贡献与关键局限作横向对比，并标明本工作的定位（该表为相关工作概览，不计入正文表序）。</p>
+<p><strong>表 A. 相关工作横向对比。</strong></p>
+<table>
+<thead><tr>
+<th>脉络</th>
+<th>代表工作</th>
+<th>核心贡献</th>
+<th>关键局限（相对本工作）</th>
+</tr></thead>
+<tbody>
+<tr><td>跨链互操作</td><td>分层管理公证人组 [1]</td><td>基于 PageRank 信誉评估的分层公证人组</td><td>假设固定/分层公证人拓扑，未建模验证决策本身，无分歧解决机制</td></tr>
+<tr><td>跨链互操作</td><td>HTLC 原子互换 [13]</td><td>无信任的高效原子资产交换</td><td>仅限资产互换，不支持通用跨链查询的状态验证</td></tr>
+<tr><td>跨链互操作</td><td>中继/桥基础设施 [11][12][17]</td><td>Cacti/WeCross/Alba 提供 Fabric–Besu/FISCO 互操作与可扩展桥</td><td>固定中继拓扑或单点/静态委员会信任，对中继误行为无形式化处理</td></tr>
+<tr><td>跨链互操作</td><td>PoRC [7]</td><td>行为驱动信誉治理中继选择，链内/链间分离</td><td>不建模验证过程，无中继节点间分歧的解决机制</td></tr>
+<tr><td>多智能体共识</td><td>CP-WBFT [2]</td><td>置信度探测加权 BFT，极端故障率下达成共识</td><td>面向通用决策，未利用区块链证据的确定性，无激励/博弈分析</td></tr>
+<tr><td>多智能体共识</td><td>WBFT / Trusted MultiLLMN [3]</td><td>响应质量 + 信任加权 BFT，驱动多 LLM 网络选最优回答</td><td>主观「最优回答」偏好聚合而非客观验证；信任不建模（假设其分布）；无博弈论；仅仿真评估</td></tr>
+<tr><td>多智能体共识</td><td>DecentLLMs [4]</td><td>无领导者架构，截断均值聚合过滤拜占庭影响</td><td>通用评分聚合，无信誉演化与串通检测，无激励相容保证</td></tr>
+<tr><td>多智能体可靠性</td><td>Six Sigma Agent [5]</td><td>冗余独立执行 + 多数投票，错误率 O(p^⌈n/2⌉)</td><td>仅理论可靠性界，等权多数，无加权/信誉/仲裁升级</td></tr>
+<tr><td>信任/激励协作</td><td>信任感知通信与激励协作 [8][9]</td><td>去中心化多智能体的信任感知通信与激励相容协作</td><td>面向通用多智能体，未针对跨链证据，无确定性/概率性双层验证分离</td></tr>
+<tr><td><strong>本工作（MA3C）</strong></td><td><strong>可信智能合约到链下智能体调用协议（跨链语义查询）</strong></td><td><strong>链上协调合约异步调用链下智能体；确定性密码层与概率性语义层分离；rep×conf 加权聚合 + VRF 选组 + commit-reveal + 风险自适应阈值 + 仲裁升级 + 签名问责；占优策略均衡的博弈论保证；真实跨链原型 + 真智能体实验</strong></td><td><strong>—</strong></td></tr>
+</tbody>
+</table>
+<p>如表所示，跨链/预言机脉络的工作普遍只传递数据与状态证明、将链下语义判断的可信消费视为黑盒、缺乏分歧解决；多智能体共识脉络则处理通用决策，未利用区块链证据的确定性特性、未嵌入链上调用协议，且多数（含 [3]）不建模信任演化、不提供激励相容的形式化保证。本工作在二者交集上，以&quot;智能合约到链下智能体调用&quot;协议、确定性/概率性双层分离与博弈论激励相容机制填补该空白。</p>
+<hr>
+<h2>III. 系统模型与威胁模型</h2>
+<h3>A. 系统模型</h3>
+<p>我们考虑一个包含两条或多条联盟区块链（如 Hyperledger Fabric 和 FISCO-BCOS）的系统，业务合约需要消费跨链的语义判断。每条区块链维护其自身的共识机制，提供确定性终局性：一旦交易被提交，将不会被回滚。由于智能合约无法直接调用链下模型与外部系统，我们将系统组织为三层，使合约能够<em>异步调用</em>链下智能体并安全消费其输出：</p>
+<ol><li><strong>链上协调层（Invocation Coordinator Contract）</strong>：部署在目标链（或专用中继链）上的智能合约，负责注册智能体、发布调用任务、记录承诺（commit）、接收揭示（reveal）、聚合结果、更新信誉并在分歧时触发仲裁。它是合约世界与链下智能体之间唯一的可信中介，所有调用与问责记录均经由它落账。</li><li><strong>链下智能体调用网络（Off-chain Agent Invocation Network）</strong>：由联盟生态中不同组织运营的智能体，监听链上事件、执行证据收集、规则检查、LLM 语义推理与结果签名，并将密封判断提交回协调合约。</li><li><strong>应用层（Application Layer）</strong>：跨链语义查询应用，例如 Fabric 到 FISCO-BCOS 的供应链金融、监管审计或冷链核验——业务合约在此发起调用并消费结果。</li></ol>
+<p>其中两条链分别承担：</p>
+<ul><li><strong>源链</strong>：被查询状态信息的区块链，经其网关链码提供具确定性终局性的证据（读写集、背书签名、区块头）。</li><li><strong>目标链</strong>：发起调用并消费智能体输出的区块链，托管协调合约。</li></ul>
+<p>系统整体架构如图 1 所示,合约异步调用链下智能体的整体时序如图 2 所示。</p>
+<p><img alt="系统架构" src="figures/fig_architecture.png"></p>
+<p><strong>图 1.</strong> 系统架构。目标链(FISCO-BCOS)托管协调合约 Invocation Coordinator Contract(任务生命周期、VRF 选择、rep×conf 加权聚合、信誉与问责);链下智能体调用网络含双收集者、异构执行委员会(A 证明验证器 / B 策略检查器 / C 语义推理器)与高信誉仲裁组;源链(Hyperledger Fabric)经 gateway_cc 提供具确定性终局性的证据(读写集、背书签名、区块头)。</p>
+<p><img alt="智能合约到链下智能体的调用时序" src="figures/fig_invocation_flow.png"></p>
+<p><strong>图 2.</strong> 智能合约到链下智能体的调用时序(链上/链下泳道)。① 业务合约发起调用;② 协调合约创建任务并发出 TaskCreated 事件——合约<em>异步</em>调用智能体,从不直接调用模型;③ VRF 选出的链下委员会收集证据并语义推理;④ 以 commit-reveal 提交带签名的密封判断;⑤ 协调合约执行 rep×conf 加权聚合;⑥ 出现分歧或挑战时升级至仲裁并结算。结果回传业务合约消费,且经签名与链上锚定可问责。</p>
+<p>链下智能体（统称<em>执行智能体</em>）按职责分为三种角色：</p>
+<ul><li><em>收集智能体</em>与源链节点交互以检索证据（交易回执、状态证明、区块头）。</li><li><em>验证智能体</em>通过双层过程处理收集的证据：(1) 对证明和签名的密码学验证（确定性），(2) 使用大语言模型对业务逻辑一致性进行语义推理（概率性）。多智能体聚合作用于第二层，在该层中独立的 LLM 推理可能产生不同判断。第 VIII-D 节的真实 LLM 校准从经验上验证了此分层的必要性:确定性层对结构/密码类篡改 100% 拦截,语义层在结构完整证据上实测误差极低。</li><li><em>仲裁智能体</em>仅在标准调用流程未能达成一致时被激活。仲裁者以增强的上下文同时执行密码学验证和语义推理。</li></ul>
+<p>验证智能体采用三种互补策略：</p>
+<ul><li><em>A类型（证明验证器）</em>：执行确定性密码学验证——Merkle proof重构、背书签名校验和数据完整性检查。该层作为前置门控：若密码学验证失败，任务立即被拒绝，无需进入共识。</li><li><em>B类型（策略检查器）</em>：验证背书策略合规性并应用基于规则的业务约束。结合确定性策略匹配与LLM辅助的复杂多条款策略解释。</li><li><em>C类型（语义推理器）</em>：使用LLM执行概率性语义验证——跨源数据关联分析、时序一致性分析、异常模式检测和业务逻辑推理。这是产生判断多样性的主要来源，也是多智能体共识存在的根本理由。</li></ul>
+<p>执行策略的异构性确保错误模式相互独立：A 类型错误源于适配器实现缺陷，B 类型错误源于策略解释歧义，C 类型错误源于 LLM 推理局限。这种独立性降低了错误相关系数 ρ，直接提升聚合可靠性，这一点已被先前关于冗余独立验证的研究所证实。需要强调，多个智能体并不自动意味着真正独立：若多个智能体调用同一模型或同一 LLM provider，其错误会高度相关，从而削弱聚合的容错能力（第 VIII 节实测此相关失败效应）。因此本协议在选组时强制 LLM 后端与运营组织的异构性，作为对相关失败的工程约束。</p>
+<h3>B. 威胁模型</h3>
+<p><strong>信任假设：</strong></p>
+<ol><li>每条联盟区块链的内部共识是健全的。源链上已提交的数据是真实且最终的。</li><li>协调合约正确执行（由宿主区块链的共识保证）。</li><li>VRF 实现是密码学安全的。</li></ol>
+<p><strong>对手能力：</strong> 对手控制部分链下智能体，在任何大小为 n 的调用委员会中控制至多 f &lt; ⌊n/2⌋ 个智能体；被控制的智能体可发动以下行为：</p>
+<ol><li><em>恶意判断</em>：无论证据如何，恶意提交错误判断——对无效任务返回 ACCEPT（伪造接受）或对有效任务返回 REJECT（伪造拒绝）。</li><li><em>沉默攻击</em>：提交承诺（commit）后扣留揭示（reveal），试图阻塞调用或拖延终结。</li><li><em>串谋</em>：多个被控智能体协调其投票以放大影响。</li><li><em>同组织控制多个智能体</em>：单一组织运营多个智能体以在委员会中获取超额权重，逼近或突破 Sybil 边界。</li><li><em>相关失败</em>：多个智能体调用同一 LLM 模型或同一 provider，使其错误高度相关，从而以&quot;看似独立的多数&quot;绕过聚合容错。</li><li><em>虚报置信度</em>：智能体夸大其判断的置信度以放大投票权重。</li><li><em>证据冲突</em>：收集智能体提交过期、相互冲突或不完整的证据，试图误导后续语义推理。</li><li><em>策略性对手</em>：通过诚实行为积累信誉后再发动上述攻击。</li></ol>
+<p>对手无法伪造源链数据（受源链共识保护），也无法在选组前预测 VRF 输出。</p>
+<p><strong>安全边界（重要）：</strong> 本文不假设链上合约能够判定 LLM 推理是否语义正确，也不声称协议&quot;验证了语义真值&quot;。本文提供的是对链下智能体输出的<em>可审计、可问责、Byzantine-robust 的消费机制</em>：在给定恶意智能体比例、组织/模型异构约束、信誉边界与仲裁机制的条件下，降低错误链下输出被合约接受的概率，并保留可追责记录。语义判断的不可完全验证性被显式列为协议的固有边界（参见第 VI 节 limitation）。</p>
+<p><strong>安全目标：</strong></p>
+<ul><li><em>安全性</em>：在上述威胁模型与约束下，协议降低错误智能体输出（伪造接受或伪造拒绝）被合约接受为 CONFIRMED/REJECTED 的概率；恶意输出越过接受阈值的难度随委员会规模与异构约束提升。</li><li><em>活性</em>：每个调用任务最终在全局超时范围内以确定性结果（CONFIRMED、REJECTED 或 TIMEOUT）终止。</li><li><em>可问责性</em>：每个参与智能体的输出经签名记录且可归属，支持事后审计和信誉调整。</li></ul>
+<h3>C. 主要符号与参数</h3>
+<p>本文主要符号及其默认取值汇总于下表(为命名法参考,不计入正文表序)。</p>
+<table>
+<thead><tr>
+<th>符号</th>
+<th>含义</th>
+<th>默认值</th>
+</tr></thead>
+<tbody>
+<tr><td>n</td><td>调用委员会大小</td><td>5 (NORMAL) / 7 (CRITICAL)</td></tr>
+<tr><td>f</td><td>调用委员会中恶意智能体数上界</td><td>&lt; ⌊n/2⌋</td></tr>
+<tr><td>k</td><td>仲裁组大小</td><td>5</td></tr>
+<tr><td>θ</td><td>共识阈值(接受/拒绝)</td><td>0.70 (NORMAL) / 0.75 (CRITICAL)</td></tr>
+<tr><td>θ_arb</td><td>仲裁共识阈值</td><td>0.75</td></tr>
+<tr><td>θ_min</td><td>入选最低信誉阈值</td><td>应用层设定</td></tr>
+<tr><td>rep_i</td><td>智能体 i 的信誉</td><td>[rep_min, rep_max]</td></tr>
+<tr><td>conf_i</td><td>智能体 i 揭示的置信度</td><td>[0, 1]</td></tr>
+<tr><td>w_i</td><td>投票权重 = rep_i × conf_i</td><td>式(1)</td></tr>
+<tr><td>w_max / w_min</td><td>单体最大/最小权重</td><td>w_max / w_min ≤ 2</td></tr>
+<tr><td>c_min</td><td>最低诚实置信度</td><td>0.6</td></tr>
+<tr><td>Ratio</td><td>加权接受比率</td><td>式(2)</td></tr>
+<tr><td>α₁ … α₅</td><td>对齐评分参数(非对称)</td><td>1.0 / 0.5 / 0.3 / 1.5 / 2.0</td></tr>
+<tr><td>λ_r</td><td>风险缩放因子</td><td>1.0 (NORMAL) / 1.5 (CRITICAL)</td></tr>
+<tr><td>decay</td><td>信誉衰减系数</td><td>0.98</td></tr>
+<tr><td>σ²_max</td><td>对齐方差异常阈值(观察期触发)</td><td>经验设定</td></tr>
+<tr><td>m</td><td>串通检测最小共同参与任务数</td><td>50</td></tr>
+<tr><td>ρ_max</td><td>串通判定相关性阈值</td><td>0.9</td></tr>
+<tr><td>L_max</td><td>单体最大并发任务数</td><td>应用层设定</td></tr>
+<tr><td>q</td><td>证据有效的先验概率</td><td>0.8</td></tr>
+<tr><td>p_i</td><td>智能体 i 的验证错误率</td><td>由类型决定</td></tr>
+</tbody>
+</table>
+<hr>
+<h2>IV. 协议设计</h2>
+<p>本节详细介绍调用协议。协议经历四个阶段：证据收集、密封执行、加权聚合，以及（必要时的）仲裁。我们首先定义调用任务抽象，然后描述每个阶段。</p>
+<h3>A. 调用任务模型</h3>
+<p>业务合约发起的跨链语义查询被协调合约封装为调用任务 T_inv：</p>
+<div class="code-block">T_inv = (id, caller, src, task_spec, evidence_spec, risk, deadline, status)</div>
+<p>其中：</p>
+<ul><li>id：由协调合约生成的唯一任务标识符</li><li>caller：发起调用的业务合约或用户（结果将被回传消费的位置）</li><li>src：源链标识符和端点规范（证据被收集的位置）</li><li>task_spec：链下智能体需要执行的语义任务描述（合约地址、函数、参数、预期区块高度范围，以及待判定的业务语义谓词）</li><li>evidence_spec：智能体需要收集或校验的证据类型（读写集、背书签名、区块头、跨源关联字段）</li><li>risk ∈ {NORMAL, CRITICAL}：风险分类，决定委员会大小和接受阈值</li><li>deadline：全局超时的绝对时间戳</li><li>status ∈ {PENDING, COLLECTING, VERIFYING, ARBITRATING, CONFIRMED, REJECTED, TIMEOUT}</li></ul>
+<p>需要强调，调用任务的目标不是让链上合约直接验证语义真值，而是在明确威胁模型下，通过多智能体冗余执行、签名提交、加权聚合和仲裁问责，降低错误链下输出被合约接受的概率。风险分类由注册在协调合约中的应用层规则确定。例如，涉及超过阈值的资产价值或监管审计请求的查询被分类为 CRITICAL。任务在其生命周期中经历的状态转移如图 3 所示。</p>
+<p><img alt="任务生命周期状态机" src="figures/fig_state_machine.png"></p>
+<p><strong>图 3.</strong> 调用任务的生命周期状态机。乐观路径为 PENDING→COLLECTING→VERIFYING→CONFIRMED/REJECTED;当出现聚合分歧(比率落在 1−θ 与 θ 之间)、收集者证据冲突或有效揭示不足时,任务升级至 ARBITRATING(仲裁路径);各阶段超时则进入 TIMEOUT。CONFIRMED、REJECTED、TIMEOUT 为终态。</p>
+<h3>B. 调用委员会选择</h3>
+<p>任务创建后，协调合约通过算法 1 组建调用委员会G，下文逐步说明各步骤。</p>
+<p><strong>算法 1. 调用委员会选择(VRF 加权随机选择)</strong></p>
+<div class="code-block">输入: 任务 T(含 src, risk), 智能体池 Pool, 信誉 rep, 信誉阈值 θ_min, 负载上限 L_max
+输出: 调用委员会 G (|G| = n), 收集者集合 collectors
+ 1: n ← 5 if risk = NORMAL else 7                         // 组大小由风险决定
+ 2: C ← { a ∈ Pool | rep(a) ≥ θ_min ∧ capable(a, src) ∧ load(a) &lt; L_max }
+ 3: seed ← VRF(block_hash ‖ task_id)                      // 可验证随机种子
+ 4: G ← 以与 rep 成比例的概率, 用 seed 从 C 无放回抽取 n 个智能体
+ 5: while 同组织成员 &gt; ⌊n/3⌋ 或 不同策略类型数 &lt; 2 do      // 强制多样性与异构
+ 6:     用下一合格候选替换过度代表类别中信誉最低者
+ 7: collectors ← 从源链服务智能体中选 2 个(分属不同组织)
+ 8: return G, collectors</div>
+<p><strong>步骤1. 确定组大小。</strong></p>
+<div class="code-block">n = 5  if risk = NORMAL
+n = 7  if risk = CRITICAL</div>
+<p><strong>步骤2. 筛选合格智能体。</strong></p>
+<div class="code-block">C = {a ∈ Pool | rep(a) ≥ θ_min ∧ capable(a, src) ∧ load(a) &lt; L_max}</div>
+<p>其中θ_min为最低信誉阈值，capable(a, src)表示智能体支持源链类型，L_max限制并发任务参与数。</p>
+<p><strong>步骤3. VRF加权随机选择。</strong></p>
+<p>合约使用当前区块提议者的VRF计算可验证随机种子：</p>
+<div class="code-block">seed = VRF(block_hash || task_id)</div>
+<p>从候选集C中，以与信誉分数成比例的概率选择n个验证智能体。VRF输出确保选择在任务创建前不可预测，且事后可验证。</p>
+<p><strong>步骤4. 强制约束。</strong></p>
+<ul><li>组织多样性：来自同一组织的智能体 ≤ ⌊n/3⌋</li><li>策略异构性：选定的组必须包含至少两种不同的验证策略类型（第III-A节定义的A、B或C类型）</li></ul>
+<p>如果约束被违反，来自过度代表类别的最低信誉智能体将被下一个合格候选者替换。</p>
+<p><strong>步骤5. 选择收集智能体。</strong></p>
+<p>从注册为源链服务的智能体池中独立选择两个收集智能体。它们必须属于不同组织。</p>
+<h3>C. 阶段1：证据收集</h3>
+<p>两个被选中的收集智能体独立查询源链，并将结果打包为标准化证据结构：</p>
+<div class="code-block">E = (block_height, state_data, merkle_proof, endorsement_signatures, timestamp)</div>
+<p>证据格式因链而异，但由适配器层进行归一化。对于Fabric，包括读写集、背书者签名和区块元数据。对于FISCO-BCOS，包括交易回执、状态证明和共识节点签名。</p>
+<p>收到两个证据包E₁和E₂后，协调合约执行确定性比较：</p>
+<ul><li>如果E₁和E₂实质相同（相同的state_data和一致的证明）：证据被接受为E = E₁，任务进入阶段2。</li><li>如果E₁和E₂不同：在确定性终局性下，这表明收集者故障或网络分区。任务状态直接转换为ARBITRATING，两个证据包均保留供仲裁者审查。</li></ul>
+<p>收集阶段有超时T_collect。如果在此窗口内收到的证据包少于两个，缺失的收集者被标记为无响应（信誉惩罚），并选择替代收集者进行一次重试。如果重试也失败，任务转换为TIMEOUT。</p>
+<h3>D. 阶段2：密码学预验证</h3>
+<p>指定的A类型智能体对收集的证据E执行确定性密码学验证：</p>
+<ol><li>从Merkle proof重构状态根，与区块头比对。</li><li>验证所有背书签名与源链已知公钥的一致性。</li><li>确认区块高度在查询的预期范围内。</li></ol>
+<p>该阶段产生二元结果：</p>
+<ul><li>通过：证据在密码学上有效。任务进入阶段3。</li><li>失败：证据包含无效证明或签名。任务立即被REJECT，无需进入共识。</li></ul>
+<p>由于密码学验证是确定性的，单个智能体即可完成。结果记录在链上，任何方均可独立重新验证。该阶段在产生LLM语义验证成本之前过滤伪造或损坏的证据。真实 LLM 校准实测证实了该前置门控的有效性:对密码失败、缺交易哈希、高度越界等结构/密码类篡改,确定性层实现 100% 拦截(误差 0),使其不进入语义共识;语义层仅承担确定性手段无法判定的业务一致性推理(如跨源载荷不符),在该子集上 8B 级 LLM 实测误差极低(详见第 VIII-D.3 节)。</p>
+<h3>E. 阶段3：语义执行（Commit-Reveal）</h3>
+<p>调用委员会中的每个执行智能体独立对证据 E 执行语义推理并产生签名输出：</p>
+<div class="code-block">J_i = (judgment_i, confidence_i, evidence_hash_i, reason_hash_i, model_id_hash_i, agent_signature_i)</div>
+<p>其中：</p>
+<ul><li>judgment_i ∈ {ACCEPT, REJECT}：基于语义分析的链下决策</li><li>confidence_i ∈ [0, 1]：智能体的自评确定性，源自 LLM 推理置信度</li><li>evidence_hash_i = H(E_i)：智能体实际据以判断的链下证据哈希，使其判断可绑定到具体证据快照，便于事后核验与冲突归因</li><li>reason_hash_i = H(reason_text_i)：详细推理链/解释的哈希（链下存储，可供审计）</li><li>model_id_hash_i = H(model_id_i)：可选，记录所用模型来源或模型类别的哈希，用于审计模型异构性约束、识别相关失败（多个智能体使用同一模型/provider）</li><li>agent_signature_i：智能体对上述输出的签名，提供不可否认的可问责归属</li></ul>
+<p>合约据此可对每条链下输出做<em>签名归属</em>与<em>证据绑定</em>，这是协议链上问责性的基础。揭示落账后开启一个可挑战时间窗口 challenge_window：在该窗口内，任何参与方可凭冲突证据或失败的密码学重验对某条输出发起挑战，触发仲裁路径（第 G 节）。</p>
+<p>语义验证过程取决于智能体的策略类型：</p>
+<ul><li><strong>B类型（策略检查器）</strong>：使用LLM辅助推理解释复杂背书策略和多条款业务规则。评估证据是否满足领域特定的合规要求。</li><li><strong>C类型（语义推理器）</strong>：执行深度语义分析——跨源数据关联（如物流时间线是否与生产记录吻合？）、时序一致性检查（如温度曲线对于运输时长是否物理合理？）和异常模式检测（如该交易是否偏离历史规范？）。</li></ul>
+<p>每个智能体构建包含证据、查询上下文和相关历史数据的验证提示词，然后从其LLM后端获取结构化判断。置信度分数反映LLM对其推理的评估确定性，类似于先前LLM多智能体可靠性研究中建立的Prompt-level Confidence Probe (PCP)机制。</p>
+<p><strong>提交阶段：</strong> 每个智能体提交承诺：</p>
+<div class="code-block">commit_i = H(judgment_i || confidence_i || evidence_hash_i || nonce_i)</div>
+<p>到协调合约。合约记录所有承诺及其时间戳。</p>
+<p><strong>揭示阶段：</strong> 在所有承诺收到（或 T_commit 到期）后，合约开启揭示窗口。每个智能体以明文提交 (judgment_i, confidence_i, evidence_hash_i, reason_hash_i, model_id_hash_i, agent_signature_i, nonce_i)。合约验证每个揭示与其承诺的一致性，并校验 agent_signature_i 的有效性。</p>
+<p><strong>超时强制：</strong></p>
+<ul><li>未在 T_commit 内提交承诺的智能体被排除在聚合之外，并受到信誉惩罚。</li><li>提交承诺但未在 T_reveal 内揭示的智能体被视为执行沉默攻击：受到严重信誉惩罚，其承诺被丢弃。</li><li>如果有效揭示数量降至 ⌈n/2⌉ + 1 以下，任务转换为 ARBITRATING。</li></ul>
+<h3>F. 阶段3：加权聚合</h3>
+<p>在收集所有有效揭示后，协调合约按算法 2 计算聚合结果。</p>
+<p><strong>算法 2. 加权聚合决策</strong></p>
+<div class="code-block">输入: 揭示判断 {(judgment_i, conf_i)}, 信誉 {rep_i}, 阈值 θ
+输出: 决策 ∈ {CONFIRMED, REJECTED, ARBITRATING}
+ 1: for each i do  w_i ← rep_i × conf_i                   // 式(1)
+ 2: S_A ← Σ_{judgment_i = ACCEPT} w_i
+ 3: S_R ← Σ_{judgment_i = REJECT} w_i
+ 4: Ratio ← S_A / (S_A + S_R)                             // 式(2)
+ 5: if Ratio ≥ θ then return CONFIRMED                    // 式(3)
+ 6: else if Ratio ≤ 1 − θ then return REJECTED
+ 7: else return ARBITRATING</div>
+<p>下文给出权重、聚合与阈值的具体定义。</p>
+<p><strong>权重计算：</strong></p>
+<div class="code-block">w_i = rep_i × conf_i                                          (1)</div>
+<p>其中rep_i为智能体当前信誉分数，conf_i为揭示的置信度值。式(1)即投票权重。</p>
+<p><strong>信誉的双因子构成。</strong> 信誉分数 rep_i 综合两个维度：响应质量分量 A_i（智能体在调用任务上的表现质量）与历史信任分量 B_i（即第 IV-H 节按式(6)累积维护的对齐信誉）。二者各自在组内归一化后线性组合：</p>
+<div class="code-block">rep_i = α · A_i + β · B_i,   α + β = 1                        (1a)</div>
+<p>默认 α = 0.4、β = 0.6（信任分量权重略高于质量分量，与加权 BFT 中&quot;信任比质量更影响共识安全性&quot;的经验观察一致[3]）。将式(1a)代入式(1)，单个智能体的有效投票权重展开为</p>
+<div class="code-block">w_i = (α · A_i + β · B_i) × conf_i                            (1b)</div>
+<p>该双因子设计在结构上吸收了文献[3]的&quot;质量 + 信任&quot;加权，但本方案进一步乘以单次自报置信度 conf_i，并叠加风险自适应阈值（式(4)）与仲裁升级（第 IV-G 节）——后三者是[3]所不具备的，也是本方案在客观可验证场景下区别于通用 WBFT 的关键。</p>
+<p><strong>分数聚合：</strong></p>
+<div class="code-block">Score(ACCEPT) = Σ_{i: judgment_i = ACCEPT} w_i
+Score(REJECT) = Σ_{i: judgment_i = REJECT} w_i
+Ratio = Score(ACCEPT) / (Score(ACCEPT) + Score(REJECT))      (2)</div>
+<p><strong>决策规则：</strong></p>
+<div class="code-block">if Ratio ≥ θ:       task status ← CONFIRMED
+elif Ratio ≤ 1−θ:   task status ← REJECTED
+else:                task status ← ARBITRATING            (3)</div>
+<p><strong>阈值推导。</strong> 阈值θ必须确保即使所有f个恶意智能体以最大权重一致投票支持错误结果，诚实多数仍能占优。</p>
+<p>设w_max表示单个智能体的最大可能权重（受信誉上限和confidence = 1.0限制），w_min表示诚实智能体的最小权重（最低信誉 × 最低诚实置信度c_min）。</p>
+<p>安全条件要求：</p>
+<div class="code-block">f × w_max &lt; (n − f) × w_min × (θ / (1 − θ))</div>
+<p>求解θ：</p>
+<div class="code-block">θ &gt; f × w_max / (f × w_max + (n − f) × w_min)                (4)</div>
+<p>对于n = 5, f = 2, w_max/w_min = 2（信誉上限为最低值的两倍），c_min = 0.6：</p>
+<div class="code-block">θ &gt; (2 × 2) / (2 × 2 + 3 × 1 × 0.6) = 4 / 5.8 ≈ 0.69</div>
+<p>我们设定NORMAL任务θ = 0.70，CRITICAL任务θ = 0.75，提供安全余量。</p>
+<h3>G. 阶段4：仲裁</h3>
+<p>仲裁在以下情况触发：</p>
+<ol><li>加权聚合比率落在1−θ和θ之间（分歧）。</li><li>证据收集产生不一致结果（收集者冲突）。</li><li>过多智能体未能揭示（参与不足）。</li></ol>
+<p><strong>仲裁者选择：</strong> 协调合约通过VRF从仲裁者池中选择k = 5个仲裁智能体，受相同的组织多样性约束。仲裁智能体通常具有更高信誉（必须超过更严格的阈值θ_arb &gt; θ_min），且能够执行所有三种验证策略。</p>
+<p><strong>仲裁者输入：</strong> 每个仲裁者接收完整的任务上下文：原始查询、所有收集的证据（包括冲突证据，如适用）、所有验证者判断和置信度分数，以及推理哈希。</p>
+<p><strong>仲裁过程：</strong> 仲裁者遵循与验证者相同的 commit-reveal 协议。仲裁聚合使用相同的加权投票公式（式(1)–(3)，算法 2），但使用仲裁组的参数（k = 5，所有任务θ_arb = 0.75）。</p>
+<p><strong>终局性：</strong> 仲裁结果是最终的。如果仲裁也未能达到阈值（鉴于k = 5和更高信誉的参与者，这极为罕见），任务被标记为TIMEOUT，不向目标链交付结果。</p>
+<h3>H. 信誉更新</h3>
+<p>任务达到终态（CONFIRMED、REJECTED或TIMEOUT）后，协调合约按算法 3 更新所有参与智能体的信誉。</p>
+<p><strong>算法 3. 信誉更新与异常/串通检测</strong></p>
+<div class="code-block">输入: 参与判断 {(judgment_i, conf_i)}, 终态 outcome, 风险 risk, 历史窗口
+输出: 更新后的信誉 {rep_i}
+ 1: λ_r ← 1.5 if risk = CRITICAL else 1.0
+ 2: for each agent i do
+ 3:     align ← alignment(judgment_i, conf_i, outcome)    // 式(5), 非对称评分
+ 4:     rep_i ← clip(decay × rep_i + λ_r × align, [rep_min, rep_max])   // 式(6)
+ 5:     更新最近 10 个任务的对齐方差; if 方差 &gt; σ²_max then 标记 i 进入观察期
+ 6: for each 共同参与 ≥ m 个任务的对 (i, j) do
+ 7:     if 争议任务上判断条件相关性 &gt; ρ_max then 降低 (i, j) 共同入选概率
+ 8: return {rep_i}</div>
+<p><strong>对齐评分：</strong></p>
+<div class="code-block">alignment(i) =                                               (5)
+  +α₁  if judgment_i matches final outcome AND conf_i &gt; 0.7
+  +α₂  if judgment_i matches final outcome AND conf_i ≤ 0.7
+  −α₃  if judgment_i differs from final outcome AND conf_i ≤ 0.7
+  −α₄  if judgment_i differs from final outcome AND conf_i &gt; 0.7
+  −α₅  if agent_i timed out (did not reveal)</div>
+<p>其中α₁ &gt; α₂ &gt; 0 &gt; −α₃ &gt; −α₄ &gt; −α₅。这种不对称性对过度自信的错误判断施加更重的惩罚，激励智能体诚实报告置信度。</p>
+<p><strong>信誉更新：</strong></p>
+<div class="code-block">rep_i(t+1) = decay × rep_i(t) + λ_r × alignment(i)           (6)</div>
+<p>其中decay = 0.98提供对远期历史的渐进遗忘，λ_r ∈ {1.0, 1.5}根据任务风险级别缩放更新幅度。</p>
+<p><strong>信誉边界：</strong> rep_i被限制在[rep_min, rep_max]内，防止无限积累或崩溃。</p>
+<p><strong>异常检测：</strong> 最近k = 10个任务的滑动窗口监控每个智能体的对齐方差。如果方差超过阈值σ²_max，智能体进入观察期，其选择概率减半。</p>
+<p><strong>串通检测：</strong> 对于每对在至少m = 50个任务中共同参与的智能体(i, j)，合约在最近 m 个争议任务（至少一个智能体不同意的任务）的滑动窗口上计算其判断的条件相关性。如果该相关性超过ρ_max = 0.9，该对的共同选择概率降低。第 VIII-D.4 节的实测表明，该窗口需约 50 个争议任务方能稳健区分串通与诚实独立误差（较小窗口误报率偏高）。</p>
+<hr>
+<h2>V. 博弈论分析</h2>
+<p>传统 BFT 分析假设参与者为诚实/恶意的二元划分。在联盟链环境中，智能体由具有经济利益的组织运营，更适合建模为理性参与者——它们选择最大化自身效用的策略。本节证明在我们的机制下，诚实执行调用任务（即下文策略变量 e_i = VERIFY）并如实报告置信度构成唯一的占优策略均衡。</p>
+<h3>A. 博弈模型</h3>
+<p><strong>参与者。</strong> 调用委员会 G = {a₁, ..., aₙ} 中的n个验证智能体。</p>
+<p><strong>策略空间。</strong> 每个智能体aᵢ选择策略 sᵢ = (eᵢ, jᵢ, cᵢ)，其中：</p>
+<ul><li>eᵢ ∈ {VERIFY, SKIP}：是否执行实际验证（成本v）或搭便车</li><li>jᵢ ∈ {ACCEPT, REJECT}：提交的判断</li><li>cᵢ ∈ [0, 1]：报告的置信度</li></ul>
+<p><strong>私有信息。</strong> 若 eᵢ = VERIFY，智能体aᵢ获得私有信号σᵢ，准确率 P(σᵢ = ω) = 1 − pᵢ，其中 ω ∈ {VALID, INVALID} 为真实状态，pᵢ为智能体类型相关的错误率。若 eᵢ = SKIP，智能体不获得信号。</p>
+<p><strong>收益函数。</strong> 智能体aᵢ在单次任务中的效用为：</p>
+<div class="code-block">uᵢ = R(jᵢ, cᵢ, outcome) − V(eᵢ) + F(repᵢ)                    (7)</div>
+<p>其中R为基于alignment的信誉奖励，V(VERIFY) = v，V(SKIP) = 0，F为信誉的折现未来价值（更高信誉增加未来被选概率）。</p>
+<p>alignment奖励R遵循第IV-H节定义的非对称评分机制，关键性质为 α₄/α₃ = 5：过度自信的错误判断受到的惩罚是谨慎错误的5倍。</p>
+<h3>B. 定理1：诚实验证严格优于搭便车</h3>
+<p><strong>定理。</strong> 设 v &lt; (1−p_max)(α₁−α₂) + p_max(α₃−α₄) + qα₂ − (1−q)α₃，其中 q = P(ω = VALID) 为证据有效的先验概率。则对于错误率 pᵢ ≤ p_max 的任意智能体aᵢ，诚实策略 (VERIFY, σᵢ, 1−pᵢ) 的期望效用严格高于任何搭便车策略 (SKIP, ·, ·)。</p>
+<p><strong>证明。</strong> 搭便车智能体无私有信号，只能猜测。最优搭便车策略为投票ACCEPT（因q &gt; 0.5）并报告低置信度（c ≤ 0.7）以限制下行风险。其期望奖励为：</p>
+<div class="code-block">E[R | SKIP] = q × α₂ + (1−q) × (−α₃)</div>
+<p>准确率 1−pᵢ &gt; 0.7 的诚实智能体报告高置信度，获得：</p>
+<div class="code-block">E[R | VERIFY] = (1−pᵢ) × α₁ + pᵢ × (−α₄)</div>
+<p>效用差为：</p>
+<div class="code-block">Δu = E[R|VERIFY] − v − E[R|SKIP] + δ × ΔF</div>
+<p>其中 ΔF &gt; 0 反映诚实验证的长期信誉优势。代入参数（pᵢ = 0.05, q = 0.8, v = 0.2, α₁ = 1.0, α₂ = 0.5, α₃ = 0.3, α₄ = 1.5）：</p>
+<div class="code-block">E[R|VERIFY] − v = 0.95 × 1.0 + 0.05 × (−1.5) − 0.2 = 0.675
+E[R|SKIP] = 0.8 × 0.5 + 0.2 × (−0.3) = 0.34
+Δu_immediate = 0.335 &gt; 0</div>
+<p>由于 ΔF &gt; 0 严格成立（诚实智能体积累信誉更快），总效用差 Δu &gt; 0.335 &gt; 0。□</p>
+<p>临界验证成本阈值为 v_critical = 0.535。只要验证的计算成本低于此界，搭便车即为严格被占优策略。</p>
+<h3>C. 定理2：置信度如实报告的激励相容性</h3>
+<p><strong>定理。</strong> 在alignment评分机制下，对于错误率 pᵢ &lt; 1/(1 + (α₄−α₃)/(α₁−α₂)) 的任意智能体，如实报告置信度 cᵢ = 1−pᵢ 最大化期望奖励。</p>
+<p><strong>证明。</strong> 准确率 1−pᵢ &gt; 0.7 的智能体在报告高置信度（c &gt; 0.7，如实）与低置信度（c ≤ 0.7，虚报）之间选择：</p>
+<div class="code-block">Δ = E[R|c&gt;0.7] − E[R|c≤0.7] = (1−pᵢ)(α₁−α₂) − pᵢ(α₄−α₃)</div>
+<p>当 (1−pᵢ)/pᵢ &gt; (α₄−α₃)/(α₁−α₂) 时为正。代入参数：</p>
+<div class="code-block">(α₄−α₃)/(α₁−α₂) = 1.2/0.5 = 2.4</div>
+<p>条件变为 pᵢ &lt; 1/3.4 ≈ 0.294，对所有合格智能体（准确率 &gt; 70%）成立。</p>
+<p>对称地，准确率 1−pᵢ ≤ 0.7 的智能体发现虚报高置信度（报告 c &gt; 0.7）的期望收益为负，因为过度自信错误的重罚α₄超过了α₁带来的收益。</p>
+<p>该机制实现了贝叶斯激励相容性：每个智能体的最优报告反映其真实验证准确率。惩罚比率 α₄/α₃ = 5 是关键设计参数——它使过度自信的虚报成为高方差赌博，只有真正准确的智能体才能从中获利。□</p>
+<h3>D. 定理3：贿赂攻击的经济不可持续性</h3>
+<p><strong>定理。</strong> 设B为外部贿赂金额。理性智能体在 B &lt; B_threshold 时拒绝贿赂，其中：</p>
+<div class="code-block">B_threshold = α₄ × λ_r + π × δ/(1−δ) × ΔP_sel + 0.5 × P_sel × π × k_obs</div>
+<p>ΔP_sel为信誉损失导致的选择概率下降，k_obs为观察期长度。</p>
+<p><strong>证明。</strong> 接受贿赂并错误投票的智能体承受：</p>
+<ol><li>即时信誉损失：−α₄ × λ_r（高置信度错误投票）</li><li>永久选择概率下降：ΔP_sel = Δrep / (N × rep_avg)</li><li>观察期惩罚（若异常检测触发）：选择概率减半持续k_obs个任务</li></ol>
+<p>代入参数（α₄ = 1.5, λ_r = 1.0, π = 10, δ = 0.95, N = 20, rep_avg = 0.7, k_obs = 10）：</p>
+<div class="code-block">Loss = 1.5 + 10 × 19 × 0.107 + 0.9 × 0.5 × 0.04 × 10 × 10 ≈ 23.8</div>
+<p>对n = 5的调用委员会成功攻击需贿赂至少 ⌈n/2⌉ = 3 个智能体，最低攻击成本：</p>
+<div class="code-block">Cost_attack ≥ 3 × B_threshold = 71.4（NORMAL任务）
+Cost_attack ≥ 4 × B_threshold × 1.5 = 142.8（CRITICAL任务，λ_r = 1.5）</div>
+<p>风险分级机制通过增大λ_r自动提升高价值任务的经济安全性。□</p>
+<h3>E. 联盟抵抗性</h3>
+<p><strong>定理。</strong> k个智能体的联盟攻击成功概率的上界为 O(N^{−k}) × P(权重条件满足)，其中N为智能体池大小。</p>
+<p><strong>证明概要。</strong> 联盟攻击需要三个条件同时满足：</p>
+<p>(1) <em>共同入选</em>：k个串通智能体必须被选入同一组。在VRF选择和组织约束下：</p>
+<div class="code-block">P(k agents co-selected) ≤ C(N−k, n−k) / C(N, n) × (组织约束因子)</div>
+<p>对于k = 3, N = 20, n = 5：P ≈ 0.009。</p>
+<p>(2) <em>权重充足</em>：联盟的聚合权重必须超过阈值。在 rep_max/rep_min = 2 的约束下，k = 2的联盟需要 rep_c/rep_h ≥ 2.8，超出信誉上限。k = 3的联盟需要 rep_c/rep_h ≥ 1.24，可实现但受约束。</p>
+<p>(3) <em>逃避检测</em>：共谋检测机制监控争议任务上的成对条件相关性。经过约 m = 50 次争议任务的共同参与后，真正串通的智能体检测概率趋近于1（实测见第 VIII-D.4 节）。</p>
+<p>k = 3时的综合概率：P ≈ 0.009 × 0.3 × 0.001 ≈ 2.7 × 10⁻⁶/任务。□</p>
+<h3>F. 均衡刻画</h3>
+<p><strong>主定理（激励相容性）。</strong> 在参数条件满足时：</p>
+<ul><li>(C1) v &lt; v_critical（验证成本有界）</li><li>(C2) (α₄−α₃)/(α₁−α₂) &lt; (1−p_max)/p_max（惩罚比率匹配准确率门槛）</li><li>(C3) B_threshold &gt; W/⌈n/2⌉ 对所有任务价值W成立（经济安全性）</li><li>(C4) rep_max/rep_min ≤ (n−f)×c_min×(1−θ)/(f×θ)（信誉上限保证阈值有效性）</li></ul>
+<p>置信度加权聚合机制满足：</p>
+<ol><li><strong>占优策略激励相容(DSIC)</strong>：诚实验证并如实报告置信度是每个智能体的占优策略，独立于其他智能体的策略选择。</li><li><strong>个体理性(IR)</strong>：参与验证的期望效用严格为正（E[u|H] &gt; 0）。</li><li><strong>k-联盟防护</strong>：联盟攻击成功概率 ≤ O(N^{−k})/任务。</li><li><strong>经济安全性</strong>：攻击成本随调用委员会规模和任务风险等级线性增长。</li><li><strong>动态稳定性</strong>：在重复博弈中，信誉机制作为内嵌触发策略，在单阶段激励之上进一步强化诚实均衡。</li></ol>
+<p>性质5源于重复博弈的Folk Theorem：由于诚实验证已是阶段博弈的占优策略（定理1），基于信誉的未来收益使均衡的稳定性严格增强。异常检测机制实现了自动惩罚触发，无需诚实智能体之间的显式协调。</p>
+<hr>
+<h2>VI. 安全性分析</h2>
+<p>上述博弈论结果建立了理性智能体的激励相容性。本节针对最坏情况（非理性）对手的残余安全性质进行分析。需重申第 III-B 节的安全边界：协议不判定语义真值，本节的&quot;安全性&quot;指<em>错误链下输出被合约接受的概率被降低</em>，而非语义结果被证明为真。</p>
+<h3>A. 安全性：错误输出被接受的条件</h3>
+<p>由第 V-B 节的共识安全性定理：在阈值 θ = 0.70 且信誉比受 2 约束的条件下，协议在 n = 5 的委员会中容忍 f = 2 个 Byzantine 智能体。加权聚合确保即使恶意智能体具有最高信誉并报告 confidence = 1.0，诚实多数的聚合权重仍超过阈值——即错误输出（伪造接受）越线被合约接受需要恶意权重突破 θ，该条件由第 VI-F 节的解析模型量化。</p>
+<h3>B. 抗集中化：组织、模型与 provider 约束</h3>
+<p>抗集中化分三个层面。其一，<em>抗 Sybil</em>：智能体注册需要组织背书，协调合约强制执行每组织智能体数量上限，VRF 选择配合同组织 ≤ ⌊n/3⌋ 的约束确保攻破单个组织无法主导任何调用委员会。其二，<em>抗模型/provider 相关失败</em>：仅约束组织并不足够——若不同组织的智能体调用同一 LLM 模型或同一 provider，其错误高度相关，可形成&quot;看似独立的多数&quot;绕过聚合容错；协议据此在选组时进一步强制 model_id_hash 维度的后端异构性（第 VIII 节实测该相关失败效应及约束收益）。其三，<em>抗委员会集中化</em>：VRF 每任务重选委员会，避免高信誉智能体长期垄断选择，将权力集中风险从单一中继转移并稀释，而非简单平移到固定 agent 委员会。</p>
+<h3>C. Commit-Reveal安全性</h3>
+<p>commit-reveal协议消除两类攻击向量：</p>
+<ul><li><strong>从众攻击</strong>：智能体在提交承诺前无法观察他人判断，消除了不经独立验证而复制的动机。</li><li><strong>沉默攻击</strong>：超时惩罚（−α₅ = −2.0）严格优于扣留揭示，因其超过错误揭示的最坏情况惩罚（−α₄ = −1.5）。</li></ul>
+<h3>D. 证据完整性</h3>
+<p>证据完整性依赖于源链的确定性终局性。双收集者设计要求攻击者同时攻破来自不同组织的两个独立收集者才能伪造证据。</p>
+<h3>E. 活性</h3>
+<p>协议通过每个阶段的显式超时保证终止。状态机无循环。最坏情况路径长度满足：</p>
+<div class="code-block">T_worst = T_collect + T_retry + T_commit + T_reveal + T_arbitrate ≤ T_global = 90s</div>
+<h3>F. 共识安全性的解析模型</h3>
+<p>本节为第 VI-A 节引用的共识安全性提供解析依据，并刻画误受概率随组规模与误差率的衰减。考虑 ground-truth 为 REJECT 的任务（误受即在此类任务上错误输出 CONFIRMED；对 ground-truth 为 ACCEPT 的情形对称地给出漏报界）。令组内归一化权重 Σ_i w_i = 1，恶意智能体占总权重 W_m、诚实智能体占 W_h = 1 − W_m。定义加权 ACCEPT 份额 S_A = Σ_i w_i·X_i，其中恶意智能体取 X_i = 1（伪造接受），诚实智能体以其语义误差率 p 独立取 X_i = 1。由式(2)(3)，误受当且仅当 S_A ≥ θ。</p>
+<p><strong>命题1（确定性层，p = 0）。</strong> 在密码/结构预验证层，诚实智能体误差为 0，故 E[S_A] = W_m，误受 ⟺ W_m ≥ θ。当组内恶意数 f ≤ ⌊(n−1)/2⌋ 且阈值满足式(4)时，最坏情况恶意权重</p>
+<div class="code-block">W_m = f·w_max / (f·w_max + (n−f)·w_min) &lt; θ</div>
+<p>因而误受概率为 0，落入未决区间的分歧任务转入仲裁。该命题即式(4)的安全性表述。</p>
+<p><strong>命题2（概率语义层，p &gt; 0）。</strong> 诚实智能体独立以概率 p 误判时，S_A 的均值与方差为</p>
+<div class="code-block">E[S_A]   = W_m + p·W_h
+Var[S_A] = p(1−p)·Σ_{i∈honest} w_i²</div>
+<p>当组规模 n 较大时，由中心极限定理 S_A 近似正态，误受概率有闭式近似</p>
+<div class="code-block">P_fa ≈ 1 − Φ( (θ − W_m − p·W_h) / sqrt( p(1−p)·Σ_{i∈honest} w_i² ) )          (7)</div>
+<p>其中 Φ 为标准正态分布的 CDF。式(7)与 [3] 的加权聚合成功率推导同构，但将“恶意权重 W_m”与“诚实语义误差 p”显式分离，从而同时刻画对抗误差与噪声误差两类来源。由此得安全设计条件 θ &gt; W_m + p·W_h：阈值须同时压过恶意权重与诚实误差的期望贡献；当 p → 0 时退化为命题1的条件 θ &gt; W_m。</p>
+<p><strong>推论1（指数可靠性）。</strong> 在等权近似 w_i ≈ 1/n 下，误受需至少 ⌈θn⌉ − f 个诚实智能体同时误判，故</p>
+<div class="code-block">P_fa ≤ C(n−f, ⌈θn⌉−f) · p^{⌈θn⌉−f} = O( p^{⌈θn⌉−f} )                          (8)</div>
+<p>误受概率随组规模 n 指数衰减。与等权多数的 O(p^{⌈n/2⌉})（即 [5] 的结果）相比，加权阈值 θ &gt; 1/2 将指数从 ⌈n/2⌉ 提升至 ⌈θn⌉ − f，在相同 n 下提供更强的安全余量。例如 n = 5, θ = 0.70, f = 1 时本方案为 O(p³)，而等权多数仅为 O(p²)。</p>
+<p><strong>推论2（仲裁的乘性增益）。</strong> 当 S_A 落入 (1−θ, θ) 对应的未决区间时，任务升级至独立仲裁组（k = 5，更高信誉，θ_arb = 0.75）。仲裁判断与线调用委员会的误差相互独立，故端到端残余误受概率为二者之积，量级</p>
+<div class="code-block">O( p^{⌈θn⌉−f} · p_arb^{⌈θ_arb·k⌉−f_arb} )</div>
+<p>远低于任一单层。</p>
+<p><strong>与实测的一致性。</strong> 第 VIII-D.2/D.3 节在概率语义层实测的 false-accept（本方案较各基线低约一个数量级）与式(7)(8)预测的指数压制相符；推论2的乘性增益对应 D.3 消融中“关闭仲裁后正确率由 95.9% 跌至 15.9%”的结果。</p>
+<h3>G. 可问责性</h3>
+<p>每条链下输出 J_i 携带 agent_signature_i，并经 evidence_hash_i 绑定到具体证据快照、经 reason_hash_i 绑定到推理解释、经 model_id_hash_i 绑定到所用模型来源。所有承诺、揭示与签名均落账于协调合约，因此每个智能体的判断都<em>可签名归属、可事后审计</em>：监管方或受损方可在 challenge_window 内凭冲突证据或失败的密码学重验对某条输出发起挑战并触发仲裁，事后亦可据签名记录追责并调整信誉。可问责性是本协议相对单一中继/预言机的关键区别——后者一旦出错无独立归因手段。</p>
+<h3>H. 固有边界：语义不可完全验证</h3>
+<p>需将一项边界显式列为协议的 limitation：链上合约无法判定 LLM 语义推理是否<em>绝对正确</em>。协议提供的是在给定恶意比例、组织/模型异构约束、信誉边界与仲裁机制下，对错误链下输出的概率性抑制与可问责消费，而非语义真值的密码学证明。因此存在两类不可消除的残余风险：(1) 当诚实智能体因任务本身困难而<em>相关地</em>误判（超出 model_id_hash 异构约束的覆盖），聚合可能整体偏离真值；(2) 对于确定性密码层无法判定、且语义上本质歧义的查询，协议只能给出基于多智能体聚合的最优估计而非真值裁定。这些边界划清了当前协议的能力范围，也界定了第 IX 节所述未来工作（更强的相关失败模型与置信度校准）的目标。</p>
+<hr>
+<h2>VII. 性能分析</h2>
+<h3>A. 延迟模型</h3>
+<p>端到端延迟取决于任务所遵循的执行路径：</p>
+<p><strong>乐观路径</strong>（无分歧，估计占75%的任务）：</p>
+<div class="code-block">L_opt = T_evidence + T_verify + T_consensus
+      ≈ 3s + 4s + 1s = 8s</div>
+<p><strong>仲裁路径</strong>（分歧或异常，估计占20%的任务）：</p>
+<div class="code-block">L_arb = L_opt + T_arbiter_verify + T_arbiter_consensus
+      ≈ 8s + 10s + 3s = 21s</div>
+<p><strong>期望延迟：</strong></p>
+<div class="code-block">E[L] = 0.75 × 8 + 0.20 × 21 + 0.05 × 90 ≈ 14.7s</div>
+<h3>B. 吞吐量</h3>
+<p>吞吐量受智能体池容量约束。设智能体池大小为N，每个智能体最大并发负载为L_max，组大小为n，则最大并发任务数为N × L_max / n。对于N = 30, L_max = 3, n = 5，系统支持最多18个并发任务；按乐观路径8s与仲裁路径21s的混合期望服务延迟（约11.25s）估算，产生约1.6 tasks/second的持续吞吐量（与第 VIII-D.5 节实测一致；注：此处以非超时路径的服务延迟为基准，区别于第 VII-A 节含超时路径的端到端期望延迟 E[L]）。</p>
+<h3>C. 通信与存储开销</h3>
+<p>每个任务的链上交易数：2n + 3（乐观路径）或2n + 2k + 4（仲裁路径）。对于n = 5：分别为13或23笔交易。</p>
+<p>每个任务的链上存储：约1.1 KB。链下存储（哈希锚定）：5-50 KB，取决于证据复杂度。</p>
+<p><strong>通信复杂度。</strong> 智能体不进行点对点全连接协商，而是各自仅与协调合约交互（星形拓扑），每任务链上交易数为 2n + 3（乐观路径）或 2n + 2k + 4（仲裁路径），因此通信复杂度为 O(n)（仲裁路径 O(n + k)）。作为对比：单一中继为 O(1) 但无容错；等权委员会与标准 PBFT 因 follower 间两两广播达到 O(n²)；leader–follower 式加权 BFT（如 [3] 的 WBFT，将通信限制在 leader 与 follower 之间）降至 O(n)（其经分层聚类后为 O(K)）。本方案在维持 O(n) 通信的同时，以协调合约充当可信链上聚合点，免去了 PBFT 的视图切换与 follower 间洪泛广播。</p>
+<h3>D. 与基线方案的比较</h3>
+<p>下表容错与延迟为分析模型值,正确率/误受率为<strong>实测值</strong>(真智能体实验,见第 VIII 节;n = 5,always-approve 伪造接受攻击,30 trials × 10 tasks)。</p>
+<p><strong>表 1. 各方案的容错/延迟(分析模型)与拜占庭攻击下正确率(实测,n = 5)对比。</strong></p>
+<table>
+<thead><tr>
+<th>指标</th>
+<th>单一中继</th>
+<th>等权委员会</th>
+<th>PBFT(2f+1)</th>
+<th>加权BFT(≥⅔权重)</th>
+<th>本方案</th>
+</tr></thead>
+<tbody>
+<tr><td>线委员会容错(理论)</td><td>0</td><td>⌊(n−1)/3⌋</td><td>⌊(n−1)/3⌋</td><td>&lt; ⅓ 权重</td><td>⌊(n−1)/2⌋ + 仲裁升级</td></tr>
+<tr><td>乐观延迟(模型)</td><td>3s</td><td>5s</td><td>5s</td><td>5s</td><td>8s</td></tr>
+<tr><td>攻击下延迟(模型)</td><td>无界</td><td>15–30s</td><td>15–30s</td><td>超时(无仲裁)</td><td>21s</td></tr>
+<tr><td><strong>40% 拜占庭正确率(实测)</strong></td><td>80%</td><td>100%</td><td>100%</td><td>50%</td><td><strong>100%</strong></td></tr>
+<tr><td><strong>60% 拜占庭正确率(实测)</strong></td><td>70%</td><td>50%</td><td>50%</td><td>50%</td><td><strong>100%</strong></td></tr>
+<tr><td><strong>60% 拜占庭误受率(实测)</strong></td><td>30%</td><td>50%</td><td>50%</td><td><strong>0%</strong></td><td><strong>0%</strong></td></tr>
+<tr><td>可审计性</td><td>无</td><td>部分</td><td>部分</td><td>部分</td><td>完全</td></tr>
+<tr><td>自适应信任</td><td>否</td><td>否</td><td>否</td><td>部分(仅权重)</td><td>是</td></tr>
+</tbody>
+</table>
+<p>关键观察:当拜占庭智能体在线委员会中占据多数(60%),等权委员会与 PBFT 因伪造证据获得多数票而彻底沦陷(误受率 50%);本方案凭借阈值 θ 阻止恶意多数越过共识线,转入仲裁路径由诚实仲裁组裁决,维持 100% 正确率与 0% 误受率(配对检验 +50pp,95% CI [50, 50],p &lt; 0.01)。加权BFT 因 ⅔ 法定人数严于简单多数,即使 60% 恶意也不被伪造证据攻破(误受率 0%),在安全性上与本方案一致;但它以活性为代价:一旦出现分歧无法凑齐 ⅔ 权重即停滞于未决态(无结果),故 40%/60% 恶意下正确率仅 50%——这正是本方案以仲裁升级所弥补的缺口。</p>
+<hr>
+<h2>VIII. 实验评估</h2>
+<h3>A. 实现与配置</h3>
+<p>我们实现了完整的原型系统：</p>
+<ul><li><strong>源链：</strong> Hyperledger Fabric v2.5（4个组织，Peer 节点，Raft 排序服务）</li><li><strong>目标链：</strong> FISCO-BCOS v3.x（PBFT 共识）</li><li><strong>协调与轻客户端合约：</strong> 部署在 FISCO-BCOS 上的 Solidity 合约（<span class="code-inline">GatewayAir</span>/<span class="code-inline">LightClientAir</span>）；Fabric 侧为 JavaScript 链码（<span class="code-inline">gateway_cc</span>）。</li><li><strong>智能体与协商层：</strong> Node.js 实现，含验证智能体（A/B/C 三类策略）、双收集者、VRF 委员会选择、commit-reveal、<span class="code-inline">rep×confidence</span> 加权聚合、信誉更新、行为分析与仲裁组（<span class="code-inline">demo/agents/</span>、<span class="code-inline">demo/negotiation/</span>）。</li><li><strong>跨链闭环：</strong> FISCO→Fabric→FISCO 端到端查询已实测跑通（含三段链上交易回执）。</li></ul>
+<p><strong>评估采用双层方法</strong>，以兼顾外部效度与规模：</p>
+<ol><li><strong>真智能体实验</strong>：直接驱动实际的 <span class="code-inline">VerifierAgent</span> 验证逻辑产生每一条判断，注入真实对抗行为（always-approve、silent 等），由真实仲裁智能体执行仲裁。所有基线消费同一批真实判断。该层度量共识对拜占庭的鲁棒性（确定性密码学/结构验证层）。</li><li><strong>蒙特卡洛仿真</strong>：在更大规模与概率性语义层（诚实智能体带误差率 pᵢ）下扫描参数,给出统计曲线与配对显著性。语义层误差率 pᵢ 与置信度分布<strong>通过对真实 LLM 后端的标注证据基准校准获得</strong>:我们构造含 1 类合法证据与 5 类篡改（密码失败、缺交易哈希、缺载荷、高度越界、载荷不符）的标注基准,经生产验证路径运行于 NVIDIA RTX 4090 上的 llama3.1:8b 后端。校准遵循双层架构——确定性层(A 类型)对密码/结构类篡改实现 <strong>100% 拦截(误差 0)</strong>,语义层(C 类型)仅对结构完整的证据做业务一致性推理,实测误差极低(20 个语义样本零误判,点估计 0)。鉴于小样本的零误判不足以支撑&quot;零误差&quot;断言(0/20 的 95% 置信上界约 15%),且实际部署面临更难、更多样的语义场景,<strong>本文不采用该乐观下界,而保守取代表值 pᵢ = 0.12(落在实测 95% 置信区间内)进行主评估</strong>:D.2 即在此值下报告,D.7 进一步扫描 pᵢ ∈ [0.05, 0.2] 验证鲁棒性。即真实校准的作用不是把 pᵢ 压到 0,而是<strong>证明 0.12 是一个有实测支撑的保守取值</strong>。校准结果归档于 <span class="code-inline">demo/experiments/calibration/calibration.json</span>。需补充的是,在<em>刻意构造的困难语义子集</em>(数值/时序边界等)上,8B 级模型的实测误差可高达 <strong>20–32%</strong>(第 VIII-D.12/D.13 节),且这些误差在同模型间<em>相关</em>;因此 pᵢ=0.12 是&quot;简单/结构完整证据 ~0&quot;与&quot;困难案例 0.2–0.3&quot;之间的代表值,D.13 进一步用真实判断直接驱动语义层,给出不依赖 pᵢ 建模假设的真实数据对照。</li></ol>
+<p>所有结果以固定随机种子、记录 git 提交与原始 JSON 归档,可一键复跑。</p>
+<h3>B. 评估场景</h3>
+<p><strong>场景1（基线性能）：</strong> 所有智能体诚实。在不同任务到达率（0.1-2.0 tasks/s）下测量延迟分布和吞吐量。</p>
+<p><strong>场景2（Byzantine验证者）：</strong> 恶意智能体无论证据如何始终投票ACCEPT（伪造接受攻击）。变化恶意比例：20%、40%、60%（含恶意占线委员会多数）。</p>
+<p><strong>场景3（策略性对手）：</strong> 智能体在50个任务中诚实行为，然后发动攻击。测量检测延迟和正确性退化窗口。</p>
+<p><strong>场景4（串通）：</strong> 来自不同组织的两个智能体协调投票。在100个任务中测量检测有效性。</p>
+<p><strong>场景5（沉默攻击）：</strong> 智能体提交承诺但扣留揭示。测量延迟影响和系统恢复。</p>
+<h3>C. 基线方案</h3>
+<ol><li>单一中继（无共识）（B0）</li><li>等权多数投票（n = 5，无信誉）（B1）</li><li>标准PBFT风格共识（2f + 1一致）（B2）</li><li>仅信誉加权投票（B3）：以 rep_i 加权的简单多数（无置信度加权、无风险自适应阈值、无仲裁升级），用以隔离信誉单因子的贡献。</li><li>仅置信度加权投票（B6）：以 conf_i 加权的简单多数（无信誉、无仲裁升级），用以隔离置信度单因子的贡献。</li><li>基于权重的BFT共识（B4）（信誉/权益加权的拜占庭法定人数,某一侧须获得 ≥ ⌈2/3⌉ 总权重方可终结,弃权计入分母;容忍 &lt; 1/3 拜占庭权重）。该基线较 PBFT 增加了按信誉加权,但相对本方案缺少置信度加权、风险自适应阈值与仲裁升级,用以隔离上述三者的贡献。</li><li>静态公证委员会（B5，固定 M-of-N、不轮换，见 D.10）与 CP-WBFT 适配的置信度探针（B7，见 D.9）。</li></ol>
+<p>其中 B3/B6/B4 三个加权基线与本方案消费同一批真实判断,共同隔离&quot;信誉加权&quot;&quot;置信度加权&quot;&quot;rep×conf 联合 + 仲裁升级&quot;各自的贡献(B3/B6 见 D.1,B4 见 D.1/D.2)。</p>
+<h3>D. 实验结果</h3>
+<p>所有正确率/误受率均为实测值。配对比较中,各方法消费同一批智能体判断;显著性以配对 bootstrap95% 置信区间与符号检验报告。本节实测覆盖全部五个评估场景——场景 1(D.5)、场景 2(伪造接受 D.1 / 伪造拒绝 D.14)、场景 3 与场景 4(D.4)、场景 5(D.6),并补充参数敏感性(D.7)、激励相容的经验验证(D.8)与分阶段延迟分解(D.15)。其中端到端延迟为第 VII 节的分析模型,各阶段链下计算开销、链上锚定与验证层吞吐为实测。</p>
+<h4>D.1 真智能体拜占庭鲁棒性</h4>
+<p>直接驱动实际验证逻辑,恶意智能体执行 always-approve 伪造接受攻击(n = 5,30 trials × 10 tasks);正确率与误受率随恶意比例的变化如图 4 所示。本组结果由 <span class="code-inline">scripts/run_real_agent_experiment.js --sweep</span> 实测产生,并归档于 <span class="code-inline">demo/experiments/real_agent_results.json</span>(含 0/20/40/60% 恶意比例下各方法的配对 95% 置信区间与符号检验 p 值),可一键复跑。</p>
+<p><strong>表 2. 真智能体拜占庭鲁棒性实测:正确率与误受率随恶意比例变化(n = 5,30 trials × 10 tasks)。</strong></p>
+<table>
+<thead><tr>
+<th>恶意比例</th>
+<th>单一中继</th>
+<th>等权委员会</th>
+<th>PBFT</th>
+<th>加权BFT(≥⅔权重)</th>
+<th>本方案</th>
+</tr></thead>
+<tbody>
+<tr><td>20%</td><td>90.0%(误受 10%)</td><td>100%</td><td>100%</td><td>100%(误受 0%)</td><td><strong>100%（误受 0%）</strong></td></tr>
+<tr><td>40%</td><td>80.0%(误受 20%)</td><td>100%</td><td>100%</td><td>50.0%(误受 0%，停滞)</td><td><strong>100%（误受 0%，升级 50%）</strong></td></tr>
+<tr><td>60%(恶意占多数)</td><td>70.0%(误受 30%)</td><td><strong>50.0%（误受 50%）</strong></td><td><strong>50.0%（误受 50%）</strong></td><td>50.0%(误受 0%，停滞)</td><td><strong>100%（误受 0%，升级 50%）</strong></td></tr>
+</tbody>
+</table>
+<p>在拜占庭智能体占线委员会多数(60%)时,等权委员会与 PBFT 均因伪造证据获得多数票而被攻破(误受率 50%);本方案的阈值机制阻止恶意多数越线,转入仲裁路径维持 100% 正确率与 0% 误受率。<strong>本方案 vs 等权委员会:+50.0pp,95% CI [50.0, 50.0],p &lt; 0.01。</strong> 加权BFT 因 ⅔ 法定人数严于简单多数,即使 60% 恶意也从不接受伪造证据(误受率始终 0%,与本方案一致);但其代价是活性——当恶意制造分歧使任一侧均无法凑齐 ⅔ 权重时即停滞于未决态(无可用结果),致 40%/60% 恶意下正确率仅 50%。<strong>本方案 vs 加权BFT:40% 与 60% 恶意下均 +50.0pp,95% CI [50.0, 50.0],p &lt; 0.01</strong>,差距完全来自本方案的仲裁升级将停滞任务裁决为正确结果。当恶意智能体仍为少数(≤ 40%),诚实多数使各共识方案均正确(加权BFT 在 40% 时已开始停滞),差异由单一中继的无共识缺陷体现。</p>
+<p><strong>单因子加权基线(B3 仅信誉 / B6 仅置信度)。</strong> 为隔离 rep×conf <em>联合</em>加权与仲裁升级的贡献,我们在同一批真实判断上加入两个单因子加权基线(表 2b)。二者与加权BFT(B4)表现一致:<strong>安全(误受率始终 0%),但缺乏活性</strong>——≥40% 恶意制造分歧时,单因子加权比率落入未决带却无仲裁化解,只能停滞于 OBSERVE,正确率跌至 50%。值得注意的是,在 40% 恶意下单因子加权(50%)反而<em>劣于</em>等权多数(100%):加权本身并不提升正确率,真正把停滞任务裁决为正确结果的是仲裁升级。这定量印证:本方案的正确率优势来自&quot;rep×conf 联合加权 + 仲裁升级&quot;的协同,而非任一单因子加权(与 D.3 消融一致)。</p>
+<p><strong>表 2b. 单因子加权基线 vs 本方案(伪造接受攻击,n = 5,30 trials × 10 tasks;正确率/误受率)。</strong></p>
+<table>
+<thead><tr>
+<th>恶意比例</th>
+<th>仅信誉(B3)</th>
+<th>仅置信度(B6)</th>
+<th>加权BFT(B4)</th>
+<th>本方案</th>
+</tr></thead>
+<tbody>
+<tr><td>20%</td><td>100% / 0%</td><td>100% / 0%</td><td>100% / 0%</td><td><strong>100% / 0%</strong></td></tr>
+<tr><td>40%</td><td>50% / 0%(停滞)</td><td>50% / 0%(停滞)</td><td>50% / 0%(停滞)</td><td><strong>100% / 0%（升级）</strong></td></tr>
+<tr><td>60%</td><td>50% / 0%(停滞)</td><td>50% / 0%(停滞)</td><td>50% / 0%(停滞)</td><td><strong>100% / 0%（升级）</strong></td></tr>
+</tbody>
+</table>
+<p><img alt="真智能体拜占庭鲁棒性" src="figures/fig_real_agent_byzantine.png"></p>
+<p><strong>图 4.</strong> 真智能体拜占庭鲁棒性(n = 5,always-approve 伪造接受攻击)。(a) 查询正确率随恶意比例变化;(b) 伪造证据被接受的误受率。越过恶意多数线(50%)后,等权委员会与 PBFT 因伪造证据获得多数票而沦陷(正确率 50%、误受率 50%),本方案凭借阈值机制 + 仲裁升级维持 100% 正确率与 0% 误受率。加权BFT(紫色)误受率始终为 0,但因 ⅔ 法定人数在分歧下无法终结而停滞(40%/60% 恶意下正确率仅 50%)。</p>
+<h4>D.2 概率性语义层下的容错(仿真)</h4>
+<p>引入诚实智能体误差率 pᵢ(语义推理的概率特性)后,在 40% 恶意、n = 5、新信誉条件下:本节仿真假设诚实误差<em>相互独立</em>并取保守代表值 pᵢ=0.12,因此所报数字(误受 1.8%、正确率约 96%)对应<em>独立误差区间</em>;第 VIII-D.13 节给出其真实数据对照——当诚实误差为实测的高且<em>相关</em>取值时画像更严酷,但协议相对基线的安全优势依旧成立。</p>
+<p><strong>表 3. 概率性语义层下 40% 拜占庭的实测对比(仿真,n = 5,诚实误差 pᵢ)。</strong></p>
+<table>
+<thead><tr>
+<th>方法</th>
+<th>正确率</th>
+<th>误受率</th>
+<th>升级率</th>
+<th>平均延迟(模型)</th>
+</tr></thead>
+<tbody>
+<tr><td><strong>本方案</strong></td><td><strong>95.9% ± 0.6%</strong></td><td><strong>1.8%</strong></td><td>80.7%</td><td>18.9s</td></tr>
+<tr><td>等权委员会 / PBFT</td><td>67.8% ± 1.4%</td><td>16.3%</td><td>—</td><td>8.0s</td></tr>
+<tr><td>加权BFT(≥⅔权重)</td><td>0.0% ± 0.0%</td><td>1.8%</td><td>—</td><td>8.0s</td></tr>
+<tr><td>单一中继</td><td>52.5% ± 1.7%</td><td>23.8%</td><td>—</td><td>8.0s</td></tr>
+</tbody>
+</table>
+<p><strong>本方案 vs 等权委员会:+28.0pp,95% CI [26.6, 29.4],p &lt; 0.01,Cohen&#x27;s d = 2.75。</strong> 该结果复现了&quot;40% 拜占庭下正确率约 96%,显著高于等权投票约 68%&quot;的设计目标,并将误受率从 16.3% 降至 1.8%(图 5)。加权BFT 在该新信誉(冷启动)场景下完全停滞(正确率 0%):40% 的对抗+弃权权重使其 ⅔ 法定人数永远无法凑齐——这正是经典 BFT 在故障权重逼近其 &lt; ⅓ 容忍上界时的安全优先失活行为(误受率仍仅 1.8%,安全性保持)。<strong>本方案 vs 加权BFT:+95.9pp,95% CI [95.3, 96.4],p &lt; 0.01,Cohen&#x27;s d = 22.4。</strong> 需要说明,加权BFT 并非始终失活:在信誉随重复任务成熟的序列设定(30% 恶意,n = 7)下,恶意权重被压低后其正确率回升至 <strong>88.0%</strong>、误受率 0.2%,但仍显著低于本方案的 99.8%——加权赋予了它安全性,却因缺少置信度加权与仲裁升级而在正确率与冷启动活性上受限。</p>
+<p><img alt="仿真语义层下的容错" src="figures/fig_sim_semantic.png"></p>
+<p><strong>图 5.</strong> 概率性语义层下的对比(仿真,40% 恶意,诚实智能体带误差率 pᵢ)。(a) 查询正确率;(b) 误受率。本方案经置信度加权聚合 + 仲裁升级,正确率约 96%、误受率 1.8%,显著优于等权委员会/PBFT(67.8% / 16.3%)与单一中继(52.5% / 23.8%);加权BFT 在冷启动信誉下停滞(正确率 0%、误受率 1.8%),体现其安全优先但缺乏仲裁的活性短板。</p>
+<p>随着信誉在重复任务中演化(序列设定,30% 恶意,n = 7),本方案正确率升至 <strong>99.8%</strong>、误受率降至 <strong>0%</strong>,而升级率从 80.7% 降至 <strong>11.7%</strong>、平均延迟从 18.9s 降至 <strong>9.6s</strong>——共识机制学会区分诚实与恶意智能体后,仲裁开销随时间摊销。本方案 vs 纯信誉(无置信度)消融:+11.9pp,p &lt; 0.01。</p>
+<h4>D.3 消融:优势来源</h4>
+<p>关闭仲裁升级后,本方案正确率从 95.9% 跌至 15.9%(大量子阈值任务滞留于未决态),证明正确率优势来自&quot;置信度加权聚合 + 仲裁升级&quot;的协同,而非参数选择。安全性优势(误受率低一个数量级)则在所有设定下稳定成立,且不依赖信誉成熟。</p>
+<p>为进一步证明三项核心设计——<strong>策略异构性、VRF 加权轮换、commit-reveal</strong>——并非装饰,而是各自针对特定威胁不可或缺,我们对每项机制在其所防御的威胁情形下做&quot;开/关&quot;对照(其余条件不变,均采用生产的rep×conf 加权聚合聚合;为隔离单一机制,本组消融关闭仲裁)。三项实验各以 200 个随机种子 × 每种子 40个任务运行,差值报告配对自助法 95% 置信区间与符号检验(表 4;图 6)。</p>
+<p><strong>异构性 vs 相关错误。</strong> 在保持诚实智能体边际误差率 pᵢ 不变的前提下,将&quot;开&quot;(异构委员会,误差弱相关)与&quot;关&quot;(同质委员会,误差经共模分量强相关)对照。本组消融的相关系数取值并非凭空设定,而<strong>以第 VIII-D.12 节的真实双后端实测为锚</strong>:同模型智能体对的错误相关系数实测为 ρ ≈ 0.79、异模型为 ρ ≈ 0.44——可见真实异构能显著去相关但<em>不会</em>把 ρ 压到 0。据此我们以&quot;关&quot;= ρ = 0.85(强相关的保守上界,覆盖同模型/同 provider 的最坏情形)、&quot;开&quot;= ρ→0(异构理想下界)作两端包络对照。相关错误的真正危害在于尾部事件:整个委员会同向犯错并越过阈值 θ,酿成<strong>相关性误受</strong>。异构使误受率由 5.6% 降至 0.2%(约 28×,p &lt; 0.001);其代价是独立误差偶尔落在 θ 邻域而转入未决态(由仲裁化解,本隔离消融不计),故&quot;开&quot;的平均正确率反略低 1.0pp。这与本方案&quot;安全性优先&quot;的主线一致:异构的收益是降低相关误受,而非提高均值。</p>
+<p><strong>VRF 轮换 vs 串通共址。</strong> 候选池含 21 个智能体,其中 5 个为同组织、共址的串通块。&quot;开&quot;为每任务以 VRF加权随机重选委员会并强制同组织 ≤ ⌊n/3⌋ 约束;&quot;关&quot;为固定委员会且无组织约束(串通块永久占线、构成多数)。轮换将串通块限制为少数:正确率由 50.0% 升至 78.1%,误受率由 50.0% 降至 0.2%(p &lt; 0.001)。无轮换时串通多数每次都能强制伪造接受,这正是固定委员会方案的根本脆弱性。</p>
+<p><strong>commit-reveal vs 从众级联。</strong> &quot;关&quot;为顺序公开揭示:恶意智能体先行发声,诚实智能体以概率 0.6 跟随当前可见多数而非独立判断;&quot;开&quot;为密封提交,任何人在揭示前都无法观测他人。在无效任务上,恶意的早期 APPROVE经从众放大为级联,使误受率达 23.6%、正确率跌至 68.1%;密封提交切断观测信道,正确率恢复至 89.9%、误受率0.1%(p &lt; 0.001)。</p>
+<p><strong>表 4. P1 机制消融:各机制在其针对威胁下的开/关对照(n = 7,200 seeds × 40 tasks,差值 95% CI 均不含 0)。</strong></p>
+<table>
+<thead><tr>
+<th>机制(针对威胁)</th>
+<th>配置</th>
+<th>正确率</th>
+<th>误受率</th>
+<th>关键差值(开 vs 关)</th>
+</tr></thead>
+<tbody>
+<tr><td>异构性(相关错误)</td><td>开(ρ→0)</td><td>86.5%</td><td><strong>0.2%</strong></td><td>误受 −5.4pp(约 28×)</td></tr>
+<tr><td></td><td>关(ρ=0.85)</td><td>87.5%</td><td>5.6%</td><td></td></tr>
+<tr><td>VRF 轮换(串通共址)</td><td>开(轮换+组织约束)</td><td><strong>78.1%</strong></td><td><strong>0.2%</strong></td><td>正确 +28.1pp;误受 −49.8pp</td></tr>
+<tr><td></td><td>关(固定共址委员会)</td><td>50.0%</td><td>50.0%</td><td></td></tr>
+<tr><td>commit-reveal(从众级联)</td><td>开(密封)</td><td><strong>89.9%</strong></td><td><strong>0.1%</strong></td><td>正确 +21.8pp;误受 −23.5pp</td></tr>
+<tr><td></td><td>关(公开顺序揭示)</td><td>68.1%</td><td>23.6%</td><td></td></tr>
+</tbody>
+</table>
+<p><img alt="P1 机制消融" src="figures/fig_ablation.png"></p>
+<p><strong>图 6.</strong> P1 机制消融。每项核心机制在其针对的威胁情形下做开/关对照:(a) 查询正确率;(b) 误受率。三项机制各自显著降低对应威胁下的误受,VRF 轮换与 commit-reveal 同时大幅提升正确率;异构性的收益集中于安全性(相关误受由 5.6% 降至 0.2%)。数据由 <span class="code-inline">scripts/run_ablation_experiments.js</span> 实测复现。</p>
+<p><strong>确定性层消融:单层 vs 双层。</strong> 为验证双层分离(而非如文献[3]将全部验证交由 LLM 共识)的必要性,我们基于真实LLM 校准做对照。(a) <strong>双层</strong>(本方案):结构/密码类经确定性层前置拦截,语义层仅判业务一致性,实测诚实误差pᵢ ≈ 0(实测点,0/20)。(b) <strong>单层</strong>:取消确定性门控,所有篡改类(含密码失败、缺交易哈希、高度越界)一并交由 LLM 判定,实测llama3.1:8b 的 honestErrorRate 升至 <strong>0.5</strong>——8B 模型对本应由确定性手段判定的结构/密码类几乎全错。将二者分别代入加权聚合仿真(40% 恶意,n = 5,seeds = 200):双层下本方案维持 <strong>100%</strong> 正确率;单层下因 pᵢ = 0.5 越过Condorcet 阈值(个体准确率 &lt; 0.5 时多数聚合反而劣化),本方案跌至 <strong>13.7%</strong>,甚至低于单一中继(30.6%),等权多数亦仅 8.0%,共识机制整体失效(表 B)。这从经验上证明:<strong>语义共识必须建立在确定性预验证之上;将密码/结构验证混入 LLM 语义层(单层加权 BFT 式设计)会使共识崩溃</strong>,这是本方案双层架构相对单层加权 BFT[3] 的关键优势。</p>
+<p><strong>表 B. 单层 vs 双层架构对照(真实 LLM 校准 + 加权聚合仿真,40% 恶意,n = 5;为消融对照,不计入正文表序)。</strong></p>
+<table>
+<thead><tr>
+<th>架构</th>
+<th>语义层实测 pᵢ</th>
+<th>本方案正确率</th>
+<th>等权多数</th>
+<th>单一中继</th>
+</tr></thead>
+<tbody>
+<tr><td>双层(确定性门控 + 语义层)</td><td>≈0(实测点)</td><td><strong>100%</strong></td><td>100%</td><td>60.2%</td></tr>
+<tr><td>单层(全部交 LLM)</td><td>0.5</td><td><strong>13.7%</strong></td><td>8.0%</td><td>30.6%</td></tr>
+</tbody>
+</table>
+<h4>D.4 策略性对手与串通检测</h4>
+<p>以下两项由真实的信誉机制(<span class="code-inline">ReputationStore</span>)与行为分析器(<span class="code-inline">BehaviorAnalyzer</span>)驱动,而非仿真建模。</p>
+<p><strong>策略性对手(场景 3)。</strong> 一个智能体在前 50 个任务中诚实行为以积累信誉,随后发动 always-approve 攻击。由于过度自信的错误判断受 α₄ 重罚,该类对手被迅速压制(表 5):翻脸后平均 1.6 个任务其权重即低于诚实智能体中位数,异常方差信号在 1.5 个任务内触发,检测率 100%。单个策略性对手在 n = 7 委员会中始终被诚实多数压制,正确性退化窗口接近零。实测检测延迟远短于保守预期,因 always-approve 在无效任务上高置信度犯错。</p>
+<p><strong>表 5. 策略性对手翻脸后的检测延迟(n = 7,300 trials)。</strong></p>
+<table>
+<thead><tr>
+<th>检测信号</th>
+<th>检测率</th>
+<th>平均检测延迟(任务数)</th>
+</tr></thead>
+<tbody>
+<tr><td>异常方差(观察期触发)</td><td>100%</td><td>1.46</td></tr>
+<tr><td>权重低于诚实中位数</td><td>100%</td><td>1.63</td></tr>
+</tbody>
+</table>
+<p><strong>串通(场景 4)。</strong> 两个不同组织的智能体在争议任务上同步投票。真实行为分析器基于争议任务的投票相似度(阈值 0.9)检测;由于诚实智能体带独立误差,其两两相似度不达阈值,从而与串通者区分(表 6)。检测能力随任务流长度增强:50 个任务时真检出率 100%、误报率 3%;而 20–30 个任务窗口不足(真检出 ≤ 92%、误报高达21%)。这表明朴素的 m = 20 共同参与阈值偏乐观；据此本文将第 IV-H 节的串通检测窗口 m 设为约 50 个争议任务，方能稳健区分恶意串通与偶然一致——一个由实测暴露并据以修正协议参数的发现。</p>
+<p><strong>表 6. 串通检测随任务流长度的真检出率/误报率(2 个跨组织串通者,n = 7,300 trials)。</strong></p>
+<table>
+<thead><tr>
+<th>任务流长度</th>
+<th>真检出率</th>
+<th>误报率</th>
+</tr></thead>
+<tbody>
+<tr><td>10</td><td>0%</td><td>0%</td></tr>
+<tr><td>20</td><td>0%</td><td>0%</td></tr>
+<tr><td>30</td><td>92.3%</td><td>21.0%</td></tr>
+<tr><td>50</td><td>100%</td><td>3.0%</td></tr>
+</tbody>
+</table>
+<h4>D.5 吞吐与可扩展性(场景 1)</h4>
+<p>验证层为真实智能体计算(规则验证 + 加权聚合),每任务计算耗时实测约 5 μs、吞吐超过 2×10⁵ tasks/s——验证层远非瓶颈,端到端吞吐由链上确认延迟主导。在 N·L_max/n 并发模型下(L_max = 3,n = 5),最大并发任务数随智能体池规模线性增长,端到端吞吐(乐观 8s 与仲裁 21s 的混合期望延迟)随之线性提升(表 7),N = 30 时约 1.6 tasks/s。</p>
+<p><strong>表 7. 吞吐与并发(验证层计算为实测,端到端吞吐为延迟模型估计)。</strong></p>
+<table>
+<thead><tr>
+<th>池规模 N</th>
+<th>最大并发 ⌊N·L_max/n⌋</th>
+<th>计算吞吐(实测)</th>
+<th>端到端吞吐(模型)</th>
+</tr></thead>
+<tbody>
+<tr><td>10</td><td>6</td><td>~1.3×10⁵ tasks/s</td><td>0.53 tasks/s</td></tr>
+<tr><td>20</td><td>12</td><td>~1.9×10⁵ tasks/s</td><td>1.07 tasks/s</td></tr>
+<tr><td>30</td><td>18</td><td>~2.1×10⁵ tasks/s</td><td>1.60 tasks/s</td></tr>
+</tbody>
+</table>
+<h4>D.6 沉默攻击(场景 5)</h4>
+<p>部分智能体提交承诺但扣留揭示(silent 行为)。当有效揭示降至 ⌈n/2⌉+1 以下时,任务升级至仲裁。实测(n = 7,每组 40 任务 × 60 次重复)表明:各沉默比例下系统<strong>终结率与正确率均为 100%</strong>——揭示不足时由仲裁兜底(43% 沉默时 100% 升级),沉默智能体因 −α₅ 惩罚信誉迅速跌至下界(表 8)。即活性与正确性不受影响,而沉默行为被严厉惩罚。</p>
+<p><strong>表 8. 沉默攻击下的活性、仲裁恢复与沉默者信誉(n = 7)。</strong></p>
+<table>
+<thead><tr>
+<th>沉默比例</th>
+<th>终结率</th>
+<th>升级率</th>
+<th>正确率</th>
+<th>沉默者最终信誉</th>
+</tr></thead>
+<tbody>
+<tr><td>0%</td><td>100%</td><td>0%</td><td>100%</td><td>—</td></tr>
+<tr><td>14% (1)</td><td>100%</td><td>0%</td><td>100%</td><td>−10.0</td></tr>
+<tr><td>28% (2)</td><td>100%</td><td>0%</td><td>100%</td><td>−10.0</td></tr>
+<tr><td>43% (3)</td><td>100%</td><td>100%</td><td>100%</td><td>−10.0</td></tr>
+</tbody>
+</table>
+<h4>D.7 参数敏感性</h4>
+<p>在 40% 拜占庭、n = 5 下扫描关键参数(表 9)。共识阈值 θ ∈ {0.65, 0.70, 0.75} 下,本方案正确率稳定在95.7–96.5%、对等权委员会的优势稳定在约 +27pp 且始终显著;诚实误差率 pᵢ 由 5% 升至 20% 时,本方案正确率由 99.5% 缓降至 89.1%,而其对等权的优势反而由 +13pp 增至 +38pp——误差越大,加权聚合 + 仲裁的相对收益越显著。结论对参数不脆弱。</p>
+<p><strong>表 9. 参数敏感性(MA3C 正确率与对等权委员会的正确率差,40% 拜占庭,n = 5;所有 Δ 的 95% CI 均不含 0)。</strong></p>
+<table>
+<thead><tr>
+<th>扫描参数</th>
+<th>取值</th>
+<th>MA3C 正确率</th>
+<th>对等权 Δ</th>
+</tr></thead>
+<tbody>
+<tr><td>θ</td><td>0.65 / 0.70 / 0.75</td><td>96.0% / 95.7% / 96.5%</td><td>+27.3 / +27.0 / +27.8 pp</td></tr>
+<tr><td>pᵢ</td><td>0.05 / 0.10 / 0.15 / 0.20</td><td>99.5% / 97.0% / 93.5% / 89.1%</td><td>+13.3 / +23.8 / +31.3 / +38.1 pp</td></tr>
+</tbody>
+</table>
+<h4>D.8 激励相容的经验验证(定理 1–2)</h4>
+<p>以真实信誉对齐评分(第 IV-H 节,α₁…α₅)作为收益,在含一名搭便车者、一名过度自信者与一名恶意者的委员会中进行 300 任务重复博弈(60 次重复),收益扣除验证成本 v = 0.2。结果(表 10):<strong>诚实策略累计收益严格最高</strong>,显著优于搭便车(165.7 对 30.0,验证定理 1:验证优于搭便车)与过度自信(165.7 对 161.3,验证定理 2:如实报告置信度优于一律高报),恶意策略收益为负且信誉崩溃。这经验性地支持了&quot;诚实验证并如实报告置信度构成占优策略&quot;的结论。</p>
+<p><strong>表 10. 各策略的长期累计收益与最终信誉(n = 8,300 任务,60 次重复)。</strong></p>
+<table>
+<thead><tr>
+<th>策略</th>
+<th>累计收益</th>
+<th>最终信誉</th>
+</tr></thead>
+<tbody>
+<tr><td>诚实(如实置信度)</td><td><strong>165.7</strong></td><td>9.67</td></tr>
+<tr><td>过度自信(一律高置信度)</td><td>161.3</td><td>9.56</td></tr>
+<tr><td>搭便车(不验证、猜测)</td><td>30.0</td><td>4.79</td></tr>
+<tr><td>恶意(伪造接受)</td><td>−75.0</td><td>−10.0</td></tr>
+</tbody>
+</table>
+<h4>D.9 置信度校准(Q1 补充实验)</h4>
+<p>加权聚合赋予高置信度判断更大权重,其前提是<em>置信度并非随意自报,而是与正确性相关</em>。我们以可靠性图、期望校准误差(ECE)、Brier 分数与 ROC-AUC 量化这一前提,并比较协议可用的五种置信信号:自报置信度、历史信誉、证据一致性分数、证据感知置信度探针(本文)与 CP-WBFT 适配的置信度探针[2]。每个信号被视为对&quot;该智能体判断正确&quot;概率的预测,与实际正确性对照。</p>
+<p><strong>方法学说明。</strong> 真实 llama3.1:8b 校准运行(第 VIII-A 节,<span class="code-inline">calibration.json</span>)在 20 个过门控语义样本上误差为 0——既无错误样本、样本量亦过小,无法估计校准曲线。与第 VIII-D 既有的蒙特卡洛方法学一致,我们从<em>以校准参数为锚</em>的潜在能力模型抽样生成逐样本(信号,正确性)记录:边际诚实误差率固定为论文保守取值pᵢ = 0.12(第 VIII-A 节),自报置信度在正确样本上的均值匹配实测的 0.92。所得实现准确率 87.7%、正确时平均自报置信度 0.90,与上述锚点一致。校准度量本身(<span class="code-inline">calibration/calibration_metrics.js</span>)为精确计算,待采集更大规模真实标注集后可原样替换数据复算。结果归档于 <span class="code-inline">calibration/calibration_metrics_results.json</span>,经 <span class="code-inline">node demo/experiments/calibration/run_calibration_metrics.js</span> 一键复跑(N = 14400)。</p>
+<p><strong>表 11. 五种置信信号的校准度量(N = 14400,pᵢ = 0.12,10 等宽分箱)。ECE/Brier 越低越好,AUC 越高越好。</strong></p>
+<table>
+<thead><tr>
+<th>置信信号</th>
+<th>ECE ↓</th>
+<th>Brier ↓</th>
+<th>AUC ↑</th>
+</tr></thead>
+<tbody>
+<tr><td>证据感知探针(本文)</td><td><strong>0.013</strong></td><td><strong>0.097</strong></td><td><strong>0.749</strong></td></tr>
+<tr><td>证据一致性分数</td><td>0.012</td><td>0.097</td><td>0.749</td></tr>
+<tr><td>自报置信度</td><td>0.031</td><td>0.102</td><td>0.720</td></tr>
+<tr><td>CP-WBFT 适配探针 [2]</td><td>0.068</td><td>0.105</td><td>0.720</td></tr>
+<tr><td>历史信誉</td><td>0.000</td><td>0.106</td><td>0.617</td></tr>
+</tbody>
+</table>
+<p>如图 7 与表 11 所示:<strong>所有信号的 AUC 均显著高于 0.5</strong>,证实置信度与正确性相关而非随意自报——这是加权聚合有效性的前提。证据感知信号(本文探针与证据一致性)在判别力(AUC ≈ 0.75)与校准度(ECE ≈ 0.012–0.013、Brier ≈ 0.097)上均领先;<strong>CP-WBFT 的纯置信度探针因其锐化/过度自信而校准最差(ECE 0.068)</strong>,这正是本文以证据一致性对置信度去偏的动因。历史信誉在聚合层面近乎完美校准(ECE ≈ 0,因其本即经验准确率),但作为逐样本预测器判别力弱(AUC 0.617)——这与本文以 rep×conf <em>联合</em>加权、而非单用其一的设计一致:信誉提供长期可靠性基线,置信度提供逐任务判别。</p>
+<p><img alt="置信度校准" src="figures/fig_calibration.png"></p>
+<p><strong>图 7.</strong> 置信度校准。(a) 可靠性图:平均预测置信度对经验准确率(对角线为完美校准);(b) 各信号的 ECE(柱,越低越好)与 AUC(点,越高越好)。证据感知探针与证据一致性最接近对角线且 AUC 最高;CP-WBFT 纯置信度探针偏离对角线(过度自信);历史信誉聚合校准好但判别力弱。</p>
+<h4>D.10 去中心化与集中化风险</h4>
+<p>一个自然的质疑是:本机制是否只是把集中化风险从单一中继转移到了一个智能体委员会?为回答此问题,我们直接驱动生产的 <span class="code-inline">CommitteeSelector</span>(信誉加权 VRF 选择 + ⌊n/3⌋ 组织约束),在 24 智能体池(其中一个恶意组织控制 8 个<strong>已累积高信誉</strong>的智能体——对应第 III-B 节的策略性对手,且共用同一 LLM provider)上对 4000 个任务做选组,比较三种机制:<strong>(i) VRF 轮换 + 组织约束(本文)</strong>、<strong>(ii) VRF 轮换但移除组织约束</strong>、<strong>(iii) 静态公证委员会(B5,固定不轮换)</strong>。本实验只度量<em>选组层</em>的集中度,不运行验证,以隔离去中心化属性。结果见表 12 与图 8,经<span class="code-inline">node demo/experiments/run_decentralization.js --mal=8</span> 一键复跑,归档于 <span class="code-inline">demo/experiments/decentralization_results.json</span>。</p>
+<p><strong>表 12. 选组集中度与委员会构成风险(n = 7,池 24,恶意组织 8 高信誉体,4000 任务)。</strong></p>
+<table>
+<thead><tr>
+<th>机制</th>
+<th>最大同组织占比</th>
+<th>最大同 provider 占比</th>
+<th>P(恶意组织过半)</th>
+<th>选择 HHI ↓</th>
+<th>选择 Gini ↓</th>
+</tr></thead>
+<tbody>
+<tr><td><strong>VRF + 组织约束(本文)</strong></td><td><strong>0.29</strong></td><td><strong>0.43</strong></td><td><strong>0.00</strong></td><td><strong>0.057</strong></td><td>0.285</td></tr>
+<tr><td>VRF 无组织约束</td><td>0.46</td><td>0.57</td><td><strong>0.38</strong></td><td>0.054</td><td>0.197</td></tr>
+<tr><td>静态公证(固定)</td><td>0.29</td><td>0.57</td><td>0.00</td><td><strong>0.143</strong></td><td><strong>0.708</strong></td></tr>
+</tbody>
+</table>
+<p>两点结论同时成立。其一,<strong>VRF 轮换分散了职责</strong>:轮换机制(前两行)的选择 HHI ≈ 0.05–0.06、Gini ≈ 0.20–0.28,职责摊到池中大量智能体;而静态公证 HHI = 0.143(恰为 1/7,即永远只有 7 个智能体在岗)、Gini = 0.708(池中24 个智能体有 17 个从不参与)——这正是质疑所指的集中化,只不过被搬到了固定委员会。其二,<strong>组织约束阻断恶意多数</strong>:本文机制下恶意组织被限制为 ≤ 2/7 席,<em>永远无法</em>取得过半(P = 0.00);一旦移除该约束,高信誉恶意组织在 38% 的任务中夺得委员会多数(P = 0.38),足以强制伪造接受。组织约束同时压低了最大同 provider 占比(0.43 对 0.57),缓解第 VIII 节(5.7)所述的同后端相关失败。综上,本机制并非把单一中继的集中化简单平移到agent 委员会:轮换稀释了职责集中度,组织/模型约束遏制了委员会层面的恶意集中——这与第 VI-B 节的抗集中化分析一致。</p>
+<p><img alt="去中心化与集中化风险" src="figures/fig_decentralization.png"></p>
+<p><strong>图 8.</strong> 去中心化与集中化风险。(a) 委员会构成风险:最大同组织/同 provider 席位占比与恶意组织过半概率;(b) 跨任务的职责集中度(HHI 与 Gini,越低越分散)。VRF 轮换使职责分散(HHI/Gini 远低于静态公证),组织约束将恶意组织过半概率由 0.38 压到 0;静态公证虽单委员会恰好组织多样,却把全部职责永久压在 7 个智能体上。</p>
+<h4>D.11 链上成本(FISCO-BCOS 实测)</h4>
+<p>调用协议必须报告链上开销。我们直接从运行中的 FISCO-BCOS 账本测量<em>真实</em>链上足迹:扫描全链,识别中继跨链闭环已实际上链的协议交易,读取其真实 <span class="code-inline">gasUsed</span>、输入字节、出块间隔与账本增长——所有数字均来自对已执行交易的 <span class="code-inline">eth_getTransactionReceipt</span>/<span class="code-inline">eth_getBlockByNumber</span>,无任何估算或伪造。经<span class="code-inline">node demo/experiments/run_onchain_cost.js</span> 一键复跑,归档于 <span class="code-inline">demo/experiments/onchain_cost_results.json</span>。</p>
+<p>关键在于本协议的链上/链下分工:<strong>commit-reveal、加权聚合与信誉更新均在链下中继进程内完成,协调合约只把聚合后的结果上链</strong>——<span class="code-inline">receiveLite(·)</span> 锚定 negotiationProofDigest 与 payloadHash,<span class="code-inline">submitBlockHeader(·)</span> 锚定源链头部。二者均只存储定长摘要,<strong>与委员会规模 n 无关</strong>。因此每个调用任务的链上写入是 <em>O(1)</em>,而非朴素链上 BFT 中每张选票都上链的 <em>O(n)</em>。各协议操作的实测链上开销见表 13。</p>
+<p><strong>表 13. 实测协议交易的链上 gas(FISCO-BCOS 实账本,扫描 1122 个区块,127 笔协议交易)。</strong></p>
+<table>
+<thead><tr>
+<th>链上操作</th>
+<th>笔数</th>
+<th>gasUsed(均值)</th>
+<th>gas(min..max)</th>
+<th>输入字节</th>
+<th>角色</th>
+</tr></thead>
+<tbody>
+<tr><td><span class="code-inline">submitBlockHeader</span>(LightClient)</td><td>109</td><td>82079</td><td>74534..82149</td><td>452</td><td>源链头部锚定(按源链新块广播,跨任务摊销)</td></tr>
+<tr><td><span class="code-inline">receiveLite</span>(Gateway)</td><td>7</td><td>39518</td><td>39487..39585</td><td>845</td><td><strong>每任务结果锚定(摘要+载荷哈希),n 无关</strong></td></tr>
+<tr><td><span class="code-inline">send</span>(Gateway)</td><td>9</td><td>17414</td><td>—</td><td>580</td><td>跨链调用发起</td></tr>
+</tbody>
+</table>
+<p>每个调用任务的链上写入即 <em>一次</em> <span class="code-inline">receiveLite</span>,约 <strong>39518 gas / 845 字节,且不随委员会规模增长</strong>;源链头部提交(82079 gas)按源块广播并被同区间的多个任务摊销。观测到的出块间隔中位数约 7.5s(p10≈7.2s),与第 VII 节端到端延迟模型(乐观 8s)一致。</p>
+<p>将本协议(一次结果锚定)与朴素链上 BFT(把 2n 张 commit/reveal 选票全部上链,以实测 <span class="code-inline">send</span> 的 17414 gas 作单票代价的保守下界)对照(表 14、图 9):本协议链上成本恒为 39518 gas,而朴素方案随 n 线性增长——n = 5 时约4.4×、n = 7 时约 6.2×、n = 15 时约 13.2×。这量化了&quot;把聚合放到链下、只锚定可问责摘要&quot;在链上成本上的根本优势,且不牺牲第 VI-G 节的可问责性(摘要可在 challenge_window 内被挑战并触发链上仲裁)。</p>
+<p><strong>表 14. 链上成本随委员会规模的对比(本协议恒定 vs 朴素链上 BFT 的 2n 选票)。</strong></p>
+<table>
+<thead><tr>
+<th>委员会规模 n</th>
+<th>本协议(gas/任务)</th>
+<th>朴素链上 BFT(gas/任务)</th>
+<th>节省</th>
+</tr></thead>
+<tbody>
+<tr><td>3</td><td>39518</td><td>104484</td><td>2.6×</td></tr>
+<tr><td>5</td><td>39518</td><td>174140</td><td>4.4×</td></tr>
+<tr><td>7</td><td>39518</td><td>243796</td><td>6.2×</td></tr>
+<tr><td>9</td><td>39518</td><td>313452</td><td>7.9×</td></tr>
+<tr><td>15</td><td>39518</td><td>522420</td><td>13.2×</td></tr>
+</tbody>
+</table>
+<p><img alt="链上成本" src="figures/fig_onchain_cost.png"></p>
+<p><strong>图 9.</strong> FISCO-BCOS 链上成本。(a) 实测各协议操作的 gasUsed;(b) 每任务链上成本随委员会规模 n 的变化:本协议因聚合在链下、仅锚定结果摘要而恒定(O(1)),朴素链上 BFT 因每票上链而线性增长(O(n))。</p>
+<h4>D.12 模型异构性与相关失败(Q1 补充实验)</h4>
+<p>第 III-A、VI-B 节指出:多个智能体并不自动意味着<em>真正独立</em>——若它们调用同一模型或同一 provider,其错误会高度相关,从而以&quot;看似独立的多数&quot;绕过 Byzantine-robust 聚合。本节用<em>真实的两个异构开源模型</em>量化这一相关失败效应:meta <span class="code-inline">llama3.1:8b</span> 与 Alibaba <span class="code-inline">qwen2.5:7b</span>,经 Ollama 部署于一台 RTX 4090,对一个含 16 个标注跨链语义案例(供应链金融、监管审计、冷链核验,覆盖数值/时序边界等易错情形)的基准,每案各采样 8 次(temperature 0.7),共 256 次真实推理。我们将各模型的重复抽样切分为独立的智能体实例,在逐案例错误向量上度量<em>同模型</em>与<em>跨模型</em>智能体对的错误相关系数,以及同质/异质 3 智能体委员会在无效案例上的误受率。经<span class="code-inline">OLLAMA=… node demo/experiments/correlated_failure/run_correlated_failure.js</span> 复跑,归档于<span class="code-inline">demo/experiments/correlated_failure/correlated_failure_results.json</span>。</p>
+<p>两模型在该基准上的准确率分别为 68.0%(llama3.1)与 79.7%(qwen2.5),均产生足量错误以使相关性可测。结果见表 15 与图 10:<strong>同模型智能体对的错误相关系数为 0.79,而跨模型仅 0.44</strong>——同后端的错误显著更同向,印证了相关失败效应。其直接后果体现在委员会层面:<strong>同质(同模型)委员会在无效案例上的误受率为 33.3%,异质(跨模型)委员会降至 22.2%</strong>——同质委员会更容易整体同向误判而越过阈值。</p>
+<p><strong>表 15. 模型异构性与相关失败(真实两后端,16 案例 × 8 采样 × 2 模型 = 256 次推理)。</strong></p>
+<table>
+<thead><tr>
+<th>条件</th>
+<th>错误相关系数</th>
+<th>委员会误受率</th>
+</tr></thead>
+<tbody>
+<tr><td>(a) 同模型</td><td>0.79</td><td>33.3%</td></tr>
+<tr><td>(b) 异模型</td><td><strong>0.44</strong></td><td><strong>22.2%</strong></td></tr>
+<tr><td>(c) 异组织 / 同 provider</td><td>0.79</td><td>33.3%</td></tr>
+<tr><td>(d) 异组织 / 异模型</td><td>0.44</td><td>22.2%</td></tr>
+</tbody>
+</table>
+<p>最关键的对照是 (c) 与 (a) 相同、(d) 与 (b) 相同:<strong>仅有组织/provider 多样性而模型相同(c),其错误相关性与误受率与完全同质(a)毫无区别</strong>;只有引入真正的<em>模型异构</em>(b/d)才显著去相关。这定量支撑了第 VI-B 节的设计——协议在选组时强制 model_id_hash 维度的后端异构,而非仅约束运营组织;也界定了一个固有边界(第 VI-H 节):当异构后端不可得时,相关失败是聚合容错无法完全消除的残余风险,留待未来工作(相关 Byzantine 失败模型)深入。</p>
+<p><img alt="模型异构性与相关失败" src="figures/fig_correlated_failure.png"></p>
+<p><strong>图 10.</strong> 模型异构性与相关失败(真实 llama3.1:8b 与 qwen2.5:7b)。(a) 同模型 vs 跨模型智能体对的错误相关系数;(b) 同质 vs 异质委员会在无效案例上的误受率。同模型/同 provider 错误显著更相关、委员会更易整体误受;仅组织多样(条件 c)无济于事,唯模型异构(b/d)去相关。</p>
+<h4>D.13 真实判断驱动的语义层(D.2 的真实数据对照)</h4>
+<p>D.2 用<em>建模的</em>诚实误差率 pᵢ 驱动语义层仿真。为检验该仿真能否被真实数据替代,我们把第 VIII-D.12 节采集的<strong>真实逐案例 LLM 判断</strong>(<span class="code-inline">raw_samples.json</span>,含真实误差与真实相关性)直接作为诚实票注入<em>同一套生产聚合规则</em>,并注入 20/40/60% 的恶意伪造接受票——这与 D.1 对确定性层的做法一致,区别仅在于诚实票来自真实语义推理而非建模 pᵢ。诚实委员会分<em>同质</em>(全部诚实票取自同一模型,误差强相关)与<em>异构</em>(诚实票跨两模型抽取,误差弱相关)。经 <span class="code-inline">node demo/experiments/correlated_failure/run_real_semantic_layer.js</span> 复跑,归档于 <span class="code-inline">real_semantic_layer_results.json</span>。</p>
+<p>实测诚实误差在这批困难语义案例上高达 <strong>llama3.1 32% / qwen2.5 20%</strong>(远高于仿真代表值 pᵢ=0.12)。结果(表 16):</p>
+<p><strong>表 16. 真实判断驱动的语义层:本方案正确率/误受率(n = 5,真实诚实判断 + 注入恶意票)。</strong></p>
+<table>
+<thead><tr>
+<th>恶意比例</th>
+<th>同质(llama3.1)</th>
+<th>同质(qwen2.5)</th>
+<th>异构(混合)</th>
+<th>等权/PBFT(任一同质)</th>
+</tr></thead>
+<tbody>
+<tr><td>20%</td><td>66% / 误受 17%</td><td>81% / 7%</td><td>76% / 12%</td><td>68% / 17%</td></tr>
+<tr><td>40%</td><td>68% / 18%</td><td>81% / 6%</td><td>74% / 13%</td><td>72% / 18%</td></tr>
+<tr><td>60%(恶意占多数)</td><td>71% / 18%</td><td>81% / 6%</td><td>73% / 16%</td><td><strong>44% / 误受 56%</strong></td></tr>
+</tbody>
+</table>
+<p>三点观察:(1) <strong>真实比仿真严酷</strong>——真实困难案例的诚实误差(20–32%)既高又<em>相关</em>(同模型 ρ≈0.79,见 D.12),经聚合后误受率为 6–18%,显著高于 D.2 在<em>独立误差</em>假设、pᵢ=0.12 下的 1.8%。这恰是相关失败效应的直接体现,也说明 D.2 的 1.8%/96% 是<em>独立误差假设</em>下的乐观区间,而非普适上界。(2) <strong>但协议的核心主张在真实数据上依旧成立且更突出</strong>:恶意占多数(60%)时,本方案误受率 6–18%,而等权投票/PBFT 因伪造多数直接崩至 <strong>56%</strong>——安全优势不随&quot;仿真→真实&quot;而消失。(3) <strong>异构去相关有实效</strong>:异构委员会(73%/误受 16%)优于被相关误差拖累的最差同质模型。</p>
+<p>需要说明该对照是协议的<em>悲观下界</em>:它采用最难的语义子集(确定性层已以 0 误差挡掉结构类查询)、且 harness 仅用均匀信誉与固定置信度,未启用 rep×conf 加权与信誉演化——而这些正是协议用于压制&quot;持续犯错的诚实智能体&quot;的杠杆。据此,<strong>结论是肯定的:概率性诚实误差的仿真可以被真实判断数据替代;替代后揭示出更真实(更严酷且相关)的误差画像,但并不推翻协议相对基线的安全优势,反而强化了&quot;必须强制模型异构 + 依赖确定性前置门控&quot;的设计论点。</strong></p>
+<h4>D.14 伪造拒绝攻击(对称对照,场景 2)</h4>
+<p>D.1 的伪造接受(always-approve)攻击让恶意智能体对<em>无效</em>任务强行接受。其对称威胁是<strong>伪造拒绝</strong>(always-reject):恶意智能体对<em>有效</em>任务强行拒绝,试图阻断合法跨链调用(对应第 III-B 节威胁 1 的另一侧、第 VI 节的漏报界)。我们用同一真实智能体 harness、<span class="code-inline">behavior=always_reject</span> 注入该攻击,各方法消费同一批真实判断(n = 5,30 trials × 10 tasks),结果见表 17。经 <span class="code-inline">node scripts/run_p1_gap_experiments.js</span> 复跑,归档于<span class="code-inline">demo/experiments/p1_gap_results.json</span>。</p>
+<p><strong>表 17. 伪造拒绝攻击下正确率与误拒率(false-reject)随恶意比例变化(n = 5,30 trials × 10 tasks)。</strong></p>
+<table>
+<thead><tr>
+<th>恶意比例</th>
+<th>单一中继</th>
+<th>等权委员会</th>
+<th>PBFT</th>
+<th>单因子加权(B3/B6/B4)</th>
+<th>本方案</th>
+</tr></thead>
+<tbody>
+<tr><td>20%</td><td>90.0%(误拒 10%)</td><td>100%</td><td>100%</td><td>100%</td><td><strong>100%（误拒 0%）</strong></td></tr>
+<tr><td>40%</td><td>80.0%(误拒 20%)</td><td>100%</td><td>100%</td><td>50.0%(停滞)</td><td><strong>100%（误拒 0%，升级 50%）</strong></td></tr>
+<tr><td>60%(恶意占多数)</td><td>70.0%(误拒 30%)</td><td><strong>50.0%（误拒 50%）</strong></td><td><strong>50.0%（误拒 50%）</strong></td><td>50.0%(停滞)</td><td><strong>100%（误拒 0%，升级 50%）</strong></td></tr>
+</tbody>
+</table>
+<p>结果与 D.1 的伪造接受攻击<strong>完全对称</strong>:恶意占多数(60%)时,等权委员会与 PBFT 因伪造拒绝获得多数票而把合法调用错误拒绝(误拒率 50%),本方案凭借阈值机制阻止恶意多数越线、转入仲裁路径维持 100% 正确率与 0% 误拒率(本方案 vs 等权委员会 +50.0pp,p &lt; 0.01);单因子/⅔ 权重加权基线则在 ≥40% 时因无仲裁停滞于 50%。这经验性地印证了第 VI 节关于<em>伪造接受与伪造拒绝对称受控</em>的安全表述——协议对&quot;放过坏的&quot;与&quot;拦住好的&quot;两类错误一视同仁。</p>
+<h4>D.15 分阶段延迟分解(off-chain 实测 + 链上锚定实测)</h4>
+<p>第 VII 节给出端到端延迟的分析模型(乐观 8s / 仲裁 21s)。本节进一步<strong>实测各协议阶段的链下计算开销</strong>,并与D.11 实测的链上锚定确认时间合并,给出分阶段画像,从而回答&quot;commit / reveal / 聚合 / 仲裁各阶段各占多少延迟&quot;。关键在于本协议的 commit-reveal、加权聚合与信誉更新<strong>均在链下中继进程内完成</strong>(见 D.11),因此这些阶段的在途代价是<em>计算 + 消息轮次</em>而非区块确认。经 <span class="code-inline">node scripts/run_p1_gap_experiments.js</span> 复跑,归档于<span class="code-inline">p1_gap_results.json</span>。</p>
+<p><strong>表 18. 分阶段延迟分解(链下计算为实测中位数,链上锚定为 D.11 实测,RPC/LLM 为第 VII 节模型项)。</strong></p>
+<table>
+<thead><tr>
+<th>阶段</th>
+<th>类型</th>
+<th>耗时</th>
+<th>说明</th>
+</tr></thead>
+<tbody>
+<tr><td>证据收集(源链 RPC)</td><td>模型</td><td>~3 s</td><td>源链查询 + 适配器归一化(网络主导)</td></tr>
+<tr><td>语义执行 + commit</td><td>链下实测(规则路径)</td><td>~0.006 ms</td><td>全委员会真实验证逻辑;LLM 推理另计</td></tr>
+<tr><td>LLM 语义推理</td><td>模型</td><td>~4 s</td><td>8B 后端单次推理(GPU,另机实测校准)</td></tr>
+<tr><td>reveal 校验</td><td>链下实测</td><td>~0.0001 ms</td><td>承诺一致性 + 签名形状校验,O(n)</td></tr>
+<tr><td>加权聚合</td><td>链下实测</td><td>~0.0006 ms</td><td>rep×conf 决策规则</td></tr>
+<tr><td>结果锚定(链上)</td><td>链上实测</td><td>~7.5 s/区块</td><td>一次 <span class="code-inline">receiveLite</span>,O(1),与 n 无关</td></tr>
+<tr><td>仲裁(链下)</td><td>链下实测</td><td>~0.006 ms</td><td>仲裁组执行 + 聚合(LLM 另计)</td></tr>
+</tbody>
+</table>
+<p>核心结论:<strong>commit-reveal、聚合与仲裁的链下编排开销为微秒量级(可忽略)</strong>,端到端延迟由 LLM 推理(~4–10s)与一次区块确认(实测 ~7.5s)主导。这定量回答了分阶段延迟的构成——协议引入的多轮 commit-reveal 与仲裁机制本身<em>不是</em>延迟瓶颈,与第 VII 节&quot;共识层从非瓶颈&quot;的论断一致;真正可优化的是 LLM 推理与链上确认,留待未来工作。</p>
+<h4>D.16 小结</h4>
+<ul><li><strong>安全性(主要优势)</strong>:误受率较所有基线低一个数量级,且不依赖信誉成熟;拜占庭占多数时尤为显著(0% vs 50%)。</li><li><strong>正确率</strong>:新信誉下经仲裁达到约 96%(40% 恶意),信誉成熟后经加权直达 99.8%;对参数不敏感。</li><li><strong>活性</strong>:沉默攻击下终结率与正确率保持 100%,揭示不足时由仲裁恢复,沉默者受 −α₅ 严惩。</li><li><strong>激励相容</strong>:诚实并如实报告置信度的长期收益严格最高,经验验证占优策略均衡。</li><li><strong>置信度可用性</strong>:五种置信信号 AUC 均 &gt; 0.5,证据感知探针校准最优(ECE 0.013),支撑加权聚合的前提。</li><li><strong>去中心化</strong>:VRF 轮换将职责集中度(HHI/Gini)远压低于静态公证,组织约束把恶意组织过半概率由 0.38 降至 0。</li><li><strong>链上成本</strong>:聚合在链下、仅锚定结果摘要,每任务链上写入 O(1)(实测 39518 gas),较朴素链上 BFT 节省 4–13×。</li><li><strong>相关失败</strong>:真实双模型实测,同模型错误相关 0.79 vs 跨模型 0.44、同质委员会误受 33% vs 异质 22%;组织多样而模型相同无效,佐证强制模型异构的必要。</li><li><strong>真实数据对照</strong>:用真实 LLM 判断(实测误差 20–32%、相关)替代仿真 pᵢ 后,误受率 6–18%(高于独立误差仿真的 1.8%),但恶意占多数时仍远优于等权/PBFT 的 56%;说明仿真可被真实数据替代,且不推翻协议的安全优势。</li><li><strong>对称攻击</strong>:伪造拒绝(always-reject)与伪造接受结果完全对称——恶意占多数时本方案维持 100% 正确率/0% 误拒率,等权/PBFT 误拒 50%;协议对&quot;放过坏的&quot;与&quot;拦住好的&quot;一视同仁。</li><li><strong>单因子加权基线</strong>:仅信誉(B3)/仅置信度(B6)与加权BFT 一致——安全但无活性(≥40% 恶意停滞于 50%);正确率优势来自 rep×conf 联合加权 + 仲裁升级的协同,而非任一单因子。</li><li><strong>分阶段延迟</strong>:commit-reveal/聚合/仲裁的链下编排开销实测为微秒量级(可忽略),端到端延迟由 LLM 推理与一次区块确认(实测 7.5s)主导;协议引入的多轮机制本身非瓶颈。</li><li><strong>代价</strong>:乐观路径 8s 对仲裁路径约 21s;升级率随信誉成熟由 80% 降至约 12%,代价摊销;验证层吞吐非瓶颈。</li></ul>
+<hr>
+<h2>IX. 结论</h2>
+<p>本文提出了一种可信的智能合约到链下智能体调用（smart-contract-to-agent invocation）协议，使确定性执行的智能合约能够通过链上事件异步调用由不同组织运营的链下智能体，安全消费其复杂语义判断。协议以链上协调合约统一管理任务发布、VRF 选组、commit-reveal 密封提交、信誉与置信度加权聚合、仲裁升级与签名问责；并将确定性密码层（单智能体前置门控）与概率性语义层（多智能体聚合）显式分离。博弈论分析证明，在理性参与者模型下，诚实执行并如实报告置信度构成占优策略均衡，机制满足 DSIC、个体理性、联盟抵抗和经济安全性。我们以异构联盟链（Fabric/FISCO-BCOS）跨链语义查询为主要应用场景实现原型并评估，在恶意智能体、沉默攻击、证据冲突、链上成本与去中心化约束下验证了协议的有效性。</p>
+<p>局限性包括：相对于单一中继方案的延迟与链上成本开销；对组织背书的 Sybil 抵抗依赖；信誉系统对长期策略性对手的脆弱窗口；以及最根本的一点——<em>语义不可完全验证</em>（第 VI-H 节）：链上合约无法判定 LLM 推理是否绝对正确，协议提供的是概率性抑制与可问责消费而非语义真值证明。</p>
+<p><strong>当前稿与未来工作的边界。</strong> 当前稿聚焦于可信调用协议本身、跨链语义查询应用、基本的 Byzantine-robust 聚合、原型可行性以及安全边界与链上问责。在此基础上，更深入的<em>智能体调用网络</em>研究——agent selection 优化、拓扑感知调度、evidence-aware 置信度校准、相关 Byzantine 失败建模、延迟-成本-风险联合优化、大规模 agent network benchmark，以及任务风险驱动的动态委员会规模调整——留作未来工作。这样当前稿提出协议与应用可行性，未来工作深入研究调用网络的调度、拓扑、置信度校准与成本-安全优化。</p>
+<hr>
+<h2>参考文献</h2>
+<p>[1] H. Tian et al., &quot;A Cross-Chain Mechanism Based on Hierarchically Managed Notary Group,&quot; IJACSA, vol. 16, no. 4, 2025.</p>
+<p>[2] L. Zheng et al., &quot;Rethinking the Reliability of Multi-agent System: A Perspective from Byzantine Fault Tolerance,&quot; in Proc. AAAI Conf. Artif. Intell. (AAAI-26), 2026, art. no. 40806; arXiv:2511.10400.</p>
+<p>[3] H. Luo et al., &quot;A Weighted Byzantine Fault Tolerance Consensus Driven Trusted Multiple Large Language Models Network,&quot; arXiv:2505.05103, 2025.</p>
+<p>[4] Y. Jo and C. Park, &quot;Byzantine-Robust Decentralized Coordination of LLM Agents,&quot; arXiv:2507.14928, 2025.</p>
+<p>[5] Lyzr AI, &quot;The Six Sigma (6σ) Agent: Enterprise-Grade Reliability through Consensus-Driven Decomposed Execution,&quot; Lyzr Research, 2025.</p>
+<p>[6] M. Cemri et al., &quot;Why Do Multi-Agent LLM Systems Fail?&quot; arXiv:2503.13657, 2025.</p>
+<p>[7] &quot;Proof of Repute Consensus (PoRC): A Decentralized Approach to Blockchain Interoperability,&quot; Peer-to-Peer Netw. Appl., Springer, 2026.</p>
+<p>[8] Y. Ding et al., &quot;Decentralized Multi-Agent System with Trust-Aware Communication,&quot; in Proc. IEEE ISPA (Best Paper), 2025; arXiv:2512.02410.</p>
+<p>[9] M. Qi et al., &quot;Towards Transparent and Incentive-Compatible Collaboration in Decentralized LLM Multi-Agent Systems: A Blockchain-Driven Approach,&quot; arXiv:2509.16736, 2025.</p>
+<p>[10] IEEE Std 3221.01-2025, &quot;IEEE Standard for Blockchain Interoperability—Cross-Chain Transaction Consistency Protocol.&quot;</p>
+<p>[11] Hyperledger Cacti Project, &quot;Weaver: Interoperability Across DLT Networks,&quot; 2024.</p>
+<p>[12] WeCross, &quot;Cross-Chain Collaboration Platform for FISCO-BCOS,&quot; 2024.</p>
+<p>[13] C. Yin et al., &quot;Atomic Smart Contract Interoperability with High Efficiency via Cross-Chain Integrated Execution,&quot; IEEE Trans. Parallel Distrib. Syst., 2025; arXiv:2502.12820.</p>
+<p>[14] &quot;Security and Privacy in Permissioned Blockchain Interoperability: A Systematic Review,&quot; CMC, vol. 85, no. 2, 2025.</p>
+<p>[15] &quot;Blockchain Cross-Chain Bridge Security: Challenges, Solutions, and Future Outlook,&quot; ACM DLT, 2025.</p>
+<p>[16] S. Zhai et al., &quot;Relay Chain Reputation Management Model Based on PowerTrust Algorithm,&quot; Computer Applications Research, vol. 42, no. 10, 2025.</p>
+<p>[17] &quot;Alba: The Dawn of Scalable Bridges for Blockchains,&quot; Proc. NDSS, 2025.</p>
+<p>[18] &quot;XChainWatcher: Identifying Anomalies in Cross-Chain Bridges,&quot; Proc. ACM Middleware, 2025.</p>
+</main>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.paper p').forEach(function (p) {
+    var first = p.firstElementChild;
+    var text = (p.textContent || '').trim();
+    if (/^(图|Fig\.?|Figure|表|Table)\s*[0-9A-Za-z]/.test(text) && first && first.tagName === 'STRONG') {
+      p.classList.add('caption');
+    }
+  });
+
+  var h2s = Array.prototype.slice.call(document.querySelectorAll('.paper h2'));
+  h2s.forEach(function (h) {
+    var name = h.textContent.replace(/\s/g, '').toLowerCase();
+    if (name === 'abstract' || name === '摘要') {
+      var n = h.nextElementSibling;
+      while (n && n.tagName === 'P') {
+        n.classList.add('abstract');
+        var next = n.nextElementSibling;
+        if (next && next.tagName === 'HR') break;
+        n = next;
+      }
+    }
+    if (name.indexOf('references') >= 0 || name.indexOf('参考文献') >= 0) {
+      var ref = h.nextElementSibling;
+      while (ref && ref.tagName !== 'H2') {
+        if (ref.tagName === 'P') ref.classList.add('references');
+        ref = ref.nextElementSibling;
+      }
+    }
+  });
+});
+
+</script>
+</body>
+</html>
