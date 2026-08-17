@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="1700" viewBox="0 0 3200 1700">
+  <defs>
+    <marker id="arrow" viewBox="0 0 30 30" markerWidth="24" markerHeight="24" refX="28.5" refY="15" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,2 L29,15 L1,28 Z" fill="#20242a"/>
+    </marker>
+    <style><![CDATA[
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #17191c; }
+      .frame { fill: #ffffff; stroke: #777f88; stroke-width: 5; stroke-dasharray: 20 14; rx: 24; }
+      .leaf { fill: #ffffff; stroke: #20242a; stroke-width: 6; rx: 22; }
+      .rule { fill: #f4f5f7; stroke: #20242a; stroke-width: 6; rx: 22; }
+      .root { fill: #eceff2; stroke: #111418; stroke-width: 8; rx: 24; }
+      .fault-box { fill: #fafafa; stroke: #4f565e; stroke-width: 5; stroke-dasharray: 12 9; rx: 18; }
+      .stage { font-size: 34px; font-weight: 700; fill: #555d66; }
+      .title { font-size: 48px; font-weight: 700; }
+      .node-title { font-size: 38px; font-weight: 700; }
+      .node-type { font-size: 27px; font-weight: 600; fill: #555d66; }
+      .body { font-size: 29px; }
+      .small { font-size: 25px; }
+      .edge-label { font-size: 25px; font-weight: 600; paint-order: stroke; stroke: #ffffff; stroke-width: 9px; stroke-linejoin: round; }
+      .data-edge { fill: none; stroke: #20242a; stroke-width: 5; marker-end: url(#arrow); }
+      .time-edge { fill: none; stroke: #626a73; stroke-width: 5; stroke-dasharray: 16 11; marker-end: url(#arrow); }
+      .fault-edge { fill: none; stroke: #4f565e; stroke-width: 5; stroke-dasharray: 18 8 4 8; marker-end: url(#arrow); }
+      .root-edge { fill: none; stroke: #111418; stroke-width: 6; marker-end: url(#arrow); }
+      .divider { stroke: #858c94; stroke-width: 3; }
+    ]]></style>
+  </defs>
+
+  <rect width="3200" height="1700" fill="#ffffff"/>
+  <text class="title" x="1600" y="72" text-anchor="middle">供应链融资证据依赖图</text>
+  <rect class="frame" x="38" y="105" width="3124" height="1538"/>
+
+  <!-- Stage labels -->
+  <text class="stage" x="92" y="162">证据获取叶节点（统一证据对象）</text>
+  <text class="stage" x="92" y="782">规则 / 语义中间节点</text>
+  <text class="stage" x="92" y="1245">结果归并根节点</text>
+
+  <!-- Evidence leaves -->
+  <rect class="leaf" x="140" y="205" width="540" height="265"/>
+  <text class="node-type" x="410" y="250" text-anchor="middle">证据获取节点</text>
+  <text class="node-title" x="410" y="305" text-anchor="middle">订单证据 E_order</text>
+  <line class="divider" x1="175" y1="330" x2="645" y2="330"/>
+  <text class="body" x="410" y="378" text-anchor="middle">主体 / 贸易标识</text>
+  <text class="body" x="410" y="420" text-anchor="middle">订单金额 · 约定交付期</text>
+
+  <rect class="leaf" x="760" y="205" width="540" height="265"/>
+  <text class="node-type" x="1030" y="250" text-anchor="middle">证据获取节点</text>
+  <text class="node-title" x="1030" y="305" text-anchor="middle">物流证据 E_logistics</text>
+  <line class="divider" x1="795" y1="330" x2="1265" y2="330"/>
+  <text class="body" x="1030" y="378" text-anchor="middle">主体 / 贸易标识</text>
+  <text class="body" x="1030" y="420" text-anchor="middle">发运签收状态 · 签收时间</text>
+
+  <rect class="leaf" x="1380" y="205" width="540" height="265"/>
+  <text class="node-type" x="1650" y="250" text-anchor="middle">证据获取节点</text>
+  <text class="node-title" x="1650" y="305" text-anchor="middle">发票证据 E_invoice</text>
+  <line class="divider" x1="1415" y1="330" x2="1885" y2="330"/>
+  <text class="body" x="1650" y="378" text-anchor="middle">主体 / 贸易标识</text>
+  <text class="body" x="1650" y="420" text-anchor="middle">发票金额 · 版本 / 签名</text>
+
+  <rect class="leaf" x="2000" y="205" width="540" height="265"/>
+  <text class="node-type" x="2270" y="250" text-anchor="middle">链下证据节点</text>
+  <text class="node-title" x="2270" y="305" text-anchor="middle">质检证据 E_quality</text>
+  <line class="divider" x1="2035" y1="330" x2="2505" y2="330"/>
+  <text class="body" x="2270" y="378" text-anchor="middle">主体 / 贸易标识</text>
+  <text class="body" x="2270" y="420" text-anchor="middle">质检材料 · 有效期</text>
+
+  <!-- Rule / semantic nodes -->
+  <rect class="rule" x="230" y="820" width="700" height="245"/>
+  <text class="node-type" x="580" y="866" text-anchor="middle">确定性规则节点</text>
+  <text class="node-title" x="580" y="922" text-anchor="middle">时效检查 R_time</text>
+  <line class="divider" x1="275" y1="946" x2="885" y2="946"/>
+  <text class="body" x="580" y="992" text-anchor="middle">签收时间与约定交付期比较</text>
+  <text class="body" x="580" y="1033" text-anchor="middle">质检材料是否仍在有效期内</text>
+
+  <rect class="rule" x="1020" y="820" width="700" height="245"/>
+  <text class="node-type" x="1370" y="866" text-anchor="middle">确定性规则节点</text>
+  <text class="node-title" x="1370" y="922" text-anchor="middle">金额一致性 R_amount</text>
+  <line class="divider" x1="1065" y1="946" x2="1675" y2="946"/>
+  <text class="body" x="1370" y="992" text-anchor="middle">提取订单金额与发票金额</text>
+  <text class="body" x="1370" y="1033" text-anchor="middle">依据查询谓词执行可重放比较</text>
+
+  <rect class="rule" x="1810" y="820" width="700" height="245"/>
+  <text class="node-type" x="2160" y="866" text-anchor="middle">转换 / 语义节点</text>
+  <text class="node-title" x="2160" y="922" text-anchor="middle">主体一致性 R_subject</text>
+  <line class="divider" x1="1855" y1="946" x2="2465" y2="946"/>
+  <text class="body" x="2160" y="992" text-anchor="middle">跨源主体与贸易标识对齐</text>
+  <text class="body" x="2160" y="1033" text-anchor="middle">保留各证据的来源引用</text>
+
+  <!-- Temporal constraints: dashed lines -->
+  <path class="time-edge" d="M315 470 C315 610 350 690 430 820"/>
+  <text class="edge-label" x="270" y="620">约定交付期</text>
+  <path class="time-edge" d="M930 470 C930 615 720 705 600 820"/>
+  <text class="edge-label" x="760" y="615">签收时间</text>
+  <path class="time-edge" d="M2160 470 C2110 615 1140 705 800 820"/>
+  <text class="edge-label" x="1640" y="590">质检有效期</text>
+
+  <!-- Amount data dependencies: solid lines -->
+  <path class="data-edge" d="M455 470 C500 610 1080 690 1220 820"/>
+  <text class="edge-label" x="765" y="690">订单金额</text>
+  <path class="data-edge" d="M1580 470 C1580 610 1550 700 1530 820"/>
+  <text class="edge-label" x="1545" y="625">发票金额</text>
+
+  <!-- Subject / trade-identity data dependencies: separate solid curves -->
+  <path class="data-edge" d="M590 470 C730 585 1550 650 1935 820"/>
+  <path class="data-edge" d="M1140 470 C1300 600 1770 690 2080 820"/>
+  <path class="data-edge" d="M1780 470 C1840 610 2130 690 2230 820"/>
+  <path class="data-edge" d="M2360 470 C2360 610 2390 700 2380 820"/>
+  <text class="edge-label" x="1980" y="728">主体 / 贸易标识</text>
+
+  <!-- Root predicate -->
+  <rect class="root" x="820" y="1280" width="1450" height="245"/>
+  <text class="node-type" x="1545" y="1329" text-anchor="middle">结果归并根节点</text>
+  <text class="node-title" x="1545" y="1387" text-anchor="middle">授信谓词 P_credit</text>
+  <text class="body" x="1545" y="1436" text-anchor="middle">时效通过 ∧ 金额一致 ∧ 主体一致 ∧ 质检证据可用</text>
+  <text class="body" x="1545" y="1483" text-anchor="middle">SATISFIED ｜ UNSATISFIED ｜ INSUFFICIENT</text>
+
+  <!-- Rule results and quality material flow independently to the root -->
+  <path class="root-edge" d="M580 1065 V1160 H1160 V1280"/>
+  <text class="edge-label" x="695" y="1144">时效结果</text>
+  <path class="root-edge" d="M1370 1065 V1280"/>
+  <text class="edge-label" x="1392" y="1180">金额结果</text>
+  <path class="root-edge" d="M2160 1065 V1160 H1910 V1280"/>
+  <text class="edge-label" x="1940" y="1144">主体结果</text>
+  <path class="data-edge" d="M2450 470 H2585 V1210 H2115 V1280"/>
+  <text class="edge-label" x="2425" y="1192">质检材料引用</text>
+
+  <!-- Logistics timeout and bounded recovery path -->
+  <text class="stage" x="2790" y="210" text-anchor="middle">物流分支恢复 / 失败传播</text>
+  <rect class="fault-box" x="2670" y="500" width="420" height="105"/>
+  <text class="node-title" x="2880" y="565" text-anchor="middle">物流节点超时</text>
+  <path class="fault-edge" d="M1240 205 V145 H3120 V552 H3090"/>
+
+  <rect class="fault-box" x="2670" y="680" width="420" height="125"/>
+  <text class="node-title" x="2880" y="735" text-anchor="middle">替代端点取证</text>
+  <text class="small" x="2880" y="775" text-anchor="middle">成功则恢复物流分支</text>
+  <path class="fault-edge" d="M2880 605 V680"/>
+
+  <rect class="fault-box" x="2670" y="875" width="420" height="105"/>
+  <text class="body" x="2880" y="940" text-anchor="middle">仍失败 / 预算耗尽</text>
+  <path class="fault-edge" d="M2880 805 V875"/>
+
+  <rect class="fault-box" x="2670" y="1050" width="420" height="125"/>
+  <text class="node-title" x="2880" y="1108" text-anchor="middle">INSUFFICIENT</text>
+  <text class="small" x="2880" y="1148" text-anchor="middle">关键物流证据不足</text>
+  <path class="fault-edge" d="M2880 980 V1050"/>
+  <path class="fault-edge" d="M2880 1175 V1410 H2270"/>
+  <text class="edge-label" x="2540" y="1392">向根节点传播</text>
+
+  <!-- Key condition from the manuscript -->
+  <rect x="2470" y="1480" width="600" height="102" rx="15" fill="#ffffff" stroke="#6b727a" stroke-width="3"/>
+  <text class="small" x="2770" y="1521" text-anchor="middle">关键物流证据缺失时，其他分支即使通过，</text>
+  <text class="small" x="2770" y="1558" text-anchor="middle">根节点也不得输出 SATISFIED。</text>
+
+  <!-- Legend -->
+  <g transform="translate(120 1585)">
+    <path d="M0 0 H110" class="data-edge"/>
+    <text class="small" x="130" y="9">数据 / 业务依赖</text>
+    <path d="M390 0 H500" class="time-edge"/>
+    <text class="small" x="520" y="9">时序约束</text>
+    <path d="M720 0 H830" class="fault-edge"/>
+    <text class="small" x="850" y="9">超时、恢复与失败传播</text>
+  </g>
+</svg>
