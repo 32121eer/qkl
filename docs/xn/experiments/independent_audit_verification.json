@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "independent-audit-verification-v1",
+  "generatedAt": "2026-08-31T08:49:13Z",
+  "implementation": "independent Python canonical-JSON and SQLite verifier",
+  "results": [
+    {
+      "database": "docs/xn/experiments/semantic-query-live-runs/2026-08-25T01-46-44-989Z/audit.db",
+      "integrity": "ok",
+      "queries": 603,
+      "cleanReconstruction": 603,
+      "anchorMatch": 603,
+      "reconstructionMs": {
+        "mean": 0.48492463349917037,
+        "p50": 0.45402099999991563,
+        "p95": 0.6377616999999391,
+        "p99": 0.7394903799999942
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 2915,
+        "coveredEvidenceNodes": 2312,
+        "inferredEvidenceBindings": 2312,
+        "explicitEvidenceBindings": 0,
+        "successfulSemanticNodes": 503,
+        "explicitServiceBindings": 0,
+        "evidenceCoverageRate": 0.793138936535163,
+        "explicitServiceCoverageRate": 0.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 603,
+          "detected": 603,
+          "localized": 603
+        },
+        "replace_output": {
+          "tested": 603,
+          "detected": 603,
+          "localized": 603
+        },
+        "wrong_version": {
+          "tested": 603,
+          "detected": 603,
+          "localized": 603
+        },
+        "delete_evidence": {
+          "tested": 603,
+          "detected": 603,
+          "localized": 603
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-physical-fault-runs/2026-08-25T01-52-36-106Z/audit.db",
+      "integrity": "ok",
+      "queries": 40,
+      "cleanReconstruction": 40,
+      "anchorMatch": 40,
+      "reconstructionMs": {
+        "mean": 0.5561182249999796,
+        "p50": 0.5163769999998458,
+        "p95": 0.8028284999996411,
+        "p99": 0.9754406400000404
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 200,
+        "coveredEvidenceNodes": 160,
+        "inferredEvidenceBindings": 160,
+        "explicitEvidenceBindings": 0,
+        "successfulSemanticNodes": 40,
+        "explicitServiceBindings": 0,
+        "evidenceCoverageRate": 0.8,
+        "explicitServiceCoverageRate": 0.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 40,
+          "detected": 40,
+          "localized": 40
+        },
+        "replace_output": {
+          "tested": 40,
+          "detected": 40,
+          "localized": 40
+        },
+        "wrong_version": {
+          "tested": 40,
+          "detected": 40,
+          "localized": 40
+        },
+        "delete_evidence": {
+          "tested": 40,
+          "detected": 40,
+          "localized": 40
+        }
+      }
+    }
+  ]
+}

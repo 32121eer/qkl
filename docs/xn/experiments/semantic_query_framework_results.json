@@ -1,0 +1,1291 @@
+{
+  "meta": {
+    "generatedAt": "2026-08-10T03:00:32.392Z",
+    "baseSeed": 20260810,
+    "node": "v26.5.0",
+    "platform": "darwin 23.5.0 x64",
+    "cpu": "Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 16,
+    "gitCommit": "684f7465"
+  },
+  "evidenceBoundary": {
+    "rq1": "executed cryptographic validation on generated evidence",
+    "rq2": "measured local scheduler microbenchmark with controlled service times",
+    "rq3": "executed state-machine fault injection; no physical network outage",
+    "rq4": "executed receipt hashing, signing, mutation, and reconstruction",
+    "onchain": "archived ledger scan reused without rerun"
+  },
+  "rq1EvidenceValidation": {
+    "validAcceptance": {
+      "successes": 200,
+      "total": 200,
+      "rate": 1,
+      "ci95Lower": 0.9812,
+      "ci95Upper": 1
+    },
+    "injectedFaultDetection": {
+      "successes": 800,
+      "total": 800,
+      "rate": 1,
+      "ci95Lower": 0.9952,
+      "ci95Upper": 1
+    },
+    "byFault": [
+      {
+        "fault": "wrong_chain",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "WRONG_CHAIN": 100
+        }
+      },
+      {
+        "fault": "wrong_locator",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "WRONG_LOCATOR": 100
+        }
+      },
+      {
+        "fault": "bad_signature",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "BAD_SIGNATURE": 100
+        }
+      },
+      {
+        "fault": "wrong_schema",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "WRONG_SCHEMA": 100
+        }
+      },
+      {
+        "fault": "expired",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "EXPIRED": 100
+        }
+      },
+      {
+        "fault": "missing_field",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "MISSING_FIELD": 100
+        }
+      },
+      {
+        "fault": "qid_mismatch",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "QID_MISMATCH": 100
+        }
+      },
+      {
+        "fault": "payload_tamper",
+        "successes": 100,
+        "total": 100,
+        "rate": 1,
+        "ci95Lower": 0.963,
+        "ci95Upper": 1,
+        "codes": {
+          "PAYLOAD_TAMPER": 100
+        }
+      }
+    ]
+  },
+  "rq2DagScheduling": {
+    "meta": {
+      "runs": 5,
+      "queriesPerConfigPerRun": 10,
+      "controlledNodeCostsMs": {
+        "fetch": 4,
+        "rule": 1,
+        "semantic": 8,
+        "root": 1
+      }
+    },
+    "rows": [
+      {
+        "nodeCount": 8,
+        "mode": "sequential",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 30.9469,
+          "ci95Lower": 30.2909,
+          "ci95Upper": 31.603,
+          "p50": 30.7031,
+          "p95": 31.6644,
+          "p99": 31.7769
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 31.9574,
+          "ci95Lower": 31.4329,
+          "ci95Upper": 32.4819,
+          "p50": 31.9868,
+          "p95": 32.4479,
+          "p99": 32.5026
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 30.9469,
+          "ci95Lower": 30.6846,
+          "ci95Upper": 31.2093,
+          "p50": 31.0422,
+          "p95": 32.359,
+          "p99": 32.5171
+        }
+      },
+      {
+        "nodeCount": 8,
+        "mode": "eager_no_dependency",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 8.4942,
+          "ci95Lower": 8.2328,
+          "ci95Upper": 8.7556,
+          "p50": 8.5372,
+          "p95": 8.6843,
+          "p99": 8.6883
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 9.0519,
+          "ci95Lower": 8.8693,
+          "ci95Upper": 9.2346,
+          "p50": 9.0487,
+          "p95": 9.2193,
+          "p99": 9.2431
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 8.4942,
+          "ci95Lower": 8.3741,
+          "ci95Upper": 8.6143,
+          "p50": 8.4342,
+          "p95": 9.2678,
+          "p99": 9.397
+        }
+      },
+      {
+        "nodeCount": 8,
+        "mode": "dependency_aware",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 15.9765,
+          "ci95Lower": 15.6506,
+          "ci95Upper": 16.3023,
+          "p50": 15.9426,
+          "p95": 16.2934,
+          "p99": 16.3295
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 16.6845,
+          "ci95Lower": 16.2877,
+          "ci95Upper": 17.0814,
+          "p50": 16.7184,
+          "p95": 17.0799,
+          "p99": 17.1464
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 15.9765,
+          "ci95Lower": 15.7717,
+          "ci95Upper": 16.1813,
+          "p50": 16.156,
+          "p95": 17.0164,
+          "p99": 17.1594
+        }
+      },
+      {
+        "nodeCount": 16,
+        "mode": "sequential",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 69.8812,
+          "ci95Lower": 69.4523,
+          "ci95Upper": 70.31,
+          "p50": 69.842,
+          "p95": 70.31,
+          "p99": 70.3627
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 71.9264,
+          "ci95Lower": 71.0472,
+          "ci95Upper": 72.8055,
+          "p50": 71.7593,
+          "p95": 72.8888,
+          "p99": 73.0926
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 69.8812,
+          "ci95Lower": 69.4557,
+          "ci95Upper": 70.3067,
+          "p50": 69.9663,
+          "p95": 72.7288,
+          "p99": 73.126
+        }
+      },
+      {
+        "nodeCount": 16,
+        "mode": "eager_no_dependency",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 8.4897,
+          "ci95Lower": 8.3438,
+          "ci95Upper": 8.6356,
+          "p50": 8.5165,
+          "p95": 8.5797,
+          "p99": 8.5808
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 9.195,
+          "ci95Lower": 8.9107,
+          "ci95Upper": 9.4793,
+          "p50": 9.1035,
+          "p95": 9.4356,
+          "p99": 9.4382
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 8.4897,
+          "ci95Lower": 8.3521,
+          "ci95Upper": 8.6273,
+          "p50": 8.4031,
+          "p95": 9.3028,
+          "p99": 9.6379
+        }
+      },
+      {
+        "nodeCount": 16,
+        "mode": "dependency_aware",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 16.2,
+          "ci95Lower": 15.7721,
+          "ci95Upper": 16.628,
+          "p50": 16.0253,
+          "p95": 16.6032,
+          "p99": 16.6198
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 17.0178,
+          "ci95Lower": 16.3257,
+          "ci95Upper": 17.7098,
+          "p50": 16.8289,
+          "p95": 17.7271,
+          "p99": 17.8022
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 16.2,
+          "ci95Lower": 15.9933,
+          "ci95Upper": 16.4067,
+          "p50": 16.259,
+          "p95": 17.5388,
+          "p99": 17.8167
+        }
+      },
+      {
+        "nodeCount": 32,
+        "mode": "sequential",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 146.3311,
+          "ci95Lower": 145.8918,
+          "ci95Upper": 146.7705,
+          "p50": 146.2839,
+          "p95": 146.801,
+          "p99": 146.8926
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 149.4319,
+          "ci95Lower": 148.1559,
+          "ci95Upper": 150.7079,
+          "p50": 149.8003,
+          "p95": 150.5262,
+          "p99": 150.6668
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 146.3311,
+          "ci95Lower": 145.6057,
+          "ci95Upper": 147.0566,
+          "p50": 146.7832,
+          "p95": 149.8003,
+          "p99": 151.2262
+        }
+      },
+      {
+        "nodeCount": 32,
+        "mode": "eager_no_dependency",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 8.7535,
+          "ci95Lower": 8.5225,
+          "ci95Upper": 8.9845,
+          "p50": 8.8776,
+          "p95": 8.8956,
+          "p99": 8.8969
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 9.3129,
+          "ci95Lower": 9.064,
+          "ci95Upper": 9.5618,
+          "p50": 9.3537,
+          "p95": 9.5121,
+          "p99": 9.539
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 8.7535,
+          "ci95Lower": 8.6303,
+          "ci95Upper": 8.8767,
+          "p50": 8.7224,
+          "p95": 9.4632,
+          "p99": 9.6226
+        }
+      },
+      {
+        "nodeCount": 32,
+        "mode": "dependency_aware",
+        "queries": 50,
+        "meanAcrossRunsMs": {
+          "n": 5,
+          "mean": 16.5287,
+          "ci95Lower": 16.318,
+          "ci95Upper": 16.7394,
+          "p50": 16.5506,
+          "p95": 16.7263,
+          "p99": 16.7609
+        },
+        "p95AcrossRunsMs": {
+          "n": 5,
+          "mean": 17.2936,
+          "ci95Lower": 16.9703,
+          "ci95Upper": 17.6169,
+          "p50": 17.2659,
+          "p95": 17.5939,
+          "p99": 17.6362
+        },
+        "allQueriesMs": {
+          "n": 50,
+          "mean": 16.5287,
+          "ci95Lower": 16.3555,
+          "ci95Upper": 16.702,
+          "p50": 16.6372,
+          "p95": 17.522,
+          "p99": 17.7949
+        }
+      }
+    ]
+  },
+  "rq3FaultRecovery": {
+    "aggregate": {
+      "noRecoveryCorrectTerminal": {
+        "successes": 300,
+        "total": 800,
+        "rate": 0.375,
+        "ci95Lower": 0.3421,
+        "ci95Upper": 0.4091
+      },
+      "boundedRecoveryCorrectTerminal": {
+        "successes": 800,
+        "total": 800,
+        "rate": 1,
+        "ci95Lower": 0.9952,
+        "ci95Upper": 1
+      }
+    },
+    "rows": [
+      {
+        "fault": "single_endpoint_down",
+        "recoveryEnabled": false,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "alternate_endpoint",
+        "correctTerminal": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0356,
+          "ci95Lower": 0.0135,
+          "ci95Upper": 0.0576,
+          "p50": 0.013,
+          "p95": 0.1134,
+          "p99": 0.5144
+        },
+        "terminals": {
+          "FAILED": 100
+        }
+      },
+      {
+        "fault": "single_endpoint_down",
+        "recoveryEnabled": true,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "alternate_endpoint",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "meanExtraRequests": 1,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0128,
+          "ci95Lower": 0.0113,
+          "ci95Upper": 0.0143,
+          "p50": 0.0109,
+          "p95": 0.017,
+          "p99": 0.0418
+        },
+        "terminals": {
+          "SATISFIED": 100
+        }
+      },
+      {
+        "fault": "double_endpoint_down",
+        "recoveryEnabled": false,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "bounded_exhaustion",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0158,
+          "ci95Lower": 0.0128,
+          "ci95Upper": 0.0187,
+          "p50": 0.0109,
+          "p95": 0.0383,
+          "p99": 0.1036
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      },
+      {
+        "fault": "double_endpoint_down",
+        "recoveryEnabled": true,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "bounded_exhaustion",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0111,
+          "ci95Lower": 0.0088,
+          "ci95Upper": 0.0135,
+          "p50": 0.0092,
+          "p95": 0.0125,
+          "p99": 0.0668
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      },
+      {
+        "fault": "index_lag",
+        "recoveryEnabled": false,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "fresh_endpoint",
+        "correctTerminal": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0087,
+          "ci95Lower": 0.0084,
+          "ci95Upper": 0.009,
+          "p50": 0.0086,
+          "p95": 0.0102,
+          "p99": 0.0159
+        },
+        "terminals": {
+          "FAILED": 100
+        }
+      },
+      {
+        "fault": "index_lag",
+        "recoveryEnabled": true,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "fresh_endpoint",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "meanExtraRequests": 1,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0178,
+          "ci95Lower": 0.0005,
+          "ci95Upper": 0.0351,
+          "p50": 0.0079,
+          "p95": 0.0135,
+          "p99": 0.0553
+        },
+        "terminals": {
+          "SATISFIED": 100
+        }
+      },
+      {
+        "fault": "expired_evidence",
+        "recoveryEnabled": false,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "refresh_evidence",
+        "correctTerminal": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0096,
+          "ci95Lower": 0.0075,
+          "ci95Upper": 0.0118,
+          "p50": 0.0072,
+          "p95": 0.0129,
+          "p99": 0.0461
+        },
+        "terminals": {
+          "FAILED": 100
+        }
+      },
+      {
+        "fault": "expired_evidence",
+        "recoveryEnabled": true,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "refresh_evidence",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "meanExtraRequests": 1,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0259,
+          "ci95Lower": 0.0144,
+          "ci95Upper": 0.0374,
+          "p50": 0.015,
+          "p95": 0.0467,
+          "p99": 0.3592
+        },
+        "terminals": {
+          "SATISFIED": 100
+        }
+      },
+      {
+        "fault": "missing_field",
+        "recoveryEnabled": false,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "conservative_terminal",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0061,
+          "ci95Lower": 0.0059,
+          "ci95Upper": 0.0063,
+          "p50": 0.0059,
+          "p95": 0.0071,
+          "p99": 0.0101
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      },
+      {
+        "fault": "missing_field",
+        "recoveryEnabled": true,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "conservative_terminal",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.012,
+          "ci95Lower": 0.008,
+          "ci95Upper": 0.016,
+          "p50": 0.006,
+          "p95": 0.0452,
+          "p99": 0.0813
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      },
+      {
+        "fault": "wrong_input_root",
+        "recoveryEnabled": false,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "replacement_service",
+        "correctTerminal": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.011,
+          "ci95Lower": 0.0023,
+          "ci95Upper": 0.0198,
+          "p50": 0.0058,
+          "p95": 0.009,
+          "p99": 0.0392
+        },
+        "terminals": {
+          "FAILED": 100
+        }
+      },
+      {
+        "fault": "wrong_input_root",
+        "recoveryEnabled": true,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "replacement_service",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "meanExtraRequests": 1,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0067,
+          "ci95Lower": 0.0061,
+          "ci95Upper": 0.0072,
+          "p50": 0.0062,
+          "p95": 0.0072,
+          "p99": 0.0212
+        },
+        "terminals": {
+          "SATISFIED": 100
+        }
+      },
+      {
+        "fault": "service_timeout",
+        "recoveryEnabled": false,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "replacement_service",
+        "correctTerminal": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0082,
+          "ci95Lower": 0.0059,
+          "ci95Upper": 0.0105,
+          "p50": 0.0058,
+          "p95": 0.0135,
+          "p99": 0.0701
+        },
+        "terminals": {
+          "FAILED": 100
+        }
+      },
+      {
+        "fault": "service_timeout",
+        "recoveryEnabled": true,
+        "recoverable": true,
+        "expectedTerminal": "SATISFIED",
+        "policyAction": "replacement_service",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "meanExtraRequests": 1,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0113,
+          "ci95Lower": 0.0039,
+          "ci95Upper": 0.0186,
+          "p50": 0.0057,
+          "p95": 0.0235,
+          "p99": 0.0441
+        },
+        "terminals": {
+          "SATISFIED": 100
+        }
+      },
+      {
+        "fault": "correlated_disagreement",
+        "recoveryEnabled": false,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "bounded_escalation",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 0,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0053,
+          "ci95Lower": 0.0051,
+          "ci95Upper": 0.0056,
+          "p50": 0.0051,
+          "p95": 0.0057,
+          "p99": 0.0088
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      },
+      {
+        "fault": "correlated_disagreement",
+        "recoveryEnabled": true,
+        "recoverable": false,
+        "expectedTerminal": "INSUFFICIENT",
+        "policyAction": "bounded_escalation",
+        "correctTerminal": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "recovered": {
+          "successes": 0,
+          "total": 100,
+          "rate": 0,
+          "ci95Lower": 0,
+          "ci95Upper": 0.037
+        },
+        "meanExtraRequests": 2,
+        "processingMs": {
+          "n": 100,
+          "mean": 0.0083,
+          "ci95Lower": 0.0028,
+          "ci95Upper": 0.0138,
+          "p50": 0.0051,
+          "p95": 0.0083,
+          "p99": 0.0156
+        },
+        "terminals": {
+          "INSUFFICIENT": 100
+        }
+      }
+    ]
+  },
+  "rq4AuditReconstruction": {
+    "aggregate": {
+      "cleanReconstruction": {
+        "successes": 400,
+        "total": 400,
+        "rate": 1,
+        "ci95Lower": 0.9905,
+        "ci95Upper": 1
+      },
+      "tamperDetection": {
+        "successes": 1600,
+        "total": 1600,
+        "rate": 1,
+        "ci95Lower": 0.9976,
+        "ci95Upper": 1
+      },
+      "exactBreakpointLocalization": {
+        "successes": 1600,
+        "total": 1600,
+        "rate": 1,
+        "ci95Lower": 0.9976,
+        "ci95Upper": 1
+      }
+    },
+    "mutationTypes": [
+      "delete",
+      "replace_output",
+      "wrong_version",
+      "bad_signature"
+    ],
+    "queriesPerScale": 100,
+    "rows": [
+      {
+        "nodeCount": 8,
+        "cleanReconstruction": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "tamperDetection": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "exactBreakpointLocalization": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "receiptBytes": {
+          "n": 100,
+          "mean": 3135.9,
+          "ci95Lower": 3135.8409,
+          "ci95Upper": 3135.9591,
+          "p50": 3136,
+          "p95": 3136,
+          "p99": 3136
+        },
+        "reconstructionMs": {
+          "n": 100,
+          "mean": 1.3975,
+          "ci95Lower": 1.3474,
+          "ci95Upper": 1.4476,
+          "p50": 1.2891,
+          "p95": 1.8656,
+          "p99": 2.0395
+        }
+      },
+      {
+        "nodeCount": 16,
+        "cleanReconstruction": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "tamperDetection": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "exactBreakpointLocalization": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "receiptBytes": {
+          "n": 100,
+          "mean": 6330.9,
+          "ci95Lower": 6330.8409,
+          "ci95Upper": 6330.9591,
+          "p50": 6331,
+          "p95": 6331,
+          "p99": 6331
+        },
+        "reconstructionMs": {
+          "n": 100,
+          "mean": 2.7845,
+          "ci95Lower": 2.7171,
+          "ci95Upper": 2.852,
+          "p50": 2.689,
+          "p95": 3.3195,
+          "p99": 3.7148
+        }
+      },
+      {
+        "nodeCount": 32,
+        "cleanReconstruction": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "tamperDetection": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "exactBreakpointLocalization": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "receiptBytes": {
+          "n": 100,
+          "mean": 12730.9,
+          "ci95Lower": 12730.8409,
+          "ci95Upper": 12730.9591,
+          "p50": 12731,
+          "p95": 12731,
+          "p99": 12731
+        },
+        "reconstructionMs": {
+          "n": 100,
+          "mean": 5.5523,
+          "ci95Lower": 5.46,
+          "ci95Upper": 5.6446,
+          "p50": 5.5099,
+          "p95": 6.3826,
+          "p99": 6.6741
+        }
+      },
+      {
+        "nodeCount": 64,
+        "cleanReconstruction": {
+          "successes": 100,
+          "total": 100,
+          "rate": 1,
+          "ci95Lower": 0.963,
+          "ci95Upper": 1
+        },
+        "tamperDetection": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "exactBreakpointLocalization": {
+          "successes": 400,
+          "total": 400,
+          "rate": 1,
+          "ci95Lower": 0.9905,
+          "ci95Upper": 1
+        },
+        "receiptBytes": {
+          "n": 100,
+          "mean": 25560.9,
+          "ci95Lower": 25560.8409,
+          "ci95Upper": 25560.9591,
+          "p50": 25561,
+          "p95": 25561,
+          "p99": 25561
+        },
+        "reconstructionMs": {
+          "n": 100,
+          "mean": 10.9675,
+          "ci95Lower": 10.8539,
+          "ci95Upper": 11.081,
+          "p50": 10.9645,
+          "p95": 11.9416,
+          "p99": 12.3429
+        }
+      }
+    ]
+  },
+  "rq5PruningAblation": [
+    {
+      "nodeCount": 8,
+      "failedLeaf": "e0",
+      "eagerExecuted": 8,
+      "dependencyAwareExecuted": 5,
+      "avoidedExecutions": 3,
+      "avoidedRate": 0.375
+    },
+    {
+      "nodeCount": 16,
+      "failedLeaf": "e0",
+      "eagerExecuted": 16,
+      "dependencyAwareExecuted": 11,
+      "avoidedExecutions": 5,
+      "avoidedRate": 0.3125
+    },
+    {
+      "nodeCount": 32,
+      "failedLeaf": "e0",
+      "eagerExecuted": 32,
+      "dependencyAwareExecuted": 23,
+      "avoidedExecutions": 9,
+      "avoidedRate": 0.2813
+    }
+  ],
+  "archivedOnchain": {
+    "source": "/Users/yiche/Desktop/xn/qkl/fabric-chaincode/Relayer/demo/experiments/onchain_cost_results.json",
+    "generatedAt": "2026-06-26T09:35:45.646Z",
+    "scannedBlocks": 1123,
+    "protocolTransactions": 127,
+    "blockIntervalMs": {
+      "median": 7531,
+      "p10": 7207,
+      "min": 503
+    },
+    "receiveLite": {
+      "gasUsed": {
+        "count": 7,
+        "mean": 39517.6,
+        "min": 39487,
+        "max": 39585,
+        "median": 39487
+      },
+      "inputBytesMean": 845,
+      "inputBytesTotal": 5916
+    },
+    "submitBlockHeader": {
+      "gasUsed": {
+        "count": 109,
+        "mean": 82079.1,
+        "min": 74534,
+        "max": 82149,
+        "median": 82149
+      },
+      "inputBytesMean": 452,
+      "inputBytesTotal": 49268
+    },
+    "sendReference": {
+      "gasUsed": {
+        "count": 9,
+        "mean": 17414,
+        "min": 17414,
+        "max": 17414,
+        "median": 17414
+      },
+      "inputBytesMean": 580,
+      "inputBytesTotal": 5220
+    },
+    "committeeScaling": {
+      "n=3": {
+        "ours_per_task_gas": 39518,
+        "naive_onchain_bft_gas": 104484,
+        "savings_x": 2.64
+      },
+      "n=5": {
+        "ours_per_task_gas": 39518,
+        "naive_onchain_bft_gas": 174140,
+        "savings_x": 4.41
+      },
+      "n=7": {
+        "ours_per_task_gas": 39518,
+        "naive_onchain_bft_gas": 243796,
+        "savings_x": 6.17
+      },
+      "n=9": {
+        "ours_per_task_gas": 39518,
+        "naive_onchain_bft_gas": 313452,
+        "savings_x": 7.93
+      },
+      "n=15": {
+        "ours_per_task_gas": 39518,
+        "naive_onchain_bft_gas": 522420,
+        "savings_x": 13.22
+      }
+    },
+    "caveat": "Archived FISCO-BCOS ledger scan; not rerun by this script. receiveLite has seven samples and its semantic equivalence to the revised receipt anchor requires contract-version confirmation."
+  }
+}

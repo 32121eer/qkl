@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "semantic-query-live-experiment-summary-v1",
+  "generatedAt": "2026-08-25T01:51:56.425Z",
+  "totalQueries": 600,
+  "completedQueries": 600,
+  "expectedBehaviorQueries": 600,
+  "elapsedMs": 311012.823,
+  "measuredQueriesPerSecond": 1.929,
+  "auditDatabaseBytes": 15753216,
+  "ledgerHeights": {
+    "initial": {
+      "fabric": 8,
+      "fisco": 37
+    },
+    "final": {
+      "fabric": 8,
+      "fisco": 640
+    }
+  },
+  "byScenario": {
+    "normal": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "ANCHORED": 100
+      },
+      "totalLatencyMs": {
+        "mean": 514.029,
+        "p50": 507.252,
+        "p95": 580.407,
+        "p99": 673.808
+      },
+      "executionLatencyMs": {
+        "mean": 48.61,
+        "p50": 46,
+        "p95": 72
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 465.419,
+        "p50": 461.511,
+        "p95": 535.554
+      },
+      "meanRetries": 0,
+      "meanReceiptBytes": 14486.88
+    },
+    "fabric_endpoint_retry": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "ANCHORED": 100
+      },
+      "totalLatencyMs": {
+        "mean": 511.935,
+        "p50": 505.891,
+        "p95": 603.174,
+        "p99": 630.672
+      },
+      "executionLatencyMs": {
+        "mean": 45.7,
+        "p50": 43.5,
+        "p95": 63
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 466.235,
+        "p50": 463.345,
+        "p95": 541.224
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 15033.24
+    },
+    "fisco_endpoint_retry": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "ANCHORED": 100
+      },
+      "totalLatencyMs": {
+        "mean": 514.781,
+        "p50": 505.802,
+        "p95": 606.187,
+        "p99": 649.287
+      },
+      "executionLatencyMs": {
+        "mean": 46.69,
+        "p50": 43,
+        "p95": 66.35
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 468.091,
+        "p50": 463.011,
+        "p95": 558.38
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 15034.94
+    },
+    "semantic_service_timeout": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "ANCHORED": 100
+      },
+      "totalLatencyMs": {
+        "mean": 515.658,
+        "p50": 506.818,
+        "p95": 608.941,
+        "p99": 619.434
+      },
+      "executionLatencyMs": {
+        "mean": 266.46,
+        "p50": 267,
+        "p95": 272.05
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 249.198,
+        "p50": 241.228,
+        "p95": 336.023
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 15168.84
+    },
+    "fabric_endpoint_exhausted": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "FAILED": 100
+      },
+      "totalLatencyMs": {
+        "mean": 516.134,
+        "p50": 508.182,
+        "p95": 607.863,
+        "p99": 625.565
+      },
+      "executionLatencyMs": {
+        "mean": 32.1,
+        "p50": 31,
+        "p95": 42.05
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 484.034,
+        "p50": 476.294,
+        "p95": 574.713
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 13350.5
+    },
+    "semantic_disagreement": {
+      "queries": 100,
+      "completed": 100,
+      "expectedBehavior": 100,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 100,
+      "terminalStates": {
+        "INSUFFICIENT_EVIDENCE": 100
+      },
+      "totalLatencyMs": {
+        "mean": 515.818,
+        "p50": 507.446,
+        "p95": 610.005,
+        "p99": 653.05
+      },
+      "executionLatencyMs": {
+        "mean": 43.12,
+        "p50": 41,
+        "p95": 59.25
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 472.698,
+        "p50": 467.743,
+        "p95": 560.781
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 14653.46
+    }
+  }
+}

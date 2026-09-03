@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "semantic-query-live-regulatory-seed-v1",
+  "generatedAt": "2026-09-01T01:38:04Z",
+  "fabric": {
+    "channel": "mychannel",
+    "chaincode": "gateway_cc",
+    "function": "PutOrchardRecord",
+    "ledgerHeightAfterSeed": 13,
+    "transactionIdsCaptured": false,
+    "batchIds": [
+      "BATCH-REG-NORMAL",
+      "BATCH-REG-OVER-LIMIT",
+      "BATCH-REG-SUBJECT-MISMATCH",
+      "BATCH-REG-MISSING-DISCLOSURE",
+      "BATCH-REG-ENDPOINT-RETRY"
+    ]
+  },
+  "fisco": {
+    "contract": "SupplyChainEvidenceRegistry",
+    "address": "0x4721d1a77e0e76851d460073e64ea06d9c104194",
+    "transactions": [
+      {"blockHeight": 1000, "txHash": "0xff5d1834d01d05122ca95c90501d7a6ce702e419393d671855505bba4db6b780", "category": "regulatory-transaction", "recordId": "TX-REG-NORMAL"},
+      {"blockHeight": 1001, "txHash": "0xf64414752bca34bb3b73e7e8caa663e5ff1e12bd2589519c550c62a9ee9a6630", "category": "regulatory-policy", "recordId": "POLICY-REG-NORMAL"},
+      {"blockHeight": 1002, "txHash": "0x174199d3cf61291b441f7d27996360decdb909500960a4b996aa6b3b9ef740ec", "category": "regulatory-transaction", "recordId": "TX-REG-OVER-LIMIT"},
+      {"blockHeight": 1003, "txHash": "0x831ebe864065b5ece8e1f9372bb8f2532162cce85edd8ecd40c32aec2ff772d4", "category": "regulatory-policy", "recordId": "POLICY-REG-OVER-LIMIT"},
+      {"blockHeight": 1004, "txHash": "0x331caeaaa5ad6acd672d1e8dac626efc81e0c5c29eeff5af6744458bcaec8b77", "category": "regulatory-transaction", "recordId": "TX-REG-SUBJECT-MISMATCH"},
+      {"blockHeight": 1005, "txHash": "0xc8b4289467f976d7d93b239df85a45b0dfbdb90cf8b726a289b7daaf35c21487", "category": "regulatory-policy", "recordId": "POLICY-REG-SUBJECT-MISMATCH"},
+      {"blockHeight": 1006, "txHash": "0xfb6531f8c5f3e268691a1748e2c641a788ea5b8396e97254259ad3f9fabcfdcb", "category": "regulatory-transaction", "recordId": "TX-REG-MISSING-DISCLOSURE"},
+      {"blockHeight": 1007, "txHash": "0x6fbcb6e6a48c1bafa082c530e9b3f68cdb77d64e9dd4b5ad04bdaaf074eea5d4", "category": "regulatory-policy", "recordId": "POLICY-REG-MISSING-DISCLOSURE"},
+      {"blockHeight": 1008, "txHash": "0x1cf141258e538c473876a34c45d25bd6dd4934c9abbe36e8a7262cd7b3c1b3b8", "category": "regulatory-transaction", "recordId": "TX-REG-ENDPOINT-RETRY"},
+      {"blockHeight": 1009, "txHash": "0xbfee40c498c78c530e8b21a371e38db8256d7e4358967e8def48586e97095486", "category": "regulatory-policy", "recordId": "POLICY-REG-ENDPOINT-RETRY"}
+    ]
+  },
+  "evidenceBoundary": [
+    "Fabric transaction IDs were not returned by the existing seed helper and are not reconstructed after the fact",
+    "FISCO transaction hashes and block heights are copied from confirmed transaction receipts",
+    "scenario values are deterministic experimental records rather than production regulatory data"
+  ]
+}

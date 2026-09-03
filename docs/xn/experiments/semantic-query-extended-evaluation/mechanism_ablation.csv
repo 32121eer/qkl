@@ -1,0 +1,8 @@
+mechanism,cacheEnabled,hits,remoteFetches,n,mean,p50,p95,p99,recoveryEnabled,successfulQueries,total,querySuccessRate,terminalCounts,meanNodeAttempts,latency,strategy,tasks,calls,callsPerTask,availabilityRate,maxProviderShare,hhi,gini
+cache,false,0,500,100,3.474,3.334,5.007,7.561,,,,,,,,,,,,,,,
+cache,true,495,5,100,0.475,0.386,0.949,2.986,,,,,,,,,,,,,,,
+retry,,,,,,,,,false,0,100,0,"{""FAILED"":100}",7,"{""n"":100,""mean"":1.951,""p50"":1.982,""p95"":2.603,""p99"":2.937}",,,,,,,,
+retry,,,,,,,,,true,100,100,1,"{""READY_TO_ANCHOR"":100}",11,"{""n"":100,""mean"":3.467,""p50"":3.62,""p95"":4.498,""p99"":4.944}",,,,,,,,
+service_scheduling,,,,,,,,,,,,,,,,fixed_single,1000,"{""a"":1000,""b"":0,""c"":0,""d"":0}",1,0.877,1,1,0.75
+service_scheduling,,,,,,,,,,,,,,,,reliability_single,1000,"{""a"":1000,""b"":0,""c"":0,""d"":0}",1,0.877,1,1,0.75
+service_scheduling,,,,,,,,,,,,,,,,reliability_load_diversity,1000,"{""a"":531,""b"":469,""c"":560,""d"":440}",2,0.979,0.28,0.2522805,0.052750000000000075

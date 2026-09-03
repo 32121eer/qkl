@@ -133,6 +133,20 @@ fabric_detect_source_samples_dir() {
     return 1
 }
 
+fabric_prepare_container_cli() {
+    local project_root="$1"
+    local runtime_samples_dir="${FABRIC_RUNTIME_DIR:-$project_root/.fabric-runtime/fabric-samples}"
+    local setup_script="$project_root/scripts/setup-fabric-container-cli.sh"
+
+    if [[ -x "$runtime_samples_dir/bin/peer" ]]; then
+        return 0
+    fi
+
+    if [[ -x "$setup_script" ]] && command -v docker >/dev/null 2>&1; then
+        FABRIC_RUNTIME_DIR="$runtime_samples_dir" "$setup_script"
+    fi
+}
+
 fabric_prepare_runtime() {
     local project_root="$1"
     local source_samples_dir="${2:-}"
@@ -189,6 +203,7 @@ fabric_prepare_runtime() {
     fabric_apply_runtime_network_overrides "$runtime_test_network"
     fabric_apply_runtime_version_overrides "$runtime_samples_dir" "$runtime_test_network"
     fabric_patch_network_cleanup "$runtime_test_network"
+    fabric_prepare_container_cli "$project_root"
 
     export FABRIC_SAMPLES_SOURCE_DIR="$source_samples_dir"
     export FABRIC_SAMPLES_DIR="$runtime_samples_dir"

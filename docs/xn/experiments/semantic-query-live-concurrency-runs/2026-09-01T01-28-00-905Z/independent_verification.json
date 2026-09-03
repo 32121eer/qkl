@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "independent-audit-verification-v1",
+  "generatedAt": "2026-09-01T01:31:36Z",
+  "implementation": "independent Python canonical-JSON and SQLite verifier",
+  "results": [
+    {
+      "database": "docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/c1/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.8839383870967673,
+        "p50": 0.6499939999999871,
+        "p95": 1.9974390000000046,
+        "p99": 4.050252620000033
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/c2/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 1.0301962419354764,
+        "p50": 0.7053224999999941,
+        "p95": 2.566489700000016,
+        "p99": 3.8340010900000485
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/c4/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.8624105161290514,
+        "p50": 0.7806395000002908,
+        "p95": 1.4438927500000418,
+        "p99": 1.6435596099999272
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/c8/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.7547434193548145,
+        "p50": 0.6496915000000492,
+        "p95": 1.2087071000001168,
+        "p99": 1.8206708499999458
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/c16/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.6651646612903177,
+        "p50": 0.5965365000000222,
+        "p95": 1.0113707999996446,
+        "p99": 1.7482820100000618
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1007 @@
+{
+  "schemaVersion": "semantic-query-live-saturation-v1",
+  "generatedAt": "2026-09-01T01:30:44.585Z",
+  "evidenceBoundary": [
+    "Fabric/FISCO reads, FISCO anchoring and SQLite persistence are live",
+    "all levels use the normal supply-chain-financing workload on one host",
+    "FISCO anchoring is serialized per wallet to prevent nonce races",
+    "container statistics are sampled with docker stats and may perturb the workload slightly"
+  ],
+  "configuration": {
+    "levels": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "runs": 3,
+    "queries": 20,
+    "warmup": 2,
+    "sampleMs": 1000,
+    "outDir": null,
+    "quick": false
+  },
+  "rows": [
+    {
+      "concurrency": 1,
+      "queries": 60,
+      "completed": 60,
+      "expected": 60,
+      "throughput": 1.881,
+      "p50Ms": 508.298,
+      "p95Ms": 588.62,
+      "p99Ms": 619.144,
+      "executionP95Ms": 82.25,
+      "anchorQueueP95Ms": 0.025,
+      "anchorServiceP95Ms": 511.388,
+      "wallMs": 32924.197583999994,
+      "ledgerHeights": {
+        "initial": {
+          "fabric": 8,
+          "fisco": 689
+        },
+        "final": {
+          "fabric": 8,
+          "fisco": 751
+        }
+      },
+      "resources": {
+        "sampleCount": 15,
+        "hostLoad1": {
+          "n": 15,
+          "mean": 106.00751953125,
+          "p95": 128.096,
+          "max": 128.09619140625
+        },
+        "benchmarkProcessRssBytes": {
+          "n": 15,
+          "mean": 146000008.53333333,
+          "p95": 165517721.6,
+          "max": 166297600
+        },
+        "containers": {
+          "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0.004,
+              "p95": 0.023,
+              "max": 0.03
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 54421094.39999998,
+              "p95": 54421094.4,
+              "max": 54421094.4
+            }
+          },
+          "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 5.297999999999999,
+              "p95": 12.717,
+              "max": 19.01
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 167653321.38666666,
+              "p95": 167908474.88,
+              "max": 167981875.2
+            }
+          },
+          "qkl-fisco-nodes": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 98.06133333333332,
+              "p95": 114.424,
+              "max": 126.66
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 828458926.0800002,
+              "p95": 831730483.2,
+              "max": 831730483.2
+            }
+          },
+          "couchdb0": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0.528,
+              "p95": 1.172,
+              "max": 2.32
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 123480309.76000002,
+              "p95": 123721482.24,
+              "max": 123941683.2
+            }
+          },
+          "couchdb1": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0.486,
+              "p95": 1.239,
+              "max": 1.4
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 105976081.06666663,
+              "p95": 106115891.2,
+              "max": 106115891.2
+            }
+          },
+          "peer0.org1.example.com": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 8.138666666666666,
+              "p95": 10.242,
+              "max": 10.76
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 128967857.49333334,
+              "p95": 142291763.2,
+              "max": 143759769.6
+            }
+          },
+          "peer0.org2.example.com": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 4.0600000000000005,
+              "p95": 4.689,
+              "max": 4.71
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 69859628.37333336,
+              "p95": 70018662.4,
+              "max": 70202163.2
+            }
+          },
+          "orderer.example.com": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0.1866666666666667,
+              "p95": 0.26,
+              "max": 0.26
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 56451836.586666666,
+              "p95": 56748933.12,
+              "max": 56748933.12
+            }
+          },
+          "ca_org2": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 12635340.800000003,
+              "p95": 12635340.8,
+              "max": 12635340.8
+            }
+          },
+          "ca_orderer": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 12852046.506666668,
+              "p95": 13201571.84,
+              "max": 13201571.84
+            }
+          },
+          "ca_org1": {
+            "cpuPercent": {
+              "n": 15,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 15,
+              "mean": 46455412.05333333,
+              "p95": 46866104.32,
+              "max": 47049605.12
+            }
+          }
+        }
+      }
+    },
+    {
+      "concurrency": 2,
+      "queries": 60,
+      "completed": 60,
+      "expected": 60,
+      "throughput": 1.878,
+      "p50Ms": 1015.662,
+      "p95Ms": 1147.848,
+      "p99Ms": 1195.511,
+      "executionP95Ms": 90.15,
+      "anchorQueueP95Ms": 543.37,
+      "anchorServiceP95Ms": 611.863,
+      "wallMs": 32713.736835000003,
+      "ledgerHeights": {
+        "initial": {
+          "fabric": 8,
+          "fisco": 751
+        },
+        "final": {
+          "fabric": 8,
+          "fisco": 813
+        }
+      },
+      "resources": {
+        "sampleCount": 14,
+        "hostLoad1": {
+          "n": 14,
+          "mean": 64.96170479910714,
+          "p95": 77.532,
+          "max": 81.67919921875
+        },
+        "benchmarkProcessRssBytes": {
+          "n": 14,
+          "mean": 167201060.57142857,
+          "p95": 170711859.2,
+          "max": 171356160
+        },
+        "containers": {
+          "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.062142857142857146,
+              "p95": 0.304,
+              "max": 0.87
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 54442814.902857125,
+              "p95": 54519660.544,
+              "max": 54683238.4
+            }
+          },
+          "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 2.9828571428571427,
+              "p95": 5.688,
+              "max": 7.56
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 168236529.37142858,
+              "p95": 168611020.8,
+              "max": 168611020.8
+            }
+          },
+          "qkl-fisco-nodes": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 93.78214285714284,
+              "p95": 123.949,
+              "max": 170.58
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 835804949.942857,
+              "p95": 838310297.6,
+              "max": 838651084.8
+            }
+          },
+          "couchdb0": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.39285714285714285,
+              "p95": 1.294,
+              "max": 1.34
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 123612130.74285717,
+              "p95": 123941683.2,
+              "max": 123941683.2
+            }
+          },
+          "couchdb1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.3085714285714286,
+              "p95": 0.649,
+              "max": 1.02
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 106145850.51428568,
+              "p95": 106220748.8,
+              "max": 106220748.8
+            }
+          },
+          "peer0.org1.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 7.22,
+              "p95": 9.3,
+              "max": 9.95
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 151646559.08571428,
+              "p95": 152358092.8,
+              "max": 152358092.8
+            }
+          },
+          "peer0.org2.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 4.052142857142857,
+              "p95": 6.797,
+              "max": 11.1
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 69772996.02285716,
+              "p95": 69981962.24,
+              "max": 69981962.24
+            }
+          },
+          "orderer.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.12142857142857141,
+              "p95": 0.183,
+              "max": 0.19
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 56449339.977142856,
+              "p95": 56486789.12,
+              "max": 56486789.12
+            }
+          },
+          "ca_org2": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12635340.8,
+              "p95": 12635340.8,
+              "max": 12635340.8
+            }
+          },
+          "ca_orderer": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12677283.840000002,
+              "p95": 12677283.84,
+              "max": 12677283.84
+            }
+          },
+          "ca_org1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 46263173.12,
+              "p95": 46263173.12,
+              "max": 46263173.12
+            }
+          }
+        }
+      }
+    },
+    {
+      "concurrency": 4,
+      "queries": 60,
+      "completed": 60,
+      "expected": 60,
+      "throughput": 1.882,
+      "p50Ms": 2059.419,
+      "p95Ms": 2236.398,
+      "p99Ms": 2275.407,
+      "executionP95Ms": 134.95,
+      "anchorQueueP95Ms": 1594.521,
+      "anchorServiceP95Ms": 591.01,
+      "wallMs": 32525.368657,
+      "ledgerHeights": {
+        "initial": {
+          "fabric": 8,
+          "fisco": 813
+        },
+        "final": {
+          "fabric": 8,
+          "fisco": 875
+        }
+      },
+      "resources": {
+        "sampleCount": 14,
+        "hostLoad1": {
+          "n": 14,
+          "mean": 41.253487723214285,
+          "p95": 49.747,
+          "max": 49.74658203125
+        },
+        "benchmarkProcessRssBytes": {
+          "n": 14,
+          "mean": 173615104,
+          "p95": 174193049.6,
+          "max": 174395392
+        },
+        "containers": {
+          "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.002142857142857143,
+              "p95": 0.01,
+              "max": 0.03
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 54431580.159999974,
+              "p95": 54431580.16,
+              "max": 54431580.16
+            }
+          },
+          "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 2.2028571428571433,
+              "p95": 3.737,
+              "max": 4.03
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 168566081.82857147,
+              "p95": 168820736,
+              "max": 168820736
+            }
+          },
+          "qkl-fisco-nodes": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 88.10428571428572,
+              "p95": 100.129,
+              "max": 109.17
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 839946825.1428572,
+              "p95": 841031352.32,
+              "max": 841167667.2
+            }
+          },
+          "couchdb0": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.827857142857143,
+              "p95": 3.05,
+              "max": 7.49
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 123619620.57142861,
+              "p95": 123941683.2,
+              "max": 123941683.2
+            }
+          },
+          "couchdb1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.7885714285714286,
+              "p95": 2.869,
+              "max": 7.14
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 106273177.59999998,
+              "p95": 106608721.92,
+              "max": 106745036.8
+            }
+          },
+          "peer0.org1.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 7.557857142857143,
+              "p95": 11.347,
+              "max": 14.09
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 152185826.74285713,
+              "p95": 152431493.12,
+              "max": 152567808
+            }
+          },
+          "peer0.org2.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 3.5721428571428575,
+              "p95": 4.367,
+              "max": 4.77
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 69929533.44,
+              "p95": 70184861.696,
+              "max": 70191677.44
+            }
+          },
+          "orderer.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.12785714285714286,
+              "p95": 0.194,
+              "max": 0.2
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 56260596.297142856,
+              "p95": 57000591.36,
+              "max": 57000591.36
+            }
+          },
+          "ca_org2": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12635340.8,
+              "p95": 12635340.8,
+              "max": 12635340.8
+            }
+          },
+          "ca_orderer": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12677283.840000002,
+              "p95": 12677283.84,
+              "max": 12677283.84
+            }
+          },
+          "ca_org1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 46375520.54857142,
+              "p95": 46525317.12,
+              "max": 46525317.12
+            }
+          }
+        }
+      }
+    },
+    {
+      "concurrency": 8,
+      "queries": 60,
+      "completed": 60,
+      "expected": 60,
+      "throughput": 1.854,
+      "p50Ms": 4067.197,
+      "p95Ms": 4568.543,
+      "p99Ms": 4669.693,
+      "executionP95Ms": 234.05,
+      "anchorQueueP95Ms": 3951.503,
+      "anchorServiceP95Ms": 590.021,
+      "wallMs": 32909.203167,
+      "ledgerHeights": {
+        "initial": {
+          "fabric": 8,
+          "fisco": 875
+        },
+        "final": {
+          "fabric": 8,
+          "fisco": 937
+        }
+      },
+      "resources": {
+        "sampleCount": 14,
+        "hostLoad1": {
+          "n": 14,
+          "mean": 30.097133091517858,
+          "p95": 33.738,
+          "max": 33.73779296875
+        },
+        "benchmarkProcessRssBytes": {
+          "n": 14,
+          "mean": 176135606.85714287,
+          "p95": 178674483.2,
+          "max": 178733056
+        },
+        "containers": {
+          "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.0007142857142857143,
+              "p95": 0.003,
+              "max": 0.01
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 54426337.27999998,
+              "p95": 54431580.16,
+              "max": 54431580.16
+            }
+          },
+          "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 2.8071428571428574,
+              "p95": 7.197,
+              "max": 8.9
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 168670939.42857143,
+              "p95": 169135308.8,
+              "max": 169135308.8
+            }
+          },
+          "qkl-fisco-nodes": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 97.40571428571427,
+              "p95": 138.518,
+              "max": 174.32
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 842845388.8000001,
+              "p95": 844460195.84,
+              "max": 844732825.6
+            }
+          },
+          "couchdb0": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.3628571428571428,
+              "p95": 0.655,
+              "max": 1
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 123919213.71428575,
+              "p95": 124151398.4,
+              "max": 124151398.4
+            }
+          },
+          "couchdb1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.39357142857142857,
+              "p95": 0.789,
+              "max": 1.16
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 106460423.31428573,
+              "p95": 106608721.92,
+              "max": 106745036.8
+            }
+          },
+          "peer0.org1.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 8.472142857142858,
+              "p95": 14.726,
+              "max": 14.85
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 152425501.25714287,
+              "p95": 152777523.2,
+              "max": 152777523.2
+            }
+          },
+          "peer0.org2.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 4.4592857142857145,
+              "p95": 8.502,
+              "max": 8.6
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 70027650.19428572,
+              "p95": 70369935.36,
+              "max": 70369935.36
+            }
+          },
+          "orderer.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.15642857142857144,
+              "p95": 0.286,
+              "max": 0.41
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 55943776.54857142,
+              "p95": 56316395.52,
+              "max": 56486789.12
+            }
+          },
+          "ca_org2": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.002142857142857143,
+              "p95": 0.01,
+              "max": 0.03
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12635340.8,
+              "p95": 12635340.8,
+              "max": 12635340.8
+            }
+          },
+          "ca_orderer": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.002142857142857143,
+              "p95": 0.01,
+              "max": 0.03
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12677283.840000002,
+              "p95": 12677283.84,
+              "max": 12677283.84
+            }
+          },
+          "ca_org1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.0007142857142857143,
+              "p95": 0.003,
+              "max": 0.01
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 46263173.12,
+              "p95": 46263173.12,
+              "max": 46263173.12
+            }
+          }
+        }
+      }
+    },
+    {
+      "concurrency": 16,
+      "queries": 60,
+      "completed": 60,
+      "expected": 60,
+      "throughput": 1.886,
+      "p50Ms": 5516.773,
+      "p95Ms": 8359.055,
+      "p99Ms": 8480.115,
+      "executionP95Ms": 750.1,
+      "anchorQueueP95Ms": 7586.83,
+      "anchorServiceP95Ms": 542.924,
+      "wallMs": 32560.028544,
+      "ledgerHeights": {
+        "initial": {
+          "fabric": 8,
+          "fisco": 937
+        },
+        "final": {
+          "fabric": 8,
+          "fisco": 999
+        }
+      },
+      "resources": {
+        "sampleCount": 14,
+        "hostLoad1": {
+          "n": 14,
+          "mean": 23.956368582589285,
+          "p95": 26.578,
+          "max": 26.578125
+        },
+        "benchmarkProcessRssBytes": {
+          "n": 14,
+          "mean": 218002285.7142857,
+          "p95": 224255795.2,
+          "max": 224301056
+        },
+        "containers": {
+          "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.002142857142857143,
+              "p95": 0.01,
+              "max": 0.03
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 54421094.39999998,
+              "p95": 54421094.4,
+              "max": 54421094.4
+            }
+          },
+          "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 4.261428571428572,
+              "p95": 26.398,
+              "max": 35.42
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 169592188.34285715,
+              "p95": 170377871.36,
+              "max": 171127603.2
+            }
+          },
+          "qkl-fisco-nodes": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 89.25071428571428,
+              "p95": 104.386,
+              "max": 114.91
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 849683602.2857144,
+              "p95": 853341634.56,
+              "max": 853750579.2
+            }
+          },
+          "couchdb0": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.3257142857142858,
+              "p95": 0.655,
+              "max": 0.72
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 123672049.3714286,
+              "p95": 123941683.2,
+              "max": 123941683.2
+            }
+          },
+          "couchdb1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.3092857142857142,
+              "p95": 0.497,
+              "max": 0.64
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 106250708.1142857,
+              "p95": 106535321.6,
+              "max": 106535321.6
+            }
+          },
+          "peer0.org1.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 7.240714285714286,
+              "p95": 23.612,
+              "max": 31.38
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 152403031.77142859,
+              "p95": 152777523.2,
+              "max": 152777523.2
+            }
+          },
+          "peer0.org2.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 3.722857142857143,
+              "p95": 4.804,
+              "max": 4.96
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 69924290.55999999,
+              "p95": 70100975.616,
+              "max": 70107791.36
+            }
+          },
+          "orderer.example.com": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0.13642857142857143,
+              "p95": 0.183,
+              "max": 0.19
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 56486789.12,
+              "p95": 56748933.12,
+              "max": 56748933.12
+            }
+          },
+          "ca_org2": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12635340.8,
+              "p95": 12635340.8,
+              "max": 12635340.8
+            }
+          },
+          "ca_orderer": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 12677283.840000002,
+              "p95": 12677283.84,
+              "max": 12677283.84
+            }
+          },
+          "ca_org1": {
+            "cpuPercent": {
+              "n": 14,
+              "mean": 0,
+              "p95": 0,
+              "max": 0
+            },
+            "memoryBytes": {
+              "n": 14,
+              "mean": 46263173.12,
+              "p95": 46263173.12,
+              "max": 46263173.12
+            }
+          }
+        }
+      }
+    }
+  ],
+  "saturationPoint": {
+    "concurrency": 2,
+    "throughputGain": -0.0015948963317384975,
+    "latencyGain": 0.9500662566681389
+  }
+}

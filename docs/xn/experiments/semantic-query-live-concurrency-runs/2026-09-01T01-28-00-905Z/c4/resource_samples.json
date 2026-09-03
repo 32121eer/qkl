@@ -1,0 +1,1794 @@
+[
+  {
+    "at": "2026-09-01T01:29:08.640Z",
+    "hostLoad1": 49.74658203125,
+    "processRssBytes": 172445696,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.98%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.84%",
+        "MemUsage": "160.5MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.31MB / 627kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 52.3MB",
+        "CPUPerc": "86.98%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.07%",
+        "MemUsage": "799.6MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "744kB / 753kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.22%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.48%",
+        "MemUsage": "117.4MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.25%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.3MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "7.03%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.3MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.6MB / 35.8MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.31%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.46MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 33.9MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.08%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "54.36MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:11.832Z",
+    "hostLoad1": 49.74658203125,
+    "processRssBytes": 173285376,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.76%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.84%",
+        "MemUsage": "160.6MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.34MB / 639kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "85.71%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.08%",
+        "MemUsage": "799.8MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "775kB / 785kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.66%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.48%",
+        "MemUsage": "117.7MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.57%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.27%",
+        "MemUsage": "100.9MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "7.92%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.2MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.7MB / 35.9MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "4.12%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.48MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 33.9MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.11%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "54.36MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:13.917Z",
+    "hostLoad1": 46.1630859375,
+    "processRssBytes": 173522944,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "2.97%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.8MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.36MB / 647kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "81.71%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.08%",
+        "MemUsage": "800MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "797kB / 807kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.26%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.27%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.27%",
+        "MemUsage": "101.1MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "6.38%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.2MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.7MB / 35.9MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "2.89%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.47MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 33.9MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.13%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "54.12MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:16.026Z",
+    "hostLoad1": 46.1630859375,
+    "processRssBytes": 173621248,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "2.36%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.84%",
+        "MemUsage": "160.5MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.38MB / 656kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "109.17%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.08%",
+        "MemUsage": "800.2MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "818kB / 828kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.34%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.32%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.27%",
+        "MemUsage": "101.1MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "8.59%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.8MB / 36MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "4.00%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.69MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.20%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "53.87MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:18.104Z",
+    "hostLoad1": 43.02685546875,
+    "processRssBytes": 173768704,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.03%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "4.03%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.84%",
+        "MemUsage": "160.5MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.4MB / 664kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "90.95%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.09%",
+        "MemUsage": "800.6MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "843kB / 855kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.20%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.17%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.27%",
+        "MemUsage": "101.1MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "8.06%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.82%",
+        "MemUsage": "144.7MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.8MB / 36MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.67%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.69MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.19%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "53.87MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:20.219Z",
+    "hostLoad1": 43.02685546875,
+    "processRssBytes": 173780992,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "2.14%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.9MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.41MB / 672kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "86.39%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.10%",
+        "MemUsage": "801.3MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "863kB / 875kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "7.49%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "118.2MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "7.14%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "8.32%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "144.9MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.9MB / 36.1MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "4.77%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.94MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.18%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "53.62MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.37MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:22.300Z",
+    "hostLoad1": 43.02685546875,
+    "processRssBytes": 173867008,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.39%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.86%",
+        "MemUsage": "161MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.43MB / 680kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "93.10%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.09%",
+        "MemUsage": "801.2MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "882kB / 896kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.20%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "118.2MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.48%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "5.12%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.1MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.9MB / 36.1MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.08%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.7MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.14%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.68%",
+        "MemUsage": "53.62MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:24.384Z",
+    "hostLoad1": 40.2216796875,
+    "processRssBytes": 173903872,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.53%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.8MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.45MB / 688kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "80.89%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.09%",
+        "MemUsage": "801.2MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "903kB / 915kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.13%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.14%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "14.09%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.1MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "35.9MB / 36.2MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.73%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.93MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.19%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:26.475Z",
+    "hostLoad1": 40.2216796875,
+    "processRssBytes": 173940736,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.93%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.7MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.47MB / 696kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 56.8MB",
+        "CPUPerc": "95.26%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.09%",
+        "MemUsage": "801.2MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "924kB / 937kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.52%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.15%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "6.43%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.1MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36MB / 36.2MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.23%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.93MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.08%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:28.577Z",
+    "hostLoad1": 37.40087890625,
+    "processRssBytes": 174084096,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "3.58%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.86%",
+        "MemUsage": "160.9MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.49MB / 704kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 60.6MB",
+        "CPUPerc": "88.90%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.10%",
+        "MemUsage": "801.4MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "946kB / 959kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.22%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.22%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "9.87%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.1MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36MB / 36.3MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "4.15%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.68MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.08%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:30.642Z",
+    "hostLoad1": 37.40087890625,
+    "processRssBytes": 174395392,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "2.01%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.86%",
+        "MemUsage": "161MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.51MB / 713kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 60.6MB",
+        "CPUPerc": "68.92%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.10%",
+        "MemUsage": "801.8MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "966kB / 980kB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.21%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.17%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.4MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "6.48%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.1MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36.1MB / 36.3MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "2.95%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.68MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.09%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:33.823Z",
+    "hostLoad1": 34.64599609375,
+    "processRssBytes": 173740032,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "3.24%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.8MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.54MB / 725kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 60.6MB",
+        "CPUPerc": "93.66%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.10%",
+        "MemUsage": "802MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "998kB / 1.01MB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.24%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.41%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.6MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "7.31%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.3MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36.2MB / 36.4MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.68%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.67MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.13%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.12MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:37.016Z",
+    "hostLoad1": 34.64599609375,
+    "processRssBytes": 172965888,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "1.92%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.8MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.57MB / 738kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 60.6MB",
+        "CPUPerc": "90.95%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.10%",
+        "MemUsage": "802MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "1.03MB / 1.05MB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.65%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.50%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.8MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "6.66%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.3MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36.2MB / 36.5MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "2.94%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.67MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.07%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "820kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  },
+  {
+    "at": "2026-09-01T01:29:39.095Z",
+    "hostLoad1": 32.11181640625,
+    "processRssBytes": 173289472,
+    "docker": [
+      {
+        "BlockIO": "8.08MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "c89aab3998274178541001a615b880853601bca41d320d19d00cd6538cdc8b81",
+        "ID": "c89aab399827",
+        "MemPerc": "2.53%",
+        "MemUsage": "51.91MiB / 2GiB",
+        "Name": "dev-peer0.org2.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "632kB / 336kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "117MB / 4.1kB",
+        "CPUPerc": "0.00%",
+        "Container": "34a331d05a79098fc94168c7dd02c2d5d87dbb6387b5a892e19cb71fbb62c924",
+        "ID": "34a331d05a79",
+        "MemPerc": "7.85%",
+        "MemUsage": "160.8MiB / 2GiB",
+        "Name": "dev-peer0.org1.example.com-gateway_cc_1.1-385db90aa8d767784aa23dcdf1882d4abcb06ffc8cfba4d42dea7f36dfd91cc8",
+        "NetIO": "1.57MB / 738kB",
+        "PIDs": "24"
+      },
+      {
+        "BlockIO": "81.5MB / 60.6MB",
+        "CPUPerc": "80.87%",
+        "Container": "1f028c4737fdfe4962a9b96e82d076147349e49907a2f073f76bf8cc5f05b040",
+        "ID": "1f028c4737fd",
+        "MemPerc": "10.11%",
+        "MemUsage": "802.2MiB / 7.751GiB",
+        "Name": "qkl-fisco-nodes",
+        "NetIO": "1.04MB / 1.06MB",
+        "PIDs": "550"
+      },
+      {
+        "BlockIO": "30.1MB / 176kB",
+        "CPUPerc": "0.25%",
+        "Container": "96c744207fd1297e52ce7626914e9c3d7a88ed09f78dee634122efdc0f005202",
+        "ID": "96c744207fd1",
+        "MemPerc": "1.49%",
+        "MemUsage": "117.9MiB / 7.751GiB",
+        "Name": "couchdb0",
+        "NetIO": "18.2kB / 56.5kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "3.63MB / 152kB",
+        "CPUPerc": "0.25%",
+        "Container": "088906185f8cda081b5abec89959ba12d5acce103cf5d57749f04b5659deca9c",
+        "ID": "088906185f8c",
+        "MemPerc": "1.28%",
+        "MemUsage": "101.6MiB / 7.751GiB",
+        "Name": "couchdb1",
+        "NetIO": "16kB / 53.3kB",
+        "PIDs": "45"
+      },
+      {
+        "BlockIO": "52.7MB / 221kB",
+        "CPUPerc": "3.55%",
+        "Container": "7c42bbac1b2fd6c7ab9b8d211ec24be4229fd8f7bef9d7a131e15ad1ddc54fec",
+        "ID": "7c42bbac1b2f",
+        "MemPerc": "1.83%",
+        "MemUsage": "145.5MiB / 7.751GiB",
+        "Name": "peer0.org1.example.com",
+        "NetIO": "36.2MB / 36.5MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "238kB / 221kB",
+        "CPUPerc": "3.49%",
+        "Container": "553057f6de02cae2dfb8c56863f329e4f4c2a3ab10ea1be9d109657905ef43e3",
+        "ID": "553057f6de02",
+        "MemPerc": "0.84%",
+        "MemUsage": "66.67MiB / 7.751GiB",
+        "Name": "peer0.org2.example.com",
+        "NetIO": "34MB / 34MB",
+        "PIDs": "15"
+      },
+      {
+        "BlockIO": "36.3MB / 36.9kB",
+        "CPUPerc": "0.12%",
+        "Container": "ca7760417309b65ec38589613da19ac0817fe893141ab35af7245570b7cc2f6c",
+        "ID": "ca7760417309",
+        "MemPerc": "0.67%",
+        "MemUsage": "53.37MiB / 7.751GiB",
+        "Name": "orderer.example.com",
+        "NetIO": "821kB / 807kB",
+        "PIDs": "13"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "cc763c786c33fb654b45ba74c732b7c6cfe9cdb263fa14a77f654ef07819d0e6",
+        "ID": "cc763c786c33",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.05MiB / 7.751GiB",
+        "Name": "ca_org2",
+        "NetIO": "4kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "0B / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "4e760b636e71e3fa652f612d3ed9250d1b7882d8f108919c072f8c639014b016",
+        "ID": "4e760b636e71",
+        "MemPerc": "0.15%",
+        "MemUsage": "12.09MiB / 7.751GiB",
+        "Name": "ca_orderer",
+        "NetIO": "3.87kB / 350B",
+        "PIDs": "11"
+      },
+      {
+        "BlockIO": "32.9MB / 0B",
+        "CPUPerc": "0.00%",
+        "Container": "f34d073730769965b865f6cee1ff2d7b1d9e9cbe2e2eba2bb9ae1c492e3abb0d",
+        "ID": "f34d07373076",
+        "MemPerc": "0.56%",
+        "MemUsage": "44.12MiB / 7.751GiB",
+        "Name": "ca_org1",
+        "NetIO": "4.3kB / 416B",
+        "PIDs": "11"
+      }
+    ]
+  }
+]

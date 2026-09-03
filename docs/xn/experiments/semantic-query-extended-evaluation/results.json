@@ -1,0 +1,584 @@
+{
+  "meta": {
+    "generatedAt": "2026-08-31T08:56:32.709Z",
+    "baseSeed": 20260831,
+    "node": "v26.5.0",
+    "platform": "darwin 23.5.0 x64",
+    "cpu": "Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 16,
+    "runs": 5,
+    "queriesPerConfigurationPerRun": 20
+  },
+  "evidenceBoundary": [
+    "all measurements in this report are local executable experiments",
+    "the regulatory workload uses deterministic generated fixtures, not live-chain records",
+    "DAG-shape and concurrency results use controlled local service delays",
+    "service scheduling availability uses a seeded fault model and is exploratory, not a real-LLM result"
+  ],
+  "regulatoryWorkload": [
+    {
+      "scenario": "normal",
+      "n": 100,
+      "mean": 3.411,
+      "p50": 3.311,
+      "p95": 4.622,
+      "p99": 6.13,
+      "expected": 100,
+      "expectedRate": 1,
+      "terminals": {
+        "READY_TO_ANCHOR": 100
+      },
+      "meanRetries": 0
+    },
+    {
+      "scenario": "over_limit",
+      "n": 100,
+      "mean": 4.357,
+      "p50": 3.63,
+      "p95": 5.577,
+      "p99": 7.339,
+      "expected": 100,
+      "expectedRate": 1,
+      "terminals": {
+        "READY_TO_ANCHOR": 100
+      },
+      "meanRetries": 0
+    },
+    {
+      "scenario": "subject_mismatch",
+      "n": 100,
+      "mean": 3.132,
+      "p50": 3.133,
+      "p95": 3.967,
+      "p99": 4.207,
+      "expected": 100,
+      "expectedRate": 1,
+      "terminals": {
+        "READY_TO_ANCHOR": 100
+      },
+      "meanRetries": 0
+    },
+    {
+      "scenario": "missing_disclosure",
+      "n": 100,
+      "mean": 3.303,
+      "p50": 3.341,
+      "p95": 4.384,
+      "p99": 4.867,
+      "expected": 100,
+      "expectedRate": 1,
+      "terminals": {
+        "INSUFFICIENT_EVIDENCE": 100
+      },
+      "meanRetries": 0
+    },
+    {
+      "scenario": "endpoint_retry",
+      "n": 100,
+      "mean": 3.067,
+      "p50": 3.043,
+      "p95": 4.179,
+      "p99": 4.573,
+      "expected": 100,
+      "expectedRate": 1,
+      "terminals": {
+        "READY_TO_ANCHOR": 100
+      },
+      "meanRetries": 1
+    }
+  ],
+  "dagShape": [
+    {
+      "shape": "wide",
+      "nodeCount": 16,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 3.91,
+      "p50": 3.865,
+      "p95": 5.358,
+      "p99": 5.581,
+      "cpuMs": 195.653,
+      "rssDeltaBytes": 3678208
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 16,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 4.107,
+      "p50": 3.923,
+      "p95": 6.138,
+      "p99": 6.645,
+      "cpuMs": 202.248,
+      "rssDeltaBytes": 389120
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 16,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 4.92,
+      "p50": 4.885,
+      "p95": 6.752,
+      "p99": 7.188,
+      "cpuMs": 381.576,
+      "rssDeltaBytes": 15335424
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 32,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 6.942,
+      "p50": 6.626,
+      "p95": 9.352,
+      "p99": 9.801,
+      "cpuMs": 331.777,
+      "rssDeltaBytes": 724992
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 32,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 7.384,
+      "p50": 7.132,
+      "p95": 9.994,
+      "p99": 10.552,
+      "cpuMs": 367.025,
+      "rssDeltaBytes": 135168
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 32,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 9.552,
+      "p50": 9.465,
+      "p95": 12.326,
+      "p99": 12.966,
+      "cpuMs": 610.324,
+      "rssDeltaBytes": 4014080
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 64,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 13.367,
+      "p50": 13.344,
+      "p95": 16.622,
+      "p99": 16.94,
+      "cpuMs": 551.165,
+      "rssDeltaBytes": 11419648
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 64,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 14.32,
+      "p50": 13.779,
+      "p95": 18.72,
+      "p99": 19.641,
+      "cpuMs": 625.36,
+      "rssDeltaBytes": 3104768
+    },
+    {
+      "shape": "wide",
+      "nodeCount": 64,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 18.353,
+      "p50": 16.697,
+      "p95": 22.097,
+      "p99": 76.283,
+      "cpuMs": 900.069,
+      "rssDeltaBytes": 12324864
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 16,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 6.716,
+      "p50": 6.722,
+      "p95": 7.952,
+      "p99": 8.46,
+      "cpuMs": 229.95,
+      "rssDeltaBytes": 131072
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 16,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 6.691,
+      "p50": 6.679,
+      "p95": 8.436,
+      "p99": 8.746,
+      "cpuMs": 219.195,
+      "rssDeltaBytes": 24576
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 16,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 7.427,
+      "p50": 7.3,
+      "p95": 9.793,
+      "p99": 10.646,
+      "cpuMs": 297.896,
+      "rssDeltaBytes": -12832768
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 32,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 12.038,
+      "p50": 12.032,
+      "p95": 14.276,
+      "p99": 15.656,
+      "cpuMs": 433.279,
+      "rssDeltaBytes": 90112
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 32,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 11.928,
+      "p50": 11.79,
+      "p95": 14.618,
+      "p99": 15.796,
+      "cpuMs": 429.575,
+      "rssDeltaBytes": 8192
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 32,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 12.874,
+      "p50": 13.081,
+      "p95": 15.847,
+      "p99": 16.353,
+      "cpuMs": 564.913,
+      "rssDeltaBytes": 0
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 64,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 20.065,
+      "p50": 20.475,
+      "p95": 24.007,
+      "p99": 24.89,
+      "cpuMs": 741.935,
+      "rssDeltaBytes": 10813440
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 64,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 20.294,
+      "p50": 20.52,
+      "p95": 24.396,
+      "p99": 25.194,
+      "cpuMs": 726.846,
+      "rssDeltaBytes": 10846208
+    },
+    {
+      "shape": "balanced",
+      "nodeCount": 64,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 22.125,
+      "p50": 22.03,
+      "p95": 26.859,
+      "p99": 28.022,
+      "cpuMs": 975.532,
+      "rssDeltaBytes": 2797568
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 16,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 21.492,
+      "p50": 21.57,
+      "p95": 23.964,
+      "p99": 24.664,
+      "cpuMs": 444.779,
+      "rssDeltaBytes": 57344
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 16,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 20.832,
+      "p50": 20.859,
+      "p95": 23.337,
+      "p99": 24.241,
+      "cpuMs": 407.366,
+      "rssDeltaBytes": 233472
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 16,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 20.219,
+      "p50": 20.108,
+      "p95": 22.834,
+      "p99": 23.242,
+      "cpuMs": 356.243,
+      "rssDeltaBytes": 8192
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 32,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 41.819,
+      "p50": 42.042,
+      "p95": 45.818,
+      "p99": 47.548,
+      "cpuMs": 700.313,
+      "rssDeltaBytes": 36864
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 32,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 43.253,
+      "p50": 43.479,
+      "p95": 47.411,
+      "p99": 49.7,
+      "cpuMs": 847.942,
+      "rssDeltaBytes": 12288
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 32,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 43.489,
+      "p50": 43.651,
+      "p95": 48.323,
+      "p99": 51.307,
+      "cpuMs": 837.584,
+      "rssDeltaBytes": 8192
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 64,
+      "evidenceBytes": 256,
+      "n": 100,
+      "mean": 88.164,
+      "p50": 89.429,
+      "p95": 94.616,
+      "p99": 96.047,
+      "cpuMs": 1715.073,
+      "rssDeltaBytes": 12288
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 64,
+      "evidenceBytes": 4096,
+      "n": 100,
+      "mean": 86.787,
+      "p50": 87.08,
+      "p95": 93.835,
+      "p99": 96.929,
+      "cpuMs": 1563.561,
+      "rssDeltaBytes": 32768
+    },
+    {
+      "shape": "deep",
+      "nodeCount": 64,
+      "evidenceBytes": 16384,
+      "n": 100,
+      "mean": 86.596,
+      "p50": 86.827,
+      "p95": 92.266,
+      "p99": 94.49,
+      "cpuMs": 1550.369,
+      "rssDeltaBytes": 0
+    }
+  ],
+  "queryConcurrency": [
+    {
+      "concurrency": 1,
+      "queries": 200,
+      "throughputMean": 83.043,
+      "latency": {
+        "n": 200,
+        "mean": 12.04,
+        "p50": 12.042,
+        "p95": 13.615,
+        "p99": 14.052
+      }
+    },
+    {
+      "concurrency": 2,
+      "queries": 200,
+      "throughputMean": 164.663,
+      "latency": {
+        "n": 200,
+        "mean": 12.133,
+        "p50": 12.094,
+        "p95": 13.628,
+        "p99": 15.458
+      }
+    },
+    {
+      "concurrency": 4,
+      "queries": 200,
+      "throughputMean": 300.397,
+      "latency": {
+        "n": 200,
+        "mean": 13.297,
+        "p50": 13.147,
+        "p95": 16.493,
+        "p99": 17.231
+      }
+    },
+    {
+      "concurrency": 8,
+      "queries": 200,
+      "throughputMean": 519.702,
+      "latency": {
+        "n": 200,
+        "mean": 15.145,
+        "p50": 15.563,
+        "p95": 18.94,
+        "p99": 20.094
+      }
+    },
+    {
+      "concurrency": 16,
+      "queries": 200,
+      "throughputMean": 894.607,
+      "latency": {
+        "n": 200,
+        "mean": 15.306,
+        "p50": 14.954,
+        "p95": 18.205,
+        "p99": 22.245
+      }
+    }
+  ],
+  "cacheAblation": [
+    {
+      "cacheEnabled": false,
+      "hits": 0,
+      "remoteFetches": 500,
+      "n": 100,
+      "mean": 3.474,
+      "p50": 3.334,
+      "p95": 5.007,
+      "p99": 7.561
+    },
+    {
+      "cacheEnabled": true,
+      "hits": 495,
+      "remoteFetches": 5,
+      "n": 100,
+      "mean": 0.475,
+      "p50": 0.386,
+      "p95": 0.949,
+      "p99": 2.986
+    }
+  ],
+  "retryAblation": [
+    {
+      "recoveryEnabled": false,
+      "successfulQueries": 0,
+      "total": 100,
+      "querySuccessRate": 0,
+      "terminalCounts": {
+        "FAILED": 100
+      },
+      "meanNodeAttempts": 7,
+      "latency": {
+        "n": 100,
+        "mean": 1.951,
+        "p50": 1.982,
+        "p95": 2.603,
+        "p99": 2.937
+      }
+    },
+    {
+      "recoveryEnabled": true,
+      "successfulQueries": 100,
+      "total": 100,
+      "querySuccessRate": 1,
+      "terminalCounts": {
+        "READY_TO_ANCHOR": 100
+      },
+      "meanNodeAttempts": 11,
+      "latency": {
+        "n": 100,
+        "mean": 3.467,
+        "p50": 3.62,
+        "p95": 4.498,
+        "p99": 4.944
+      }
+    }
+  ],
+  "serviceSchedulingAblation": [
+    {
+      "strategy": "fixed_single",
+      "tasks": 1000,
+      "calls": {
+        "a": 1000,
+        "b": 0,
+        "c": 0,
+        "d": 0
+      },
+      "callsPerTask": 1,
+      "availabilityRate": 0.877,
+      "maxProviderShare": 1,
+      "hhi": 1,
+      "gini": 0.75
+    },
+    {
+      "strategy": "reliability_single",
+      "tasks": 1000,
+      "calls": {
+        "a": 1000,
+        "b": 0,
+        "c": 0,
+        "d": 0
+      },
+      "callsPerTask": 1,
+      "availabilityRate": 0.877,
+      "maxProviderShare": 1,
+      "hhi": 1,
+      "gini": 0.75
+    },
+    {
+      "strategy": "reliability_load_diversity",
+      "tasks": 1000,
+      "calls": {
+        "a": 531,
+        "b": 469,
+        "c": 560,
+        "d": 440
+      },
+      "callsPerTask": 2,
+      "availabilityRate": 0.979,
+      "maxProviderShare": 0.28,
+      "hhi": 0.2522805,
+      "gini": 0.052750000000000075
+    }
+  ]
+}

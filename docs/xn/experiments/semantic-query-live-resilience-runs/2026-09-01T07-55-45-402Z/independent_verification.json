@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "independent-audit-verification-v1",
+  "generatedAt": "2026-09-01T07:57:13Z",
+  "implementation": "independent Python canonical-JSON and SQLite verifier",
+  "results": [
+    {
+      "database": "docs/xn/experiments/semantic-query-live-resilience-runs/2026-09-01T07-55-45-402Z/audit.db",
+      "integrity": "ok",
+      "queries": 35,
+      "cleanReconstruction": 35,
+      "anchorMatch": 35,
+      "reconstructionMs": {
+        "mean": 0.758886600000006,
+        "p50": 0.7057599999999997,
+        "p95": 1.1392118999999923,
+        "p99": 1.1492600600000302
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 165,
+        "coveredEvidenceNodes": 165,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 165,
+        "successfulSemanticNodes": 35,
+        "explicitServiceBindings": 35,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 35,
+          "detected": 35,
+          "localized": 35
+        },
+        "replace_output": {
+          "tested": 35,
+          "detected": 35,
+          "localized": 35
+        },
+        "wrong_version": {
+          "tested": 35,
+          "detected": 35,
+          "localized": 35
+        },
+        "delete_evidence": {
+          "tested": 35,
+          "detected": 35,
+          "localized": 35
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "string", "name": "category", "type": "string" },
+      { "indexed": true, "internalType": "string", "name": "recordId", "type": "string" },
+      { "indexed": false, "internalType": "bytes32", "name": "payloadHash", "type": "bytes32" },
+      { "indexed": false, "internalType": "address", "name": "submitter", "type": "address" }
+    ],
+    "name": "EvidenceUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "category", "type": "string" },
+      { "internalType": "string", "name": "recordId", "type": "string" }
+    ],
+    "name": "getRecord",
+    "outputs": [{ "internalType": "string", "name": "payloadJson", "type": "string" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "category", "type": "string" },
+      { "internalType": "string", "name": "recordId", "type": "string" }
+    ],
+    "name": "getRecordMeta",
+    "outputs": [
+      { "internalType": "uint256", "name": "updatedAt", "type": "uint256" },
+      { "internalType": "address", "name": "submitter", "type": "address" },
+      { "internalType": "bytes32", "name": "payloadHash", "type": "bytes32" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "category", "type": "string" },
+      { "internalType": "string", "name": "recordId", "type": "string" },
+      { "internalType": "string", "name": "payloadJson", "type": "string" }
+    ],
+    "name": "putRecord",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

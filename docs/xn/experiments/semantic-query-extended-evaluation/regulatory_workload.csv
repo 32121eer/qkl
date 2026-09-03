@@ -1,0 +1,6 @@
+scenario,n,mean,p50,p95,p99,expected,expectedRate,terminals,meanRetries
+normal,100,3.411,3.311,4.622,6.13,100,1,"{""READY_TO_ANCHOR"":100}",0
+over_limit,100,4.357,3.63,5.577,7.339,100,1,"{""READY_TO_ANCHOR"":100}",0
+subject_mismatch,100,3.132,3.133,3.967,4.207,100,1,"{""READY_TO_ANCHOR"":100}",0
+missing_disclosure,100,3.303,3.341,4.384,4.867,100,1,"{""INSUFFICIENT_EVIDENCE"":100}",0
+endpoint_retry,100,3.067,3.043,4.179,4.573,100,1,"{""READY_TO_ANCHOR"":100}",1

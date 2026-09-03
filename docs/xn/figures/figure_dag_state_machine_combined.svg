@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="2350" viewBox="0 0 3600 2350">
+  <defs>
+    <marker id="arrow" viewBox="0 0 30 30" markerWidth="24" markerHeight="24" refX="28.5" refY="15" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1,2 L29,15 L1,28 Z" fill="#20242a"/>
+    </marker>
+    <style><![CDATA[
+      text { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #17191c; }
+      .panel { fill: #ffffff; stroke: #737b84; stroke-width: 5; stroke-dasharray: 20 14; rx: 24; }
+      .box { fill: #ffffff; stroke: #20242a; stroke-width: 6; rx: 20; }
+      .soft { fill: #f3f5f7; stroke: #20242a; stroke-width: 5; rx: 18; }
+      .semantic { fill: #f8f8f8; stroke: #20242a; stroke-width: 5; stroke-dasharray: 12 8; rx: 18; }
+      .root { fill: #eceff2; stroke: #111418; stroke-width: 7; rx: 22; }
+      .state { fill: #ffffff; stroke: #20242a; stroke-width: 6; rx: 20; }
+      .terminal { fill: #eceff2; stroke: #111418; stroke-width: 7; rx: 20; }
+      .warning { fill: #fafafa; stroke: #555d66; stroke-width: 4; stroke-dasharray: 11 8; rx: 16; }
+      .title { font-size: 48px; font-weight: 700; }
+      .panel-title { font-size: 36px; font-weight: 700; fill: #4f5760; }
+      .node-title { font-size: 34px; font-weight: 700; }
+      .state-title { font-size: 33px; font-weight: 700; }
+      .tag { font-size: 23px; font-weight: 700; fill: #59616a; }
+      .body { font-size: 27px; }
+      .small { font-size: 23px; }
+      .edge-label { font-size: 24px; font-weight: 600; paint-order: stroke; stroke: #ffffff; stroke-width: 9px; stroke-linejoin: round; }
+      .dep { fill: none; stroke: #20242a; stroke-width: 5; marker-end: url(#arrow); }
+      .optional { fill: none; stroke: #555d66; stroke-width: 5; stroke-dasharray: 15 10; marker-end: url(#arrow); }
+      .recovery { fill: none; stroke: #414a54; stroke-width: 5; stroke-dasharray: 18 8 4 8; marker-end: url(#arrow); }
+      .divider { stroke: #858c94; stroke-width: 3; }
+    ]]></style>
+  </defs>
+
+  <rect width="3600" height="2350" fill="#ffffff"/>
+  <text class="title" x="1800" y="68" text-anchor="middle">证据 DAG 与查询生命周期状态机</text>
+
+  <!-- Upper panel: DAG -->
+  <rect class="panel" x="38" y="105" width="3524" height="1320"/>
+  <text class="panel-title" x="88" y="157">（a）证据依赖、并行取证与根节点归并</text>
+
+  <rect class="box" x="1360" y="185" width="880" height="145"/>
+  <text class="tag" x="1800" y="224" text-anchor="middle">查询定义 Q</text>
+  <text class="node-title" x="1800" y="276" text-anchor="middle">查询编译器：谓词模板＋证据模式＋风险策略</text>
+  <text class="small" x="1800" y="312" text-anchor="middle">输出版本化 DAG、端点候选、节点预算与 failure_policy</text>
+
+  <rect class="soft" x="1360" y="385" width="880" height="150"/>
+  <text class="node-title" x="1800" y="442" text-anchor="middle">证据 DAG 调度器</text>
+  <text class="body" x="1800" y="486" text-anchor="middle">按拓扑依赖激活就绪节点；互不依赖的叶节点并行执行</text>
+  <text class="small" x="1800" y="520" text-anchor="middle">局部重试、替代端点和补充取证均受节点预算与全局 deadline 约束</text>
+  <path class="dep" d="M1800 330 V385"/>
+
+  <!-- Parallel evidence acquisition leaves -->
+  <rect class="box" x="105" y="625" width="520" height="185"/>
+  <text class="tag" x="365" y="664" text-anchor="middle">FETCHING · 并行叶节点</text>
+  <text class="node-title" x="365" y="716" text-anchor="middle">发票证据 E_invoice</text>
+  <text class="small" x="365" y="758" text-anchor="middle">Fabric：金额、主体、版本与签名</text>
+
+  <rect class="box" x="760" y="625" width="520" height="185"/>
+  <text class="tag" x="1020" y="664" text-anchor="middle">FETCHING · 并行叶节点</text>
+  <text class="node-title" x="1020" y="716" text-anchor="middle">订单证据 E_order</text>
+  <text class="small" x="1020" y="758" text-anchor="middle">Fabric：订单状态、金额与交付期</text>
+
+  <rect class="box" x="1415" y="625" width="520" height="185"/>
+  <text class="tag" x="1675" y="664" text-anchor="middle">FETCHING · 并行叶节点</text>
+  <text class="node-title" x="1675" y="716" text-anchor="middle">物流证据 E_logistics</text>
+  <text class="small" x="1675" y="758" text-anchor="middle">FISCO-BCOS：签收事件与区块位置</text>
+
+  <rect class="box" x="2070" y="625" width="520" height="185"/>
+  <text class="tag" x="2330" y="664" text-anchor="middle">FETCHING · 并行叶节点</text>
+  <text class="node-title" x="2330" y="716" text-anchor="middle">质检证据 E_quality</text>
+  <text class="small" x="2330" y="758" text-anchor="middle">受控文档库：报告、版本与有效期</text>
+
+  <!-- Scheduler fans out to four independent leaf tasks -->
+  <path class="dep" d="M1510 535 C1420 570 520 565 365 625"/>
+  <path class="dep" d="M1690 535 C1600 570 1110 570 1020 625"/>
+  <path class="dep" d="M1910 535 C1890 575 1730 575 1675 625"/>
+  <path class="dep" d="M2090 535 C2130 575 2280 575 2330 625"/>
+  <text class="edge-label" x="920" y="584">并行取证任务</text>
+
+  <!-- Deterministic rules and optional semantic node -->
+  <rect class="soft" x="105" y="930" width="520" height="175"/>
+  <text class="tag" x="365" y="969" text-anchor="middle">VALIDATING</text>
+  <text class="node-title" x="365" y="1021" text-anchor="middle">金额一致性</text>
+  <text class="small" x="365" y="1064" text-anchor="middle">订单金额与发票金额的可重放比较</text>
+
+  <rect class="soft" x="760" y="930" width="520" height="175"/>
+  <text class="tag" x="1020" y="969" text-anchor="middle">VALIDATING</text>
+  <text class="node-title" x="1020" y="1021" text-anchor="middle">主体资格 / 订单有效</text>
+  <text class="small" x="1020" y="1064" text-anchor="middle">来源、状态、主体与规则版本检查</text>
+
+  <rect class="soft" x="1415" y="930" width="520" height="175"/>
+  <text class="tag" x="1675" y="969" text-anchor="middle">VALIDATING</text>
+  <text class="node-title" x="1675" y="1021" text-anchor="middle">签收时效</text>
+  <text class="small" x="1675" y="1064" text-anchor="middle">签收时间与约定交付期比较</text>
+
+  <rect class="soft" x="2070" y="930" width="520" height="175"/>
+  <text class="tag" x="2330" y="969" text-anchor="middle">VALIDATING</text>
+  <text class="node-title" x="2330" y="1021" text-anchor="middle">质检有效性</text>
+  <text class="small" x="2330" y="1064" text-anchor="middle">来源、版本、时效与任务绑定检查</text>
+
+  <rect class="semantic" x="2740" y="930" width="700" height="175"/>
+  <text class="tag" x="3090" y="969" text-anchor="middle">SEMANTIC · 按需激活</text>
+  <text class="node-title" x="3090" y="1021" text-anchor="middle">异常条款解释</text>
+  <text class="small" x="3090" y="1064" text-anchor="middle">仅接收已通过确定性预验证的证据包</text>
+
+  <!-- Leaf-to-rule dependencies; every arrow is a separate one-way path -->
+  <path class="dep" d="M365 810 V930"/>
+  <path class="dep" d="M900 810 C820 860 565 865 505 930"/>
+  <path class="dep" d="M1020 810 V930"/>
+  <path class="dep" d="M1140 810 C1220 860 1480 865 1550 930"/>
+  <path class="dep" d="M1675 810 V930"/>
+  <path class="dep" d="M2330 810 V930"/>
+
+  <!-- Semantic service is downstream of deterministic quality validation -->
+  <path class="optional" d="M2590 1018 H2740"/>
+  <text class="edge-label" x="2608" y="995">存在非结构化例外条款时</text>
+
+  <!-- DAG root -->
+  <rect class="root" x="850" y="1190" width="1800" height="170"/>
+  <text class="tag" x="1750" y="1228" text-anchor="middle">RESOLVING · 结果归并根节点</text>
+  <text class="node-title" x="1750" y="1281" text-anchor="middle">融资授信谓词</text>
+  <text class="body" x="1750" y="1326" text-anchor="middle">归并各必需分支，输出 SATISFIED / UNSATISFIED / INSUFFICIENT</text>
+
+  <!-- Rule results reach ordered root ports without sharing line segments -->
+  <path class="dep" d="M365 1105 C440 1150 930 1140 1050 1190"/>
+  <path class="dep" d="M1020 1105 C1080 1150 1320 1145 1370 1190"/>
+  <path class="dep" d="M1675 1105 V1190"/>
+  <path class="dep" d="M2330 1105 C2290 1150 2120 1145 2070 1190"/>
+  <path class="optional" d="M3090 1105 C3000 1160 2510 1140 2400 1190"/>
+
+  <!-- Upper-panel explanatory note -->
+  <rect class="warning" x="2740" y="625" width="700" height="185"/>
+  <text class="node-title" x="3090" y="680" text-anchor="middle">DAG 执行约束</text>
+  <text class="small" x="3090" y="724" text-anchor="middle">失败只重启受影响节点或候补分支；</text>
+  <text class="small" x="3090" y="760" text-anchor="middle">已完成的独立分支保留并进入审计回执。</text>
+  <text class="small" x="3090" y="796" text-anchor="middle">局部恢复不会重新创建查询。</text>
+
+  <!-- Lower panel: lifecycle state machine -->
+  <rect class="panel" x="38" y="1455" width="3524" height="830"/>
+  <text class="panel-title" x="88" y="1508">（b）查询生命周期、可选旁路与有界恢复</text>
+
+  <rect class="state" x="90" y="1590" width="380" height="165"/>
+  <text class="state-title" x="280" y="1660" text-anchor="middle">CREATED</text>
+  <text class="small" x="280" y="1705" text-anchor="middle">登记 qid 与查询摘要</text>
+
+  <rect class="state" x="570" y="1590" width="380" height="165"/>
+  <text class="state-title" x="760" y="1660" text-anchor="middle">FETCHING</text>
+  <text class="small" x="760" y="1705" text-anchor="middle">并行取证与局部恢复</text>
+
+  <rect class="state" x="1050" y="1590" width="380" height="165"/>
+  <text class="state-title" x="1240" y="1660" text-anchor="middle">VALIDATING</text>
+  <text class="small" x="1240" y="1705" text-anchor="middle">确定性预验证与规则检查</text>
+
+  <rect class="state" x="1530" y="1590" width="380" height="165"/>
+  <text class="state-title" x="1720" y="1660" text-anchor="middle">SEMANTIC</text>
+  <text class="small" x="1720" y="1705" text-anchor="middle">按需调用合规语义服务</text>
+
+  <rect class="state" x="2010" y="1590" width="460" height="165"/>
+  <text class="state-title" x="2240" y="1660" text-anchor="middle">RESOLVING</text>
+  <text class="small" x="2240" y="1705" text-anchor="middle">归并、补充取证与冲突处理</text>
+
+  <rect class="terminal" x="2680" y="1590" width="500" height="165"/>
+  <text class="state-title" x="2930" y="1660" text-anchor="middle">ANCHORED</text>
+  <text class="small" x="2930" y="1705" text-anchor="middle">终态与 receipt_root 已登记</text>
+
+  <!-- Normal lifecycle transitions -->
+  <path class="dep" d="M470 1672 H570"/>
+  <path class="dep" d="M950 1672 H1050"/>
+  <path class="dep" d="M1430 1672 H1530"/>
+  <path class="dep" d="M1910 1672 H2010"/>
+  <path class="dep" d="M2470 1672 H2680"/>
+
+  <!-- Deterministic-only tasks bypass SEMANTIC -->
+  <path class="optional" d="M1240 1590 V1538 H2240 V1590"/>
+  <text class="edge-label" x="1600" y="1527">确定性条件已充分：跳过 SEMANTIC</text>
+
+  <!-- Local recovery is confined to FETCHING -->
+  <rect class="warning" x="570" y="1850" width="460" height="165"/>
+  <text class="state-title" x="800" y="1912" text-anchor="middle">局部重试 / 替代端点</text>
+  <text class="small" x="800" y="1955" text-anchor="middle">保持同一 qid 与节点标识</text>
+  <text class="small" x="800" y="1990" text-anchor="middle">重试次数与候补集合有限</text>
+  <path class="recovery" d="M700 1755 V1850"/>
+  <path class="recovery" d="M1030 1930 H1110 V1810 H875 V1755"/>
+  <text class="edge-label" x="1050" y="1828">成功后回到 FETCHING</text>
+
+  <!-- Explicit prohibition requested by the author note -->
+  <rect x="90" y="1850" width="390" height="165" rx="16" fill="#ffffff" stroke="#747c85" stroke-width="3"/>
+  <text class="node-title" x="285" y="1910" text-anchor="middle">不返回 CREATED</text>
+  <text class="small" x="285" y="1953" text-anchor="middle">查询定义、qid 与已完成分支</text>
+  <text class="small" x="285" y="1988" text-anchor="middle">在局部恢复期间保持不变</text>
+
+  <!-- Failure and insufficient-evidence terminal states -->
+  <text class="edge-label" x="1325" y="1818">任一执行阶段：权限 / 内部 / 流程错误</text>
+  <rect class="terminal" x="1310" y="1850" width="430" height="165"/>
+  <text class="state-title" x="1525" y="1920" text-anchor="middle">FAILED</text>
+  <text class="small" x="1525" y="1965" text-anchor="middle">框架未能完成规定流程</text>
+  <path class="recovery" d="M1525 1825 V1850"/>
+
+  <rect class="terminal" x="2080" y="1850" width="560" height="165"/>
+  <text class="state-title" x="2360" y="1920" text-anchor="middle">INSUFFICIENT</text>
+  <text class="small" x="2360" y="1965" text-anchor="middle">关键证据缺失或冲突在预算内无法化解</text>
+  <path class="recovery" d="M2240 1755 V1850"/>
+  <text class="edge-label" x="2265" y="1818">恢复 / 升级预算耗尽</text>
+
+  <!-- Exhausted local fetching recovery also terminates conservatively -->
+  <path class="recovery" d="M800 2015 V2140 H2360 V2015"/>
+  <text class="edge-label" x="1300" y="2122">关键叶节点仍不可用：传播证据不足，不重新创建查询</text>
+
+  <!-- Global boundedness note -->
+  <rect class="warning" x="2770" y="1850" width="650" height="165"/>
+  <text class="node-title" x="3095" y="1910" text-anchor="middle">有界完成</text>
+  <text class="small" x="3095" y="1953" text-anchor="middle">全局 deadline 拆分为节点预算与升级预算；</text>
+  <text class="small" x="3095" y="1988" text-anchor="middle">终态为 ANCHORED、FAILED 或 INSUFFICIENT。</text>
+
+  <!-- Legend -->
+  <g transform="translate(105 2225)">
+    <path class="dep" d="M0 0 H110"/>
+    <text class="small" x="135" y="9">正常依赖 / 状态转换</text>
+    <path class="optional" d="M520 0 H630"/>
+    <text class="small" x="655" y="9">条件激活 / 可选旁路</text>
+    <path class="recovery" d="M1060 0 H1170"/>
+    <text class="small" x="1195" y="9">局部恢复 / 失败传播</text>
+  </g>
+</svg>

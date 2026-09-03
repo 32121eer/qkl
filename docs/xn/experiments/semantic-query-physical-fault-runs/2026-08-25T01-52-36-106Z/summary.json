@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "semantic-query-physical-fault-summary-v1",
+  "generatedAt": "2026-08-25T01:54:34.696Z",
+  "totalQueries": 40,
+  "physicalFailoverVerified": 40,
+  "auditVerified": 40,
+  "byScenario": {
+    "fabric_peer_paused": {
+      "queries": 20,
+      "completed": 20,
+      "physicalFailoverVerified": 20,
+      "auditVerified": 20,
+      "meanMs": 2268.881,
+      "p50Ms": 2233.548,
+      "p95Ms": 2386.377,
+      "meanRetries": 2
+    },
+    "fisco_node_paused": {
+      "queries": 20,
+      "completed": 20,
+      "physicalFailoverVerified": 20,
+      "auditVerified": 20,
+      "meanMs": 3626.241,
+      "p50Ms": 2617.466,
+      "p95Ms": 6121.448,
+      "meanRetries": 2
+    }
+  }
+}

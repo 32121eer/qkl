@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "semantic-query-live-resilience-summary-v1",
+  "generatedAt": "2026-09-01T07:56:51.890Z",
+  "scenarioExecutions": 20,
+  "expectedBehavior": 20,
+  "failedExecutions": 0,
+  "storedReceipts": 35,
+  "byScenario": {
+    "fabric_network_partition": {
+      "repetitions": 5,
+      "completed": 5,
+      "expectedBehavior": 5,
+      "auditVerified": 5,
+      "recoveryProbeVerified": 5,
+      "p50Ms": 2865.733,
+      "p95Ms": 2942.832,
+      "resyncP95Ms": null
+    },
+    "fisco_node_resync": {
+      "repetitions": 5,
+      "completed": 5,
+      "expectedBehavior": 5,
+      "auditVerified": 5,
+      "recoveryProbeVerified": 5,
+      "p50Ms": 2960.248,
+      "p95Ms": 5656.53,
+      "resyncP95Ms": 268.546
+    },
+    "fisco_correlated_pause": {
+      "repetitions": 5,
+      "completed": 5,
+      "expectedBehavior": 5,
+      "auditVerified": 5,
+      "recoveryProbeVerified": 5,
+      "p50Ms": 6066.698,
+      "p95Ms": 6715.836,
+      "resyncP95Ms": 25.124
+    },
+    "audit_store_outage": {
+      "repetitions": 5,
+      "completed": 5,
+      "expectedBehavior": 5,
+      "auditVerified": 5,
+      "recoveryProbeVerified": 0,
+      "p50Ms": 499.701,
+      "p95Ms": 544.507,
+      "resyncP95Ms": null
+    }
+  }
+}

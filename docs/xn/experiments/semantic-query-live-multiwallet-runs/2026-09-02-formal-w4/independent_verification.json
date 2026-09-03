@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "independent-audit-verification-v1",
+  "generatedAt": "2026-09-02T03:59:15Z",
+  "implementation": "independent Python canonical-JSON and SQLite verifier",
+  "results": [
+    {
+      "database": "docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/c1/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.6324172419354848,
+        "p50": 0.5778934999999819,
+        "p95": 0.944213100000013,
+        "p99": 1.2591877399999922
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/c2/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.6383603387096906,
+        "p50": 0.5926955000000178,
+        "p95": 0.9131183999999958,
+        "p99": 1.2331366500000354
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/c4/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.6712262096774364,
+        "p50": 0.6131825000000313,
+        "p95": 0.9694607499999397,
+        "p99": 1.2512529199999636
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/c8/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.715048016129019,
+        "p50": 0.6275149999999119,
+        "p95": 1.2049991000000146,
+        "p99": 1.3982160999999316
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    },
+    {
+      "database": "docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/c16/audit.db",
+      "integrity": "ok",
+      "queries": 62,
+      "cleanReconstruction": 62,
+      "anchorMatch": 62,
+      "reconstructionMs": {
+        "mean": 0.5676666774193686,
+        "p50": 0.5199275000000725,
+        "p95": 0.8436334499997588,
+        "p99": 1.0457611199999084
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 310,
+        "coveredEvidenceNodes": 310,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 310,
+        "successfulSemanticNodes": 62,
+        "explicitServiceBindings": 62,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "replace_output": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "wrong_version": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        },
+        "delete_evidence": {
+          "tested": 62,
+          "detected": 62,
+          "localized": 62
+        }
+      }
+    }
+  ]
+}

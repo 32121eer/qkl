@@ -55,6 +55,11 @@ fi
 # shellcheck disable=SC1090
 source "$FABRIC_RUNTIME_HELPER"
 
+if [[ -z "${FABRIC_SAMPLES_DIR:-}" ]] && \
+   [[ -f "$SCRIPT_DIR/.fabric-runtime/fabric-samples/test-network/network.sh" ]]; then
+    FABRIC_SAMPLES_DIR="$SCRIPT_DIR/.fabric-runtime/fabric-samples"
+fi
+
 FABRIC_SAMPLES_SOURCE_DIR="$(fabric_detect_source_samples_dir || true)"
 if [[ -n "$FABRIC_SAMPLES_SOURCE_DIR" ]]; then
     fabric_prepare_runtime "$SCRIPT_DIR" "$FABRIC_SAMPLES_SOURCE_DIR" || true
@@ -566,7 +571,13 @@ deploy_contracts() {
     chmod +x "$BOOTSTRAP_SCRIPT"
     
     # 构建参数
-    BOOTSTRAP_ARGS="--redeploy-fisco --receive-method receiveLite"
+    BOOTSTRAP_ARGS="--receive-method receiveLite"
+
+    if [ "$SKIP_FISCO" = true ]; then
+        BOOTSTRAP_ARGS="$BOOTSTRAP_ARGS --skip-fisco-contracts"
+    else
+        BOOTSTRAP_ARGS="$BOOTSTRAP_ARGS --redeploy-fisco"
+    fi
 
     if [ "$REDEPLOY_FABRIC_CC" = true ]; then
         BOOTSTRAP_ARGS="$BOOTSTRAP_ARGS --redeploy-fabric-cc"

@@ -54,8 +54,8 @@ class DemoTriggerService {
         return candidates;
     }
 
-    async createFabricGatewayConnection(fabricChain) {
-        const connection = fabricChain.connection || {};
+    async createFabricGatewayConnection(fabricChain, connectionOverride = {}) {
+        const connection = { ...(fabricChain.connection || {}), ...connectionOverride };
         const cryptoPath = resolveFabricCryptoPath(connection.cryptoPath);
         if (!cryptoPath) {
             throw new Error(
@@ -66,7 +66,9 @@ class DemoTriggerService {
         const peerEndpoint = connection.peerEndpoint || 'localhost:7051';
         const mspId = connection.mspId || 'Org1MSP';
 
-        const tlsCertPath = path.join(cryptoPath, 'peers', peerHostAlias, 'tls', 'ca.crt');
+        const tlsCryptoPath = resolveFabricCryptoPath(connection.tlsCryptoPath || connection.cryptoPath);
+        if (!tlsCryptoPath) throw new Error('Fabric TLS crypto path not found');
+        const tlsCertPath = path.join(tlsCryptoPath, 'peers', peerHostAlias, 'tls', 'ca.crt');
         const tlsRootCert = await fs.readFile(tlsCertPath);
 
         let mspPath = null;
@@ -118,11 +120,11 @@ class DemoTriggerService {
         return { gateway, client };
     }
 
-    async withFabricGatewayContract(handler) {
+    async withFabricGatewayContract(handler, connectionOverride = {}) {
         const fabricChain = this.getFabricChain();
         const channelName = fabricChain.connection?.channelName || 'mychannel';
         const chaincodeName = fabricChain.contracts?.gateway || 'gateway_cc';
-        const { gateway, client } = await this.createFabricGatewayConnection(fabricChain);
+        const { gateway, client } = await this.createFabricGatewayConnection(fabricChain, connectionOverride);
         try {
             const network = gateway.getNetwork(channelName);
             const contract = network.getContract(chaincodeName);

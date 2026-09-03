@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "semantic-query-live-experiment-manifest-v1",
+  "generatedAt": "2026-09-02T03:58:29.215Z",
+  "gitCommit": "030d1bfa5405928cfc2bf6d076c1e94fee461e0e",
+  "node": "v26.5.0",
+  "platform": "darwin 23.5.0 x64",
+  "cpu": "Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz",
+  "logicalCpus": 8,
+  "memoryGiB": 16,
+  "runs": 3,
+  "queriesPerScenarioPerRun": 20,
+  "warmupQueries": 2,
+  "scenarios": [
+    "normal"
+  ],
+  "workload": {
+    "name": "supply-chain-financing",
+    "dagVersion": "supply-finance-dag-v1",
+    "nodes": 10,
+    "batchId": "BATCH-FINANCE-001",
+    "supplierId": "SUPPLIER-001",
+    "orderId": "ORDER-001"
+  },
+  "scheduler": {
+    "concurrency": 4,
+    "queryConcurrency": 8,
+    "evidenceTimeoutMs": 10000,
+    "semanticTimeoutMs": 250,
+    "deadlineMs": 60000
+  },
+  "chains": [
+    {
+      "chainId": "FABRIC_NET_01",
+      "type": "FABRIC",
+      "endpoint": "localhost:7051",
+      "evidenceEndpoints": {
+        "fabric-peer-0": {
+          "peerEndpoint": "localhost:7051",
+          "peerHostAlias": "peer0.org1.example.com"
+        },
+        "fabric-peer-1": {
+          "peerEndpoint": "localhost:9051",
+          "peerHostAlias": "peer0.org2.example.com",
+          "tlsCryptoPath": "/Users/yiche/Desktop/xn/qkl/.fabric-runtime/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com"
+        }
+      },
+      "channelName": "mychannel",
+      "contracts": {
+        "gateway": "gateway_cc",
+        "registry": "registry_cc"
+      }
+    },
+    {
+      "chainId": "FISCO_NET_01",
+      "type": "FISCO_BCOS",
+      "endpoint": "http://127.0.0.1:8545",
+      "evidenceEndpoints": {
+        "fisco-node-0": "http://127.0.0.1:8542",
+        "fisco-node-1": "http://127.0.0.1:8543"
+      },
+      "channelName": null,
+      "contracts": {
+        "gateway": "0x9f6b18d6fa4982755A71F110923a110fd043CFD9",
+        "lightClient": "0xadab83de4f88213dff59ffd7433db5f65124ec79",
+        "registry": "0x2d441d263b2ecc354798ef2a849c087e7df12085",
+        "gatewayName": "GatewayAir",
+        "lightClientName": "LightClientAir",
+        "chainRegistry": "0x2d441d263b2ecc354798ef2a849c087e7df12085",
+        "semanticAuditAnchor": "0x6849f21d1e455e9f0712b1e99fa4fcd23758e8f1",
+        "supplyChainEvidence": "0x4721d1a77e0e76851d460073e64ea06d9c104194"
+      }
+    }
+  ],
+  "evidenceBoundary": [
+    "Fabric gateway reads, FISCO contract reads, receipt anchoring and SQLite audit persistence are live",
+    "failure scenarios are deterministic scheduler-boundary injections, not physical host outages",
+    "semantic service is the deterministic local service used by the P0 implementation"
+  ],
+  "anchoring": {
+    "walletCount": 4,
+    "signerAddresses": [
+      "0x69dC33255C776F3E9c7C1A92351677839549208C",
+      "0x9b5Ab35700f0b580e37E234C1391460712410168",
+      "0xca03e01f29618893FfC1CD11ad0C18beb894e922",
+      "0xE9f57eA4dB23E9A50Fa8Cf12cF6EF3F1a12901F0"
+    ],
+    "assignment": "round-robin-per-wallet-serialized"
+  },
+  "initialLedgerHeights": {
+    "fabric": 13,
+    "fisco": 1328
+  }
+}

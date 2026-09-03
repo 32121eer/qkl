@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "semantic-query-anchor-strategy-comparison-v1",
+  "generatedAt": "2026-09-02T04:00:45.105Z",
+  "baseline": {
+    "summary": "/Users/yiche/Desktop/xn/qkl/docs/xn/experiments/semantic-query-live-concurrency-runs/2026-09-01T01-28-00-905Z/summary.json",
+    "walletCount": 1
+  },
+  "treatment": {
+    "summary": "/Users/yiche/Desktop/xn/qkl/docs/xn/experiments/semantic-query-live-multiwallet-runs/2026-09-02-formal-w4/summary.json",
+    "walletCount": 4
+  },
+  "rows": [
+    {
+      "concurrency": 1,
+      "singleThroughput": 1.881,
+      "multiThroughput": 1.884,
+      "throughputGainRate": 0.001595,
+      "singleP95Ms": 588.62,
+      "multiP95Ms": 598.535,
+      "p95ReductionRate": -0.016844,
+      "singleAnchorQueueP95Ms": 0.025,
+      "multiAnchorQueueP95Ms": 0.014,
+      "anchorQueueReductionRate": 0.44
+    },
+    {
+      "concurrency": 2,
+      "singleThroughput": 1.878,
+      "multiThroughput": 3.727,
+      "throughputGainRate": 0.984558,
+      "singleP95Ms": 1147.848,
+      "multiP95Ms": 578.96,
+      "p95ReductionRate": 0.495613,
+      "singleAnchorQueueP95Ms": 543.37,
+      "multiAnchorQueueP95Ms": 0.014,
+      "anchorQueueReductionRate": 0.999974
+    },
+    {
+      "concurrency": 4,
+      "singleThroughput": 1.882,
+      "multiThroughput": 7.15,
+      "throughputGainRate": 2.79915,
+      "singleP95Ms": 2236.398,
+      "multiP95Ms": 571.765,
+      "p95ReductionRate": 0.744337,
+      "singleAnchorQueueP95Ms": 1594.521,
+      "multiAnchorQueueP95Ms": 0.013,
+      "anchorQueueReductionRate": 0.999992
+    },
+    {
+      "concurrency": 8,
+      "singleThroughput": 1.854,
+      "multiThroughput": 7.276,
+      "throughputGainRate": 2.924488,
+      "singleP95Ms": 4568.543,
+      "multiP95Ms": 1066.006,
+      "p95ReductionRate": 0.766664,
+      "singleAnchorQueueP95Ms": 3951.503,
+      "multiAnchorQueueP95Ms": 396.899,
+      "anchorQueueReductionRate": 0.899557
+    },
+    {
+      "concurrency": 16,
+      "singleThroughput": 1.886,
+      "multiThroughput": 6.68,
+      "throughputGainRate": 2.541888,
+      "singleP95Ms": 8359.055,
+      "multiP95Ms": 2546.567,
+      "p95ReductionRate": 0.695352,
+      "singleAnchorQueueP95Ms": 7586.83,
+      "multiAnchorQueueP95Ms": 1596.723,
+      "anchorQueueReductionRate": 0.78954
+    }
+  ],
+  "baselineSaturationPoint": {
+    "concurrency": 2,
+    "throughputGain": -0.0015948963317384975,
+    "latencyGain": 0.9500662566681389
+  },
+  "treatmentSaturationPoint": {
+    "concurrency": 8,
+    "throughputGain": 0.017622377622377543,
+    "latencyGain": 0.8644128269481345
+  },
+  "evidenceBoundary": [
+    "Both runs use the same host, workload, concurrency levels, repetitions and measured query count",
+    "Runs occurred on different dates and are not randomized interleaved trials",
+    "Additional wallets are ephemeral experiment-only signers; no private keys are persisted",
+    "The comparison measures this prototype and does not estimate FISCO-BCOS platform capacity"
+  ]
+}

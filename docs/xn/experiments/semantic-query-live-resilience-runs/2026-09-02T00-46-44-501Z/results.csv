@@ -1,0 +1,6 @@
+scenario,repetition,queryId,totalMs,terminalState,outcome,scenarioVerified,auditVerified,probeVerified,resyncMs,anchorBlockHeight,error
+material_store_outage,0,resilience-2026-09-02T00-46-44-501Z-material_store_outage-0,191.572,INSUFFICIENT_EVIDENCE,INSUFFICIENT,true,true,,,1209,
+material_store_outage,1,resilience-2026-09-02T00-46-44-501Z-material_store_outage-1,454.717,INSUFFICIENT_EVIDENCE,INSUFFICIENT,true,true,,,1210,
+material_store_outage,2,resilience-2026-09-02T00-46-44-501Z-material_store_outage-2,495.075,INSUFFICIENT_EVIDENCE,INSUFFICIENT,true,true,,,1211,
+material_store_outage,3,resilience-2026-09-02T00-46-44-501Z-material_store_outage-3,505.438,INSUFFICIENT_EVIDENCE,INSUFFICIENT,true,true,,,1212,
+material_store_outage,4,resilience-2026-09-02T00-46-44-501Z-material_store_outage-4,511.47,INSUFFICIENT_EVIDENCE,INSUFFICIENT,true,true,,,1213,

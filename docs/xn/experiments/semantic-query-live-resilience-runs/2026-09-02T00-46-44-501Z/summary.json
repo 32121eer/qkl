@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "semantic-query-live-resilience-summary-v1",
+  "generatedAt": "2026-09-02T00:46:47.249Z",
+  "scenarioExecutions": 5,
+  "expectedBehavior": 5,
+  "failedExecutions": 0,
+  "storedReceipts": 5,
+  "byScenario": {
+    "material_store_outage": {
+      "repetitions": 5,
+      "completed": 5,
+      "expectedBehavior": 5,
+      "auditVerified": 5,
+      "recoveryProbeVerified": 0,
+      "p50Ms": 495.075,
+      "p95Ms": 510.264,
+      "resyncP95Ms": null
+    }
+  }
+}

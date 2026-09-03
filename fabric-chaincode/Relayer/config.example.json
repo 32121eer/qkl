@@ -13,14 +13,18 @@
       "type": "FISCO_BCOS",
       "enabled": true,
       "rpc": {
-        "host": "127.0.0.1",
-        "port": 20200,
-        "groupId": 1
+        "endpoint": "http://127.0.0.1:8545",
+        "evidenceEndpoints": {
+          "fisco-node-0": "http://127.0.0.1:8542",
+          "fisco-node-1": "http://127.0.0.1:8543"
+        }
       },
       "contracts": {
         "gateway": "0x...",
         "registry": "0x...",
-        "lightClient": "0x..."
+        "lightClient": "0x...",
+        "semanticAuditAnchor": "0x...",
+        "supplyChainEvidence": "0x..."
       },
       "certificates": {
         "ca": "./certs/fisco/ca.crt",
@@ -41,10 +45,22 @@
       "type": "FABRIC",
       "enabled": true,
       "connection": {
-        "profilePath": "./connection-profiles/fabric-network.json",
+        "cryptoPath": "/path/to/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com",
         "channelName": "mychannel",
-        "walletPath": "./wallets/fabric",
-        "identity": "relayerUser"
+        "peerEndpoint": "localhost:7051",
+        "peerHostAlias": "peer0.org1.example.com",
+        "mspId": "Org1MSP",
+        "evidenceEndpoints": {
+          "fabric-peer-0": {
+            "peerEndpoint": "localhost:7051",
+            "peerHostAlias": "peer0.org1.example.com"
+          },
+          "fabric-peer-1": {
+            "peerEndpoint": "localhost:9051",
+            "peerHostAlias": "peer0.org2.example.com",
+            "tlsCryptoPath": "/path/to/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com"
+          }
+        }
       },
       "contracts": {
         "gateway": "gateway_cc",

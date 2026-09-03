@@ -79,7 +79,15 @@ class FiscoBcosMonitor extends EventEmitter {
             this.provider = new ethers.JsonRpcProvider(rpcEndpoint, staticNetwork, {
                 staticNetwork: true,
                 polling: true,
-                pollingInterval: pollIntervalMs
+                pollingInterval: pollIntervalMs,
+                // FISCO-BCOS web3_rpc accepts individual JSON-RPC requests but
+                // does not reliably respond to the JSON-RPC batch arrays that
+                // ethers v6 enables by default.
+                batchMaxCount: 1,
+                // FISCO returns a fresh transaction nonce. Reusing ethers'
+                // default 250 ms request cache can trigger NonceCheckFail when
+                // receipts are anchored back-to-back.
+                cacheTimeout: -1
             });
             this.provider.pollingInterval = pollIntervalMs;
 

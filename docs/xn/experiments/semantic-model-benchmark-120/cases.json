@@ -1,0 +1,727 @@
+{
+  "schemaVersion": "semantic-model-benchmark-cases-v1",
+  "labelSource": "deterministic rule oracle independent of evaluated models",
+  "caseCount": 120,
+  "cases": [
+    {
+      "id": "deadline-001",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-01-31. On-chain shipment date: 2026-01-31. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-001",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 100000 CNY. On-chain invoice total: 99900 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-001",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1000. Delivered quantity on chain: 1000. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-001",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-01. On-chain filing date: 2026-05-01. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-001",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.10, 4.00, 7.90 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-001",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 50000 USD. Reference rate: 1 USD = 7.00 CNY. On-chain invoice: 349500 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-002",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-01. On-chain shipment date: 2026-02-03. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-002",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 102500 CNY. On-chain invoice total: 102601 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-002",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1020. Delivered quantity on chain: 1046. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-002",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-02. On-chain filing date: 2026-05-04. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-002",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 1.80, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-002",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 50500 USD. Reference rate: 1 USD = 7.05 CNY. On-chain invoice: 356525 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-003",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-02. On-chain shipment date: 2026-01-31. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-003",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 105000 CNY. On-chain invoice total: 104898 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-003",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1040. Delivered quantity on chain: 1050. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-003",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-03. On-chain filing date: 2026-05-01. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-003",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.12, 4.00, 7.88 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-003",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 51000 USD. Reference rate: 1 USD = 7.10 CNY. On-chain invoice: 361600 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-004",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-03. On-chain shipment date: 2026-02-07. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-004",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 107500 CNY. On-chain invoice total: 107603 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-004",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1060. Delivered quantity on chain: 1082. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-004",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-04. On-chain filing date: 2026-05-08. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-004",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 8.20, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-004",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 51500 USD. Reference rate: 1 USD = 7.15 CNY. On-chain invoice: 368725 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-005",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-04. On-chain shipment date: 2026-02-04. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-005",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 110000 CNY. On-chain invoice total: 109896 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-005",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1080. Delivered quantity on chain: 1085. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-005",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-05. On-chain filing date: 2026-05-01. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-005",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.14, 4.00, 7.86 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-005",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 52000 USD. Reference rate: 1 USD = 7.20 CNY. On-chain invoice: 373900 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-006",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-05. On-chain shipment date: 2026-02-07. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-006",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 112500 CNY. On-chain invoice total: 112605 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-006",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1100. Delivered quantity on chain: 1132. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-006",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-06. On-chain filing date: 2026-05-07. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-006",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 1.80, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-006",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 52500 USD. Reference rate: 1 USD = 7.00 CNY. On-chain invoice: 368000 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-007",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-06. On-chain shipment date: 2026-02-04. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-007",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 115000 CNY. On-chain invoice total: 114894 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-007",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1120. Delivered quantity on chain: 1120. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-007",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-07. On-chain filing date: 2026-05-06. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-007",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.16, 4.00, 7.84 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-007",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 53000 USD. Reference rate: 1 USD = 7.05 CNY. On-chain invoice: 373150 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-008",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-07. On-chain shipment date: 2026-02-11. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-008",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 117500 CNY. On-chain invoice total: 117607 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-008",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1140. Delivered quantity on chain: 1169. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-008",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-08. On-chain filing date: 2026-05-11. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-008",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 8.20, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-008",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 53500 USD. Reference rate: 1 USD = 7.10 CNY. On-chain invoice: 380350 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-009",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-08. On-chain shipment date: 2026-02-08. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-009",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 120000 CNY. On-chain invoice total: 119892 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-009",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1160. Delivered quantity on chain: 1172. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-009",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-09. On-chain filing date: 2026-05-06. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-009",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.18, 4.00, 7.82 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-009",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 54000 USD. Reference rate: 1 USD = 7.15 CNY. On-chain invoice: 385600 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-010",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-09. On-chain shipment date: 2026-02-11. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-010",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 122500 CNY. On-chain invoice total: 122609 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-010",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1180. Delivered quantity on chain: 1205. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-010",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-10. On-chain filing date: 2026-05-15. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-010",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 1.80, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-010",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 54500 USD. Reference rate: 1 USD = 7.20 CNY. On-chain invoice: 392900 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-011",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-10. On-chain shipment date: 2026-02-08. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-011",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 125000 CNY. On-chain invoice total: 124890 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-011",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1200. Delivered quantity on chain: 1206. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-011",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-11. On-chain filing date: 2026-05-11. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-011",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.20, 4.00, 7.80 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-011",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 55000 USD. Reference rate: 1 USD = 7.00 CNY. On-chain invoice: 384500 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-012",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-11. On-chain shipment date: 2026-02-15. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-012",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 127500 CNY. On-chain invoice total: 127611 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-012",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1220. Delivered quantity on chain: 1255. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-012",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-12. On-chain filing date: 2026-05-14. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-012",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 8.20, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-012",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 55500 USD. Reference rate: 1 USD = 7.05 CNY. On-chain invoice: 391775 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-013",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-12. On-chain shipment date: 2026-02-12. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-013",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 130000 CNY. On-chain invoice total: 129888 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-013",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1240. Delivered quantity on chain: 1240. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-013",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-13. On-chain filing date: 2026-05-11. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-013",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.22, 4.00, 7.78 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-013",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 56000 USD. Reference rate: 1 USD = 7.10 CNY. On-chain invoice: 397100 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-014",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-13. On-chain shipment date: 2026-02-15. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-014",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 132500 CNY. On-chain invoice total: 132613 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-014",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1260. Delivered quantity on chain: 1292. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-014",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-14. On-chain filing date: 2026-05-18. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-014",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 1.80, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-014",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 56500 USD. Reference rate: 1 USD = 7.15 CNY. On-chain invoice: 404475 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-015",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-14. On-chain shipment date: 2026-02-12. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-015",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 135000 CNY. On-chain invoice total: 134886 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-015",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1280. Delivered quantity on chain: 1293. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-015",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-15. On-chain filing date: 2026-05-11. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-015",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.24, 4.00, 7.76 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-015",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 57000 USD. Reference rate: 1 USD = 7.20 CNY. On-chain invoice: 409900 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-016",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-15. On-chain shipment date: 2026-02-19. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-016",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 137500 CNY. On-chain invoice total: 137615 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-016",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1300. Delivered quantity on chain: 1327. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-016",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-16. On-chain filing date: 2026-05-17. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-016",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 8.20, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-016",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 57500 USD. Reference rate: 1 USD = 7.00 CNY. On-chain invoice: 403000 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-017",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-16. On-chain shipment date: 2026-02-16. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-017",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 140000 CNY. On-chain invoice total: 139884 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-017",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1320. Delivered quantity on chain: 1327. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-017",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-17. On-chain filing date: 2026-05-16. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-017",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.26, 4.00, 7.74 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-017",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 58000 USD. Reference rate: 1 USD = 7.05 CNY. On-chain invoice: 408400 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-018",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-17. On-chain shipment date: 2026-02-19. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-018",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 142500 CNY. On-chain invoice total: 142617 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-018",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1340. Delivered quantity on chain: 1379. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-018",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-18. On-chain filing date: 2026-05-21. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-018",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 1.80, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-018",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 58500 USD. Reference rate: 1 USD = 7.10 CNY. On-chain invoice: 415850 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-019",
+      "family": "deadline",
+      "truth": "ACCEPT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-18. On-chain shipment date: 2026-02-16. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-019",
+      "family": "credit_limit",
+      "truth": "ACCEPT",
+      "text": "Invoice financing. Approved limit: 145000 CNY. On-chain invoice total: 144882 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-019",
+      "family": "quantity_tolerance",
+      "truth": "ACCEPT",
+      "text": "Purchase order quantity: 1360. Delivered quantity on chain: 1360. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-019",
+      "family": "regulatory_window",
+      "truth": "ACCEPT",
+      "text": "Regulatory filing. Quarter end: 2026-04-19. On-chain filing date: 2026-05-16. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-019",
+      "family": "cold_chain",
+      "truth": "ACCEPT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 2.28, 4.00, 7.72 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-019",
+      "family": "foreign_exchange",
+      "truth": "ACCEPT",
+      "text": "Multi-currency financing. Approved limit: 59000 USD. Reference rate: 1 USD = 7.15 CNY. On-chain invoice: 421350 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    },
+    {
+      "id": "deadline-020",
+      "family": "deadline",
+      "truth": "REJECT",
+      "text": "Supply-chain financing. Inclusive shipment deadline: 2026-02-19. On-chain shipment date: 2026-02-23. Rule: shipment must occur on or before the deadline. Satisfied?"
+    },
+    {
+      "id": "credit-020",
+      "family": "credit_limit",
+      "truth": "REJECT",
+      "text": "Invoice financing. Approved limit: 147500 CNY. On-chain invoice total: 147619 CNY. Rule: invoice total must not exceed the approved limit. Satisfied?"
+    },
+    {
+      "id": "tolerance-020",
+      "family": "quantity_tolerance",
+      "truth": "REJECT",
+      "text": "Purchase order quantity: 1380. Delivered quantity on chain: 1414. Rule: absolute quantity deviation must be at most 2%. Satisfied?"
+    },
+    {
+      "id": "filing-020",
+      "family": "regulatory_window",
+      "truth": "REJECT",
+      "text": "Regulatory filing. Quarter end: 2026-04-20. On-chain filing date: 2026-05-25. Rule: file within 30 calendar days after quarter end, inclusive. Satisfied?"
+    },
+    {
+      "id": "coldchain-020",
+      "family": "cold_chain",
+      "truth": "REJECT",
+      "text": "Cold-chain evidence. Allowed range: 2C to 8C inclusive. On-chain readings: 3.50, 8.20, 5.00 C. Rule: every reading must remain within range. Satisfied?"
+    },
+    {
+      "id": "fx-020",
+      "family": "foreign_exchange",
+      "truth": "REJECT",
+      "text": "Multi-currency financing. Approved limit: 59500 USD. Reference rate: 1 USD = 7.20 CNY. On-chain invoice: 428900 CNY. Rule: converted invoice must not exceed the USD limit. Satisfied?"
+    }
+  ]
+}
