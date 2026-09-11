@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "semantic-query-live-regulatory-manifest-v1",
+  "generatedAt": "2026-09-01T01:38:26.593Z",
+  "node": "v26.5.0",
+  "platform": "darwin 23.5.0 x64",
+  "runs": 1,
+  "queriesPerScenarioPerRun": 1,
+  "warmupQueries": 0,
+  "queryConcurrency": 1,
+  "scenarios": [
+    "normal",
+    "over_limit",
+    "subject_mismatch",
+    "missing_disclosure",
+    "endpoint_retry"
+  ],
+  "workload": {
+    "name": "regulatory-disclosure-review",
+    "dagVersion": "regulatory-review-dag-v1",
+    "nodes": 10
+  },
+  "liveEvidenceMapping": {
+    "Fabric": [
+      "entity",
+      "license",
+      "disclosure"
+    ],
+    "FISCO_BCOS": [
+      "transaction",
+      "policy"
+    ]
+  },
+  "chains": [
+    {
+      "chainId": "FABRIC_NET_01",
+      "type": "FABRIC",
+      "endpoint": "localhost:7051",
+      "evidenceEndpoints": {
+        "fabric-peer-0": {
+          "peerEndpoint": "localhost:7051",
+          "peerHostAlias": "peer0.org1.example.com"
+        },
+        "fabric-peer-1": {
+          "peerEndpoint": "localhost:9051",
+          "peerHostAlias": "peer0.org2.example.com",
+          "tlsCryptoPath": "/Users/yiche/Desktop/xn/qkl/.fabric-runtime/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com"
+        }
+      },
+      "channelName": "mychannel",
+      "contracts": {
+        "gateway": "gateway_cc",
+        "registry": "registry_cc"
+      }
+    },
+    {
+      "chainId": "FISCO_NET_01",
+      "type": "FISCO_BCOS",
+      "endpoint": "http://127.0.0.1:8545",
+      "evidenceEndpoints": {
+        "fisco-node-0": "http://127.0.0.1:8542",
+        "fisco-node-1": "http://127.0.0.1:8543"
+      },
+      "channelName": null,
+      "contracts": {
+        "gateway": "0x9f6b18d6fa4982755A71F110923a110fd043CFD9",
+        "lightClient": "0xadab83de4f88213dff59ffd7433db5f65124ec79",
+        "registry": "0x2d441d263b2ecc354798ef2a849c087e7df12085",
+        "gatewayName": "GatewayAir",
+        "lightClientName": "LightClientAir",
+        "chainRegistry": "0x2d441d263b2ecc354798ef2a849c087e7df12085",
+        "semanticAuditAnchor": "0x6849f21d1e455e9f0712b1e99fa4fcd23758e8f1",
+        "supplyChainEvidence": "0x4721d1a77e0e76851d460073e64ea06d9c104194"
+      }
+    }
+  ],
+  "evidenceBoundary": [
+    "all five business evidence nodes read pre-seeded live Fabric or FISCO BCOS state",
+    "receipt roots are anchored by live FISCO contract transactions and persisted in SQLite",
+    "endpoint_retry is a deterministic scheduler-boundary injection; the other scenario differences are ledger-resident records",
+    "the semantic service is deterministic and local"
+  ],
+  "initialLedgerHeights": {
+    "fabric": 13,
+    "fisco": 1009
+  }
+}

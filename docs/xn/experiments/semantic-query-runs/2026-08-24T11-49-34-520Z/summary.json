@@ -1,0 +1,106 @@
+{
+  "manifest": "manifest.json",
+  "raw": "raw.jsonl",
+  "totalQueries": 900,
+  "byScenario": {
+    "normal": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 5.611,
+      "p95Ms": 6.591,
+      "p99Ms": 8.072,
+      "meanRetries": 0
+    },
+    "single_endpoint_down": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 5.499,
+      "p95Ms": 6.69,
+      "p99Ms": 7.344,
+      "meanRetries": 1
+    },
+    "double_endpoint_down": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 4.294,
+      "p95Ms": 4.781,
+      "p99Ms": 4.919,
+      "meanRetries": 1
+    },
+    "index_lag": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 5.576,
+      "p95Ms": 6.761,
+      "p99Ms": 8.32,
+      "meanRetries": 1
+    },
+    "expired_evidence": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 5.39,
+      "p95Ms": 7.024,
+      "p99Ms": 8.376,
+      "meanRetries": 1
+    },
+    "missing_field": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 5.355,
+      "p95Ms": 6.986,
+      "p99Ms": 11.118,
+      "meanRetries": 0
+    },
+    "wrong_input_root": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 8.122,
+      "p95Ms": 9.567,
+      "p99Ms": 10.526,
+      "meanRetries": 1
+    },
+    "service_timeout": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 106.717,
+      "p95Ms": 109.305,
+      "p99Ms": 150.728,
+      "meanRetries": 1
+    },
+    "correlated_disagreement": {
+      "queries": 100,
+      "correctBehavior": 100,
+      "correctBehaviorRate": 1,
+      "auditVerified": 100,
+      "tamperDetected": 100,
+      "p50Ms": 8.041,
+      "p95Ms": 10.468,
+      "p99Ms": 21.758,
+      "meanRetries": 1
+    }
+  }
+}

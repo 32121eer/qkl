@@ -1,0 +1,9 @@
+experiment,scenario,n,terminal_state,mean_ms,p50_ms,p95_ms,p99_ms,mean_retries,audit_verified_rate
+controlled,normal,100,ANCHORED,514.029,507.252,580.407,673.808,0,1.0
+controlled,fabric_endpoint_retry,100,ANCHORED,511.935,505.891,603.174,630.672,1,1.0
+controlled,fisco_endpoint_retry,100,ANCHORED,514.781,505.802,606.187,649.287,1,1.0
+controlled,semantic_service_timeout,100,ANCHORED,515.658,506.818,608.941,619.434,1,1.0
+controlled,fabric_endpoint_exhausted,100,FAILED,516.134,508.182,607.863,625.565,1,1.0
+controlled,semantic_disagreement,100,INSUFFICIENT_EVIDENCE,515.818,507.446,610.005,653.050,1,1.0
+physical,fabric_peer_paused,20,ANCHORED,2268.881,2233.548,2386.377,,2,1.0
+physical,fisco_node_paused,20,ANCHORED,3626.241,2617.466,6121.448,,2,1.0

@@ -1,5 +1,6 @@
 {
   "schemaVersion": "semantic-model-benchmark-cases-v1",
+  "datasetSha256": "a79f5de8e6248f8bdc2f6f8654dcc911d51359677a222f487ba360c208a05739",
   "labelSource": "deterministic rule oracle independent of evaluated models",
   "caseCount": 120,
   "cases": [

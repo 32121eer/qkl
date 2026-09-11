@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "independent-audit-verification-v1",
+  "generatedAt": "2026-09-06T15:36:18Z",
+  "implementation": "independent Python canonical-JSON and SQLite verifier",
+  "results": [
+    {
+      "database": "docs/xn/experiments/material-audit-availability-20260906/audit.db",
+      "integrity": "ok",
+      "queries": 1440,
+      "cleanReconstruction": 1440,
+      "anchorMatch": 1440,
+      "reconstructionMs": {
+        "mean": 0.8538096104166676,
+        "p50": 0.6744060000000163,
+        "p95": 2.009242149999668,
+        "p99": 2.73778132999977
+      },
+      "bindingCoverage": {
+        "successfulEvidenceNodes": 5760,
+        "coveredEvidenceNodes": 5760,
+        "inferredEvidenceBindings": 0,
+        "explicitEvidenceBindings": 5760,
+        "successfulSemanticNodes": 0,
+        "explicitServiceBindings": 0,
+        "evidenceCoverageRate": 1.0,
+        "explicitServiceCoverageRate": 1.0
+      },
+      "mutations": {
+        "delete_node": {
+          "tested": 1440,
+          "detected": 1440,
+          "localized": 1440
+        },
+        "replace_output": {
+          "tested": 1440,
+          "detected": 1440,
+          "localized": 1440
+        },
+        "wrong_version": {
+          "tested": 1440,
+          "detected": 1440,
+          "localized": 1440
+        },
+        "delete_evidence": {
+          "tested": 1440,
+          "detected": 1440,
+          "localized": 1440
+        }
+      }
+    }
+  ]
+}

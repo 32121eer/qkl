@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "semantic-query-live-experiment-manifest-v1",
+  "generatedAt": "2026-08-25T01:27:56.216Z",
+  "gitCommit": "030d1bfa5405928cfc2bf6d076c1e94fee461e0e",
+  "node": "v26.5.0",
+  "platform": "darwin 23.5.0 x64",
+  "cpu": "Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz",
+  "logicalCpus": 8,
+  "memoryGiB": 16,
+  "runs": 1,
+  "queriesPerScenarioPerRun": 1,
+  "warmupQueries": 0,
+  "scenarios": [
+    "normal",
+    "fabric_endpoint_retry",
+    "fisco_endpoint_retry",
+    "semantic_service_timeout",
+    "fabric_endpoint_exhausted",
+    "semantic_disagreement"
+  ],
+  "workload": {
+    "name": "supply-chain-financing",
+    "dagVersion": "supply-finance-dag-v1",
+    "nodes": 10,
+    "batchId": "BATCH-FINANCE-001",
+    "supplierId": "SUPPLIER-001",
+    "orderId": "ORDER-001"
+  },
+  "scheduler": {
+    "concurrency": 4,
+    "evidenceTimeoutMs": 10000,
+    "semanticTimeoutMs": 250,
+    "deadlineMs": 60000
+  },
+  "evidenceBoundary": [
+    "Fabric gateway reads, FISCO contract reads, receipt anchoring and SQLite audit persistence are live",
+    "failure scenarios are deterministic scheduler-boundary injections, not physical host outages",
+    "semantic service is the deterministic local service used by the P0 implementation"
+  ]
+}

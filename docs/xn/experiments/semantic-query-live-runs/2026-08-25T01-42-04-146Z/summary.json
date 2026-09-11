@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "semantic-query-live-experiment-summary-v1",
+  "generatedAt": "2026-08-25T01:42:05.478Z",
+  "totalQueries": 2,
+  "completedQueries": 2,
+  "expectedBehaviorQueries": 2,
+  "elapsedMs": 751.26,
+  "measuredQueriesPerSecond": 2.662,
+  "auditDatabaseBytes": 114688,
+  "ledgerHeights": {
+    "initial": {
+      "fabric": 8,
+      "fisco": 33
+    },
+    "final": {
+      "fabric": 8,
+      "fisco": 35
+    }
+  },
+  "byScenario": {
+    "fabric_endpoint_retry": {
+      "queries": 1,
+      "completed": 1,
+      "expectedBehavior": 1,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 1,
+      "terminalStates": {
+        "ANCHORED": 1
+      },
+      "totalLatencyMs": {
+        "mean": 263.035,
+        "p50": 263.035,
+        "p95": 263.035,
+        "p99": 263.035
+      },
+      "executionLatencyMs": {
+        "mean": 86,
+        "p50": 86,
+        "p95": 86
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 177.035,
+        "p50": 177.035,
+        "p95": 177.035
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 15032
+    },
+    "fisco_endpoint_retry": {
+      "queries": 1,
+      "completed": 1,
+      "expectedBehavior": 1,
+      "expectedBehaviorRate": 1,
+      "auditVerified": 1,
+      "terminalStates": {
+        "ANCHORED": 1
+      },
+      "totalLatencyMs": {
+        "mean": 468.431,
+        "p50": 468.431,
+        "p95": 468.431,
+        "p99": 468.431
+      },
+      "executionLatencyMs": {
+        "mean": 115,
+        "p50": 115,
+        "p95": 115
+      },
+      "anchorAndPersistenceMs": {
+        "mean": 353.431,
+        "p50": 353.431,
+        "p95": 353.431
+      },
+      "meanRetries": 1,
+      "meanReceiptBytes": 15032
+    }
+  }
+}

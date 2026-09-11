@@ -1,0 +1,1244 @@
+{
+  "schemaVersion": "material-audit-availability-benchmark-v1",
+  "generatedAt": "2026-09-06T15:34:56.721Z",
+  "repetitions": 20,
+  "conditions": [
+    "available",
+    "missing",
+    "corrupt",
+    "wrong_version",
+    "bad_signature",
+    "unavailable"
+  ],
+  "summary": [
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5723.5,
+        "p95": 5726
+      },
+      "totalMs": {
+        "p50": 10.741111500000017,
+        "p95": 19.477485250000072
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5726.5,
+        "p95": 5729
+      },
+      "totalMs": {
+        "p50": 9.362564500000019,
+        "p95": 14.847097350000046
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5726.5,
+        "p95": 5729
+      },
+      "totalMs": {
+        "p50": 9.905382999999972,
+        "p95": 11.077590450000072
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5762.5,
+        "p95": 5765
+      },
+      "totalMs": {
+        "p50": 9.513775500000065,
+        "p95": 10.469924699999899
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5762.5,
+        "p95": 5765
+      },
+      "totalMs": {
+        "p50": 9.307670999999914,
+        "p95": 10.784675799999855
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 256,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5726.5,
+        "p95": 5729
+      },
+      "totalMs": {
+        "p50": 7.942273999999998,
+        "p95": 8.968339400000037
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5736.5,
+        "p95": 5739
+      },
+      "totalMs": {
+        "p50": 9.248988499999996,
+        "p95": 11.217624749999619
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5739.5,
+        "p95": 5742
+      },
+      "totalMs": {
+        "p50": 8.321106500000042,
+        "p95": 9.65891500000039
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5739.5,
+        "p95": 5742
+      },
+      "totalMs": {
+        "p50": 8.289482000000135,
+        "p95": 9.253246649999983
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5775.5,
+        "p95": 5778
+      },
+      "totalMs": {
+        "p50": 8.683906999999863,
+        "p95": 10.330514900000026
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5775.5,
+        "p95": 5778
+      },
+      "totalMs": {
+        "p50": 9.188609999999926,
+        "p95": 10.63047545000038
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 4096,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5738.5,
+        "p95": 5741
+      },
+      "totalMs": {
+        "p50": 7.266699999999901,
+        "p95": 8.716573449999782
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5749.5,
+        "p95": 5752
+      },
+      "totalMs": {
+        "p50": 9.527000500000213,
+        "p95": 12.45600649999983
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5752.5,
+        "p95": 5755
+      },
+      "totalMs": {
+        "p50": 8.280954999999949,
+        "p95": 9.326176049999756
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5752.5,
+        "p95": 5755
+      },
+      "totalMs": {
+        "p50": 8.596496500000285,
+        "p95": 11.354438999999733
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5788.5,
+        "p95": 5791
+      },
+      "totalMs": {
+        "p50": 9.210334500000044,
+        "p95": 10.80253244999999
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5788.5,
+        "p95": 5791
+      },
+      "totalMs": {
+        "p50": 8.673909499999809,
+        "p95": 9.898233399999299
+      }
+    },
+    {
+      "nodeCount": 8,
+      "materialBytes": 16384,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 5750.5,
+        "p95": 5753
+      },
+      "totalMs": {
+        "p50": 6.845265500000096,
+        "p95": 8.707939300000225
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9139.5,
+        "p95": 9142
+      },
+      "totalMs": {
+        "p50": 8.82786599999963,
+        "p95": 11.046529500000181
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9142.5,
+        "p95": 9145
+      },
+      "totalMs": {
+        "p50": 8.16568099999995,
+        "p95": 9.498206099999608
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9142.5,
+        "p95": 9145
+      },
+      "totalMs": {
+        "p50": 8.450302500000362,
+        "p95": 11.613830199999395
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9178.5,
+        "p95": 9181
+      },
+      "totalMs": {
+        "p50": 9.070264499999666,
+        "p95": 10.32648445000059
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9178.5,
+        "p95": 9181
+      },
+      "totalMs": {
+        "p50": 8.435755999999856,
+        "p95": 10.382655700000397
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 256,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9142.5,
+        "p95": 9145
+      },
+      "totalMs": {
+        "p50": 6.454433499999595,
+        "p95": 7.5633061499993826
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9152.5,
+        "p95": 9155
+      },
+      "totalMs": {
+        "p50": 8.516670999999405,
+        "p95": 10.117418249999494
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9155.5,
+        "p95": 9158
+      },
+      "totalMs": {
+        "p50": 8.201273499999843,
+        "p95": 9.428986599999782
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9155.5,
+        "p95": 9158
+      },
+      "totalMs": {
+        "p50": 8.477597999999944,
+        "p95": 10.13207724999993
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9191.5,
+        "p95": 9194
+      },
+      "totalMs": {
+        "p50": 8.840531499999997,
+        "p95": 11.473324149999918
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9191.5,
+        "p95": 9194
+      },
+      "totalMs": {
+        "p50": 8.700219500000003,
+        "p95": 9.477753100000065
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 4096,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9154.5,
+        "p95": 9157
+      },
+      "totalMs": {
+        "p50": 6.600613999999041,
+        "p95": 7.359890850000013
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9165.5,
+        "p95": 9168
+      },
+      "totalMs": {
+        "p50": 8.640708000000814,
+        "p95": 9.288238049999473
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9168.5,
+        "p95": 9171
+      },
+      "totalMs": {
+        "p50": 8.324085500000365,
+        "p95": 9.334839949999242
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9168.5,
+        "p95": 9171
+      },
+      "totalMs": {
+        "p50": 8.619015499999477,
+        "p95": 9.842193649999992
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9204.5,
+        "p95": 9207
+      },
+      "totalMs": {
+        "p50": 8.805179999999382,
+        "p95": 9.55498174999948
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9204.5,
+        "p95": 9207
+      },
+      "totalMs": {
+        "p50": 9.112176999999974,
+        "p95": 10.344366499999342
+      }
+    },
+    {
+      "nodeCount": 16,
+      "materialBytes": 16384,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 9166.5,
+        "p95": 9169
+      },
+      "totalMs": {
+        "p50": 6.95068750000064,
+        "p95": 7.669148249999945
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 15987.5,
+        "p95": 15990
+      },
+      "totalMs": {
+        "p50": 8.436327000000347,
+        "p95": 9.361450449999303
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 15990.5,
+        "p95": 15993
+      },
+      "totalMs": {
+        "p50": 8.36641950000012,
+        "p95": 9.372281149999527
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 15990.5,
+        "p95": 15993
+      },
+      "totalMs": {
+        "p50": 8.484905000000253,
+        "p95": 10.025163250000425
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16026.5,
+        "p95": 16029
+      },
+      "totalMs": {
+        "p50": 8.510459500000252,
+        "p95": 13.776033800001187
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16026.5,
+        "p95": 16029
+      },
+      "totalMs": {
+        "p50": 8.070733999998993,
+        "p95": 9.48003955000022
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 256,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 15990.5,
+        "p95": 15993
+      },
+      "totalMs": {
+        "p50": 6.675872000000709,
+        "p95": 7.22561160000105
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16000.5,
+        "p95": 16003
+      },
+      "totalMs": {
+        "p50": 9.411677500000224,
+        "p95": 12.642463800000135
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16003.5,
+        "p95": 16006
+      },
+      "totalMs": {
+        "p50": 8.493262500000128,
+        "p95": 9.622115300000225
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16003.5,
+        "p95": 16006
+      },
+      "totalMs": {
+        "p50": 8.359355000000505,
+        "p95": 10.45545670000056
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16039.5,
+        "p95": 16042
+      },
+      "totalMs": {
+        "p50": 9.478627999998935,
+        "p95": 12.328103349999946
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16039.5,
+        "p95": 16042
+      },
+      "totalMs": {
+        "p50": 8.974575000000186,
+        "p95": 9.506168700000217
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 4096,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16002.5,
+        "p95": 16005
+      },
+      "totalMs": {
+        "p50": 6.842111499999191,
+        "p95": 9.755260849999013
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16013.5,
+        "p95": 16016
+      },
+      "totalMs": {
+        "p50": 9.395701999998892,
+        "p95": 10.869552299998487
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16016.5,
+        "p95": 16019
+      },
+      "totalMs": {
+        "p50": 8.918181500000173,
+        "p95": 11.79017785000051
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16016.5,
+        "p95": 16019
+      },
+      "totalMs": {
+        "p50": 9.13546899999983,
+        "p95": 10.427768750000087
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16052.5,
+        "p95": 16055
+      },
+      "totalMs": {
+        "p50": 8.803031999998893,
+        "p95": 11.983704649998892
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16052.5,
+        "p95": 16055
+      },
+      "totalMs": {
+        "p50": 9.023336500000369,
+        "p95": 11.742314700000042
+      }
+    },
+    {
+      "nodeCount": 32,
+      "materialBytes": 16384,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 16014.5,
+        "p95": 16017
+      },
+      "totalMs": {
+        "p50": 7.277273499999865,
+        "p95": 8.50614050000104
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29683.5,
+        "p95": 29686
+      },
+      "totalMs": {
+        "p50": 10.197610999999597,
+        "p95": 15.047534750000068
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29686.5,
+        "p95": 29689
+      },
+      "totalMs": {
+        "p50": 10.072791999999936,
+        "p95": 13.365116099999069
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29686.5,
+        "p95": 29689
+      },
+      "totalMs": {
+        "p50": 10.056613500000822,
+        "p95": 12.726193100000547
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29722.5,
+        "p95": 29725
+      },
+      "totalMs": {
+        "p50": 9.414001500001177,
+        "p95": 11.212261550001314
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29722.5,
+        "p95": 29725
+      },
+      "totalMs": {
+        "p50": 9.02086699999927,
+        "p95": 11.989305200001036
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 256,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29686.5,
+        "p95": 29689
+      },
+      "totalMs": {
+        "p50": 7.997595000000729,
+        "p95": 10.462533250000707
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29696.5,
+        "p95": 29699
+      },
+      "totalMs": {
+        "p50": 9.952268500001082,
+        "p95": 11.410819899999298
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29699.5,
+        "p95": 29702
+      },
+      "totalMs": {
+        "p50": 9.595304500000566,
+        "p95": 11.543246700000967
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29699.5,
+        "p95": 29702
+      },
+      "totalMs": {
+        "p50": 9.544042999998055,
+        "p95": 11.253738649999468
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29735.5,
+        "p95": 29738
+      },
+      "totalMs": {
+        "p50": 9.221773999999641,
+        "p95": 11.218192799997997
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29735.5,
+        "p95": 29738
+      },
+      "totalMs": {
+        "p50": 9.719158999998399,
+        "p95": 14.650605100000792
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 4096,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29698.5,
+        "p95": 29701
+      },
+      "totalMs": {
+        "p50": 7.839670499999556,
+        "p95": 9.528972099999557
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "available",
+      "n": 20,
+      "reconstructed": 20,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29709.5,
+        "p95": 29712
+      },
+      "totalMs": {
+        "p50": 9.918218000000707,
+        "p95": 11.843925849999504
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "missing",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29712.5,
+        "p95": 29715
+      },
+      "totalMs": {
+        "p50": 9.607563499999742,
+        "p95": 10.903581299999134
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "corrupt",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29712.5,
+        "p95": 29715
+      },
+      "totalMs": {
+        "p50": 9.973674999999275,
+        "p95": 11.474762250002643
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "wrong_version",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29748.5,
+        "p95": 29751
+      },
+      "totalMs": {
+        "p50": 9.64915099999962,
+        "p95": 11.625750650001464
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "bad_signature",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29748.5,
+        "p95": 29751
+      },
+      "totalMs": {
+        "p50": 9.610901500000182,
+        "p95": 12.312619200000885
+      }
+    },
+    {
+      "nodeCount": 64,
+      "materialBytes": 16384,
+      "condition": "unavailable",
+      "n": 20,
+      "reconstructed": 0,
+      "gapLocated": 20,
+      "materialRequests": 4,
+      "receiptBytes": {
+        "p50": 29710.5,
+        "p95": 29713
+      },
+      "totalMs": {
+        "p50": 8.199830999999904,
+        "p95": 10.471147900002507
+      }
+    }
+  ],
+  "auditDatabaseBytes": 30617600,
+  "evidenceBoundary": [
+    "Materials are real locally persisted JSON payloads fetched through an independent HTTP server",
+    "The experiment measures controlled material availability and integrity, not long-term production storage durability"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "semantic-query-experiment-manifest-v1",
+  "generatedAt": "2026-08-24T13:50:20.248Z",
+  "gitCommit": "030d1bfa",
+  "baseSeed": 20260824,
+  "node": "v26.5.0",
+  "platform": "darwin 23.5.0 x64",
+  "cpu": "Intel(R) Core(TM) i5-1038NG7 CPU @ 2.00GHz",
+  "logicalCpus": 8,
+  "memoryGiB": 16,
+  "runs": 1,
+  "queriesPerScenarioPerRun": 2,
+  "scenarios": [
+    "normal",
+    "single_endpoint_down",
+    "double_endpoint_down",
+    "index_lag",
+    "expired_evidence",
+    "missing_field",
+    "wrong_input_root",
+    "service_timeout",
+    "correlated_disagreement"
+  ],
+  "scheduler": {
+    "concurrency": 4,
+    "defaultTimeoutMs": 100,
+    "deadlineMs": 1000
+  },
+  "workload": {
+    "name": "supply-chain-financing",
+    "dagVersion": "supply-finance-dag-v1",
+    "nodes": 10
+  },
+  "anchorMode": "local-test-anchor",
+  "evidenceBoundary": [
+    "real hashing, DAG execution, SQLite persistence, mutation detection and bounded retries",
+    "local deterministic adapters and semantic service; no live Fabric/FISCO outage",
+    "local test anchor only; not an on-chain transaction measurement"
+  ]
+}
